@@ -1,0 +1,195 @@
+.office-shell {
+  width: min(100% - 3rem, 70rem);
+  min-height: 100svh;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  z-index: 1;
+  padding: 0.75rem 1rem;
+  color: var(--ink);
+  background: var(--surface);
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.office-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.office-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--ink);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.office-wordmark svg {
+  color: var(--accent);
+}
+
+.repository-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 2.75rem;
+  padding-inline: 0.5rem;
+  color: var(--ink-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  transition:
+    color 150ms ease-out,
+    background-color 150ms ease-out;
+}
+
+.repository-link:hover {
+  color: var(--accent);
+  background: var(--surface-muted);
+}
+
+#main-content {
+  flex: 1;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.office-introduction {
+  max-width: 44rem;
+  margin-bottom: 3rem;
+}
+
+.office-introduction h1 {
+  margin: 0 0 1rem;
+  color: var(--ink);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.office-introduction p {
+  max-width: 55ch;
+  font-size: 1.125rem;
+}
+
+.office-foundation {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.runtime-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--surface-muted);
+}
+
+.runtime-notice > svg {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  color: var(--ink-secondary);
+}
+
+.office-foundation h2 {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-size: 1.125rem;
+  font-weight: 650;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+.prototype-notice {
+  padding-top: 0.125rem;
+}
+
+.prototype-source {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.prototype-source summary {
+  width: fit-content;
+  min-height: 2.75rem;
+  padding-block: 0.625rem;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  text-underline-offset: 0.25em;
+}
+
+.prototype-source summary:hover {
+  text-decoration: underline;
+}
+
+.prototype-source ul {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.prototype-source li + li {
+  margin-top: 0.375rem;
+}
+
+.prototype-source code {
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.office-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 48rem) {
+  .office-foundation {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 30rem) {
+  .office-shell {
+    width: calc(100% - 2rem);
+  }
+
+  .office-header {
+    min-height: 5rem;
+  }
+
+  .runtime-notice {
+    gap: 0.75rem;
+    padding: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .repository-link {
+    transition: none;
+  }
+}

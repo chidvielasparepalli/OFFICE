@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  },
+  "overrides": [
+    {
+      "files": ["src/App.tsx", "src/main.tsx"],
+      "rules": {
+        "eslint/no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "**/data/mockOfficeData",
+                  "**/data/mockOfficeData.*",
+                  "**/context/OfficeContext",
+                  "**/context/OfficeContext.*"
+                ],
+                "message": "The production shell must stay isolated from prototype fixtures and the simulation provider."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
