@@ -2251,3 +2251,762 @@ They can watch:
 That is the target.
 
 **Build the software first. Make the office beautiful second. Make the office truthful always.**
+
+
+---
+
+# 59. Codex / GPT-6 Astra Execution Strategy
+
+Codex is the primary implementation agent for this repository.
+
+The project should be built as a sequence of verified engineering milestones, not as one giant generation request.
+
+## Operating loop
+
+```
+UNDERSTAND
+   ↓
+PLAN
+   ↓
+IMPLEMENT
+   ↓
+RUN
+   ↓
+INSPECT
+   ↓
+TEST
+   ↓
+FIX
+   ↓
+VERIFY
+   ↓
+COMMIT
+```
+
+For large changes, begin with a planning pass and then switch to implementation. Keep tasks scoped to a coherent unit of work, while allowing Codex to continue through testing and repair instead of stopping after the first code edit.
+
+## Codex repository context
+
+The permanent repository instruction file is:
+
+```
+AGENTS.md
+```
+
+It contains rules that apply throughout the repository.
+
+Do not duplicate the entire architecture inside AGENTS.md. Keep architecture detail in BUILD_PLAN.md and point Codex to the specific section relevant to the task.
+
+## Task prompts
+
+Prompts should look like engineering issues.
+
+A good prompt includes:
+
+- goal
+- relevant file paths
+- current behavior
+- desired behavior
+- constraints
+- acceptance criteria
+- test requirements
+
+Example:
+
+```
+Implement Phase 4 of BUILD_PLAN.md.
+
+Goal:
+Add one production-quality employee character.
+
+Relevant areas:
+- components/office3d/
+- camera/
+- public/assets/3d/characters/
+
+Requirements:
+- load one GLB
+- support idle/sit/type
+- click selection
+- smooth camera focus
+- employee inspector
+- preserve existing backend behavior
+
+Acceptance:
+- employee renders correctly
+- camera focus works
+- inspector shows real agent data
+- typecheck/build pass
+- no console errors
+```
+
+## Context discipline
+
+Do not force Codex to read every documentation file for every task.
+
+Read the smallest relevant set:
+
+- BUILD_PLAN.md for architecture and milestones
+- 3D_ASSET_LIBRARY.md for asset work
+- AGENTS.md for repository rules
+- source files involved in the requested change
+- migrations only for database work
+- deployment documentation only for deployment work
+
+## Decision boundaries
+
+Codex may make normal implementation decisions that are consistent with the architecture.
+
+Escalate to the user only when the decision materially changes:
+
+- product behavior
+- security model
+- database contract
+- provider/credential policy
+- irreversible data behavior
+- major UX direction
+- asset licensing choice
+
+Do not ask for permission for routine safe edits, tests, refactors directly required by the requested change, or disposable local debugging.
+
+## Best-of-N thinking
+
+For high-impact design decisions, especially:
+
+- 3D scene architecture
+- camera architecture
+- employee rendering strategy
+- asset optimization strategy
+- state synchronization architecture
+
+it is acceptable to explore multiple implementation approaches, compare them, then select the simplest robust solution.
+
+Do not create parallel architecture branches unless there is a concrete reason.
+
+---
+
+# 60. 3D Warehouse Asset Intake — User-Provided OBJ
+
+The user has an Office Warehouse 3D model in OBJ format.
+
+The exact raw files have not yet been committed to the repository.
+
+When the OBJ package is provided:
+
+## Step 1 — Preserve source
+
+Store the original files outside the production runtime directory:
+
+```
+assets/source/warehouse/
+```
+
+Keep:
+
+- .obj
+- .mtl
+- textures
+- any companion files
+
+Do not alter the original source files.
+
+## Step 2 — Inspect
+
+Use Blender to determine:
+
+- object hierarchy
+- materials
+- texture references
+- dimensions
+- unit scale
+- origin/pivot
+- triangle count
+- duplicated geometry
+- hidden geometry
+- interior/exterior separation
+- floor/wall structure
+- possible walkable surfaces
+
+## Step 3 — Clean
+
+Remove:
+
+- invisible junk geometry
+- duplicate meshes
+- unused materials
+- unnecessary hidden objects
+- excessive detail that provides no visible value
+
+Preserve architectural features that contribute to the office experience.
+
+## Step 4 — Normalize
+
+Standardize:
+
+- world scale
+- orientation
+- origin
+- material conventions
+- texture paths
+
+## Step 5 — Divide the building
+
+Where useful, split the warehouse into logical runtime assets:
+
+```
+office-shell.glb
+office-floor.glb
+office-walls.glb
+office-doors.glb
+office-details.glb
+```
+
+Do not split objects merely for the sake of splitting them. Split when it improves:
+
+- loading
+- culling
+- editing
+- navigation
+- streaming
+- maintainability
+
+## Step 6 — Add simulation metadata
+
+The Blender source scene should eventually contain named empty/marker objects for:
+
+- department centers
+- agent desks
+- workstation anchors
+- collaboration hubs
+- meeting rooms
+- camera focus points
+- entrances
+- exits
+- navigation waypoints
+
+Example naming:
+
+```
+DEPT_EXECUTIVE
+DEPT_ENGINEERING
+DESK_ENGINEERING_01
+DESK_ENGINEERING_02
+HUB_ENGINEERING
+MEETING_ROOM_01
+CAMERA_OVERVIEW
+CAMERA_ENGINEERING
+```
+
+The application should be able to map these stable names to runtime IDs.
+
+## Step 7 — Export
+
+Export optimized GLB/glTF files.
+
+Validate:
+
+- scale
+- materials
+- textures
+- normals
+- pivots
+- file sizes
+- WebGL compatibility
+
+## Step 8 — Register
+
+Add the resulting files to the 3D asset registry.
+
+Example:
+
+```ts
+export const officeAssets = {
+  buildingShell: "/assets/3d/building/office-shell.glb",
+  floor: "/assets/3d/building/office-floor.glb",
+};
+```
+
+Never hardcode the same asset path in dozens of components.
+
+---
+
+# 61. Blender-to-R3F Contract
+
+The Blender scene and runtime must share a predictable contract.
+
+## Coordinate contract
+
+Choose one project-wide convention and never silently change it.
+
+At import time, validate:
+
+- up axis
+- forward direction
+- meters/units
+- character height
+- floor elevation
+
+## Named marker contract
+
+Blender markers become application anchors.
+
+Example:
+
+```
+DESK_ENGINEERING_01
+        ↓
+agent home position
+
+HUB_ENGINEERING
+        ↓
+collaboration destination
+
+CAMERA_ENGINEERING
+        ↓
+camera target
+```
+
+## Asset identity contract
+
+Each production asset gets a stable ID.
+
+Example:
+
+```
+building.office.v1
+character.employee.base.v1
+prop.desk.standard.v1
+prop.laptop.standard.v1
+```
+
+Asset IDs should not be tied to arbitrary filenames when possible.
+
+---
+
+# 62. Agent-to-World Mapping
+
+The database stores the logical agent.
+
+The 3D layer stores the physical representation.
+
+```
+office_agents.id
+        ↓
+agentWorldRegistry
+        ↓
+desk anchor
+        ↓
+current world transform
+        ↓
+animation state
+```
+
+Never store rapidly-changing frame-by-frame visual coordinates in the primary business database unless there is a real product requirement.
+
+Logical location can be durable:
+
+```
+WORKING_AT_DESK
+WALKING_TO_ENGINEERING_HUB
+COLLABORATING_IN_ROOM_01
+```
+
+The renderer interpolates the physical transform locally.
+
+---
+
+# 63. Reconciliation Model
+
+Because the backend is authoritative, the 3D client needs reconciliation.
+
+Example:
+
+```
+BACKEND:
+agent = WORKING
+target = DESK_04
+
+3D:
+agent walking
+
+↓
+
+new state arrives:
+agent = COLLABORATING
+target = HUB_ENGINEERING
+
+↓
+
+cancel obsolete movement
+blend to new movement
+continue from current transform
+```
+
+Never teleport an employee unnecessarily just because a new state event arrived.
+
+Prefer smooth correction.
+
+---
+
+# 64. Realtime Event Contract
+
+Each event should have enough information to reconcile state.
+
+Suggested shape:
+
+```ts
+type OfficeEvent = {
+  id: string;
+  type: string;
+  timestamp: string;
+  agentId?: string;
+  taskId?: string;
+  sourceAgentId?: string;
+  targetAgentId?: string;
+  payload: Record<string, unknown>;
+};
+```
+
+The event stream communicates what changed.
+
+The normalized state remains the authoritative snapshot.
+
+Do not build a system that depends entirely on receiving every historical event perfectly.
+
+The client must be able to resynchronize from the current snapshot after reconnect.
+
+---
+
+# 65. 3D Selection and Camera Contract
+
+Selection state:
+
+```
+none
+department
+agent
+task
+workstation
+```
+
+Only one primary focus target should control the camera at a time.
+
+When an employee is selected:
+
+1. resolve employee logical location
+2. resolve world anchor
+3. compute safe camera position
+4. animate camera
+5. preserve readable framing
+6. open inspector
+7. allow user to exit focus without losing overall context
+
+Avoid camera motion that:
+
+- clips through walls
+- enters geometry
+- loses the selected target
+- moves outside building bounds
+
+---
+
+# 66. Agent Navigation Architecture
+
+Start with authored navigation points.
+
+Do not immediately build a complex general-purpose pathfinding engine.
+
+V1:
+
+```
+desk
+hub
+meeting room
+qa room
+department entrance
+```
+
+Use known routes between these nodes.
+
+Later, if needed:
+
+- graph navigation
+- obstacle avoidance
+- navmesh
+- dynamic routing
+
+This staged approach reduces complexity while preserving the visual experience.
+
+---
+
+# 67. Character Rendering Budget
+
+Use a quality budget by distance.
+
+## Far
+
+- low LOD
+- simple animation
+- minimal materials
+- no unnecessary facial detail
+
+## Medium
+
+- standard character
+- workstation visible
+- normal animation
+
+## Close
+
+- highest available character detail
+- laptop/monitor detail
+- inspector
+- detailed activity
+
+The user should feel that zooming reveals detail rather than merely enlarging the same low-quality model.
+
+---
+
+# 68. Large-Agent Scaling Strategy
+
+Target:
+
+```
+10 → 25 → 50 → 100
+```
+
+Do not optimize for 100 agents before 10 agents are correct.
+
+For many agents:
+
+- reuse geometry
+- reuse materials
+- reuse animation clips
+- use LOD
+- pause invisible/low-priority animation
+- minimize React reconciliation
+- avoid duplicate loaders
+- cache assets
+- batch repeated props
+
+---
+
+# 69. Observability
+
+The system should expose developer diagnostics without polluting the production UI.
+
+Developer diagnostics may include:
+
+- FPS
+- draw calls
+- triangle count
+- texture count
+- loaded asset count
+- active animated agents
+- current camera target
+- realtime connection status
+- office state version
+- task synchronization status
+
+A development-only debug panel is acceptable.
+
+---
+
+# 70. Security / Secrets Final Rule
+
+The project should distinguish three classes:
+
+## Browser-safe configuration
+
+Example:
+
+```
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+```
+
+Only expose values intentionally designed for client use.
+
+## Server secrets
+
+Examples:
+
+```
+SUPABASE_SECRET_KEY
+OPENAI_API_KEY
+GOOGLE_GENERATIVE_AI_API_KEY
+ANTHROPIC_API_KEY
+COMPOSIO_API_KEY
+```
+
+Server only.
+
+## Deployment/integration credentials
+
+Examples:
+
+```
+GITHUB_TOKEN
+VERCEL_TOKEN
+WHATSAPP_ACCESS_TOKEN
+TELEGRAM_BOT_TOKEN
+TWILIO_AUTH_TOKEN
+```
+
+Only in the narrow runtime/service that needs them.
+
+Never give a worker agent the raw secret when a server-side broker can perform the operation.
+
+---
+
+# 71. Build Order Priority
+
+The order below is intentional.
+
+```
+1. Repository audit
+2. 3D foundation
+3. Warehouse ingestion
+4. Building metadata / anchors
+5. One character
+6. Camera focus
+7. Workstation inspection
+8. Reusable employee system
+9. Real agent state
+10. Movement
+11. Manager integration
+12. Task graph
+13. Handoffs
+14. QA / Repair
+15. API / Secrets / Cost
+16. Realtime
+17. Performance
+18. Visual polish
+19. Deployment
+```
+
+Do not reverse this order by polishing dozens of characters before proving the runtime.
+
+---
+
+# 72. Milestone Evidence
+
+Every milestone should leave evidence.
+
+Examples:
+
+### 3D foundation
+
+- screenshot/video of office render
+- build/typecheck result
+
+### First employee
+
+- employee selected
+- camera focused
+- inspector visible
+
+### Real state
+
+- backend state changed
+- 3D state changed correspondingly
+
+### Delegation
+
+- Manager task exists
+- worker wakes
+- task executes
+- worker returns to sleep
+
+### QA/Repair
+
+- forced failure
+- repair execution
+- QA pass
+
+### Performance
+
+- documented agent counts
+- observed FPS
+- asset size summary
+
+Avoid marking phases complete from code inspection alone when behavior can be demonstrated.
+
+---
+
+# 73. First Codex Task
+
+The first Codex task for this repository should NOT be "build the whole app."
+
+Use:
+
+```
+Inspect the OFFICE repository and produce a concrete implementation plan for Phase 0 and Phase 1 of BUILD_PLAN.md.
+
+Do not change application code yet.
+
+Inspect:
+- repository structure
+- current dependencies
+- existing source files
+- Git state
+- environment assumptions
+- BUILD_PLAN.md
+- AGENTS.md
+- 3D_ASSET_LIBRARY.md
+
+Determine:
+1. current project framework
+2. package manager
+3. current app entry point
+4. existing backend/runtime state
+5. existing database integration
+6. missing foundation
+7. exact files that should be created/modified for Phase 1
+8. test/build commands actually available
+
+Do not invent files or scripts.
+
+Return:
+- current architecture summary
+- risks
+- Phase 1 implementation plan
+- exact commands to validate the work
+- questions only if a real product decision is unavoidable
+```
+
+After reviewing that plan, the next Codex task should implement only the agreed Phase 1.
+
+---
+
+# 74. Rule for the Warehouse Files
+
+When the user uploads the OBJ/MTL/textures:
+
+**Do not immediately code around them.**
+
+First inspect and normalize them.
+
+The asset conversion should be a documented, repeatable pipeline so that the final office can be rebuilt from source instead of depending on one manually edited binary.
+
+---
+
+# 75. Final Codex Doctrine
+
+Codex is the implementation engine.
+
+The repository documents are the architectural memory.
+
+The database is the business truth.
+
+The 3D world is the physical visualization.
+
+The Manager is the company's responsible owner.
+
+Employees are specialized workers.
+
+Events connect business reality to physical activity.
+
+The objective is not merely to generate a beautiful 3D scene.
+
+The objective is to build a **working autonomous AI company that happens to be visible as a 3D office.**
