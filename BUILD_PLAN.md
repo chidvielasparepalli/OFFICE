@@ -108,7 +108,7 @@ The finished product should feel like:
 
 ## Frontend
 
-- Vite (approved application foundation; no Next.js migration)
+- Next.js
 - React
 - TypeScript
 - Tailwind CSS or existing project styling
@@ -1974,30 +1974,27 @@ Workers should not independently gain arbitrary external communication capabilit
 
 # 49. Local Development
 
-Use native Linux Node **24.21.0** (`.nvmrc`) and npm **11.19.0**. The approved application is React + Vite. Recreate dependencies with Linux npm rather than reusing Windows npm shims inside WSL.
-
-The established validation commands are:
+Expected developer loop:
 
 ```
-npm ci
-npm ls --depth=0
-npm run typecheck
-npm run lint
-npm test
-npm run format:check
+git pull
+npm install
+npm run dev
+
+# build
 npm run build
-npm audit --audit-level=high
 
-# development
-npm run dev -- --host 127.0.0.1 --port 5173 --strictPort
+# typecheck
+npm run typecheck
 
-# production preview (after build)
-npm run preview -- --host 127.0.0.1 --port 4173 --strictPort
+# lint
+npm run lint
+
+# tests
+npm test
 ```
 
-`npm run format` applies source formatting. Phase 1 requires no service environment variables; `.env.example` documents that boundary without credentials. Historical server/Next.js environment examples elsewhere in this plan are not active Vite configuration.
-
-Use the actual repository scripts.
+Use the actual repository scripts once established.
 
 Do not invent package scripts without checking the project first.
 
@@ -3042,7 +3039,7 @@ For the first implementation milestone:
 
 - preserve Vite
 - repair the current foundation
-- preserve the existing 3D prototype for later scene integration
+- mount the existing 3D prototype
 - avoid a premature Next.js migration
 - establish a clean frontend boundary before adding protected backend/runtime functionality
 
@@ -3067,23 +3064,3 @@ The initial Phase 0 audit identified:
 The next implementation milestone is therefore:
 
 **Git import baseline → native Linux dependency baseline → Phase 1 foundation repair → truthful OFFICE shell → validation → 3D scene mounting.**
-
----
-
-# 78. Phase 1 Implementation Boundary
-
-The existing MYOFFICE application is imported on top of the canonical OFFICE documentation history. The original source is retained in a separate Git baseline and a local source/configuration backup.
-
-Phase 1 establishes:
-
-- native Linux Node 24.21.0 and a reproducible npm lockfile installation;
-- strict TypeScript checks over the entire existing source tree;
-- repaired type imports, unused declarations, and supported camera-control props;
-- a direct `three-stdlib` dependency for the existing controls type import;
-- Oxlint, Prettier, Vitest, jsdom, and React Testing Library;
-- an OFFICE shell explicitly stating that the agent runtime is not connected;
-- a production-entry import boundary and tests preventing simulated business activity on shell startup.
-
-`src/data/mockOfficeData.ts` and `src/context/OfficeContext.tsx` remain isolated, unmounted prototype/test code. All five existing 3D components are preserved.
-
-The R3F Canvas/scene, Supabase, backend endpoints, provider credentials, and real agent runtime are not part of Phase 1. Phase 2 begins only after the foundation's required checks and browser verification pass and the user approves the next milestone.
