@@ -1,145 +1,152 @@
-import React, { useRef, useState } from 'react';
-import { useFrame } from '@react-three/fiber';
-import * as THREE from 'three';
-import { OfficeAgent } from '../../types';
+import React, { useRef, useState } from 'react'
+import { useFrame } from '@react-three/fiber'
+import * as THREE from 'three'
+import type { OfficeAgent } from '../../types'
 
 interface AgentCharacterProps {
-  agent: OfficeAgent;
-  isSelected: boolean;
-  onSelect: () => void;
+  agent: OfficeAgent
+  isSelected: boolean
+  onSelect: () => void
 }
 
 export const AgentCharacter: React.FC<AgentCharacterProps> = ({
   agent,
   isSelected,
-  onSelect
+  onSelect,
 }) => {
-  const groupRef = useRef<THREE.Group>(null);
-  const leftArmRef = useRef<THREE.Group>(null);
-  const rightArmRef = useRef<THREE.Group>(null);
-  const headRef = useRef<THREE.Group>(null);
-  const torsoRef = useRef<THREE.Group>(null);
-  const leftLegRef = useRef<THREE.Group>(null);
-  const rightLegRef = useRef<THREE.Group>(null);
+  const groupRef = useRef<THREE.Group>(null)
+  const leftArmRef = useRef<THREE.Group>(null)
+  const rightArmRef = useRef<THREE.Group>(null)
+  const headRef = useRef<THREE.Group>(null)
+  const torsoRef = useRef<THREE.Group>(null)
+  const leftLegRef = useRef<THREE.Group>(null)
+  const rightLegRef = useRef<THREE.Group>(null)
 
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState(false)
 
   // Procedural animation loop per frame
   useFrame((state, delta) => {
-    if (!groupRef.current) return;
-    const time = state.clock.getElapsedTime();
+    if (!groupRef.current) return
+    const time = state.clock.getElapsedTime()
 
-    const isWorking = agent.status === 'WORKING';
-    const isSleeping = agent.status === 'SLEEPING';
-    const isWalking = agent.status === 'WALKING';
-    const isCollaborating = agent.status === 'COLLABORATING';
+    const isWorking = agent.status === 'WORKING'
+    const isSleeping = agent.status === 'SLEEPING'
+    const isWalking = agent.status === 'WALKING'
+    const isCollaborating = agent.status === 'COLLABORATING'
 
     // 1. Sitting / Working Pose
     if (isWorking) {
       // Subtle spinal breathing
       if (torsoRef.current) {
-        torsoRef.current.position.y = 0.55 + Math.sin(time * 3) * 0.008;
+        torsoRef.current.position.y = 0.55 + Math.sin(time * 3) * 0.008
       }
       // Arm typing oscillation (alternating tapping)
       if (leftArmRef.current) {
-        leftArmRef.current.rotation.x = -1.1 + Math.sin(time * 12 + agent.deskIndex) * 0.08;
-        leftArmRef.current.rotation.z = 0.35 + Math.cos(time * 8) * 0.03;
+        leftArmRef.current.rotation.x =
+          -1.1 + Math.sin(time * 12 + agent.deskIndex) * 0.08
+        leftArmRef.current.rotation.z = 0.35 + Math.cos(time * 8) * 0.03
       }
       if (rightArmRef.current) {
-        rightArmRef.current.rotation.x = -1.1 + Math.sin(time * 12 + agent.deskIndex + Math.PI) * 0.08;
-        rightArmRef.current.rotation.z = -0.35 - Math.cos(time * 8) * 0.03;
+        rightArmRef.current.rotation.x =
+          -1.1 + Math.sin(time * 12 + agent.deskIndex + Math.PI) * 0.08
+        rightArmRef.current.rotation.z = -0.35 - Math.cos(time * 8) * 0.03
       }
       // Head looking attentively at screen
       if (headRef.current) {
-        headRef.current.rotation.x = 0.15 + Math.sin(time * 2 + agent.deskIndex) * 0.03;
-        headRef.current.rotation.y = Math.sin(time * 1.5) * 0.04;
+        headRef.current.rotation.x =
+          0.15 + Math.sin(time * 2 + agent.deskIndex) * 0.03
+        headRef.current.rotation.y = Math.sin(time * 1.5) * 0.04
       }
       // Seated legs
-      if (leftLegRef.current) leftLegRef.current.rotation.x = -Math.PI / 2;
-      if (rightLegRef.current) rightLegRef.current.rotation.x = -Math.PI / 2;
-    } 
+      if (leftLegRef.current) leftLegRef.current.rotation.x = -Math.PI / 2
+      if (rightLegRef.current) rightLegRef.current.rotation.x = -Math.PI / 2
+    }
     // 2. Sleeping / Idle Pose
     else if (isSleeping) {
       if (torsoRef.current) {
-        torsoRef.current.position.y = 0.53 + Math.sin(time * 1.2) * 0.005;
+        torsoRef.current.position.y = 0.53 + Math.sin(time * 1.2) * 0.005
       }
       // Arms resting on desk
       if (leftArmRef.current) {
-        leftArmRef.current.rotation.x = -0.8;
-        leftArmRef.current.rotation.z = 0.2;
+        leftArmRef.current.rotation.x = -0.8
+        leftArmRef.current.rotation.z = 0.2
       }
       if (rightArmRef.current) {
-        rightArmRef.current.rotation.x = -0.8;
-        rightArmRef.current.rotation.z = -0.2;
+        rightArmRef.current.rotation.x = -0.8
+        rightArmRef.current.rotation.z = -0.2
       }
       // Head slumped slightly downward
       if (headRef.current) {
-        headRef.current.rotation.x = 0.32 + Math.sin(time * 1.2) * 0.02;
-        headRef.current.rotation.y = 0;
+        headRef.current.rotation.x = 0.32 + Math.sin(time * 1.2) * 0.02
+        headRef.current.rotation.y = 0
       }
-      if (leftLegRef.current) leftLegRef.current.rotation.x = -Math.PI / 2;
-      if (rightLegRef.current) rightLegRef.current.rotation.x = -Math.PI / 2;
+      if (leftLegRef.current) leftLegRef.current.rotation.x = -Math.PI / 2
+      if (rightLegRef.current) rightLegRef.current.rotation.x = -Math.PI / 2
     }
     // 3. Walking Pose
     else if (isWalking) {
-      const walkCycle = Math.sin(time * 8) * 0.55;
-      if (leftLegRef.current) leftLegRef.current.rotation.x = walkCycle;
-      if (rightLegRef.current) rightLegRef.current.rotation.x = -walkCycle;
+      const walkCycle = Math.sin(time * 8) * 0.55
+      if (leftLegRef.current) leftLegRef.current.rotation.x = walkCycle
+      if (rightLegRef.current) rightLegRef.current.rotation.x = -walkCycle
 
-      if (leftArmRef.current) leftArmRef.current.rotation.x = -walkCycle * 0.8;
-      if (rightArmRef.current) rightArmRef.current.rotation.x = walkCycle * 0.8;
+      if (leftArmRef.current) leftArmRef.current.rotation.x = -walkCycle * 0.8
+      if (rightArmRef.current) rightArmRef.current.rotation.x = walkCycle * 0.8
 
       if (torsoRef.current) {
-        torsoRef.current.position.y = 0.58 + Math.abs(Math.sin(time * 16)) * 0.03;
+        torsoRef.current.position.y =
+          0.58 + Math.abs(Math.sin(time * 16)) * 0.03
       }
     }
     // 4. Collaborating Pose
     else if (isCollaborating) {
       if (leftArmRef.current) {
-        leftArmRef.current.rotation.x = -1.3 + Math.sin(time * 4) * 0.2;
-        leftArmRef.current.rotation.z = 0.4;
+        leftArmRef.current.rotation.x = -1.3 + Math.sin(time * 4) * 0.2
+        leftArmRef.current.rotation.z = 0.4
       }
       if (rightArmRef.current) {
-        rightArmRef.current.rotation.x = -0.6 + Math.cos(time * 3) * 0.15;
-        rightArmRef.current.rotation.z = -0.3;
+        rightArmRef.current.rotation.x = -0.6 + Math.cos(time * 3) * 0.15
+        rightArmRef.current.rotation.z = -0.3
       }
       if (headRef.current) {
-        headRef.current.rotation.y = Math.sin(time * 2.5) * 0.25;
-        headRef.current.rotation.x = 0.05;
+        headRef.current.rotation.y = Math.sin(time * 2.5) * 0.25
+        headRef.current.rotation.x = 0.05
       }
     }
 
     // Smooth hover/select scale interpolation
-    const targetScale = isSelected ? 1.08 : (hovered ? 1.05 : 1.0);
-    groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), delta * 8);
-  });
+    const targetScale = isSelected ? 1.08 : hovered ? 1.05 : 1.0
+    groupRef.current.scale.lerp(
+      new THREE.Vector3(targetScale, targetScale, targetScale),
+      delta * 8,
+    )
+  })
 
   return (
     <group
       ref={groupRef}
       position={[0, 0, 0.42]} // seated position relative to desk center
       onClick={(e) => {
-        e.stopPropagation();
-        onSelect();
+        e.stopPropagation()
+        onSelect()
       }}
       onPointerOver={(e) => {
-        e.stopPropagation();
-        document.body.style.cursor = 'pointer';
-        setHovered(true);
+        e.stopPropagation()
+        document.body.style.cursor = 'pointer'
+        setHovered(true)
       }}
       onPointerOut={() => {
-        document.body.style.cursor = 'auto';
-        setHovered(false);
+        document.body.style.cursor = 'auto'
+        setHovered(false)
       }}
     >
       {/* Selection / Hover Glow Ring on Floor */}
       {(isSelected || hovered) && (
         <mesh position={[0, -0.4, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <ringGeometry args={[0.38, 0.48, 32]} />
-          <meshBasicMaterial 
-            color={isSelected ? '#38bdf8' : '#94a3b8'} 
-            transparent 
-            opacity={isSelected ? 0.9 : 0.4} 
+          <meshBasicMaterial
+            color={isSelected ? '#38bdf8' : '#94a3b8'}
+            transparent
+            opacity={isSelected ? 0.9 : 0.4}
             side={THREE.DoubleSide}
           />
         </mesh>
@@ -215,7 +222,9 @@ export const AgentCharacter: React.FC<AgentCharacterProps> = ({
           </mesh>
 
           {/* Glasses or Headset accessory based on role */}
-          {(agent.role.includes('Engineer') || agent.role.includes('Developer') || agent.role.includes('DevOps')) && (
+          {(agent.role.includes('Engineer') ||
+            agent.role.includes('Developer') ||
+            agent.role.includes('DevOps')) && (
             <group position={[0, 0.02, 0.1]}>
               <mesh position={[-0.05, 0, 0]}>
                 <ringGeometry args={[0.025, 0.035, 16]} />
@@ -264,5 +273,5 @@ export const AgentCharacter: React.FC<AgentCharacterProps> = ({
         </group>
       </group>
     </group>
-  );
-};
+  )
+}

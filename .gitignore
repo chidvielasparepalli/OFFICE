@@ -12,6 +12,16 @@ dist
 dist-ssr
 *.local
 
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Generated test and browser verification output
+coverage/
+test-results/
+playwright-report/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

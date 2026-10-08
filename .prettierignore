@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-ssr/
+coverage/
+test-results/
+playwright-report/
+package-lock.json
+public/
+src/assets/
+AGENTS.md
+BUILD_PLAN.md
+3D_ASSET_LIBRARY.md
+.env*

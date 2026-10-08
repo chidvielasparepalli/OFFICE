@@ -1,4 +1,9 @@
-import { DepartmentInfo, OfficeAgent } from '../types';
+import type { DepartmentInfo, OfficeAgent } from '../types'
+
+/**
+ * Synthetic prototype/test fixtures, not real company activity.
+ * Keep this module out of the production application entry graph.
+ */
 
 export const DEPARTMENTS: Record<string, DepartmentInfo> = {
   executive: {
@@ -17,9 +22,10 @@ export const DEPARTMENTS: Record<string, DepartmentInfo> = {
       metricLabel1: 'Sprint Velocity',
       metricValue1: '94%',
       metricLabel2: 'Runway',
-      metricValue2: '18 mo'
+      metricValue2: '18 mo',
     },
-    description: 'Corporate leadership, orchestration, strategic resource allocation, and cross-functional task delegation.'
+    description:
+      'Corporate leadership, orchestration, strategic resource allocation, and cross-functional task delegation.',
   },
   engineering: {
     id: 'engineering',
@@ -37,9 +43,10 @@ export const DEPARTMENTS: Record<string, DepartmentInfo> = {
       metricLabel1: 'PRs Merged',
       metricValue1: '28 today',
       metricLabel2: 'Test Coverage',
-      metricValue2: '96.4%'
+      metricValue2: '96.4%',
     },
-    description: 'Frontend, backend services, database migrations, authentication pipelines, and systems programming.'
+    description:
+      'Frontend, backend services, database migrations, authentication pipelines, and systems programming.',
   },
   research: {
     id: 'research',
@@ -57,9 +64,10 @@ export const DEPARTMENTS: Record<string, DepartmentInfo> = {
       metricLabel1: 'Model Loss',
       metricValue1: '0.042',
       metricLabel2: 'Inference',
-      metricValue2: '14ms'
+      metricValue2: '14ms',
     },
-    description: 'Model fine-tuning, prompt evals, RAG embeddings, vector search benchmarks, and algorithmic research.'
+    description:
+      'Model fine-tuning, prompt evals, RAG embeddings, vector search benchmarks, and algorithmic research.',
   },
   creative: {
     id: 'creative',
@@ -77,9 +85,10 @@ export const DEPARTMENTS: Record<string, DepartmentInfo> = {
       metricLabel1: 'Design Tokens',
       metricValue1: '142',
       metricLabel2: 'Assets Rendered',
-      metricValue2: '38'
+      metricValue2: '38',
     },
-    description: 'UI/UX interfaces, design systems, vector art, 3D animations, video rendering, and image generation.'
+    description:
+      'UI/UX interfaces, design systems, vector art, 3D animations, video rendering, and image generation.',
   },
   marketing: {
     id: 'marketing',
@@ -97,9 +106,10 @@ export const DEPARTMENTS: Record<string, DepartmentInfo> = {
       metricLabel1: 'Outreach Sent',
       metricValue1: '1.4k',
       metricLabel2: 'CTR',
-      metricValue2: '4.8%'
+      metricValue2: '4.8%',
     },
-    description: 'Campaign execution, newsletters, social acquisition, lead enrichment, conversion funnels, and enterprise sales.'
+    description:
+      'Campaign execution, newsletters, social acquisition, lead enrichment, conversion funnels, and enterprise sales.',
   },
   qa: {
     id: 'qa',
@@ -117,9 +127,10 @@ export const DEPARTMENTS: Record<string, DepartmentInfo> = {
       metricLabel1: 'Vulnerabilities',
       metricValue1: '0 Critical',
       metricLabel2: 'Pass Rate',
-      metricValue2: '99.8%'
+      metricValue2: '99.8%',
     },
-    description: 'Automated end-to-end testing, bug repair verification, penetration testing, performance audits, and accessibility.'
+    description:
+      'Automated end-to-end testing, bug repair verification, penetration testing, performance audits, and accessibility.',
   },
   operations: {
     id: 'operations',
@@ -137,9 +148,10 @@ export const DEPARTMENTS: Record<string, DepartmentInfo> = {
       metricLabel1: 'Token Budget',
       metricValue1: '$12.40/day',
       metricLabel2: 'ROI',
-      metricValue2: '4.2x'
+      metricValue2: '4.2x',
     },
-    description: 'Token spend monitoring, compliance auditing, API quota tracking, custom skill discovery, and team governance.'
+    description:
+      'Token spend monitoring, compliance auditing, API quota tracking, custom skill discovery, and team governance.',
   },
   infrastructure: {
     id: 'infrastructure',
@@ -157,11 +169,12 @@ export const DEPARTMENTS: Record<string, DepartmentInfo> = {
       metricLabel1: 'Uptime',
       metricValue1: '99.99%',
       metricLabel2: 'Edge Latency',
-      metricValue2: '19ms'
+      metricValue2: '19ms',
     },
-    description: 'Kubernetes orchestration, CI/CD pipelines, edge caching, server health telemetry, and cloud infrastructure.'
-  }
-};
+    description:
+      'Kubernetes orchestration, CI/CD pipelines, edge caching, server health telemetry, and cloud infrastructure.',
+  },
+}
 
 // All 30 requested agents with coordinates inside their respective department pods
 export const INITIAL_AGENTS: OfficeAgent[] = [
@@ -173,28 +186,41 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'executive',
     deskIndex: 0,
     status: 'WORKING',
-    currentTask: 'Orchestrating company-wide sprint: WebAuthn Auth & AI Studio v2',
+    currentTask:
+      'Orchestrating company-wide sprint: WebAuthn Auth & AI Studio v2',
     taskProgress: 68,
     avatarColor: '#d97706',
     clothingColor: '#1e293b', // charcoal executive suit
     hairColor: '#334155',
     skinTone: '#fcd34d',
     tools: ['Linear', 'Slack', 'Claude Code', 'Notion', 'Executive Dashboard'],
-    brief: 'Single responsible owner of company workflow. Wakes up, plans roadmaps, breaks down epics, delegates to specialists, and verifies deliverables.',
-    stats: { tasksCompleted: 42, tokensBurned: 184500, uptime: '99.9%', accuracy: 98.7 },
+    brief:
+      'Single responsible owner of company workflow. Wakes up, plans roadmaps, breaks down epics, delegates to specialists, and verifies deliverables.',
+    stats: {
+      tasksCompleted: 42,
+      tokensBurned: 184500,
+      uptime: '99.9%',
+      accuracy: 98.7,
+    },
     screenType: 'charts',
-    screenSnippet: 'GANTT: SPRINT 44\n[✔] Auth Spec -> [✔] Database -> [●] Frontend -> [ ] QA\nActive Agents: 14\nTotal Efficiency: 96.2%',
+    screenSnippet:
+      'GANTT: SPRINT 44\n[✔] Auth Spec -> [✔] Database -> [●] Frontend -> [ ] QA\nActive Agents: 14\nTotal Efficiency: 96.2%',
     workstationPos: [-2.5, 0.2, -17],
     currentPos: [-2.5, 0.2, -17],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Approved design tokens from Creative Studio', 'Dispatched WebAuthn ticket to Auth Engineer', 'Reviewed token budget with Cost Controller'],
+    recentLogs: [
+      'Approved design tokens from Creative Studio',
+      'Dispatched WebAuthn ticket to Auth Engineer',
+      'Reviewed token budget with Cost Controller',
+    ],
     pendingApproval: {
       id: 'appr-01',
       title: 'Sign off Production Deployment for v3.2',
-      details: 'All QA suites passed (42/42 tests). Ready to deploy to edge cluster.'
-    }
+      details:
+        'All QA suites passed (42/42 tests). Ready to deploy to edge cluster.',
+    },
   },
   {
     id: 'agent-communication',
@@ -210,16 +236,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#451a03',
     skinTone: '#fed7aa',
     tools: ['Slack API', 'Gmail', 'Notion', 'Discord'],
-    brief: 'Coordinates cross-department messaging, generates daily briefings, and ensures company alignment.',
-    stats: { tasksCompleted: 38, tokensBurned: 92400, uptime: '99.8%', accuracy: 99.1 },
+    brief:
+      'Coordinates cross-department messaging, generates daily briefings, and ensures company alignment.',
+    stats: {
+      tasksCompleted: 38,
+      tokensBurned: 92400,
+      uptime: '99.8%',
+      accuracy: 99.1,
+    },
     screenType: 'review',
-    screenSnippet: 'SLACK BROADCAST #announcements:\n"Sprint 44 on track. 6 PRs merged today.\nStandup highlights available in Notion."',
+    screenSnippet:
+      'SLACK BROADCAST #announcements:\n"Sprint 44 on track. 6 PRs merged today.\nStandup highlights available in Notion."',
     workstationPos: [2.5, 0.2, -17],
     currentPos: [2.5, 0.2, -17],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Drafted morning summary for Alexander', 'Sent customer notification for scheduled maintenance']
+    recentLogs: [
+      'Drafted morning summary for Alexander',
+      'Sent customer notification for scheduled maintenance',
+    ],
   },
 
   // Engineering Pod (west-north [-19, 0.2, -9])
@@ -230,23 +266,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'engineering',
     deskIndex: 0,
     status: 'WORKING',
-    currentTask: 'Implementing responsive WebGL office viewport & GSAP camera hooks',
+    currentTask:
+      'Implementing responsive WebGL office viewport & GSAP camera hooks',
     taskProgress: 74,
     avatarColor: '#2563eb',
     clothingColor: '#0f172a', // dark tech hoodie
     hairColor: '#172554',
     skinTone: '#fbcfe8',
     tools: ['React', 'Three.js', 'Vite', 'Tailwind', 'GSAP'],
-    brief: 'Builds interactive user interfaces, 3D WebGL scenes, accessible layouts, and high-performance client state.',
-    stats: { tasksCompleted: 58, tokensBurned: 245000, uptime: '99.6%', accuracy: 97.9 },
+    brief:
+      'Builds interactive user interfaces, 3D WebGL scenes, accessible layouts, and high-performance client state.',
+    stats: {
+      tasksCompleted: 58,
+      tokensBurned: 245000,
+      uptime: '99.6%',
+      accuracy: 97.9,
+    },
     screenType: 'code',
-    screenSnippet: 'function renderOffice() {\n  const camera = useThree(s => s.camera);\n  gsap.to(camera.position, { x, y, z, duration: 1.2 });\n  return <OfficeWorld />;\n}',
+    screenSnippet:
+      'function renderOffice() {\n  const camera = useThree(s => s.camera);\n  gsap.to(camera.position, { x, y, z, duration: 1.2 });\n  return <OfficeWorld />;\n}',
     workstationPos: [-22, 0.2, -11.5],
     currentPos: [-22, 0.2, -11.5],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Optimized camera frustum culling', 'Connected live agent state to 3D character avatars']
+    recentLogs: [
+      'Optimized camera frustum culling',
+      'Connected live agent state to 3D character avatars',
+    ],
   },
   {
     id: 'agent-backend',
@@ -262,16 +309,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#0f172a',
     skinTone: '#fde047',
     tools: ['Node.js', 'Go', 'Redis', 'PostgreSQL', 'FastAPI'],
-    brief: 'Designs robust distributed APIs, server-sent events, queue workers, and low-latency database queries.',
-    stats: { tasksCompleted: 64, tokensBurned: 290100, uptime: '99.9%', accuracy: 99.2 },
+    brief:
+      'Designs robust distributed APIs, server-sent events, queue workers, and low-latency database queries.',
+    stats: {
+      tasksCompleted: 64,
+      tokensBurned: 290100,
+      uptime: '99.9%',
+      accuracy: 99.2,
+    },
     screenType: 'terminal',
-    screenSnippet: '$ go run ./cmd/server\n[INFO] SSE Dispatcher listening on :8080\n[INFO] Connected to Redis pub/sub (0.4ms)\n[200 OK] GET /api/office/telemetry',
+    screenSnippet:
+      '$ go run ./cmd/server\n[INFO] SSE Dispatcher listening on :8080\n[INFO] Connected to Redis pub/sub (0.4ms)\n[200 OK] GET /api/office/telemetry',
     workstationPos: [-19, 0.2, -11.5],
     currentPos: [-19, 0.2, -11.5],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Pushed commit `feat(sse): heartbeat every 5s`', 'Indexed office_tasks by status and timestamp']
+    recentLogs: [
+      'Pushed commit `feat(sse): heartbeat every 5s`',
+      'Indexed office_tasks by status and timestamp',
+    ],
   },
   {
     id: 'agent-fullstack',
@@ -280,23 +337,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'engineering',
     deskIndex: 2,
     status: 'WORKING',
-    currentTask: 'Syncing local state provider with Supabase and REST endpoints',
+    currentTask:
+      'Syncing local state provider with Supabase and REST endpoints',
     taskProgress: 45,
     avatarColor: '#3b82f6',
     clothingColor: '#1e1b4b',
     hairColor: '#451a03',
     skinTone: '#fef08a',
     tools: ['Next.js', 'TypeScript', 'Supabase', 'Prisma', 'TRPC'],
-    brief: 'Bridging client and server architectures with end-to-end type safety, caching, and database synchronizers.',
-    stats: { tasksCompleted: 71, tokensBurned: 312000, uptime: '99.8%', accuracy: 98.4 },
+    brief:
+      'Bridging client and server architectures with end-to-end type safety, caching, and database synchronizers.',
+    stats: {
+      tasksCompleted: 71,
+      tokensBurned: 312000,
+      uptime: '99.8%',
+      accuracy: 98.4,
+    },
     screenType: 'code',
-    screenSnippet: 'export const syncOfficeState = async (state) => {\n  await supabase.from("office_agents").upsert(state.agents);\n  return { success: true };\n};',
+    screenSnippet:
+      'export const syncOfficeState = async (state) => {\n  await supabase.from("office_agents").upsert(state.agents);\n  return { success: true };\n};',
     workstationPos: [-16, 0.2, -11.5],
     currentPos: [-16, 0.2, -11.5],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Validated database schema migration', 'Configured real-time WebSocket subscriber']
+    recentLogs: [
+      'Validated database schema migration',
+      'Configured real-time WebSocket subscriber',
+    ],
   },
   {
     id: 'agent-python',
@@ -305,23 +373,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'engineering',
     deskIndex: 3,
     status: 'WORKING',
-    currentTask: 'Building vector embedding pipeline and automated data ingestion',
+    currentTask:
+      'Building vector embedding pipeline and automated data ingestion',
     taskProgress: 90,
     avatarColor: '#60a5fa',
     clothingColor: '#047857',
     hairColor: '#1e293b',
     skinTone: '#f5d0fe',
     tools: ['Python 3.11', 'PyTorch', 'FastAPI', 'NumPy', 'Pandas'],
-    brief: 'Data preprocessing, AI orchestration pipelines, scientific computations, and high-performance Python services.',
-    stats: { tasksCompleted: 49, tokensBurned: 198000, uptime: '99.7%', accuracy: 98.9 },
+    brief:
+      'Data preprocessing, AI orchestration pipelines, scientific computations, and high-performance Python services.',
+    stats: {
+      tasksCompleted: 49,
+      tokensBurned: 198000,
+      uptime: '99.7%',
+      accuracy: 98.9,
+    },
     screenType: 'terminal',
-    screenSnippet: '$ pytest -v tests/test_embeddings.py\ntest_chunking PASSED [33%]\ntest_vector_similarity PASSED [66%]\ntest_batch_throughput PASSED [100%]\n== 3 passed in 0.42s ==',
+    screenSnippet:
+      '$ pytest -v tests/test_embeddings.py\ntest_chunking PASSED [33%]\ntest_vector_similarity PASSED [66%]\ntest_batch_throughput PASSED [100%]\n== 3 passed in 0.42s ==',
     workstationPos: [-22, 0.2, -6.5],
     currentPos: [-22, 0.2, -6.5],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Batch indexed 4,800 document chunks', 'Benchmarked cosine distance vs dot product']
+    recentLogs: [
+      'Batch indexed 4,800 document chunks',
+      'Benchmarked cosine distance vs dot product',
+    ],
   },
   {
     id: 'agent-java',
@@ -337,16 +416,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#94a3b8',
     skinTone: '#fed7aa',
     tools: ['Java 21', 'Spring Boot', 'Kafka', 'Maven', 'GraalVM'],
-    brief: 'Enterprise integration, message broker processing, high-throughput microservices, and transaction management.',
-    stats: { tasksCompleted: 35, tokensBurned: 142000, uptime: '99.9%', accuracy: 99.5 },
+    brief:
+      'Enterprise integration, message broker processing, high-throughput microservices, and transaction management.',
+    stats: {
+      tasksCompleted: 35,
+      tokensBurned: 142000,
+      uptime: '99.9%',
+      accuracy: 99.5,
+    },
     screenType: 'screensaver',
-    screenSnippet: 'SYSTEM IDLE // GRAALVM NATIVE IMAGE COMPILED // ALL QUEUES DRAINED',
+    screenSnippet:
+      'SYSTEM IDLE // GRAALVM NATIVE IMAGE COMPILED // ALL QUEUES DRAINED',
     workstationPos: [-19, 0.2, -6.5],
     currentPos: [-19, 0.2, -6.5],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Kafka consumer lag is 0', 'Completed garbage collection sweep']
+    recentLogs: [
+      'Kafka consumer lag is 0',
+      'Completed garbage collection sweep',
+    ],
   },
   {
     id: 'agent-cpp',
@@ -362,16 +451,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#334155',
     skinTone: '#fbcfe8',
     tools: ['C++23', 'CMake', 'WebAssembly', 'SIMD', 'Clang'],
-    brief: 'Low-level performance kernels, WebAssembly compilation, memory management, and SIMD hardware acceleration.',
-    stats: { tasksCompleted: 29, tokensBurned: 118000, uptime: '99.9%', accuracy: 99.8 },
+    brief:
+      'Low-level performance kernels, WebAssembly compilation, memory management, and SIMD hardware acceleration.',
+    stats: {
+      tasksCompleted: 29,
+      tokensBurned: 118000,
+      uptime: '99.9%',
+      accuracy: 99.8,
+    },
     screenType: 'screensaver',
-    screenSnippet: 'WASM MEMORY POOL: OK // 0 LEAKS DETECTED // VECTORIZED KERNEL ACTIVE',
+    screenSnippet:
+      'WASM MEMORY POOL: OK // 0 LEAKS DETECTED // VECTORIZED KERNEL ACTIVE',
     workstationPos: [-16, 0.2, -6.5],
     currentPos: [-16, 0.2, -6.5],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Wasm module compiled to 84KB', 'Passed zero-copy buffer test']
+    recentLogs: [
+      'Wasm module compiled to 84KB',
+      'Passed zero-copy buffer test',
+    ],
   },
   {
     id: 'agent-database',
@@ -380,23 +479,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'engineering',
     deskIndex: 6,
     status: 'WORKING',
-    currentTask: 'Optimizing B-tree index on office_tasks and setting up replication',
+    currentTask:
+      'Optimizing B-tree index on office_tasks and setting up replication',
     taskProgress: 53,
     avatarColor: '#3b82f6',
     clothingColor: '#1e293b',
     hairColor: '#1e1b4b',
     skinTone: '#fde047',
     tools: ['PostgreSQL', 'pgvector', 'ClickHouse', 'Redis', 'DBeaver'],
-    brief: 'Data modeling, index tuning, transaction isolation, migrations, and vector similarity indexing.',
-    stats: { tasksCompleted: 52, tokensBurned: 187000, uptime: '100%', accuracy: 99.7 },
+    brief:
+      'Data modeling, index tuning, transaction isolation, migrations, and vector similarity indexing.',
+    stats: {
+      tasksCompleted: 52,
+      tokensBurned: 187000,
+      uptime: '100%',
+      accuracy: 99.7,
+    },
     screenType: 'terminal',
-    screenSnippet: 'EXPLAIN ANALYZE\nSELECT * FROM office_tasks WHERE status = \'in_progress\';\nExecution Time: 0.124 ms (Bitmap Index Scan on idx_tasks_status)',
+    screenSnippet:
+      "EXPLAIN ANALYZE\nSELECT * FROM office_tasks WHERE status = 'in_progress';\nExecution Time: 0.124 ms (Bitmap Index Scan on idx_tasks_status)",
     workstationPos: [-19, 0.2, -9],
     currentPos: [-19, 0.2, -9],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Added composite index for agent tasks', 'Ran VACUUM ANALYZE across office tables']
+    recentLogs: [
+      'Added composite index for agent tasks',
+      'Ran VACUUM ANALYZE across office tables',
+    ],
   },
   {
     id: 'agent-auth',
@@ -405,23 +515,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'engineering',
     deskIndex: 7,
     status: 'WORKING',
-    currentTask: 'Implementing WebAuthn biometric passkeys & OAuth2 refresh token rotation',
+    currentTask:
+      'Implementing WebAuthn biometric passkeys & OAuth2 refresh token rotation',
     taskProgress: 81,
     avatarColor: '#2563eb',
     clothingColor: '#312e81',
     hairColor: '#1e293b',
     skinTone: '#fed7aa',
     tools: ['OAuth2', 'WebAuthn', 'JWT', 'PKCE', 'Jose'],
-    brief: 'Cryptographic authentication, session security, RBAC policies, and multi-factor authorization.',
-    stats: { tasksCompleted: 44, tokensBurned: 176000, uptime: '99.9%', accuracy: 99.9 },
+    brief:
+      'Cryptographic authentication, session security, RBAC policies, and multi-factor authorization.',
+    stats: {
+      tasksCompleted: 44,
+      tokensBurned: 176000,
+      uptime: '99.9%',
+      accuracy: 99.9,
+    },
     screenType: 'code',
-    screenSnippet: 'const { verified, registrationInfo } = await verifyRegistrationResponse({\n  response: credential,\n  expectedChallenge,\n  expectedOrigin: "https://office.aether.corp"\n});',
+    screenSnippet:
+      'const { verified, registrationInfo } = await verifyRegistrationResponse({\n  response: credential,\n  expectedChallenge,\n  expectedOrigin: "https://office.aether.corp"\n});',
     workstationPos: [-16, 0.2, -9],
     currentPos: [-16, 0.2, -9],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['FIDO2 registration handshake verified', 'Added automated test for token revocation']
+    recentLogs: [
+      'FIDO2 registration handshake verified',
+      'Added automated test for token revocation',
+    ],
   },
 
   // AI & Research Lab (east-north [19, 0.2, -9])
@@ -432,23 +553,40 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'research',
     deskIndex: 0,
     status: 'WORKING',
-    currentTask: 'Evaluating Claude 3.7 vs Gemini 1.5 Pro benchmark results on agent routing',
+    currentTask:
+      'Evaluating Claude 3.7 vs Gemini 1.5 Pro benchmark results on agent routing',
     taskProgress: 62,
     avatarColor: '#7c3aed',
     clothingColor: '#4c1d95',
     hairColor: '#312e81',
     skinTone: '#fbcfe8',
-    tools: ['Weights & Biases', 'Hugging Face', 'Claude Code', 'VLLM', 'Jupyter'],
-    brief: 'Model evaluations, prompt engineering, agentic reasoning chains, and benchmark synthesis.',
-    stats: { tasksCompleted: 47, tokensBurned: 412000, uptime: '99.7%', accuracy: 98.2 },
+    tools: [
+      'Weights & Biases',
+      'Hugging Face',
+      'Claude Code',
+      'VLLM',
+      'Jupyter',
+    ],
+    brief:
+      'Model evaluations, prompt engineering, agentic reasoning chains, and benchmark synthesis.',
+    stats: {
+      tasksCompleted: 47,
+      tokensBurned: 412000,
+      uptime: '99.7%',
+      accuracy: 98.2,
+    },
     screenType: 'research',
-    screenSnippet: 'BENCHMARK: AGENT REASONING\nModel         | Tool Acc | Latency | Pass@1\nClaude 3.7    | 98.4%    | 480ms   | 94.2%\nGPT-4o        | 96.1%    | 410ms   | 91.5%\nGemini 1.5    | 95.8%    | 390ms   | 90.8%',
+    screenSnippet:
+      'BENCHMARK: AGENT REASONING\nModel         | Tool Acc | Latency | Pass@1\nClaude 3.7    | 98.4%    | 480ms   | 94.2%\nGPT-4o        | 96.1%    | 410ms   | 91.5%\nGemini 1.5    | 95.8%    | 390ms   | 90.8%',
     workstationPos: [16, 0.2, -11],
     currentPos: [16, 0.2, -11],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Evaluated 500 synthetic corporate task prompts', 'Synthesized optimal tool calling schema']
+    recentLogs: [
+      'Evaluated 500 synthetic corporate task prompts',
+      'Synthesized optimal tool calling schema',
+    ],
   },
   {
     id: 'agent-researcher',
@@ -457,23 +595,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'research',
     deskIndex: 1,
     status: 'WORKING',
-    currentTask: 'Conducting market research on enterprise autonomous agent systems',
+    currentTask:
+      'Conducting market research on enterprise autonomous agent systems',
     taskProgress: 41,
     avatarColor: '#8b5cf6',
     clothingColor: '#581c87',
     hairColor: '#451a03',
     skinTone: '#fed7aa',
     tools: ['Perplexity', 'Google Scholar', 'Notion', 'Exa.ai', 'Arxiv'],
-    brief: 'Academic literature synthesis, competitive market intelligence, and deep-dive technical research papers.',
-    stats: { tasksCompleted: 39, tokensBurned: 220000, uptime: '99.5%', accuracy: 97.8 },
+    brief:
+      'Academic literature synthesis, competitive market intelligence, and deep-dive technical research papers.',
+    stats: {
+      tasksCompleted: 39,
+      tokensBurned: 220000,
+      uptime: '99.5%',
+      accuracy: 97.8,
+    },
     screenType: 'research',
-    screenSnippet: 'PAPER NOTES: "Autonomous Office Topologies"\nKey insight: Physical spatial anchoring increases human trust\nin agentic workflows by 42%. Centralized note hubs prevent hallucinations.',
+    screenSnippet:
+      'PAPER NOTES: "Autonomous Office Topologies"\nKey insight: Physical spatial anchoring increases human trust\nin agentic workflows by 42%. Centralized note hubs prevent hallucinations.',
     workstationPos: [19, 0.2, -11],
     currentPos: [19, 0.2, -11],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Synthesized 12 papers on multi-agent consensus', 'Published internal RFC on memory consolidation']
+    recentLogs: [
+      'Synthesized 12 papers on multi-agent consensus',
+      'Published internal RFC on memory consolidation',
+    ],
   },
   {
     id: 'agent-product',
@@ -489,16 +638,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#0f172a',
     skinTone: '#fde047',
     tools: ['Linear', 'Productboard', 'Mixpanel', 'Figma', 'Notion'],
-    brief: 'User story formulation, feature roadmap prioritization, acceptance criteria, and telemetry review.',
-    stats: { tasksCompleted: 41, tokensBurned: 165000, uptime: '99.6%', accuracy: 98.9 },
+    brief:
+      'User story formulation, feature roadmap prioritization, acceptance criteria, and telemetry review.',
+    stats: {
+      tasksCompleted: 41,
+      tokensBurned: 165000,
+      uptime: '99.6%',
+      accuracy: 98.9,
+    },
     screenType: 'screensaver',
-    screenSnippet: 'ROADMAP v3.2 DELIVERED // PRD: COLLABORATION PODS APPROVED // ALL EPICS LOGGED',
+    screenSnippet:
+      'ROADMAP v3.2 DELIVERED // PRD: COLLABORATION PODS APPROVED // ALL EPICS LOGGED',
     workstationPos: [22, 0.2, -11],
     currentPos: [22, 0.2, -11],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Finalized user requirements for 3D inspection view', 'Sprint backlog groomed']
+    recentLogs: [
+      'Finalized user requirements for 3D inspection view',
+      'Sprint backlog groomed',
+    ],
   },
 
   // Design & Creative Studio (southwest [-19, 0.2, 10])
@@ -509,23 +668,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'creative',
     deskIndex: 0,
     status: 'WORKING',
-    currentTask: 'Refining warm neutral architectural palette and isometric UI design system',
+    currentTask:
+      'Refining warm neutral architectural palette and isometric UI design system',
     taskProgress: 85,
     avatarColor: '#db2777',
     clothingColor: '#831843',
     hairColor: '#18181b',
     skinTone: '#fcd34d',
     tools: ['Figma', 'Illustrator', 'Spline', 'ColorSpace', 'CSS Tokens'],
-    brief: 'Design system stewardship, UI components, typography, accessibility contrast, and micro-interactions.',
-    stats: { tasksCompleted: 62, tokensBurned: 180000, uptime: '99.8%', accuracy: 99.4 },
+    brief:
+      'Design system stewardship, UI components, typography, accessibility contrast, and micro-interactions.',
+    stats: {
+      tasksCompleted: 62,
+      tokensBurned: 180000,
+      uptime: '99.8%',
+      accuracy: 99.4,
+    },
     screenType: 'design',
-    screenSnippet: 'PALETTE: "Warm Architectural Studio"\nBackground: #f8fafc | Slabs: #f1f5f9\nAccents: Amber, Sapphire, Emerald, Violet\nBevels: 0.12m with soft contact occlusion',
+    screenSnippet:
+      'PALETTE: "Warm Architectural Studio"\nBackground: #f8fafc | Slabs: #f1f5f9\nAccents: Amber, Sapphire, Emerald, Violet\nBevels: 0.12m with soft contact occlusion',
     workstationPos: [-22, 0.2, 8],
     currentPos: [-22, 0.2, 8],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Exported SVG icons for office telemetry', 'Approved typography specs for department banners']
+    recentLogs: [
+      'Exported SVG icons for office telemetry',
+      'Approved typography specs for department banners',
+    ],
   },
   {
     id: 'agent-graphics',
@@ -534,23 +704,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'creative',
     deskIndex: 1,
     status: 'WORKING',
-    currentTask: 'Generating custom brand collateral and vector marketing illustrations',
+    currentTask:
+      'Generating custom brand collateral and vector marketing illustrations',
     taskProgress: 56,
     avatarColor: '#f43f5e',
     clothingColor: '#4c0519',
     hairColor: '#3f3f46',
     skinTone: '#fed7aa',
     tools: ['Photoshop', 'Midjourney', 'Illustrator', 'Canva'],
-    brief: 'Vector iconography, branding assets, presentation slides, and promotional graphic banners.',
-    stats: { tasksCompleted: 53, tokensBurned: 210000, uptime: '99.7%', accuracy: 98.6 },
+    brief:
+      'Vector iconography, branding assets, presentation slides, and promotional graphic banners.',
+    stats: {
+      tasksCompleted: 53,
+      tokensBurned: 210000,
+      uptime: '99.7%',
+      accuracy: 98.6,
+    },
     screenType: 'design',
-    screenSnippet: 'CANVAS: 3000 x 2000 px\nLayer 1: Ambient Gradients\nLayer 2: Isometric Office Silhouette\nLayer 3: Glowing Knowledge Strands',
+    screenSnippet:
+      'CANVAS: 3000 x 2000 px\nLayer 1: Ambient Gradients\nLayer 2: Isometric Office Silhouette\nLayer 3: Glowing Knowledge Strands',
     workstationPos: [-19, 0.2, 8],
     currentPos: [-19, 0.2, 8],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Rendered company logo vector set', 'Formatted graphic cards for email campaign']
+    recentLogs: [
+      'Rendered company logo vector set',
+      'Formatted graphic cards for email campaign',
+    ],
   },
   {
     id: 'agent-image-gen',
@@ -566,16 +747,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#172554',
     skinTone: '#fbcfe8',
     tools: ['Stable Diffusion XL', 'Flux.1', 'ComfyUI', 'DALL-E 3'],
-    brief: 'High-resolution procedural image generation, prompt expansion, style consistency, and asset baking.',
-    stats: { tasksCompleted: 44, tokensBurned: 350000, uptime: '99.9%', accuracy: 97.5 },
+    brief:
+      'High-resolution procedural image generation, prompt expansion, style consistency, and asset baking.',
+    stats: {
+      tasksCompleted: 44,
+      tokensBurned: 350000,
+      uptime: '99.9%',
+      accuracy: 97.5,
+    },
     screenType: 'screensaver',
-    screenSnippet: 'COMFYUI PIPELINE STANDBY // FLUX.1 CHECKPOINT LOADED // READY FOR PROMPT',
+    screenSnippet:
+      'COMFYUI PIPELINE STANDBY // FLUX.1 CHECKPOINT LOADED // READY FOR PROMPT',
     workstationPos: [-16, 0.2, 8],
     currentPos: [-16, 0.2, 8],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Generated 16 corporate hero banners', 'Upscaled 4K architectural textures']
+    recentLogs: [
+      'Generated 16 corporate hero banners',
+      'Upscaled 4K architectural textures',
+    ],
   },
   {
     id: 'agent-animation',
@@ -591,16 +782,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#0f172a',
     skinTone: '#fde047',
     tools: ['Three.js', 'Blender', 'GSAP', 'Keyframes', 'Spline'],
-    brief: 'Character animation rigs, procedural IK walking cycles, micro-interactions, and camera motion curves.',
-    stats: { tasksCompleted: 48, tokensBurned: 195000, uptime: '99.8%', accuracy: 99.1 },
+    brief:
+      'Character animation rigs, procedural IK walking cycles, micro-interactions, and camera motion curves.',
+    stats: {
+      tasksCompleted: 48,
+      tokensBurned: 195000,
+      uptime: '99.8%',
+      accuracy: 99.1,
+    },
     screenType: 'code',
-    screenSnippet: 'const walkCycle = Math.sin(time * 6) * 0.4;\nleftLeg.rotation.x = walkCycle;\nrightLeg.rotation.x = -walkCycle;\ntorso.position.y = Math.abs(Math.sin(time * 12)) * 0.05;',
+    screenSnippet:
+      'const walkCycle = Math.sin(time * 6) * 0.4;\nleftLeg.rotation.x = walkCycle;\nrightLeg.rotation.x = -walkCycle;\ntorso.position.y = Math.abs(Math.sin(time * 12)) * 0.05;',
     workstationPos: [-19, 0.2, 12],
     currentPos: [-19, 0.2, 12],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Blended typing posture with breathing oscillation', 'Validated camera ease curves']
+    recentLogs: [
+      'Blended typing posture with breathing oscillation',
+      'Validated camera ease curves',
+    ],
   },
   {
     id: 'agent-video',
@@ -616,16 +817,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#27272a',
     skinTone: '#fed7aa',
     tools: ['Premiere', 'Remotion', 'FFmpeg', 'Runway Gen-2'],
-    brief: 'Automated video rendering, programmatic Remotion compositions, social clips, and product demo reels.',
-    stats: { tasksCompleted: 31, tokensBurned: 160000, uptime: '99.5%', accuracy: 98.4 },
+    brief:
+      'Automated video rendering, programmatic Remotion compositions, social clips, and product demo reels.',
+    stats: {
+      tasksCompleted: 31,
+      tokensBurned: 160000,
+      uptime: '99.5%',
+      accuracy: 98.4,
+    },
     screenType: 'screensaver',
-    screenSnippet: 'RENDER QUEUE: 0 PENDING // REMOTION BUILD SUCCESSFUL // EXPORTED 1080p60',
+    screenSnippet:
+      'RENDER QUEUE: 0 PENDING // REMOTION BUILD SUCCESSFUL // EXPORTED 1080p60',
     workstationPos: [-16, 0.2, 12],
     currentPos: [-16, 0.2, 12],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Exported 30s product demo clip', 'Compressed MP4 artifact with web-optimized bitrate']
+    recentLogs: [
+      'Exported 30s product demo clip',
+      'Compressed MP4 artifact with web-optimized bitrate',
+    ],
   },
 
   // Marketing & Sales Hub (southeast [19, 0.2, 10])
@@ -636,23 +847,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'marketing',
     deskIndex: 0,
     status: 'WORKING',
-    currentTask: 'Drafting weekly corporate newsletter & LinkedIn thought leadership sequence',
+    currentTask:
+      'Drafting weekly corporate newsletter & LinkedIn thought leadership sequence',
     taskProgress: 64,
     avatarColor: '#ea580c',
     clothingColor: '#7c2d12',
     hairColor: '#1c1917',
     skinTone: '#fbcfe8',
     tools: ['Substack', 'Beehiiv', 'LinkedIn API', 'Notion', 'Canva'],
-    brief: 'Content strategy, newsletter drafting, audience acquisition, social engagement, and brand storytelling.',
-    stats: { tasksCompleted: 56, tokensBurned: 215000, uptime: '99.7%', accuracy: 98.5 },
+    brief:
+      'Content strategy, newsletter drafting, audience acquisition, social engagement, and brand storytelling.',
+    stats: {
+      tasksCompleted: 56,
+      tokensBurned: 215000,
+      uptime: '99.7%',
+      accuracy: 98.5,
+    },
     screenType: 'review',
-    screenSnippet: 'NEWSLETTER DRAFT #48: "The Headless Office Revolution"\nSubject: How 30 autonomous agents run our core operations\nOpen Rate Projection: 44.2% | Read Time: 3 min',
+    screenSnippet:
+      'NEWSLETTER DRAFT #48: "The Headless Office Revolution"\nSubject: How 30 autonomous agents run our core operations\nOpen Rate Projection: 44.2% | Read Time: 3 min',
     workstationPos: [16, 0.2, 8],
     currentPos: [16, 0.2, 8],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Scheduled newsletter for Thursday 9 AM', 'Generated 5 pull quotes for Twitter thread']
+    recentLogs: [
+      'Scheduled newsletter for Thursday 9 AM',
+      'Generated 5 pull quotes for Twitter thread',
+    ],
   },
   {
     id: 'agent-sales',
@@ -661,23 +883,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'marketing',
     deskIndex: 1,
     status: 'WORKING',
-    currentTask: 'Enriching 150 enterprise leads and drafting tailored demo proposals',
+    currentTask:
+      'Enriching 150 enterprise leads and drafting tailored demo proposals',
     taskProgress: 78,
     avatarColor: '#f97316',
     clothingColor: '#1e293b',
     hairColor: '#334155',
     skinTone: '#fed7aa',
     tools: ['Apollo', 'Salesforce', 'LinkedIn Sales Navigator', 'Gmail'],
-    brief: 'B2B enterprise pipeline, lead qualification, personalized outreach, pricing proposals, and contract negotiation.',
-    stats: { tasksCompleted: 68, tokensBurned: 198000, uptime: '99.8%', accuracy: 98.9 },
+    brief:
+      'B2B enterprise pipeline, lead qualification, personalized outreach, pricing proposals, and contract negotiation.',
+    stats: {
+      tasksCompleted: 68,
+      tokensBurned: 198000,
+      uptime: '99.8%',
+      accuracy: 98.9,
+    },
     screenType: 'charts',
-    screenSnippet: 'PIPELINE SUMMARY:\nQualified Opps: $420,000\nAvg Deal Size: $35,000/yr\nWin Rate: 34.6% (Top Sector: Autonomous Dev)',
+    screenSnippet:
+      'PIPELINE SUMMARY:\nQualified Opps: $420,000\nAvg Deal Size: $35,000/yr\nWin Rate: 34.6% (Top Sector: Autonomous Dev)',
     workstationPos: [19, 0.2, 8],
     currentPos: [19, 0.2, 8],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Sent proposal to Kea Logistics', 'Logged demo scheduled with Meridian Health']
+    recentLogs: [
+      'Sent proposal to Kea Logistics',
+      'Logged demo scheduled with Meridian Health',
+    ],
   },
 
   // QA & Security Zone (south [0, 0.2, 18])
@@ -688,23 +921,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'qa',
     deskIndex: 0,
     status: 'WORKING',
-    currentTask: 'Running Playwright end-to-end regression suite across all browser engines',
+    currentTask:
+      'Running Playwright end-to-end regression suite across all browser engines',
     taskProgress: 94,
     avatarColor: '#059669',
     clothingColor: '#064e3b',
     hairColor: '#0f172a',
     skinTone: '#fcd34d',
     tools: ['Playwright', 'Vitest', 'Cypress', 'Lighthouse', 'Postman'],
-    brief: 'Automated test suites, visual regression verification, performance audits, and bug escalation.',
-    stats: { tasksCompleted: 82, tokensBurned: 245000, uptime: '99.9%', accuracy: 99.8 },
+    brief:
+      'Automated test suites, visual regression verification, performance audits, and bug escalation.',
+    stats: {
+      tasksCompleted: 82,
+      tokensBurned: 245000,
+      uptime: '99.9%',
+      accuracy: 99.8,
+    },
     screenType: 'terminal',
-    screenSnippet: '$ npx playwright test\nRunning 42 tests using 4 workers\n[OK] camera_orbit_test.spec.ts\n[OK] agent_click_inspection.spec.ts\n[OK] task_handoff_pulse.spec.ts\n42 passed (12.4s)',
+    screenSnippet:
+      '$ npx playwright test\nRunning 42 tests using 4 workers\n[OK] camera_orbit_test.spec.ts\n[OK] agent_click_inspection.spec.ts\n[OK] task_handoff_pulse.spec.ts\n42 passed (12.4s)',
     workstationPos: [-3.5, 0.2, 18],
     currentPos: [-3.5, 0.2, 18],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Verified 0 console errors on fresh load', 'Passed 60 FPS frame time budget on Three.js scene']
+    recentLogs: [
+      'Verified 0 console errors on fresh load',
+      'Passed 60 FPS frame time budget on Three.js scene',
+    ],
   },
   {
     id: 'agent-repair',
@@ -720,16 +964,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#451a03',
     skinTone: '#fbcfe8',
     tools: ['AST Refactor', 'ESLint', 'Git Patch', 'Debugger'],
-    brief: 'Automated bug remediation, error triage, stack trace inspection, and hotfix patch synthesis.',
-    stats: { tasksCompleted: 37, tokensBurned: 125000, uptime: '99.8%', accuracy: 99.2 },
+    brief:
+      'Automated bug remediation, error triage, stack trace inspection, and hotfix patch synthesis.',
+    stats: {
+      tasksCompleted: 37,
+      tokensBurned: 125000,
+      uptime: '99.8%',
+      accuracy: 99.2,
+    },
     screenType: 'screensaver',
-    screenSnippet: 'TRIAGE QUEUE: CLEAN // 0 CRITICAL BUGS // AUTO-PATCH SYSTEM STANDBY',
+    screenSnippet:
+      'TRIAGE QUEUE: CLEAN // 0 CRITICAL BUGS // AUTO-PATCH SYSTEM STANDBY',
     workstationPos: [-0.5, 0.2, 18],
     currentPos: [-0.5, 0.2, 18],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Fixed bounding box leak in camera controller', 'Verified hotfix applied cleanly']
+    recentLogs: [
+      'Fixed bounding box leak in camera controller',
+      'Verified hotfix applied cleanly',
+    ],
   },
   {
     id: 'agent-security',
@@ -738,23 +992,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'qa',
     deskIndex: 2,
     status: 'WORKING',
-    currentTask: 'Auditing dependency tree and validating CORS & CSP security headers',
+    currentTask:
+      'Auditing dependency tree and validating CORS & CSP security headers',
     taskProgress: 88,
     avatarColor: '#34d399',
     clothingColor: '#022c22',
     hairColor: '#18181b',
     skinTone: '#fed7aa',
     tools: ['Snyk', 'Trivy', 'OWASP ZAP', 'Semgrep', 'Burp Suite'],
-    brief: 'Vulnerability scanning, secret leak detection, SAST analysis, authentication auditing, and threat modeling.',
-    stats: { tasksCompleted: 45, tokensBurned: 175000, uptime: '100%', accuracy: 100 },
+    brief:
+      'Vulnerability scanning, secret leak detection, SAST analysis, authentication auditing, and threat modeling.',
+    stats: {
+      tasksCompleted: 45,
+      tokensBurned: 175000,
+      uptime: '100%',
+      accuracy: 100,
+    },
     screenType: 'terminal',
-    screenSnippet: '$ semgrep --config=p/security-audit .\nScanning 84 files...\n[OK] 0 vulnerabilities found\n[OK] CSP header contains strict-dynamic\n[OK] 0 leaked credentials in repo',
+    screenSnippet:
+      '$ semgrep --config=p/security-audit .\nScanning 84 files...\n[OK] 0 vulnerabilities found\n[OK] CSP header contains strict-dynamic\n[OK] 0 leaked credentials in repo',
     workstationPos: [2.5, 0.2, 18],
     currentPos: [2.5, 0.2, 18],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Verified JWT signing algorithm is RS256', 'All dependencies pass vulnerability checks']
+    recentLogs: [
+      'Verified JWT signing algorithm is RS256',
+      'All dependencies pass vulnerability checks',
+    ],
   },
   {
     id: 'agent-performance',
@@ -763,23 +1028,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'qa',
     deskIndex: 3,
     status: 'WORKING',
-    currentTask: 'Monitoring WebGL draw calls, shader instancing, and GPU memory heap',
+    currentTask:
+      'Monitoring WebGL draw calls, shader instancing, and GPU memory heap',
     taskProgress: 76,
     avatarColor: '#6ee7b7',
     clothingColor: '#134e4a',
     hairColor: '#3f3f46',
     skinTone: '#fde047',
     tools: ['Chrome DevTools', 'SpectorJS', 'WebGPU Inspector', 'Lighthouse'],
-    brief: 'Frame rate profiling, memory leak detection, asset compression, and draw call reduction.',
-    stats: { tasksCompleted: 39, tokensBurned: 132000, uptime: '99.9%', accuracy: 99.6 },
+    brief:
+      'Frame rate profiling, memory leak detection, asset compression, and draw call reduction.',
+    stats: {
+      tasksCompleted: 39,
+      tokensBurned: 132000,
+      uptime: '99.9%',
+      accuracy: 99.6,
+    },
     screenType: 'charts',
-    screenSnippet: 'WEBGL METRICS:\nFPS: 60.0 (Solid)\nDraw Calls: 48\nTriangles: 24,100\nTexture Memory: 32 MB (Budget: 128 MB)',
+    screenSnippet:
+      'WEBGL METRICS:\nFPS: 60.0 (Solid)\nDraw Calls: 48\nTriangles: 24,100\nTexture Memory: 32 MB (Budget: 128 MB)',
     workstationPos: [5.5, 0.2, 18],
     currentPos: [5.5, 0.2, 18],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Instanced desk geometry to reduce draw calls', 'Verified smooth 60fps camera pan']
+    recentLogs: [
+      'Instanced desk geometry to reduce draw calls',
+      'Verified smooth 60fps camera pan',
+    ],
   },
   {
     id: 'agent-accessibility',
@@ -795,16 +1071,26 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     hairColor: '#0f172a',
     skinTone: '#fbcfe8',
     tools: ['axe-core', 'NVDA', 'WAVE', 'WCAG 2.1 Validator'],
-    brief: 'Screen reader compatibility, keyboard navigation, focus trap prevention, and ARIA tree auditing.',
-    stats: { tasksCompleted: 28, tokensBurned: 98000, uptime: '99.9%', accuracy: 99.9 },
+    brief:
+      'Screen reader compatibility, keyboard navigation, focus trap prevention, and ARIA tree auditing.',
+    stats: {
+      tasksCompleted: 28,
+      tokensBurned: 98000,
+      uptime: '99.9%',
+      accuracy: 99.9,
+    },
     screenType: 'screensaver',
-    screenSnippet: 'WCAG 2.1 AAA AUDIT PASSED // KEYBOARD SHORTCUTS BOUND // REDUCED MOTION OK',
+    screenSnippet:
+      'WCAG 2.1 AAA AUDIT PASSED // KEYBOARD SHORTCUTS BOUND // REDUCED MOTION OK',
     workstationPos: [-3.5, 0.2, 21],
     currentPos: [-3.5, 0.2, 21],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Added Space and Escape key handlers for camera reset', 'Contrast ratio verified at 7.2:1']
+    recentLogs: [
+      'Added Space and Escape key handlers for camera reset',
+      'Contrast ratio verified at 7.2:1',
+    ],
   },
 
   // Operations & Cost Control (west [-27, 0.2, 0])
@@ -815,23 +1101,39 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'operations',
     deskIndex: 0,
     status: 'WORKING',
-    currentTask: 'Tracking token burn rates and enforcing model routing tier thresholds',
+    currentTask:
+      'Tracking token burn rates and enforcing model routing tier thresholds',
     taskProgress: 84,
     avatarColor: '#0d9488',
     clothingColor: '#115e59',
     hairColor: '#52525b',
     skinTone: '#fed7aa',
-    tools: ['Anthropic Console', 'OpenAI Dashboard', 'Grafana', 'Stripe Billing'],
-    brief: 'Financial governance, API cost allocation, model arbitrage, and budget alerts.',
-    stats: { tasksCompleted: 51, tokensBurned: 110000, uptime: '100%', accuracy: 100 },
+    tools: [
+      'Anthropic Console',
+      'OpenAI Dashboard',
+      'Grafana',
+      'Stripe Billing',
+    ],
+    brief:
+      'Financial governance, API cost allocation, model arbitrage, and budget alerts.',
+    stats: {
+      tasksCompleted: 51,
+      tokensBurned: 110000,
+      uptime: '100%',
+      accuracy: 100,
+    },
     screenType: 'charts',
-    screenSnippet: 'TOKEN COST SUMMARY:\nDaily Burn: $12.40 / $50.00 Limit\nCost per Task: $0.024 (down 38%)\nModel Routing: 72% Sonnet / 28% Flash',
+    screenSnippet:
+      'TOKEN COST SUMMARY:\nDaily Burn: $12.40 / $50.00 Limit\nCost per Task: $0.024 (down 38%)\nModel Routing: 72% Sonnet / 28% Flash',
     workstationPos: [-29, 0.2, -2],
     currentPos: [-29, 0.2, -2],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Automated switch to efficient model for background tasks', 'Saved $184 this week via prompt caching']
+    recentLogs: [
+      'Automated switch to efficient model for background tasks',
+      'Saved $184 this week via prompt caching',
+    ],
   },
   {
     id: 'agent-api',
@@ -840,23 +1142,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'operations',
     deskIndex: 1,
     status: 'WORKING',
-    currentTask: 'Validating OpenAPI 3.1 schemas and managing MCP server connections',
+    currentTask:
+      'Validating OpenAPI 3.1 schemas and managing MCP server connections',
     taskProgress: 69,
     avatarColor: '#14b8a6',
     clothingColor: '#134e4a',
     hairColor: '#18181b',
     skinTone: '#fcd34d',
     tools: ['Postman', 'OpenAPI', 'Swagger', 'MCP Protocol', 'Curl'],
-    brief: 'API contract enforcement, MCP protocol servers, rate limiting, and webhook dispatch.',
-    stats: { tasksCompleted: 46, tokensBurned: 145000, uptime: '99.9%', accuracy: 99.4 },
+    brief:
+      'API contract enforcement, MCP protocol servers, rate limiting, and webhook dispatch.',
+    stats: {
+      tasksCompleted: 46,
+      tokensBurned: 145000,
+      uptime: '99.9%',
+      accuracy: 99.4,
+    },
     screenType: 'code',
-    screenSnippet: 'paths:\n  /api/v1/office/tasks:\n    post:\n      summary: Dispatch new task to Manager\n      requestBody:\n        content: application/json',
+    screenSnippet:
+      'paths:\n  /api/v1/office/tasks:\n    post:\n      summary: Dispatch new task to Manager\n      requestBody:\n        content: application/json',
     workstationPos: [-26, 0.2, -2],
     currentPos: [-26, 0.2, -2],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Connected GitHub and Slack MCP servers', 'All 8 API endpoints validated']
+    recentLogs: [
+      'Connected GitHub and Slack MCP servers',
+      'All 8 API endpoints validated',
+    ],
   },
   {
     id: 'agent-skills',
@@ -871,17 +1184,32 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     clothingColor: '#1e293b',
     hairColor: '#451a03',
     skinTone: '#fde047',
-    tools: ['Antigravity Skills', 'Markdown', 'Claude Code', 'YAML Frontmatter'],
-    brief: 'Skill curation, prompt template optimization, agent SOP authoring, and skill indexing.',
-    stats: { tasksCompleted: 33, tokensBurned: 95000, uptime: '99.8%', accuracy: 99.1 },
+    tools: [
+      'Antigravity Skills',
+      'Markdown',
+      'Claude Code',
+      'YAML Frontmatter',
+    ],
+    brief:
+      'Skill curation, prompt template optimization, agent SOP authoring, and skill indexing.',
+    stats: {
+      tasksCompleted: 33,
+      tokensBurned: 95000,
+      uptime: '99.8%',
+      accuracy: 99.1,
+    },
     screenType: 'screensaver',
-    screenSnippet: 'SKILLS REPOSITORY: 14 CUSTOM SKILLS SYNCED // AUTO-LOADER ACTIVE',
+    screenSnippet:
+      'SKILLS REPOSITORY: 14 CUSTOM SKILLS SYNCED // AUTO-LOADER ACTIVE',
     workstationPos: [-29, 0.2, 2],
     currentPos: [-29, 0.2, 2],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Created new skill for automated release notes', 'Validated YAML frontmatter format']
+    recentLogs: [
+      'Created new skill for automated release notes',
+      'Validated YAML frontmatter format',
+    ],
   },
 
   // DevOps & Cloud Infrastructure (east [27, 0.2, 0])
@@ -892,23 +1220,34 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'infrastructure',
     deskIndex: 0,
     status: 'WORKING',
-    currentTask: 'Scaling Kubernetes edge pods and verifying zero-downtime rolling update',
+    currentTask:
+      'Scaling Kubernetes edge pods and verifying zero-downtime rolling update',
     taskProgress: 91,
     avatarColor: '#0284c7',
     clothingColor: '#0c4a6e',
     hairColor: '#1e293b',
     skinTone: '#fed7aa',
     tools: ['Kubernetes', 'Docker', 'Terraform', 'GitHub Actions', 'AWS'],
-    brief: 'Container orchestration, CI/CD automated deployments, infrastructure as code, and cloud reliability.',
-    stats: { tasksCompleted: 78, tokensBurned: 275000, uptime: '100%', accuracy: 99.9 },
+    brief:
+      'Container orchestration, CI/CD automated deployments, infrastructure as code, and cloud reliability.',
+    stats: {
+      tasksCompleted: 78,
+      tokensBurned: 275000,
+      uptime: '100%',
+      accuracy: 99.9,
+    },
     screenType: 'devops',
-    screenSnippet: 'K8S CLUSTER: PROD-US-EAST\n[●] pod/office-api-7b8f-1  RUNNING (18d)\n[●] pod/office-api-7b8f-2  RUNNING (18d)\n[●] pod/office-web-9c4d-1  RUNNING (18d)\nDeploy Status: Rollout Successful',
+    screenSnippet:
+      'K8S CLUSTER: PROD-US-EAST\n[●] pod/office-api-7b8f-1  RUNNING (18d)\n[●] pod/office-api-7b8f-2  RUNNING (18d)\n[●] pod/office-web-9c4d-1  RUNNING (18d)\nDeploy Status: Rollout Successful',
     workstationPos: [26, 0.2, -2],
     currentPos: [26, 0.2, -2],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['Deployed release tag v3.2.0', 'Cluster CPU utilization stable at 24%']
+    recentLogs: [
+      'Deployed release tag v3.2.0',
+      'Cluster CPU utilization stable at 24%',
+    ],
   },
   {
     id: 'agent-monitoring',
@@ -917,60 +1256,122 @@ export const INITIAL_AGENTS: OfficeAgent[] = [
     departmentId: 'infrastructure',
     deskIndex: 1,
     status: 'WORKING',
-    currentTask: 'Ingesting distributed traces and monitoring edge telemetry health',
+    currentTask:
+      'Ingesting distributed traces and monitoring edge telemetry health',
     taskProgress: 87,
     avatarColor: '#38bdf8',
     clothingColor: '#1e293b',
     hairColor: '#0f172a',
     skinTone: '#fbcfe8',
     tools: ['Prometheus', 'Grafana', 'Datadog', 'OpenTelemetry', 'PagerDuty'],
-    brief: 'Real-time telemetry, alert thresholds, latency heatmaps, error budgets, and incident mitigation.',
-    stats: { tasksCompleted: 67, tokensBurned: 160000, uptime: '100%', accuracy: 100 },
+    brief:
+      'Real-time telemetry, alert thresholds, latency heatmaps, error budgets, and incident mitigation.',
+    stats: {
+      tasksCompleted: 67,
+      tokensBurned: 160000,
+      uptime: '100%',
+      accuracy: 100,
+    },
     screenType: 'devops',
-    screenSnippet: 'SYSTEM TELEMETRY: 99.999% UPTIME\nAvg Latency: 18.4ms (p99: 42ms)\nError Rate: 0.001%\nActive WebSockets: 142',
+    screenSnippet:
+      'SYSTEM TELEMETRY: 99.999% UPTIME\nAvg Latency: 18.4ms (p99: 42ms)\nError Rate: 0.001%\nActive WebSockets: 142',
     workstationPos: [29, 0.2, -2],
     currentPos: [29, 0.2, -2],
     targetPos: null,
     facingAngle: 0,
     collaboratingWith: null,
-    recentLogs: ['All synthetic ping checks green', 'Incident alert queue is empty']
-  }
-];
+    recentLogs: [
+      'All synthetic ping checks green',
+      'Incident alert queue is empty',
+    ],
+  },
+]
 
 export const INITIAL_NOTIFICATIONS = [
   {
     id: 'notif-1',
     title: 'Deployment v3.2 Successful',
-    message: 'DevOps Engineer deployed the latest simulation engine to the edge cluster.',
+    message:
+      'DevOps Engineer deployed the latest simulation engine to the edge cluster.',
     type: 'success' as const,
     agentId: 'agent-devops',
-    timestamp: '2 min ago'
+    timestamp: '2 min ago',
   },
   {
     id: 'notif-2',
     title: 'Approval Required',
-    message: 'Compliance Checker flagged recommended MSA clauses for Kea Logistics.',
+    message:
+      'Compliance Checker flagged recommended MSA clauses for Kea Logistics.',
     type: 'warning' as const,
     agentId: 'agent-manager',
-    timestamp: '5 min ago'
+    timestamp: '5 min ago',
   },
   {
     id: 'notif-3',
     title: 'Test Suite Passed',
-    message: 'QA Agent confirmed 42/42 Playwright end-to-end tests passed without regressions.',
+    message:
+      'QA Agent confirmed 42/42 Playwright end-to-end tests passed without regressions.',
     type: 'info' as const,
     agentId: 'agent-qa',
-    timestamp: '12 min ago'
-  }
-];
+    timestamp: '12 min ago',
+  },
+]
 
 export const BRAIN_NOTES = [
-  { id: 'bn-1', title: 'Company Manifesto: Autonomous Operations', author: 'Alexander Cross', tags: ['strategy', 'culture'], readCount: 28 },
-  { id: 'bn-2', title: '3D Simulation Architecture & Spatial Anchoring', author: 'Devin Thorne', tags: ['architecture', 'threejs'], readCount: 35 },
-  { id: 'bn-3', title: 'WebAuthn Multi-Factor Cryptographic Specs', author: 'Maya Lin', tags: ['security', 'auth'], readCount: 19 },
-  { id: 'bn-4', title: 'Token Budget & Cost Arbitrage SOP', author: 'Arthur Pendelton', tags: ['operations', 'finance'], readCount: 22 },
-  { id: 'bn-5', title: 'Design System & Architectural Color Tokens', author: 'Zara Al-Mansoor', tags: ['design', 'css'], readCount: 41 },
-  { id: 'bn-6', title: 'Multi-Agent Handoff & Serialization Protocols', author: 'Dr. Aris Thorne', tags: ['ai', 'research'], readCount: 33 },
-  { id: 'bn-7', title: 'Kubernetes Edge Zero-Downtime Playbook', author: 'Lucas Thorne', tags: ['devops', 'infra'], readCount: 15 },
-  { id: 'bn-8', title: 'Playwright & Visual Regression Guidelines', author: 'Tanya Belova', tags: ['qa', 'testing'], readCount: 26 }
-];
+  {
+    id: 'bn-1',
+    title: 'Company Manifesto: Autonomous Operations',
+    author: 'Alexander Cross',
+    tags: ['strategy', 'culture'],
+    readCount: 28,
+  },
+  {
+    id: 'bn-2',
+    title: '3D Simulation Architecture & Spatial Anchoring',
+    author: 'Devin Thorne',
+    tags: ['architecture', 'threejs'],
+    readCount: 35,
+  },
+  {
+    id: 'bn-3',
+    title: 'WebAuthn Multi-Factor Cryptographic Specs',
+    author: 'Maya Lin',
+    tags: ['security', 'auth'],
+    readCount: 19,
+  },
+  {
+    id: 'bn-4',
+    title: 'Token Budget & Cost Arbitrage SOP',
+    author: 'Arthur Pendelton',
+    tags: ['operations', 'finance'],
+    readCount: 22,
+  },
+  {
+    id: 'bn-5',
+    title: 'Design System & Architectural Color Tokens',
+    author: 'Zara Al-Mansoor',
+    tags: ['design', 'css'],
+    readCount: 41,
+  },
+  {
+    id: 'bn-6',
+    title: 'Multi-Agent Handoff & Serialization Protocols',
+    author: 'Dr. Aris Thorne',
+    tags: ['ai', 'research'],
+    readCount: 33,
+  },
+  {
+    id: 'bn-7',
+    title: 'Kubernetes Edge Zero-Downtime Playbook',
+    author: 'Lucas Thorne',
+    tags: ['devops', 'infra'],
+    readCount: 15,
+  },
+  {
+    id: 'bn-8',
+    title: 'Playwright & Visual Regression Guidelines',
+    author: 'Tanya Belova',
+    tags: ['qa', 'testing'],
+    readCount: 26,
+  },
+]

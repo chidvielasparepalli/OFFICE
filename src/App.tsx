@@ -1,121 +1,97 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { ArrowUpRight, Building2, Unplug } from 'lucide-react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <div className="office-shell">
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+
+      <header className="office-header">
+        <div className="office-wordmark">
+          <Building2 size={26} aria-hidden="true" />
+          <span>OFFICE</span>
         </div>
-        <div>
-          <h1>Get started</h1>
+        <a
+          className="repository-link"
+          href="https://github.com/chidvielasparepalli/OFFICE"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View repository
+          <ArrowUpRight size={18} aria-hidden="true" />
+        </a>
+      </header>
+
+      <main id="main-content" tabIndex={-1}>
+        <div className="office-introduction">
+          <h1>AI Corporate Office OS</h1>
           <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+            A workspace for building a real multi-agent company and its
+            interactive 3D office.
           </p>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
+        <div className="office-foundation">
+          <section
+            className="runtime-notice"
+            role="status"
+            aria-labelledby="runtime-heading"
+          >
+            <Unplug size={24} aria-hidden="true" />
+            <div>
+              <h2 id="runtime-heading">Agent runtime not connected</h2>
+              <p>
+                No agents are running here. Tasks, costs, approvals, and results
+                will appear only when a real runtime is connected.
+              </p>
+            </div>
+          </section>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+          <section
+            className="prototype-notice"
+            aria-labelledby="prototype-heading"
+          >
+            <h2 id="prototype-heading">Your 3D prototype is preserved.</h2>
+            <p>
+              The existing department, workstation, character, screen, and
+              camera components are kept in the source. The scene is not mounted
+              in this phase.
+            </p>
+            <details className="prototype-source">
+              <summary>View prototype source</summary>
+              <ul aria-label="Preserved prototype components">
+                <li>
+                  <code>DepartmentPod.tsx</code>
+                </li>
+                <li>
+                  <code>Workstation.tsx</code>
+                </li>
+                <li>
+                  <code>AgentCharacter.tsx</code>
+                </li>
+                <li>
+                  <code>WorkstationScreen.tsx</code>
+                </li>
+                <li>
+                  <code>CameraController.tsx</code>
+                </li>
+              </ul>
+              <p>
+                Mock office data remains prototype/test data. It is not loaded
+                by this shell.
+              </p>
+            </details>
+          </section>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      </main>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <footer className="office-footer">
+        <span>React + Vite foundation</span>
+        <span>Next phase: 3D engine foundation</span>
+      </footer>
+    </div>
   )
 }
 

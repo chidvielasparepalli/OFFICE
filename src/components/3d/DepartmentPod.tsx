@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Html } from '@react-three/drei';
-import { DepartmentInfo, OfficeAgent } from '../../types';
-import { Workstation } from './Workstation';
+import React, { useState } from 'react'
+import { Html } from '@react-three/drei'
+import type { DepartmentInfo, OfficeAgent } from '../../types'
+import { Workstation } from './Workstation'
 
 interface DepartmentPodProps {
-  department: DepartmentInfo;
-  agents: OfficeAgent[];
-  isSelected: boolean;
-  selectedAgentId: string | null;
-  onSelectDepartment: () => void;
-  onSelectAgent: (agentId: string) => void;
+  department: DepartmentInfo
+  agents: OfficeAgent[]
+  isSelected: boolean
+  selectedAgentId: string | null
+  onSelectDepartment: () => void
+  onSelectAgent: (agentId: string) => void
 }
 
 export const DepartmentPod: React.FC<DepartmentPodProps> = ({
@@ -18,15 +18,15 @@ export const DepartmentPod: React.FC<DepartmentPodProps> = ({
   isSelected,
   selectedAgentId,
   onSelectDepartment,
-  onSelectAgent
+  onSelectAgent,
 }) => {
-  const [hovered, setHovered] = useState(false);
-  const [width, depth] = department.size;
-  const [x, y, z] = department.position;
+  const [hovered, setHovered] = useState(false)
+  const [width, depth] = department.size
+  const [x, y, z] = department.position
 
-  const activeAgents = agents.filter(a => a.status === 'WORKING').length;
-  const sleepingAgents = agents.filter(a => a.status === 'SLEEPING').length;
-  const pendingApprovals = agents.filter(a => !!a.pendingApproval).length;
+  const activeAgents = agents.filter((a) => a.status === 'WORKING').length
+  const sleepingAgents = agents.filter((a) => a.status === 'SLEEPING').length
+  const pendingApprovals = agents.filter((a) => !!a.pendingApproval).length
 
   return (
     <group position={[x, y, z]}>
@@ -39,8 +39,8 @@ export const DepartmentPod: React.FC<DepartmentPodProps> = ({
       >
         <div
           onClick={(e) => {
-            e.stopPropagation();
-            onSelectDepartment();
+            e.stopPropagation()
+            onSelectDepartment()
           }}
           className={`p-3 rounded-2xl shadow-xl backdrop-blur-md transition-all duration-200 cursor-pointer select-none border min-w-[210px] ${
             isSelected
@@ -48,8 +48,9 @@ export const DepartmentPod: React.FC<DepartmentPodProps> = ({
               : 'bg-white/90 border-slate-200 hover:border-slate-400 hover:scale-105'
           }`}
           style={{
-            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
-            fontFamily: 'Inter, system-ui, sans-serif'
+            boxShadow:
+              '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05)',
+            fontFamily: 'Inter, system-ui, sans-serif',
           }}
         >
           {/* Header Row: Dot + Department Name */}
@@ -72,11 +73,15 @@ export const DepartmentPod: React.FC<DepartmentPodProps> = ({
           <div className="py-2 space-y-1 text-[11px]">
             <div className="flex justify-between text-slate-600">
               <span>{department.metrics.metricLabel1}</span>
-              <span className="font-semibold text-slate-800">{department.metrics.metricValue1}</span>
+              <span className="font-semibold text-slate-800">
+                {department.metrics.metricValue1}
+              </span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>{department.metrics.metricLabel2}</span>
-              <span className="font-semibold text-slate-800">{department.metrics.metricValue2}</span>
+              <span className="font-semibold text-slate-800">
+                {department.metrics.metricValue2}
+              </span>
             </div>
           </div>
 
@@ -92,7 +97,9 @@ export const DepartmentPod: React.FC<DepartmentPodProps> = ({
             </div>
             <div className="flex items-center gap-1">
               <span className="text-slate-400">DONE</span>
-              <span className="font-bold text-slate-700">{department.metrics.completedTasks}</span>
+              <span className="font-bold text-slate-700">
+                {department.metrics.completedTasks}
+              </span>
             </div>
           </div>
 
@@ -112,15 +119,15 @@ export const DepartmentPod: React.FC<DepartmentPodProps> = ({
         receiveShadow
         castShadow
         onClick={(e) => {
-          e.stopPropagation();
-          onSelectDepartment();
+          e.stopPropagation()
+          onSelectDepartment()
         }}
         onPointerOver={(e) => {
-          e.stopPropagation();
-          setHovered(true);
+          e.stopPropagation()
+          setHovered(true)
         }}
         onPointerOut={() => {
-          setHovered(false);
+          setHovered(false)
         }}
       >
         <boxGeometry args={[width, 0.35, depth]} />
@@ -144,12 +151,13 @@ export const DepartmentPod: React.FC<DepartmentPodProps> = ({
       </mesh>
 
       {/* Floor Tile Grid Line Decal */}
-      <mesh position={[0, 0.19, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+      <mesh
+        position={[0, 0.19, 0]}
+        rotation={[-Math.PI / 2, 0, 0]}
+        receiveShadow
+      >
         <planeGeometry args={[width - 0.4, depth - 0.4]} />
-        <meshStandardMaterial
-          color="#f1f5f9"
-          roughness={0.8}
-        />
+        <meshStandardMaterial color="#f1f5f9" roughness={0.8} />
       </mesh>
 
       {/* Workstations for this Department */}
@@ -162,5 +170,5 @@ export const DepartmentPod: React.FC<DepartmentPodProps> = ({
         />
       ))}
     </group>
-  );
-};
+  )
+}
