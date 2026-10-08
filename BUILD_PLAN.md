@@ -138,20 +138,35 @@ The finished product should feel like:
 - Smooth camera easing
 - Procedural path movement
 
-## Backend / Data
+## Application / Backend Foundation
 
-- Node.js / Next.js server routes or existing server runtime
+- React + Vite is the approved Phase 1 application foundation.
+- TypeScript
+- Node.js tooling
 - Supabase
 - PostgreSQL
 - Supabase Auth
 - Supabase Realtime
 - Existing agent runtime
 
+### Framework decision
+
+The current application is a React/Vite SPA. **Keep Vite for Phase 1.**
+
+Do not migrate to Next.js merely because an earlier version of this document mentioned Next.js.
+
+When real server-only functionality is introduced (provider credentials, protected agent execution, server-side APIs, webhooks, etc.), evaluate the cleanest architecture based on the actual runtime:
+- extend the existing Vite SPA with a separate server/service, or
+- migrate to a full-stack framework if the benefits clearly outweigh migration cost.
+
+Do not perform a framework migration without an explicit architectural decision and migration plan.
+
 ## Deployment
 
-- Vercel for frontend/app hosting
+- Vercel for the Vite frontend/app during the initial phases
 - Supabase for database/auth/realtime
 - GitHub for source control
+- Add a protected server/runtime deployment only when real server-side execution is implemented
 
 ## 3D Asset Creation
 
@@ -3010,3 +3025,42 @@ Events connect business reality to physical activity.
 The objective is not merely to generate a beautiful 3D scene.
 
 The objective is to build a **working autonomous AI company that happens to be visible as a 3D office.**
+
+
+---
+
+# 76. Architecture Decision Record — Vite Foundation
+
+**Status:** APPROVED for Phase 1
+
+The existing `MYOFFICE` application is a React + Vite project with reusable R3F/Three.js prototype work.
+
+For the first implementation milestone:
+
+- preserve Vite
+- repair the current foundation
+- mount the existing 3D prototype
+- avoid a premature Next.js migration
+- establish a clean frontend boundary before adding protected backend/runtime functionality
+
+A framework migration may be evaluated later when server-only execution becomes necessary.
+
+**Reason:** the project already has working Vite/R3F dependencies and reusable 3D components. An immediate framework migration would add risk without being required to prove the core 3D office experience.
+
+---
+
+# 77. Phase 0 Audit Snapshot
+
+The initial Phase 0 audit identified:
+
+- reusable procedural 3D prototype components already exist
+- the current Vite app is still mounted to the default starter screen
+- no real backend/Supabase/agent runtime is implemented in the local application
+- current office data is simulated and must remain isolated from production truth
+- current TypeScript/build errors must be repaired before feature expansion
+- Linux/Windows Node tooling needs normalization
+- GitHub currently contains the canonical project documents while the application exists locally
+
+The next implementation milestone is therefore:
+
+**Git import baseline → native Linux dependency baseline → Phase 1 foundation repair → truthful OFFICE shell → validation → 3D scene mounting.**
