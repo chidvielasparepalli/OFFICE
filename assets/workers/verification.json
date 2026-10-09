@@ -1,0 +1,31 @@
+{
+  "sources_unchanged": [
+    "A:\\New folder\\Stickman\\model_0.obj",
+    "A:\\New folder\\Stickman\\x.png",
+    "A:\\New folder\\office-desk\\source\\Office Desk\\Office Desk.obj",
+    "A:\\New folder\\office-desk\\source\\Office Desk.zip"
+  ],
+  "assets": {
+    "standardWorker": {
+      "bytes": 193324,
+      "triangles": 3700,
+      "exported_vertices": 5079,
+      "meshes": 1,
+      "materials": 1,
+      "embedded_images": 1
+    },
+    "workstation": {
+      "bytes": 512288,
+      "triangles": 20065,
+      "exported_vertices": 12969,
+      "meshes": 5,
+      "materials": 5,
+      "embedded_images": 0
+    }
+  },
+  "worker_source_face_check": {
+    "raw_faces": 7903,
+    "repeated_index_faces": 4203
+  },
+  "worker_atlas_bytes_preserved": true
+}

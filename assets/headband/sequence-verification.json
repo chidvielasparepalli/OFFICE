@@ -1,0 +1,399 @@
+{
+  "method": "Independent authored targets and exported GLB skin/joint samples; Blender triangle BVH checks character against supplied desktop and visible accessory against desktop/chair. Coordinates are relative to seated actor ground pivot. Penetration depth samples inside vertices using ray parity and nearest surface distance.",
+  "rig_script_sha256": "aa43c166a8e88ad07caedf40d0ac976a1e8dfd32a45c94840b9cb4d8ba50d0df",
+  "target_checks": {
+    "worker": {
+      "right_grip_max": {
+        "progress": 0.41666666666666663,
+        "gap_m": 4.2146848510894035e-8
+      },
+      "left_grip_max": {
+        "progress": 0.41666666666666663,
+        "gap_m": 4.2146848510894035e-8
+      },
+      "maximum_band_center_above_crown_m": 0.08370459079742432,
+      "band_center_at_forehead_below_crown_m": 0.14628064632415771
+    },
+    "manager": {
+      "right_grip_max": {
+        "progress": 0.4629629629629629,
+        "gap_m": 0.002583686270358984
+      },
+      "left_grip_max": {
+        "progress": 0.4351851851851852,
+        "gap_m": 4.2146848510894035e-8
+      },
+      "maximum_band_center_above_crown_m": 0.09883975982666016,
+      "band_center_at_forehead_below_crown_m": 0.08115124702453613
+    }
+  },
+  "grip_definition": "72% of the 0.17 m hand bone; grip coordinates are scaled asset-relative offsets from headband_anchor.",
+  "visibility": "Right hand carries at progress 0.12\u20130.80; left grip established by 0.34; release begins 0.80.",
+  "accessory": {
+    "file": "assets/working/headband/red-headband.glb",
+    "sha256": "64f7e7e9b503c2ea9922c65731c42f84677fe6896774f8765e558d56ddafcacf",
+    "bytes": 646796
+  },
+  "export_checks": {
+    "worker": {
+      "file": "assets/working/animation/standard-worker-animated.glb",
+      "sha256": "31cf85faaf4bdff5a4aa12d4ee0a92ccdb33622df8d5b9e6ee323d622d01a1d5",
+      "bytes": 531652,
+      "clips": {
+        "headband_on": {
+          "samples": 51,
+          "floor_range_m": [1.2788074853519133e-6, 1.2788074853519133e-6],
+          "maximum_desk_triangle_pairs": 0,
+          "desk_contacts": [],
+          "maximum_accessory_desk_triangle_pairs": 0,
+          "accessory_desk_contacts": [],
+          "maximum_accessory_chair_triangle_pairs": 0,
+          "accessory_chair_contacts": [],
+          "right_grip_max": {
+            "seconds": 2.8800000000000003,
+            "progress": 0.8,
+            "gap_m": 0.0006359620217239717
+          },
+          "left_grip_max": {
+            "seconds": 1.2240000000000002,
+            "progress": 0.34,
+            "gap_m": 0.001934926532178769
+          },
+          "maximum_band_center_above_crown_m": 0.08512456655130163,
+          "maximum_ring_lower_bound_above_crown_m": 0.04975635593072081,
+          "forehead_below_crown_m": 0.1448608708464303
+        },
+        "headband_off": {
+          "samples": 51,
+          "floor_range_m": [1.2788074853519133e-6, 1.2788074853519133e-6],
+          "maximum_desk_triangle_pairs": 0,
+          "desk_contacts": [],
+          "maximum_accessory_desk_triangle_pairs": 0,
+          "accessory_desk_contacts": [],
+          "maximum_accessory_chair_triangle_pairs": 0,
+          "accessory_chair_contacts": [],
+          "right_grip_max": {
+            "seconds": 0.7200000000000001,
+            "progress": 0.8,
+            "gap_m": 0.0006359232827505926
+          },
+          "left_grip_max": {
+            "seconds": 2.3760000000000003,
+            "progress": 0.33999999999999997,
+            "gap_m": 0.0019349286311220453
+          },
+          "maximum_band_center_above_crown_m": 0.08512456655130163,
+          "maximum_ring_lower_bound_above_crown_m": 0.04975635593072081,
+          "forehead_below_crown_m": 0.1448608708464303
+        },
+        "seated_work_hard": {
+          "samples": 51,
+          "floor_range_m": [1.3701485605423946e-6, 1.5404956075376272e-6],
+          "maximum_desk_triangle_pairs": 0,
+          "desk_contacts": [],
+          "maximum_accessory_desk_triangle_pairs": 0,
+          "accessory_desk_contacts": [],
+          "maximum_accessory_chair_triangle_pairs": 0,
+          "accessory_chair_contacts": [],
+          "maximum_head_attachment_error_m": 3.159046194078918e-8
+        }
+      },
+      "failures": []
+    },
+    "manager": {
+      "file": "assets/working/animation/primary-manager-animated.glb",
+      "sha256": "81e00dd872c75bfc898f110f1358f883f98014c833d48f6fb966af455b831812",
+      "bytes": 6319716,
+      "clips": {
+        "headband_on": {
+          "samples": 51,
+          "floor_range_m": [-4.1430671735815286e-7, -4.1430671735815286e-7],
+          "maximum_desk_triangle_pairs": 0,
+          "desk_contacts": [],
+          "maximum_accessory_desk_triangle_pairs": 0,
+          "accessory_desk_contacts": [],
+          "maximum_accessory_chair_triangle_pairs": 0,
+          "accessory_chair_contacts": [],
+          "right_grip_max": {
+            "seconds": 1.6560000000000001,
+            "progress": 0.46,
+            "gap_m": 0.0018678963433741592
+          },
+          "left_grip_max": {
+            "seconds": 1.2240000000000002,
+            "progress": 0.34,
+            "gap_m": 0.003585173437021427
+          },
+          "maximum_band_center_above_crown_m": 0.09990220233628277,
+          "maximum_ring_lower_bound_above_crown_m": 0.06835507539481123,
+          "forehead_below_crown_m": 0.08008888222807342
+        },
+        "headband_off": {
+          "samples": 51,
+          "floor_range_m": [-4.1430671735815286e-7, -4.1430671735815286e-7],
+          "maximum_desk_triangle_pairs": 0,
+          "desk_contacts": [],
+          "maximum_accessory_desk_triangle_pairs": 0,
+          "accessory_desk_contacts": [],
+          "maximum_accessory_chair_triangle_pairs": 0,
+          "accessory_chair_contacts": [],
+          "right_grip_max": {
+            "seconds": 1.9440000000000002,
+            "progress": 0.45999999999999996,
+            "gap_m": 0.0018679606447586283
+          },
+          "left_grip_max": {
+            "seconds": 2.3760000000000003,
+            "progress": 0.33999999999999997,
+            "gap_m": 0.0035851784452347307
+          },
+          "maximum_band_center_above_crown_m": 0.09990220233628277,
+          "maximum_ring_lower_bound_above_crown_m": 0.06835507539481123,
+          "forehead_below_crown_m": 0.08008888222807342
+        },
+        "seated_work_hard": {
+          "samples": 51,
+          "floor_range_m": [-4.4414794778291333e-7, -2.791476998205199e-7],
+          "maximum_desk_triangle_pairs": 0,
+          "desk_contacts": [],
+          "maximum_accessory_desk_triangle_pairs": 0,
+          "accessory_desk_contacts": [],
+          "maximum_accessory_chair_triangle_pairs": 0,
+          "accessory_chair_contacts": [],
+          "maximum_head_attachment_error_m": 8.01086428026121e-8
+        }
+      },
+      "failures": []
+    }
+  },
+  "blend_checks": {
+    "worker": {
+      "blend_seconds": 0.18,
+      "clips": {
+        "headband_off \u2192 seated_idle": [
+          {
+            "amount": 0,
+            "incoming_seconds": 0.0,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.25,
+            "incoming_seconds": 0.045,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.5,
+            "incoming_seconds": 0.09,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.75,
+            "incoming_seconds": 0.135,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 1,
+            "incoming_seconds": 0.18,
+            "desktop_triangle_pairs": 0
+          }
+        ],
+        "headband_off \u2192 stand_up": [
+          {
+            "amount": 0,
+            "incoming_seconds": 0.0,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.25,
+            "incoming_seconds": 0.045,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.5,
+            "incoming_seconds": 0.09,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.75,
+            "incoming_seconds": 0.135,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 1,
+            "incoming_seconds": 0.18,
+            "desktop_triangle_pairs": 0
+          }
+        ],
+        "sit_down \u2192 headband_on": [
+          {
+            "amount": 0,
+            "incoming_seconds": 0.0,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.25,
+            "incoming_seconds": 0.045,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.5,
+            "incoming_seconds": 0.09,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.75,
+            "incoming_seconds": 0.135,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 1,
+            "incoming_seconds": 0.18,
+            "desktop_triangle_pairs": 0
+          }
+        ],
+        "headband_on \u2192 seated_work_hard": [
+          {
+            "amount": 0,
+            "incoming_seconds": 0.0,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.25,
+            "incoming_seconds": 0.045,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.5,
+            "incoming_seconds": 0.09,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.75,
+            "incoming_seconds": 0.135,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 1,
+            "incoming_seconds": 0.18,
+            "desktop_triangle_pairs": 0
+          }
+        ]
+      },
+      "failures": []
+    },
+    "manager": {
+      "blend_seconds": 0.18,
+      "clips": {
+        "headband_off \u2192 seated_idle": [
+          {
+            "amount": 0,
+            "incoming_seconds": 0.0,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.25,
+            "incoming_seconds": 0.045,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.5,
+            "incoming_seconds": 0.09,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.75,
+            "incoming_seconds": 0.135,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 1,
+            "incoming_seconds": 0.18,
+            "desktop_triangle_pairs": 0
+          }
+        ],
+        "headband_off \u2192 stand_up": [
+          {
+            "amount": 0,
+            "incoming_seconds": 0.0,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.25,
+            "incoming_seconds": 0.045,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.5,
+            "incoming_seconds": 0.09,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.75,
+            "incoming_seconds": 0.135,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 1,
+            "incoming_seconds": 0.18,
+            "desktop_triangle_pairs": 0
+          }
+        ],
+        "sit_down \u2192 headband_on": [
+          {
+            "amount": 0,
+            "incoming_seconds": 0.0,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.25,
+            "incoming_seconds": 0.045,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.5,
+            "incoming_seconds": 0.09,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.75,
+            "incoming_seconds": 0.135,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 1,
+            "incoming_seconds": 0.18,
+            "desktop_triangle_pairs": 0
+          }
+        ],
+        "headband_on \u2192 seated_work_hard": [
+          {
+            "amount": 0,
+            "incoming_seconds": 0.0,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.25,
+            "incoming_seconds": 0.045,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.5,
+            "incoming_seconds": 0.09,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 0.75,
+            "incoming_seconds": 0.135,
+            "desktop_triangle_pairs": 0
+          },
+          {
+            "amount": 1,
+            "incoming_seconds": 0.18,
+            "desktop_triangle_pairs": 0
+          }
+        ]
+      },
+      "failures": []
+    }
+  }
+}

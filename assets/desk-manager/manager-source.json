@@ -1,0 +1,1845 @@
+{
+  "source": "A:\\New folder\\Indian Man in suit",
+  "files": [
+    {
+      "file": "ARARAT_Color_1K.png",
+      "bytes": 195765,
+      "sha256": "1b3b93ee8d0070be1fd0eb7cf60592bf9ada246a4c22f1ba50a907b93750a7bb"
+    },
+    {
+      "file": "ARARAT_Normal_1K.png",
+      "bytes": 2617843,
+      "sha256": "b75e68442fb7c3bc826bfc8c946fee154bd3bbd32c871ac2995bec19726cea05"
+    },
+    {
+      "file": "AvatarBodyMale_Color_1K.png",
+      "bytes": 951748,
+      "sha256": "b612d1a3bffdcf1f4720178786258d89162ec5b97ad252ca88704e26ed4117ad"
+    },
+    {
+      "file": "AvatarBodyMale_Normal1_1K.png",
+      "bytes": 1210455,
+      "sha256": "1ce17d46cac898b3072f1a6ce67f883aeb31cb9c71f21c3d02d765fee074758c"
+    },
+    {
+      "file": "AvatarEyes_Color_512.png",
+      "bytes": 301944,
+      "sha256": "725fa2ab84a2f925af4e812a855441ae26463c7e1004ac9fabecf5e30c931d87"
+    },
+    {
+      "file": "AvatarEyes_Normal_512.png",
+      "bytes": 267580,
+      "sha256": "51120e81a8a37ea15dfa7f26ead7bb6cd992b5020962d65d3d35c7c6322d4d18"
+    },
+    {
+      "file": "AvatarHeadMale_Color_1K.png",
+      "bytes": 1247510,
+      "sha256": "4002b615fba80d23cba851e25961a489559813fc3f37aac3d6eec41d8bcf1603"
+    },
+    {
+      "file": "AvatarHeadMale_Normal1_1K.png",
+      "bytes": 398484,
+      "sha256": "20f3421c6abecf0091b39575c0b5f714b7b489dab2a7bbacdae22cd3133a4e7d"
+    },
+    {
+      "file": "AvatarLeftCornea_Color_512.png",
+      "bytes": 184219,
+      "sha256": "b01620ed3791256f36f2f3823dbdaa27fd861d9ce95a36bc02e64b389689346e"
+    },
+    {
+      "file": "AvatarRightCornea_Color_512.png",
+      "bytes": 196203,
+      "sha256": "79a6b0bb81e13024ebe6d43cb71c98625988562a0ae8f80e08f231e8a4856156"
+    },
+    {
+      "file": "AvatarTeeth_Color_1K.png",
+      "bytes": 785525,
+      "sha256": "ef870e3e03be555c6d82f817f6fe45b58a6f9445cd3455c52c43a9d7b81b7339"
+    },
+    {
+      "file": "AvatarTeeth_Normal1_1K.png",
+      "bytes": 2238497,
+      "sha256": "e2fe9357ad44c7c4cae55437757308c566b4914f9ebc41f2fe3058ab39427bc5"
+    },
+    {
+      "file": "glasses_10_Color_256.png",
+      "bytes": 7505,
+      "sha256": "275215b685ecc0884b89b14e0868528028274b40d87f4edfcd7a5aeaa1cba3e1"
+    },
+    {
+      "file": "model_0.obj",
+      "bytes": 578969,
+      "sha256": "1c3d7a4a26c8c9dbd752072817bf2ee136c5f9077990bf5855bb43116b5754e4",
+      "vertices": 2024,
+      "faces": 5543,
+      "triangles": 5543,
+      "lines": 0,
+      "uv_coordinates": 2024,
+      "normals": 2024,
+      "bounds": [
+        [-0.8801730275154114, 1.3778599500656128, -0.017358999699354172],
+        [0.8806768655776978, 1.4584468603134155, 0.13123354315757751]
+      ],
+      "dimensions": [
+        1.7608498930931091, 0.08058691024780273, 0.1485925428569317
+      ],
+      "objects": ["model_0"],
+      "groups": [],
+      "material_libraries": ["model_0.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_0.mtl"]
+    },
+    {
+      "file": "model_1.obj",
+      "bytes": 1088410,
+      "sha256": "7827acc801e5aaef1186b22175b4cc1cafc340f37d048488d90b7a52f428205c",
+      "vertices": 6300,
+      "faces": 8396,
+      "triangles": 8396,
+      "lines": 0,
+      "uv_coordinates": 0,
+      "normals": 6300,
+      "bounds": [
+        [-0.04499309882521629, 1.6716899871826172, 0.09749060124158859],
+        [0.04556802287697792, 1.6915677785873413, 0.11294583976268768]
+      ],
+      "dimensions": [
+        0.09056112170219421, 0.01987779140472412, 0.01545523852109909
+      ],
+      "objects": ["model_1"],
+      "groups": [],
+      "material_libraries": ["model_1.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_1.mtl"]
+    },
+    {
+      "file": "model_10.obj",
+      "bytes": 818379,
+      "sha256": "494d67e7461610fffc15c94a3e5f41c32b91278f7d56862eedf5c70b1dea7ea3",
+      "vertices": 2861,
+      "faces": 7558,
+      "triangles": 7558,
+      "lines": 0,
+      "uv_coordinates": 2861,
+      "normals": 2861,
+      "bounds": [
+        [-0.0857648029923439, 1.6547800302505493, -0.012700799852609634],
+        [0.08821771293878555, 1.6993966102600098, 0.12566432356834412]
+      ],
+      "dimensions": [
+        0.17398251593112946, 0.04461658000946045, 0.13836512342095375
+      ],
+      "objects": ["model_10"],
+      "groups": [],
+      "material_libraries": ["model_10.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_10.mtl"]
+    },
+    {
+      "file": "model_11.obj",
+      "bytes": 578971,
+      "sha256": "55b400e412df34bd46213f8e87af29e58f339e01762543f95d21ea396cec2d3a",
+      "vertices": 2024,
+      "faces": 5543,
+      "triangles": 5543,
+      "lines": 0,
+      "uv_coordinates": 2024,
+      "normals": 2024,
+      "bounds": [
+        [-0.8801730275154114, 1.3778599500656128, -0.017358999699354172],
+        [0.8806768655776978, 1.4584468603134155, 0.13123354315757751]
+      ],
+      "dimensions": [
+        1.7608498930931091, 0.08058691024780273, 0.1485925428569317
+      ],
+      "objects": ["model_11"],
+      "groups": [],
+      "material_libraries": ["model_11.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_11.mtl"]
+    },
+    {
+      "file": "model_12.obj",
+      "bytes": 1088412,
+      "sha256": "f98146aac957b0aaad86e8d82e82778aeaf6a6240c22ea2f7d6f9608cf0779eb",
+      "vertices": 6300,
+      "faces": 8396,
+      "triangles": 8396,
+      "lines": 0,
+      "uv_coordinates": 0,
+      "normals": 6300,
+      "bounds": [
+        [-0.04499309882521629, 1.6716899871826172, 0.09749060124158859],
+        [0.04556802287697792, 1.6915677785873413, 0.11294583976268768]
+      ],
+      "dimensions": [
+        0.09056112170219421, 0.01987779140472412, 0.01545523852109909
+      ],
+      "objects": ["model_12"],
+      "groups": [],
+      "material_libraries": ["model_12.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_12.mtl"]
+    },
+    {
+      "file": "model_13.obj",
+      "bytes": 2177119,
+      "sha256": "cf05e944f724d979c02f1b895137f02615714fd98646166503a751edb96035f9",
+      "vertices": 7125,
+      "faces": 20963,
+      "triangles": 20963,
+      "lines": 0,
+      "uv_coordinates": 7125,
+      "normals": 7125,
+      "bounds": [
+        [-0.0904569998383522, 1.4923100471496582, -0.0883236974477768],
+        [0.09433797001838684, 1.8111588954925537, 0.14280307292938232]
+      ],
+      "dimensions": [
+        0.18479496985673904, 0.3188488483428955, 0.23112677037715912
+      ],
+      "objects": ["model_13"],
+      "groups": [],
+      "material_libraries": ["model_13.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_13.mtl"]
+    },
+    {
+      "file": "model_14.obj",
+      "bytes": 113455,
+      "sha256": "16c2ba4ec5c14a3b8bc24671114ecb68ca4a57ea3a580239a47f1fd1c268fe9c",
+      "vertices": 457,
+      "faces": 988,
+      "triangles": 988,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [0.018299199640750885, 1.6705000400543213, 0.08022359758615494],
+        [0.04244192689657211, 1.6946460008621216, 0.10618160665035248]
+      ],
+      "dimensions": [
+        0.024142727255821228, 0.024145960807800293, 0.02595800906419754
+      ],
+      "objects": ["model_14"],
+      "groups": [],
+      "material_libraries": ["model_14.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_14.mtl"]
+    },
+    {
+      "file": "model_15.obj",
+      "bytes": 127982,
+      "sha256": "9754dec7ada03d086702646bec7932f824a54ee2cab8311d40d4bbe50278635e",
+      "vertices": 481,
+      "faces": 1265,
+      "triangles": 1265,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [0.018550099804997444, 1.6707500219345093, 0.08055920153856277],
+        [0.04219704493880272, 1.6944018602371216, 0.10338366031646729]
+      ],
+      "dimensions": [
+        0.023646945133805275, 0.023651838302612305, 0.02282445877790451
+      ],
+      "objects": ["model_15"],
+      "groups": [],
+      "material_libraries": ["model_15.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_15.mtl"]
+    },
+    {
+      "file": "model_16.obj",
+      "bytes": 113758,
+      "sha256": "15ee507c4045b554af3e86242f31582f4bcd6be1c9434e997973552ab6351ac0",
+      "vertices": 457,
+      "faces": 982,
+      "triangles": 982,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [-0.04254620149731636, 1.6701099872589111, 0.0804205983877182],
+        [-0.018404904752969742, 1.6942561864852905, 0.10637471824884415]
+      ],
+      "dimensions": [
+        0.02414129674434662, 0.024146199226379395, 0.025954119861125946
+      ],
+      "objects": ["model_16"],
+      "groups": [],
+      "material_libraries": ["model_16.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_16.mtl"]
+    },
+    {
+      "file": "model_17.obj",
+      "bytes": 126723,
+      "sha256": "83e725fe5d805d162b83f752a769958e2a373c40295548753841aaf0e473dc6f",
+      "vertices": 481,
+      "faces": 1221,
+      "triangles": 1221,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [-0.04227229952812195, 1.6703499555587769, 0.08072599768638611],
+        [-0.01863006502389908, 1.6940019130706787, 0.10357236117124557]
+      ],
+      "dimensions": [
+        0.02364223450422287, 0.023651957511901855, 0.022846363484859467
+      ],
+      "objects": ["model_17"],
+      "groups": [],
+      "material_libraries": ["model_17.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_17.mtl"]
+    },
+    {
+      "file": "model_18.obj",
+      "bytes": 688308,
+      "sha256": "d98e91c2ef98e33156d9a50c9e07305a74c0bfb500de5b7e01d08a6d11efc51d",
+      "vertices": 2511,
+      "faces": 5974,
+      "triangles": 5974,
+      "lines": 0,
+      "uv_coordinates": 2511,
+      "normals": 2511,
+      "bounds": [
+        [-0.031276900321245193, 1.5919300317764282, 0.030352700501680374],
+        [0.031061824411153793, 1.6248531341552734, 0.11930979043245316]
+      ],
+      "dimensions": [
+        0.06233872473239899, 0.032923102378845215, 0.08895708993077278
+      ],
+      "objects": ["model_18"],
+      "groups": [],
+      "material_libraries": ["model_18.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_18.mtl"]
+    },
+    {
+      "file": "model_19.obj",
+      "bytes": 692858,
+      "sha256": "ff9f9ab3b5df1f345ebaf26c166bc7f39665cefdb1af71027160bdc6a2219c73",
+      "vertices": 2497,
+      "faces": 6177,
+      "triangles": 6177,
+      "lines": 0,
+      "uv_coordinates": 2497,
+      "normals": 2497,
+      "bounds": [
+        [-0.03213590011000633, 1.6074199676513672, 0.030212799087166786],
+        [0.031991492956876755, 1.6359103918075562, 0.12255788594484329]
+      ],
+      "dimensions": [
+        0.06412739306688309, 0.028490424156188965, 0.0923450868576765
+      ],
+      "objects": ["model_19"],
+      "groups": [],
+      "material_libraries": ["model_19.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_19.mtl"]
+    },
+    {
+      "file": "model_2.obj",
+      "bytes": 2177117,
+      "sha256": "b1c789137af6ffe98d9eab86c2a0bed149ca1e064126d2206eeca0303b9f0569",
+      "vertices": 7125,
+      "faces": 20963,
+      "triangles": 20963,
+      "lines": 0,
+      "uv_coordinates": 7125,
+      "normals": 7125,
+      "bounds": [
+        [-0.0904569998383522, 1.4923100471496582, -0.0883236974477768],
+        [0.09433797001838684, 1.8111588954925537, 0.14280307292938232]
+      ],
+      "dimensions": [
+        0.18479496985673904, 0.3188488483428955, 0.23112677037715912
+      ],
+      "objects": ["model_2"],
+      "groups": [],
+      "material_libraries": ["model_2.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_2.mtl"]
+    },
+    {
+      "file": "model_20.obj",
+      "bytes": 7111310,
+      "sha256": "71eee145bbb6cc6b738daac6df0c84744b19e285649632720e9670273cdcc10a",
+      "vertices": 23140,
+      "faces": 60520,
+      "triangles": 60520,
+      "lines": 0,
+      "uv_coordinates": 23140,
+      "normals": 23140,
+      "bounds": [
+        [-0.6990140080451965, -0.00081299600424245, -0.14779800176620483],
+        [0.6919962167739868, 1.5653324127197266, 0.17609676718711853]
+      ],
+      "dimensions": [
+        1.3910102248191833, 1.566145408723969, 0.32389476895332336
+      ],
+      "objects": ["model_20"],
+      "groups": [],
+      "material_libraries": ["model_20.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_20.mtl"]
+    },
+    {
+      "file": "model_21.obj",
+      "bytes": 818379,
+      "sha256": "c96a5fb29a92e6a8a3b59e55850479f66fd2a874394fe90303737340ec705b36",
+      "vertices": 2861,
+      "faces": 7558,
+      "triangles": 7558,
+      "lines": 0,
+      "uv_coordinates": 2861,
+      "normals": 2861,
+      "bounds": [
+        [-0.0857648029923439, 1.6547800302505493, -0.012700799852609634],
+        [0.08821771293878555, 1.6993966102600098, 0.12566432356834412]
+      ],
+      "dimensions": [
+        0.17398251593112946, 0.04461658000946045, 0.13836512342095375
+      ],
+      "objects": ["model_21"],
+      "groups": [],
+      "material_libraries": ["model_21.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_21.mtl"]
+    },
+    {
+      "file": "model_22.obj",
+      "bytes": 578971,
+      "sha256": "96d2455b98d4f1bc90d6ca4c7fa28a372fd494644e9a01a2e7d44def95ce00cf",
+      "vertices": 2024,
+      "faces": 5543,
+      "triangles": 5543,
+      "lines": 0,
+      "uv_coordinates": 2024,
+      "normals": 2024,
+      "bounds": [
+        [-0.8801730275154114, 1.3778599500656128, -0.017358999699354172],
+        [0.8806768655776978, 1.4584468603134155, 0.13123354315757751]
+      ],
+      "dimensions": [
+        1.7608498930931091, 0.08058691024780273, 0.1485925428569317
+      ],
+      "objects": ["model_22"],
+      "groups": [],
+      "material_libraries": ["model_22.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_22.mtl"]
+    },
+    {
+      "file": "model_23.obj",
+      "bytes": 1088412,
+      "sha256": "8799167f709b30254414bdcd22bee08502567292c27ddf0d4c0857d6ec6ae0b6",
+      "vertices": 6300,
+      "faces": 8396,
+      "triangles": 8396,
+      "lines": 0,
+      "uv_coordinates": 0,
+      "normals": 6300,
+      "bounds": [
+        [-0.04499309882521629, 1.6716899871826172, 0.09749060124158859],
+        [0.04556802287697792, 1.6915677785873413, 0.11294583976268768]
+      ],
+      "dimensions": [
+        0.09056112170219421, 0.01987779140472412, 0.01545523852109909
+      ],
+      "objects": ["model_23"],
+      "groups": [],
+      "material_libraries": ["model_23.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_23.mtl"]
+    },
+    {
+      "file": "model_24.obj",
+      "bytes": 2177119,
+      "sha256": "fd3157a801b8d2ed7313fc2020d11aafeee7d77c7deb09d60dd3ad81585de400",
+      "vertices": 7125,
+      "faces": 20963,
+      "triangles": 20963,
+      "lines": 0,
+      "uv_coordinates": 7125,
+      "normals": 7125,
+      "bounds": [
+        [-0.0904569998383522, 1.4923100471496582, -0.0883236974477768],
+        [0.09433797001838684, 1.8111588954925537, 0.14280307292938232]
+      ],
+      "dimensions": [
+        0.18479496985673904, 0.3188488483428955, 0.23112677037715912
+      ],
+      "objects": ["model_24"],
+      "groups": [],
+      "material_libraries": ["model_24.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_24.mtl"]
+    },
+    {
+      "file": "model_25.obj",
+      "bytes": 113455,
+      "sha256": "7d087a41f413c7d41cdf3164d5d5002e00fdda45814f1dbb040ab92a2dc81bdb",
+      "vertices": 457,
+      "faces": 988,
+      "triangles": 988,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [0.018299199640750885, 1.6705000400543213, 0.08022359758615494],
+        [0.04244192689657211, 1.6946460008621216, 0.10618160665035248]
+      ],
+      "dimensions": [
+        0.024142727255821228, 0.024145960807800293, 0.02595800906419754
+      ],
+      "objects": ["model_25"],
+      "groups": [],
+      "material_libraries": ["model_25.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_25.mtl"]
+    },
+    {
+      "file": "model_26.obj",
+      "bytes": 127982,
+      "sha256": "1823cd7d0e03117c2274328d30e2e795910ec90c75392ffd689ca89e3fcc32f0",
+      "vertices": 481,
+      "faces": 1265,
+      "triangles": 1265,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [0.018550099804997444, 1.6707500219345093, 0.08055920153856277],
+        [0.04219704493880272, 1.6944018602371216, 0.10338366031646729]
+      ],
+      "dimensions": [
+        0.023646945133805275, 0.023651838302612305, 0.02282445877790451
+      ],
+      "objects": ["model_26"],
+      "groups": [],
+      "material_libraries": ["model_26.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_26.mtl"]
+    },
+    {
+      "file": "model_27.obj",
+      "bytes": 113758,
+      "sha256": "1860e3d909ee0cb6fccd82da1c62dcca0725d1af5f226333f4d613e44f926084",
+      "vertices": 457,
+      "faces": 982,
+      "triangles": 982,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [-0.04254620149731636, 1.6701099872589111, 0.0804205983877182],
+        [-0.018404904752969742, 1.6942561864852905, 0.10637471824884415]
+      ],
+      "dimensions": [
+        0.02414129674434662, 0.024146199226379395, 0.025954119861125946
+      ],
+      "objects": ["model_27"],
+      "groups": [],
+      "material_libraries": ["model_27.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_27.mtl"]
+    },
+    {
+      "file": "model_28.obj",
+      "bytes": 126723,
+      "sha256": "23046cb44c04f9911e28ec982ad431f25e7434f7ed49b4eec34e369f79d5f5a0",
+      "vertices": 481,
+      "faces": 1221,
+      "triangles": 1221,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [-0.04227229952812195, 1.6703499555587769, 0.08072599768638611],
+        [-0.01863006502389908, 1.6940019130706787, 0.10357236117124557]
+      ],
+      "dimensions": [
+        0.02364223450422287, 0.023651957511901855, 0.022846363484859467
+      ],
+      "objects": ["model_28"],
+      "groups": [],
+      "material_libraries": ["model_28.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_28.mtl"]
+    },
+    {
+      "file": "model_29.obj",
+      "bytes": 688308,
+      "sha256": "322d6a0a2858401f475d6a864266397763ee51f6b79fd23e09bfd709999754f1",
+      "vertices": 2511,
+      "faces": 5974,
+      "triangles": 5974,
+      "lines": 0,
+      "uv_coordinates": 2511,
+      "normals": 2511,
+      "bounds": [
+        [-0.031276900321245193, 1.5919300317764282, 0.030352700501680374],
+        [0.031061824411153793, 1.6248531341552734, 0.11930979043245316]
+      ],
+      "dimensions": [
+        0.06233872473239899, 0.032923102378845215, 0.08895708993077278
+      ],
+      "objects": ["model_29"],
+      "groups": [],
+      "material_libraries": ["model_29.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_29.mtl"]
+    },
+    {
+      "file": "model_3.obj",
+      "bytes": 113453,
+      "sha256": "db9b3f0c1b639ba44d3035fa469a82fb4effdbc407890e89d22b94111595ac3e",
+      "vertices": 457,
+      "faces": 988,
+      "triangles": 988,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [0.018299199640750885, 1.6705000400543213, 0.08022359758615494],
+        [0.04244192689657211, 1.6946460008621216, 0.10618160665035248]
+      ],
+      "dimensions": [
+        0.024142727255821228, 0.024145960807800293, 0.02595800906419754
+      ],
+      "objects": ["model_3"],
+      "groups": [],
+      "material_libraries": ["model_3.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_3.mtl"]
+    },
+    {
+      "file": "model_30.obj",
+      "bytes": 692858,
+      "sha256": "3eb6237923d66c95c831b0e4c18f51b9b9ca0f7146195533648c43325ace1d9c",
+      "vertices": 2497,
+      "faces": 6177,
+      "triangles": 6177,
+      "lines": 0,
+      "uv_coordinates": 2497,
+      "normals": 2497,
+      "bounds": [
+        [-0.03213590011000633, 1.6074199676513672, 0.030212799087166786],
+        [0.031991492956876755, 1.6359103918075562, 0.12255788594484329]
+      ],
+      "dimensions": [
+        0.06412739306688309, 0.028490424156188965, 0.0923450868576765
+      ],
+      "objects": ["model_30"],
+      "groups": [],
+      "material_libraries": ["model_30.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_30.mtl"]
+    },
+    {
+      "file": "model_31.obj",
+      "bytes": 7111310,
+      "sha256": "9510e6865d9f70889022d30e42cfaef408199773c53656177aea3f9ef069bf9c",
+      "vertices": 23140,
+      "faces": 60520,
+      "triangles": 60520,
+      "lines": 0,
+      "uv_coordinates": 23140,
+      "normals": 23140,
+      "bounds": [
+        [-0.6990140080451965, -0.00081299600424245, -0.14779800176620483],
+        [0.6919962167739868, 1.5653324127197266, 0.17609676718711853]
+      ],
+      "dimensions": [
+        1.3910102248191833, 1.566145408723969, 0.32389476895332336
+      ],
+      "objects": ["model_31"],
+      "groups": [],
+      "material_libraries": ["model_31.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_31.mtl"]
+    },
+    {
+      "file": "model_32.obj",
+      "bytes": 818379,
+      "sha256": "c838a50c7f6fcf204621664143311264d25bd5069a4b60aa942c4239e9912491",
+      "vertices": 2861,
+      "faces": 7558,
+      "triangles": 7558,
+      "lines": 0,
+      "uv_coordinates": 2861,
+      "normals": 2861,
+      "bounds": [
+        [-0.0857648029923439, 1.6547800302505493, -0.012700799852609634],
+        [0.08821771293878555, 1.6993966102600098, 0.12566432356834412]
+      ],
+      "dimensions": [
+        0.17398251593112946, 0.04461658000946045, 0.13836512342095375
+      ],
+      "objects": ["model_32"],
+      "groups": [],
+      "material_libraries": ["model_32.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_32.mtl"]
+    },
+    {
+      "file": "model_33.obj",
+      "bytes": 578971,
+      "sha256": "bd7a7f6fd0900dc221ef8e2486505fec55bbf4423b257e4c4d72ba006cb5bc05",
+      "vertices": 2024,
+      "faces": 5543,
+      "triangles": 5543,
+      "lines": 0,
+      "uv_coordinates": 2024,
+      "normals": 2024,
+      "bounds": [
+        [-0.8801730275154114, 1.3778599500656128, -0.017358999699354172],
+        [0.8806768655776978, 1.4584468603134155, 0.13123354315757751]
+      ],
+      "dimensions": [
+        1.7608498930931091, 0.08058691024780273, 0.1485925428569317
+      ],
+      "objects": ["model_33"],
+      "groups": [],
+      "material_libraries": ["model_33.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_33.mtl"]
+    },
+    {
+      "file": "model_34.obj",
+      "bytes": 1088412,
+      "sha256": "12003ef1545ac6b79a7e795d95a9debbdceb43e5aa02555958b1bcc4c76eba28",
+      "vertices": 6300,
+      "faces": 8396,
+      "triangles": 8396,
+      "lines": 0,
+      "uv_coordinates": 0,
+      "normals": 6300,
+      "bounds": [
+        [-0.04499309882521629, 1.6716899871826172, 0.09749060124158859],
+        [0.04556802287697792, 1.6915677785873413, 0.11294583976268768]
+      ],
+      "dimensions": [
+        0.09056112170219421, 0.01987779140472412, 0.01545523852109909
+      ],
+      "objects": ["model_34"],
+      "groups": [],
+      "material_libraries": ["model_34.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_34.mtl"]
+    },
+    {
+      "file": "model_35.obj",
+      "bytes": 2177119,
+      "sha256": "e72df4951b6fd48c2acb7859022cbc5ea0c84390ecc00ff389ae157820f852f8",
+      "vertices": 7125,
+      "faces": 20963,
+      "triangles": 20963,
+      "lines": 0,
+      "uv_coordinates": 7125,
+      "normals": 7125,
+      "bounds": [
+        [-0.0904569998383522, 1.4923100471496582, -0.0883236974477768],
+        [0.09433797001838684, 1.8111588954925537, 0.14280307292938232]
+      ],
+      "dimensions": [
+        0.18479496985673904, 0.3188488483428955, 0.23112677037715912
+      ],
+      "objects": ["model_35"],
+      "groups": [],
+      "material_libraries": ["model_35.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_35.mtl"]
+    },
+    {
+      "file": "model_36.obj",
+      "bytes": 113455,
+      "sha256": "2d516e1d754efe793c468de39334c6e26048babc8ab8fb2c2bf147f846b3ab74",
+      "vertices": 457,
+      "faces": 988,
+      "triangles": 988,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [0.018299199640750885, 1.6705000400543213, 0.08022359758615494],
+        [0.04244192689657211, 1.6946460008621216, 0.10618160665035248]
+      ],
+      "dimensions": [
+        0.024142727255821228, 0.024145960807800293, 0.02595800906419754
+      ],
+      "objects": ["model_36"],
+      "groups": [],
+      "material_libraries": ["model_36.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_36.mtl"]
+    },
+    {
+      "file": "model_37.obj",
+      "bytes": 127982,
+      "sha256": "3b8bf29c7d040a16d8e07d601333e1ad108c46315ed952a3d72a58120a34511f",
+      "vertices": 481,
+      "faces": 1265,
+      "triangles": 1265,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [0.018550099804997444, 1.6707500219345093, 0.08055920153856277],
+        [0.04219704493880272, 1.6944018602371216, 0.10338366031646729]
+      ],
+      "dimensions": [
+        0.023646945133805275, 0.023651838302612305, 0.02282445877790451
+      ],
+      "objects": ["model_37"],
+      "groups": [],
+      "material_libraries": ["model_37.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_37.mtl"]
+    },
+    {
+      "file": "model_38.obj",
+      "bytes": 113758,
+      "sha256": "05b3ca330b2f5cc9c924857cf481c65d0387cbe97e33503edcf0653efe88cac2",
+      "vertices": 457,
+      "faces": 982,
+      "triangles": 982,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [-0.04254620149731636, 1.6701099872589111, 0.0804205983877182],
+        [-0.018404904752969742, 1.6942561864852905, 0.10637471824884415]
+      ],
+      "dimensions": [
+        0.02414129674434662, 0.024146199226379395, 0.025954119861125946
+      ],
+      "objects": ["model_38"],
+      "groups": [],
+      "material_libraries": ["model_38.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_38.mtl"]
+    },
+    {
+      "file": "model_39.obj",
+      "bytes": 126723,
+      "sha256": "22b13d677b8667732a8b574c0f95305d9d9c180f7aca9eeb093a53b3e95b3d2e",
+      "vertices": 481,
+      "faces": 1221,
+      "triangles": 1221,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [-0.04227229952812195, 1.6703499555587769, 0.08072599768638611],
+        [-0.01863006502389908, 1.6940019130706787, 0.10357236117124557]
+      ],
+      "dimensions": [
+        0.02364223450422287, 0.023651957511901855, 0.022846363484859467
+      ],
+      "objects": ["model_39"],
+      "groups": [],
+      "material_libraries": ["model_39.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_39.mtl"]
+    },
+    {
+      "file": "model_4.obj",
+      "bytes": 127980,
+      "sha256": "f665d79912b7ab35aab56d479cae961680abcfa369e7fd0fb524cc1dced5d28f",
+      "vertices": 481,
+      "faces": 1265,
+      "triangles": 1265,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [0.018550099804997444, 1.6707500219345093, 0.08055920153856277],
+        [0.04219704493880272, 1.6944018602371216, 0.10338366031646729]
+      ],
+      "dimensions": [
+        0.023646945133805275, 0.023651838302612305, 0.02282445877790451
+      ],
+      "objects": ["model_4"],
+      "groups": [],
+      "material_libraries": ["model_4.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_4.mtl"]
+    },
+    {
+      "file": "model_40.obj",
+      "bytes": 688308,
+      "sha256": "53cd2a2f47571464c231b72de9a7605787166a83504ab41dc3dafc6861f9ffcf",
+      "vertices": 2511,
+      "faces": 5974,
+      "triangles": 5974,
+      "lines": 0,
+      "uv_coordinates": 2511,
+      "normals": 2511,
+      "bounds": [
+        [-0.031276900321245193, 1.5919300317764282, 0.030352700501680374],
+        [0.031061824411153793, 1.6248531341552734, 0.11930979043245316]
+      ],
+      "dimensions": [
+        0.06233872473239899, 0.032923102378845215, 0.08895708993077278
+      ],
+      "objects": ["model_40"],
+      "groups": [],
+      "material_libraries": ["model_40.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_40.mtl"]
+    },
+    {
+      "file": "model_41.obj",
+      "bytes": 692858,
+      "sha256": "915ac2b7750d1fe93ec8317ac4a4840e4eab5cac3bbb608b2fc2f78c400b60ae",
+      "vertices": 2497,
+      "faces": 6177,
+      "triangles": 6177,
+      "lines": 0,
+      "uv_coordinates": 2497,
+      "normals": 2497,
+      "bounds": [
+        [-0.03213590011000633, 1.6074199676513672, 0.030212799087166786],
+        [0.031991492956876755, 1.6359103918075562, 0.12255788594484329]
+      ],
+      "dimensions": [
+        0.06412739306688309, 0.028490424156188965, 0.0923450868576765
+      ],
+      "objects": ["model_41"],
+      "groups": [],
+      "material_libraries": ["model_41.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_41.mtl"]
+    },
+    {
+      "file": "model_42.obj",
+      "bytes": 7111310,
+      "sha256": "1897eb3f1b23a3d7d92f49bbffce3d4c62bb7af5b7520a8694bfe20de081fd4b",
+      "vertices": 23140,
+      "faces": 60520,
+      "triangles": 60520,
+      "lines": 0,
+      "uv_coordinates": 23140,
+      "normals": 23140,
+      "bounds": [
+        [-0.6990140080451965, -0.00081299600424245, -0.14779800176620483],
+        [0.6919962167739868, 1.5653324127197266, 0.17609676718711853]
+      ],
+      "dimensions": [
+        1.3910102248191833, 1.566145408723969, 0.32389476895332336
+      ],
+      "objects": ["model_42"],
+      "groups": [],
+      "material_libraries": ["model_42.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_42.mtl"]
+    },
+    {
+      "file": "model_43.obj",
+      "bytes": 818379,
+      "sha256": "17c5466797cc1e0f1f128ed95e32061078a9f68904baee30083e83fd42f30710",
+      "vertices": 2861,
+      "faces": 7558,
+      "triangles": 7558,
+      "lines": 0,
+      "uv_coordinates": 2861,
+      "normals": 2861,
+      "bounds": [
+        [-0.0857648029923439, 1.6547800302505493, -0.012700799852609634],
+        [0.08821771293878555, 1.6993966102600098, 0.12566432356834412]
+      ],
+      "dimensions": [
+        0.17398251593112946, 0.04461658000946045, 0.13836512342095375
+      ],
+      "objects": ["model_43"],
+      "groups": [],
+      "material_libraries": ["model_43.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_43.mtl"]
+    },
+    {
+      "file": "model_44.obj",
+      "bytes": 578971,
+      "sha256": "8caf8686d5fb6c3e97f61df7b44a236073a6625baa645b626034f454e03e4851",
+      "vertices": 2024,
+      "faces": 5543,
+      "triangles": 5543,
+      "lines": 0,
+      "uv_coordinates": 2024,
+      "normals": 2024,
+      "bounds": [
+        [-0.8801730275154114, 1.3778599500656128, -0.017358999699354172],
+        [0.8806768655776978, 1.4584468603134155, 0.13123354315757751]
+      ],
+      "dimensions": [
+        1.7608498930931091, 0.08058691024780273, 0.1485925428569317
+      ],
+      "objects": ["model_44"],
+      "groups": [],
+      "material_libraries": ["model_44.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_44.mtl"]
+    },
+    {
+      "file": "model_45.obj",
+      "bytes": 1088412,
+      "sha256": "4496c4481fd4e308fe1c654081803a74222cdef139ccefd5b67507444dc347fe",
+      "vertices": 6300,
+      "faces": 8396,
+      "triangles": 8396,
+      "lines": 0,
+      "uv_coordinates": 0,
+      "normals": 6300,
+      "bounds": [
+        [-0.04499309882521629, 1.6716899871826172, 0.09749060124158859],
+        [0.04556802287697792, 1.6915677785873413, 0.11294583976268768]
+      ],
+      "dimensions": [
+        0.09056112170219421, 0.01987779140472412, 0.01545523852109909
+      ],
+      "objects": ["model_45"],
+      "groups": [],
+      "material_libraries": ["model_45.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_45.mtl"]
+    },
+    {
+      "file": "model_46.obj",
+      "bytes": 2177119,
+      "sha256": "dc94e6c4a38e06f840176aa678572fd77e851cbe5e43b22382c0305a948c395e",
+      "vertices": 7125,
+      "faces": 20963,
+      "triangles": 20963,
+      "lines": 0,
+      "uv_coordinates": 7125,
+      "normals": 7125,
+      "bounds": [
+        [-0.0904569998383522, 1.4923100471496582, -0.0883236974477768],
+        [0.09433797001838684, 1.8111588954925537, 0.14280307292938232]
+      ],
+      "dimensions": [
+        0.18479496985673904, 0.3188488483428955, 0.23112677037715912
+      ],
+      "objects": ["model_46"],
+      "groups": [],
+      "material_libraries": ["model_46.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_46.mtl"]
+    },
+    {
+      "file": "model_47.obj",
+      "bytes": 113455,
+      "sha256": "7f9d7888f238243ed6976fd7973273bd672497bfe2c6275ef3afdd990b6648a1",
+      "vertices": 457,
+      "faces": 988,
+      "triangles": 988,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [0.018299199640750885, 1.6705000400543213, 0.08022359758615494],
+        [0.04244192689657211, 1.6946460008621216, 0.10618160665035248]
+      ],
+      "dimensions": [
+        0.024142727255821228, 0.024145960807800293, 0.02595800906419754
+      ],
+      "objects": ["model_47"],
+      "groups": [],
+      "material_libraries": ["model_47.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_47.mtl"]
+    },
+    {
+      "file": "model_48.obj",
+      "bytes": 127982,
+      "sha256": "028e170ded5e555ccd41f7d87c978d08b0fb85a780cd3244805f2f9413d4820c",
+      "vertices": 481,
+      "faces": 1265,
+      "triangles": 1265,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [0.018550099804997444, 1.6707500219345093, 0.08055920153856277],
+        [0.04219704493880272, 1.6944018602371216, 0.10338366031646729]
+      ],
+      "dimensions": [
+        0.023646945133805275, 0.023651838302612305, 0.02282445877790451
+      ],
+      "objects": ["model_48"],
+      "groups": [],
+      "material_libraries": ["model_48.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_48.mtl"]
+    },
+    {
+      "file": "model_49.obj",
+      "bytes": 113758,
+      "sha256": "5bb6b7424c2d246154f1211d840416af1f767271dd69c75f43a81a90a5847af6",
+      "vertices": 457,
+      "faces": 982,
+      "triangles": 982,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [-0.04254620149731636, 1.6701099872589111, 0.0804205983877182],
+        [-0.018404904752969742, 1.6942561864852905, 0.10637471824884415]
+      ],
+      "dimensions": [
+        0.02414129674434662, 0.024146199226379395, 0.025954119861125946
+      ],
+      "objects": ["model_49"],
+      "groups": [],
+      "material_libraries": ["model_49.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_49.mtl"]
+    },
+    {
+      "file": "model_5.obj",
+      "bytes": 113756,
+      "sha256": "24b2179808e9d82fea09ddf7cecabc73f317bb6581dec1ab67dde816acc12c41",
+      "vertices": 457,
+      "faces": 982,
+      "triangles": 982,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [-0.04254620149731636, 1.6701099872589111, 0.0804205983877182],
+        [-0.018404904752969742, 1.6942561864852905, 0.10637471824884415]
+      ],
+      "dimensions": [
+        0.02414129674434662, 0.024146199226379395, 0.025954119861125946
+      ],
+      "objects": ["model_5"],
+      "groups": [],
+      "material_libraries": ["model_5.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_5.mtl"]
+    },
+    {
+      "file": "model_50.obj",
+      "bytes": 126723,
+      "sha256": "17677eefce7da42f2634357142c0dfa7400316e983c664478dd65a236cba409e",
+      "vertices": 481,
+      "faces": 1221,
+      "triangles": 1221,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [-0.04227229952812195, 1.6703499555587769, 0.08072599768638611],
+        [-0.01863006502389908, 1.6940019130706787, 0.10357236117124557]
+      ],
+      "dimensions": [
+        0.02364223450422287, 0.023651957511901855, 0.022846363484859467
+      ],
+      "objects": ["model_50"],
+      "groups": [],
+      "material_libraries": ["model_50.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_50.mtl"]
+    },
+    {
+      "file": "model_51.obj",
+      "bytes": 688308,
+      "sha256": "ee8afe11e55e57e5f6b7c291a4353550fe5472a68335de496d82f033f9003ab0",
+      "vertices": 2511,
+      "faces": 5974,
+      "triangles": 5974,
+      "lines": 0,
+      "uv_coordinates": 2511,
+      "normals": 2511,
+      "bounds": [
+        [-0.031276900321245193, 1.5919300317764282, 0.030352700501680374],
+        [0.031061824411153793, 1.6248531341552734, 0.11930979043245316]
+      ],
+      "dimensions": [
+        0.06233872473239899, 0.032923102378845215, 0.08895708993077278
+      ],
+      "objects": ["model_51"],
+      "groups": [],
+      "material_libraries": ["model_51.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_51.mtl"]
+    },
+    {
+      "file": "model_52.obj",
+      "bytes": 692858,
+      "sha256": "a7715bbbe3778ccac83d116cd61fa8cd1d3c8862c7925706eeaaa75a4a9d7912",
+      "vertices": 2497,
+      "faces": 6177,
+      "triangles": 6177,
+      "lines": 0,
+      "uv_coordinates": 2497,
+      "normals": 2497,
+      "bounds": [
+        [-0.03213590011000633, 1.6074199676513672, 0.030212799087166786],
+        [0.031991492956876755, 1.6359103918075562, 0.12255788594484329]
+      ],
+      "dimensions": [
+        0.06412739306688309, 0.028490424156188965, 0.0923450868576765
+      ],
+      "objects": ["model_52"],
+      "groups": [],
+      "material_libraries": ["model_52.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_52.mtl"]
+    },
+    {
+      "file": "model_53.obj",
+      "bytes": 7111310,
+      "sha256": "94e98ac237b3fa39000f57b7a9293f3f7720754d4926ede426eab59ba4f629c5",
+      "vertices": 23140,
+      "faces": 60520,
+      "triangles": 60520,
+      "lines": 0,
+      "uv_coordinates": 23140,
+      "normals": 23140,
+      "bounds": [
+        [-0.6990140080451965, -0.00081299600424245, -0.14779800176620483],
+        [0.6919962167739868, 1.5653324127197266, 0.17609676718711853]
+      ],
+      "dimensions": [
+        1.3910102248191833, 1.566145408723969, 0.32389476895332336
+      ],
+      "objects": ["model_53"],
+      "groups": [],
+      "material_libraries": ["model_53.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_53.mtl"]
+    },
+    {
+      "file": "model_54.obj",
+      "bytes": 818379,
+      "sha256": "13684c7b7f69dc3070956101617d31e440084d0b21a04258c9f0bde21aa50919",
+      "vertices": 2861,
+      "faces": 7558,
+      "triangles": 7558,
+      "lines": 0,
+      "uv_coordinates": 2861,
+      "normals": 2861,
+      "bounds": [
+        [-0.0857648029923439, 1.6547800302505493, -0.012700799852609634],
+        [0.08821771293878555, 1.6993966102600098, 0.12566432356834412]
+      ],
+      "dimensions": [
+        0.17398251593112946, 0.04461658000946045, 0.13836512342095375
+      ],
+      "objects": ["model_54"],
+      "groups": [],
+      "material_libraries": ["model_54.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_54.mtl"]
+    },
+    {
+      "file": "model_55.obj",
+      "bytes": 578971,
+      "sha256": "c731e82c705c531210a1d1ee11104ef98db3020a9ab5c764041dd9e16e47e46c",
+      "vertices": 2024,
+      "faces": 5543,
+      "triangles": 5543,
+      "lines": 0,
+      "uv_coordinates": 2024,
+      "normals": 2024,
+      "bounds": [
+        [-0.8801730275154114, 1.3778599500656128, -0.017358999699354172],
+        [0.8806768655776978, 1.4584468603134155, 0.13123354315757751]
+      ],
+      "dimensions": [
+        1.7608498930931091, 0.08058691024780273, 0.1485925428569317
+      ],
+      "objects": ["model_55"],
+      "groups": [],
+      "material_libraries": ["model_55.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_55.mtl"]
+    },
+    {
+      "file": "model_56.obj",
+      "bytes": 1088412,
+      "sha256": "3d0acdbab18beea681e5a1ca61c29dfb2e65ebd21729c979f9fc03b6151538a4",
+      "vertices": 6300,
+      "faces": 8396,
+      "triangles": 8396,
+      "lines": 0,
+      "uv_coordinates": 0,
+      "normals": 6300,
+      "bounds": [
+        [-0.04499309882521629, 1.6716899871826172, 0.09749060124158859],
+        [0.04556802287697792, 1.6915677785873413, 0.11294583976268768]
+      ],
+      "dimensions": [
+        0.09056112170219421, 0.01987779140472412, 0.01545523852109909
+      ],
+      "objects": ["model_56"],
+      "groups": [],
+      "material_libraries": ["model_56.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_56.mtl"]
+    },
+    {
+      "file": "model_57.obj",
+      "bytes": 2177119,
+      "sha256": "9e13b9a3268a11f2660fb87cda4db8bc0b12358cc14291077a74e3f6fe3622fb",
+      "vertices": 7125,
+      "faces": 20963,
+      "triangles": 20963,
+      "lines": 0,
+      "uv_coordinates": 7125,
+      "normals": 7125,
+      "bounds": [
+        [-0.0904569998383522, 1.4923100471496582, -0.0883236974477768],
+        [0.09433797001838684, 1.8111588954925537, 0.14280307292938232]
+      ],
+      "dimensions": [
+        0.18479496985673904, 0.3188488483428955, 0.23112677037715912
+      ],
+      "objects": ["model_57"],
+      "groups": [],
+      "material_libraries": ["model_57.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_57.mtl"]
+    },
+    {
+      "file": "model_58.obj",
+      "bytes": 113455,
+      "sha256": "3facd6cc63bc4135df79d50313cb559d3da4adb8d15d07640db0cae57316da66",
+      "vertices": 457,
+      "faces": 988,
+      "triangles": 988,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [0.018299199640750885, 1.6705000400543213, 0.08022359758615494],
+        [0.04244192689657211, 1.6946460008621216, 0.10618160665035248]
+      ],
+      "dimensions": [
+        0.024142727255821228, 0.024145960807800293, 0.02595800906419754
+      ],
+      "objects": ["model_58"],
+      "groups": [],
+      "material_libraries": ["model_58.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_58.mtl"]
+    },
+    {
+      "file": "model_59.obj",
+      "bytes": 127982,
+      "sha256": "e8f658feafaddcf642cd21134714ef3eaf4d3954ab64cb3e983c1fd6cb6a10a0",
+      "vertices": 481,
+      "faces": 1265,
+      "triangles": 1265,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [0.018550099804997444, 1.6707500219345093, 0.08055920153856277],
+        [0.04219704493880272, 1.6944018602371216, 0.10338366031646729]
+      ],
+      "dimensions": [
+        0.023646945133805275, 0.023651838302612305, 0.02282445877790451
+      ],
+      "objects": ["model_59"],
+      "groups": [],
+      "material_libraries": ["model_59.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_59.mtl"]
+    },
+    {
+      "file": "model_6.obj",
+      "bytes": 126721,
+      "sha256": "f3735462e24d8812ba6864bbdfe1ade0bb154b4eb27d0db25f761d19bba21cd8",
+      "vertices": 481,
+      "faces": 1221,
+      "triangles": 1221,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [-0.04227229952812195, 1.6703499555587769, 0.08072599768638611],
+        [-0.01863006502389908, 1.6940019130706787, 0.10357236117124557]
+      ],
+      "dimensions": [
+        0.02364223450422287, 0.023651957511901855, 0.022846363484859467
+      ],
+      "objects": ["model_6"],
+      "groups": [],
+      "material_libraries": ["model_6.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_6.mtl"]
+    },
+    {
+      "file": "model_60.obj",
+      "bytes": 113758,
+      "sha256": "34bf956629829d873d766bf1b064797062b8aa36ae64f9121b5dbdea7c62371c",
+      "vertices": 457,
+      "faces": 982,
+      "triangles": 982,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [-0.04254620149731636, 1.6701099872589111, 0.0804205983877182],
+        [-0.018404904752969742, 1.6942561864852905, 0.10637471824884415]
+      ],
+      "dimensions": [
+        0.02414129674434662, 0.024146199226379395, 0.025954119861125946
+      ],
+      "objects": ["model_60"],
+      "groups": [],
+      "material_libraries": ["model_60.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_60.mtl"]
+    },
+    {
+      "file": "model_61.obj",
+      "bytes": 126723,
+      "sha256": "38355f120c733aa2312b9622cce6e3f0fc8dbd868185fb8dcd22d2801a71d0d3",
+      "vertices": 481,
+      "faces": 1221,
+      "triangles": 1221,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [-0.04227229952812195, 1.6703499555587769, 0.08072599768638611],
+        [-0.01863006502389908, 1.6940019130706787, 0.10357236117124557]
+      ],
+      "dimensions": [
+        0.02364223450422287, 0.023651957511901855, 0.022846363484859467
+      ],
+      "objects": ["model_61"],
+      "groups": [],
+      "material_libraries": ["model_61.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_61.mtl"]
+    },
+    {
+      "file": "model_62.obj",
+      "bytes": 688308,
+      "sha256": "1f4e601e094c53c58f7208f66cf743812ece8aeca8bb82e1bb9fd5787d2acb75",
+      "vertices": 2511,
+      "faces": 5974,
+      "triangles": 5974,
+      "lines": 0,
+      "uv_coordinates": 2511,
+      "normals": 2511,
+      "bounds": [
+        [-0.031276900321245193, 1.5919300317764282, 0.030352700501680374],
+        [0.031061824411153793, 1.6248531341552734, 0.11930979043245316]
+      ],
+      "dimensions": [
+        0.06233872473239899, 0.032923102378845215, 0.08895708993077278
+      ],
+      "objects": ["model_62"],
+      "groups": [],
+      "material_libraries": ["model_62.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_62.mtl"]
+    },
+    {
+      "file": "model_63.obj",
+      "bytes": 692858,
+      "sha256": "2db37daad26d484100e8e61d2f77fa89793039de3b43b1e10998acd35e952c5e",
+      "vertices": 2497,
+      "faces": 6177,
+      "triangles": 6177,
+      "lines": 0,
+      "uv_coordinates": 2497,
+      "normals": 2497,
+      "bounds": [
+        [-0.03213590011000633, 1.6074199676513672, 0.030212799087166786],
+        [0.031991492956876755, 1.6359103918075562, 0.12255788594484329]
+      ],
+      "dimensions": [
+        0.06412739306688309, 0.028490424156188965, 0.0923450868576765
+      ],
+      "objects": ["model_63"],
+      "groups": [],
+      "material_libraries": ["model_63.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_63.mtl"]
+    },
+    {
+      "file": "model_64.obj",
+      "bytes": 7111310,
+      "sha256": "419903921545b8ac2f82f078a10a611c9eb9f18d1ec35d629ea4896d9e874770",
+      "vertices": 23140,
+      "faces": 60520,
+      "triangles": 60520,
+      "lines": 0,
+      "uv_coordinates": 23140,
+      "normals": 23140,
+      "bounds": [
+        [-0.6990140080451965, -0.00081299600424245, -0.14779800176620483],
+        [0.6919962167739868, 1.5653324127197266, 0.17609676718711853]
+      ],
+      "dimensions": [
+        1.3910102248191833, 1.566145408723969, 0.32389476895332336
+      ],
+      "objects": ["model_64"],
+      "groups": [],
+      "material_libraries": ["model_64.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_64.mtl"]
+    },
+    {
+      "file": "model_65.obj",
+      "bytes": 818379,
+      "sha256": "5dadd9be560cc2febcdb3f7a521fe3b75a19d31fd2ecb5d1a771780b496aaf44",
+      "vertices": 2861,
+      "faces": 7558,
+      "triangles": 7558,
+      "lines": 0,
+      "uv_coordinates": 2861,
+      "normals": 2861,
+      "bounds": [
+        [-0.0857648029923439, 1.6547800302505493, -0.012700799852609634],
+        [0.08821771293878555, 1.6993966102600098, 0.12566432356834412]
+      ],
+      "dimensions": [
+        0.17398251593112946, 0.04461658000946045, 0.13836512342095375
+      ],
+      "objects": ["model_65"],
+      "groups": [],
+      "material_libraries": ["model_65.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_65.mtl"]
+    },
+    {
+      "file": "model_66.obj",
+      "bytes": 578971,
+      "sha256": "fa7c22930efaa57beef99b05f52e89bb85d5b3af8cb49f3f158be2357807e6e6",
+      "vertices": 2024,
+      "faces": 5543,
+      "triangles": 5543,
+      "lines": 0,
+      "uv_coordinates": 2024,
+      "normals": 2024,
+      "bounds": [
+        [-0.8801730275154114, 1.3778599500656128, -0.017358999699354172],
+        [0.8806768655776978, 1.4584468603134155, 0.13123354315757751]
+      ],
+      "dimensions": [
+        1.7608498930931091, 0.08058691024780273, 0.1485925428569317
+      ],
+      "objects": ["model_66"],
+      "groups": [],
+      "material_libraries": ["model_66.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_66.mtl"]
+    },
+    {
+      "file": "model_67.obj",
+      "bytes": 1088412,
+      "sha256": "c17b86accc34ace5ac87de9d871454e837b5e08f680866100315317f576793eb",
+      "vertices": 6300,
+      "faces": 8396,
+      "triangles": 8396,
+      "lines": 0,
+      "uv_coordinates": 0,
+      "normals": 6300,
+      "bounds": [
+        [-0.04499309882521629, 1.6716899871826172, 0.09749060124158859],
+        [0.04556802287697792, 1.6915677785873413, 0.11294583976268768]
+      ],
+      "dimensions": [
+        0.09056112170219421, 0.01987779140472412, 0.01545523852109909
+      ],
+      "objects": ["model_67"],
+      "groups": [],
+      "material_libraries": ["model_67.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_67.mtl"]
+    },
+    {
+      "file": "model_68.obj",
+      "bytes": 2177119,
+      "sha256": "d3fd51edefdb3a483476c5f7a8240103d4d19343053af68dafae288599541f50",
+      "vertices": 7125,
+      "faces": 20963,
+      "triangles": 20963,
+      "lines": 0,
+      "uv_coordinates": 7125,
+      "normals": 7125,
+      "bounds": [
+        [-0.0904569998383522, 1.4923100471496582, -0.0883236974477768],
+        [0.09433797001838684, 1.8111588954925537, 0.14280307292938232]
+      ],
+      "dimensions": [
+        0.18479496985673904, 0.3188488483428955, 0.23112677037715912
+      ],
+      "objects": ["model_68"],
+      "groups": [],
+      "material_libraries": ["model_68.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_68.mtl"]
+    },
+    {
+      "file": "model_69.obj",
+      "bytes": 113455,
+      "sha256": "55a35a13f3b6c70f3b143785aa8c87a3863cd97785e6521a0d678e4be52c1544",
+      "vertices": 457,
+      "faces": 988,
+      "triangles": 988,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [0.018299199640750885, 1.6705000400543213, 0.08022359758615494],
+        [0.04244192689657211, 1.6946460008621216, 0.10618160665035248]
+      ],
+      "dimensions": [
+        0.024142727255821228, 0.024145960807800293, 0.02595800906419754
+      ],
+      "objects": ["model_69"],
+      "groups": [],
+      "material_libraries": ["model_69.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_69.mtl"]
+    },
+    {
+      "file": "model_7.obj",
+      "bytes": 688306,
+      "sha256": "e535c1c4441b06abd4b6bb5beb8818bdbd717519767e5021e6cc1c4d607aa8a5",
+      "vertices": 2511,
+      "faces": 5974,
+      "triangles": 5974,
+      "lines": 0,
+      "uv_coordinates": 2511,
+      "normals": 2511,
+      "bounds": [
+        [-0.031276900321245193, 1.5919300317764282, 0.030352700501680374],
+        [0.031061824411153793, 1.6248531341552734, 0.11930979043245316]
+      ],
+      "dimensions": [
+        0.06233872473239899, 0.032923102378845215, 0.08895708993077278
+      ],
+      "objects": ["model_7"],
+      "groups": [],
+      "material_libraries": ["model_7.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_7.mtl"]
+    },
+    {
+      "file": "model_70.obj",
+      "bytes": 127982,
+      "sha256": "28cbad8564a9bf95b37b55c9fe60fecbf6cc4fed3e7a19ed6d9ee519788852ad",
+      "vertices": 481,
+      "faces": 1265,
+      "triangles": 1265,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [0.018550099804997444, 1.6707500219345093, 0.08055920153856277],
+        [0.04219704493880272, 1.6944018602371216, 0.10338366031646729]
+      ],
+      "dimensions": [
+        0.023646945133805275, 0.023651838302612305, 0.02282445877790451
+      ],
+      "objects": ["model_70"],
+      "groups": [],
+      "material_libraries": ["model_70.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_70.mtl"]
+    },
+    {
+      "file": "model_71.obj",
+      "bytes": 113758,
+      "sha256": "2a7ef05d1af4572cfe90ffdce0bddae073af9eb790a6ef084fa7105048cf5091",
+      "vertices": 457,
+      "faces": 982,
+      "triangles": 982,
+      "lines": 0,
+      "uv_coordinates": 457,
+      "normals": 457,
+      "bounds": [
+        [-0.04254620149731636, 1.6701099872589111, 0.0804205983877182],
+        [-0.018404904752969742, 1.6942561864852905, 0.10637471824884415]
+      ],
+      "dimensions": [
+        0.02414129674434662, 0.024146199226379395, 0.025954119861125946
+      ],
+      "objects": ["model_71"],
+      "groups": [],
+      "material_libraries": ["model_71.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_71.mtl"]
+    },
+    {
+      "file": "model_72.obj",
+      "bytes": 126723,
+      "sha256": "eb903315ea910f8b9c37920828ddf9d2b82a65ac6cb74d5703005d9b2c1984cb",
+      "vertices": 481,
+      "faces": 1221,
+      "triangles": 1221,
+      "lines": 0,
+      "uv_coordinates": 481,
+      "normals": 481,
+      "bounds": [
+        [-0.04227229952812195, 1.6703499555587769, 0.08072599768638611],
+        [-0.01863006502389908, 1.6940019130706787, 0.10357236117124557]
+      ],
+      "dimensions": [
+        0.02364223450422287, 0.023651957511901855, 0.022846363484859467
+      ],
+      "objects": ["model_72"],
+      "groups": [],
+      "material_libraries": ["model_72.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_72.mtl"]
+    },
+    {
+      "file": "model_73.obj",
+      "bytes": 688308,
+      "sha256": "03d6899709003357dcf0b8519c3ffb180bc0fa64b7c3fa32c397119194c94844",
+      "vertices": 2511,
+      "faces": 5974,
+      "triangles": 5974,
+      "lines": 0,
+      "uv_coordinates": 2511,
+      "normals": 2511,
+      "bounds": [
+        [-0.031276900321245193, 1.5919300317764282, 0.030352700501680374],
+        [0.031061824411153793, 1.6248531341552734, 0.11930979043245316]
+      ],
+      "dimensions": [
+        0.06233872473239899, 0.032923102378845215, 0.08895708993077278
+      ],
+      "objects": ["model_73"],
+      "groups": [],
+      "material_libraries": ["model_73.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_73.mtl"]
+    },
+    {
+      "file": "model_74.obj",
+      "bytes": 692858,
+      "sha256": "29e710fb27b733a64ba9e7aff31feef32118e4e86c45c96c0f9cf602f7f9dd91",
+      "vertices": 2497,
+      "faces": 6177,
+      "triangles": 6177,
+      "lines": 0,
+      "uv_coordinates": 2497,
+      "normals": 2497,
+      "bounds": [
+        [-0.03213590011000633, 1.6074199676513672, 0.030212799087166786],
+        [0.031991492956876755, 1.6359103918075562, 0.12255788594484329]
+      ],
+      "dimensions": [
+        0.06412739306688309, 0.028490424156188965, 0.0923450868576765
+      ],
+      "objects": ["model_74"],
+      "groups": [],
+      "material_libraries": ["model_74.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_74.mtl"]
+    },
+    {
+      "file": "model_75.obj",
+      "bytes": 7111310,
+      "sha256": "288da0b6fefbd2b20a8a3f26b889f23c237e03699b6fbe1765a1ac17b28cebac",
+      "vertices": 23140,
+      "faces": 60520,
+      "triangles": 60520,
+      "lines": 0,
+      "uv_coordinates": 23140,
+      "normals": 23140,
+      "bounds": [
+        [-0.6990140080451965, -0.00081299600424245, -0.14779800176620483],
+        [0.6919962167739868, 1.5653324127197266, 0.17609676718711853]
+      ],
+      "dimensions": [
+        1.3910102248191833, 1.566145408723969, 0.32389476895332336
+      ],
+      "objects": ["model_75"],
+      "groups": [],
+      "material_libraries": ["model_75.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_75.mtl"]
+    },
+    {
+      "file": "model_76.obj",
+      "bytes": 818379,
+      "sha256": "7cfd6e868ceb4f757d4fb9e8e14fafa674f52d238389f70672ebf780ff69f9b2",
+      "vertices": 2861,
+      "faces": 7558,
+      "triangles": 7558,
+      "lines": 0,
+      "uv_coordinates": 2861,
+      "normals": 2861,
+      "bounds": [
+        [-0.0857648029923439, 1.6547800302505493, -0.012700799852609634],
+        [0.08821771293878555, 1.6993966102600098, 0.12566432356834412]
+      ],
+      "dimensions": [
+        0.17398251593112946, 0.04461658000946045, 0.13836512342095375
+      ],
+      "objects": ["model_76"],
+      "groups": [],
+      "material_libraries": ["model_76.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_76.mtl"]
+    },
+    {
+      "file": "model_8.obj",
+      "bytes": 692856,
+      "sha256": "831fbc59a2923de70f5f10916e317aa7b5ece6f30789806ccd342ce32eff3d2a",
+      "vertices": 2497,
+      "faces": 6177,
+      "triangles": 6177,
+      "lines": 0,
+      "uv_coordinates": 2497,
+      "normals": 2497,
+      "bounds": [
+        [-0.03213590011000633, 1.6074199676513672, 0.030212799087166786],
+        [0.031991492956876755, 1.6359103918075562, 0.12255788594484329]
+      ],
+      "dimensions": [
+        0.06412739306688309, 0.028490424156188965, 0.0923450868576765
+      ],
+      "objects": ["model_8"],
+      "groups": [],
+      "material_libraries": ["model_8.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_8.mtl"]
+    },
+    {
+      "file": "model_9.obj",
+      "bytes": 7111308,
+      "sha256": "3a8232dc4023b6ae0b60daf8c2677c737316302644945dc82576b10e21566e03",
+      "vertices": 23140,
+      "faces": 60520,
+      "triangles": 60520,
+      "lines": 0,
+      "uv_coordinates": 23140,
+      "normals": 23140,
+      "bounds": [
+        [-0.6990140080451965, -0.00081299600424245, -0.14779800176620483],
+        [0.6919962167739868, 1.5653324127197266, 0.17609676718711853]
+      ],
+      "dimensions": [
+        1.3910102248191833, 1.566145408723969, 0.32389476895332336
+      ],
+      "objects": ["model_9"],
+      "groups": [],
+      "material_libraries": ["model_9.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_9.mtl"]
+    }
+  ],
+  "file_count": 90,
+  "bytes": 106064183,
+  "triangles": 837109,
+  "byte_identical_groups": []
+}

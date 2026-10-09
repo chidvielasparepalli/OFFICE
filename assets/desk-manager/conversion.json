@@ -1,0 +1,767 @@
+{
+  "workstation": {
+    "file": "assets/working/desk-manager/standard-workstation.glb",
+    "bytes": 754004,
+    "sha256": "3650dee26161bd9f0a8ae7998a70d630148284097a2d3eb311239b83308caea0",
+    "bounds": [
+      [-1.043120265007019, 0.0, -1.2901619672775269],
+      [1.043120265007019, 1.4225856065750122, 0.4685640335083008]
+    ],
+    "dimensions": [2.086240530014038, 1.4225856065750122, 1.7587260007858276],
+    "vertices": 16193,
+    "triangles": 30144,
+    "exported_vertices": 16803,
+    "meshes": [
+      {
+        "name": "WOOD_TOP",
+        "vertices": 448,
+        "triangles": 892,
+        "materials": ["Supplied_wood"]
+      },
+      {
+        "name": "DESK_MAT",
+        "vertices": 64,
+        "triangles": 124,
+        "materials": ["Supplied_desk_mat"]
+      },
+      {
+        "name": "FRAME_ELECTRONICS",
+        "vertices": 8525,
+        "triangles": 15126,
+        "materials": ["Neutral_charcoal"]
+      },
+      {
+        "name": "KEYS_ACCESSORIES",
+        "vertices": 3539,
+        "triangles": 6924,
+        "materials": ["Neutral_ivory"]
+      },
+      {
+        "name": "SCREENS_OFF",
+        "vertices": 92,
+        "triangles": 86,
+        "materials": ["Screens_off"]
+      },
+      {
+        "name": "CHAIR",
+        "vertices": 3525,
+        "triangles": 6992,
+        "materials": ["Neutral_chair"]
+      }
+    ],
+    "images": 2,
+    "rigged": false,
+    "animations": 0,
+    "coordinate_system": "Y-up, meters, origin at ground; character faces +Z, desk user side faces -Z",
+    "scale_factor": 0.46856403440998134,
+    "source_pivot_blender": [
+      0.24107366800308228, 1.3971505165100098, -1.5159568786621094
+    ],
+    "desk_top_height": 0.75,
+    "worker_standing_anchor": [0, 0, -1.62],
+    "chair_center": [0, 0, -0.88],
+    "chair_source": "assets/working/workers/office-workstation.blend:CHAIR",
+    "chair_source_glb_sha256": "ba34038e199e66ac7028e566fce39eb1b82951225f5cf3c72915da66fa11bacd",
+    "source_components": {
+      "model_0": "WOOD_TOP",
+      "model_1": "FRAME_ELECTRONICS",
+      "model_2": "DESK_MAT",
+      "model_3": "FRAME_ELECTRONICS",
+      "model_4": "SCREENS_OFF",
+      "model_5": "FRAME_ELECTRONICS",
+      "model_6": "FRAME_ELECTRONICS",
+      "model_7": "FRAME_ELECTRONICS",
+      "model_8": "FRAME_ELECTRONICS",
+      "model_9": "FRAME_ELECTRONICS",
+      "model_10": "FRAME_ELECTRONICS",
+      "model_11": "FRAME_ELECTRONICS",
+      "model_12": "FRAME_ELECTRONICS",
+      "model_13": "KEYS_ACCESSORIES",
+      "model_14": "FRAME_ELECTRONICS",
+      "model_15": "FRAME_ELECTRONICS",
+      "model_16": "KEYS_ACCESSORIES",
+      "model_17": "KEYS_ACCESSORIES",
+      "model_18": "FRAME_ELECTRONICS",
+      "model_19": "FRAME_ELECTRONICS",
+      "model_20": "FRAME_ELECTRONICS",
+      "model_21": "FRAME_ELECTRONICS",
+      "model_22": "FRAME_ELECTRONICS",
+      "model_23": "KEYS_ACCESSORIES",
+      "model_24": "KEYS_ACCESSORIES",
+      "model_25": "KEYS_ACCESSORIES",
+      "model_26": "KEYS_ACCESSORIES",
+      "model_27": "KEYS_ACCESSORIES",
+      "model_28": "SCREENS_OFF",
+      "model_29": "KEYS_ACCESSORIES",
+      "model_30": "SCREENS_OFF",
+      "model_31": "FRAME_ELECTRONICS",
+      "model_32": "FRAME_ELECTRONICS",
+      "model_33": "FRAME_ELECTRONICS",
+      "model_34": "FRAME_ELECTRONICS",
+      "model_35": "FRAME_ELECTRONICS",
+      "model_36": "FRAME_ELECTRONICS",
+      "model_37": "FRAME_ELECTRONICS"
+    },
+    "cleanup": [
+      {
+        "source": "model_0",
+        "before": 892,
+        "after_weld": 892,
+        "after": 892
+      },
+      {
+        "source": "model_1",
+        "before": 3584,
+        "after_weld": 3584,
+        "after": 1800
+      },
+      {
+        "source": "model_2",
+        "before": 124,
+        "after_weld": 124,
+        "after": 124
+      },
+      {
+        "source": "model_3",
+        "before": 1270,
+        "after_weld": 1270,
+        "after": 1270
+      },
+      {
+        "source": "model_4",
+        "before": 30,
+        "after_weld": 30,
+        "after": 30
+      },
+      {
+        "source": "model_5",
+        "before": 44,
+        "after_weld": 44,
+        "after": 44
+      },
+      {
+        "source": "model_6",
+        "before": 866,
+        "after_weld": 866,
+        "after": 866
+      },
+      {
+        "source": "model_7",
+        "before": 114,
+        "after_weld": 114,
+        "after": 114
+      },
+      {
+        "source": "model_8",
+        "before": 916,
+        "after_weld": 916,
+        "after": 916
+      },
+      {
+        "source": "model_9",
+        "before": 12,
+        "after_weld": 12,
+        "after": 12
+      },
+      {
+        "source": "model_10",
+        "before": 3400,
+        "after_weld": 3400,
+        "after": 2399
+      },
+      {
+        "source": "model_11",
+        "before": 508,
+        "after_weld": 508,
+        "after": 508
+      },
+      {
+        "source": "model_12",
+        "before": 816,
+        "after_weld": 816,
+        "after": 816
+      },
+      {
+        "source": "model_13",
+        "before": 4918,
+        "after_weld": 4918,
+        "after": 900
+      },
+      {
+        "source": "model_14",
+        "before": 1596,
+        "after_weld": 1596,
+        "after": 1596
+      },
+      {
+        "source": "model_15",
+        "before": 3660,
+        "after_weld": 3660,
+        "after": 100
+      },
+      {
+        "source": "model_16",
+        "before": 6836,
+        "after_weld": 6836,
+        "after": 900
+      },
+      {
+        "source": "model_17",
+        "before": 3552,
+        "after_weld": 3552,
+        "after": 700
+      },
+      {
+        "source": "model_18",
+        "before": 168,
+        "after_weld": 168,
+        "after": 168
+      },
+      {
+        "source": "model_19",
+        "before": 168,
+        "after_weld": 168,
+        "after": 168
+      },
+      {
+        "source": "model_20",
+        "before": 328,
+        "after_weld": 328,
+        "after": 328
+      },
+      {
+        "source": "model_21",
+        "before": 168,
+        "after_weld": 168,
+        "after": 168
+      },
+      {
+        "source": "model_22",
+        "before": 1137,
+        "after_weld": 1137,
+        "after": 1137
+      },
+      {
+        "source": "model_23",
+        "before": 448,
+        "after_weld": 448,
+        "after": 448
+      },
+      {
+        "source": "model_24",
+        "before": 3196,
+        "after_weld": 3196,
+        "after": 1100
+      },
+      {
+        "source": "model_25",
+        "before": 188,
+        "after_weld": 188,
+        "after": 188
+      },
+      {
+        "source": "model_26",
+        "before": 3196,
+        "after_weld": 3196,
+        "after": 1100
+      },
+      {
+        "source": "model_27",
+        "before": 188,
+        "after_weld": 188,
+        "after": 188
+      },
+      {
+        "source": "model_28",
+        "before": 26,
+        "after_weld": 26,
+        "after": 26
+      },
+      {
+        "source": "model_29",
+        "before": 6768,
+        "after_weld": 6768,
+        "after": 1400
+      },
+      {
+        "source": "model_30",
+        "before": 30,
+        "after_weld": 30,
+        "after": 30
+      },
+      {
+        "source": "model_31",
+        "before": 128,
+        "after_weld": 128,
+        "after": 128
+      },
+      {
+        "source": "model_32",
+        "before": 652,
+        "after_weld": 652,
+        "after": 652
+      },
+      {
+        "source": "model_33",
+        "before": 1152,
+        "after_weld": 1152,
+        "after": 1152
+      },
+      {
+        "source": "model_34",
+        "before": 528,
+        "after_weld": 528,
+        "after": 528
+      },
+      {
+        "source": "model_35",
+        "before": 64,
+        "after_weld": 64,
+        "after": 64
+      },
+      {
+        "source": "model_36",
+        "before": 64,
+        "after_weld": 64,
+        "after": 64
+      },
+      {
+        "source": "model_37",
+        "before": 128,
+        "after_weld": 128,
+        "after": 128
+      }
+    ],
+    "normalization": "Uniform desk scale to 0.75 m top, rotated 180 degrees around up axis; prior supplied chair keeps its scale",
+    "material_assignment": "Wood/pad images assigned by visible content and UVs; neutral finishes and powered-off screens replace missing MTL settings"
+  },
+  "manager": {
+    "file": "assets/working/desk-manager/primary-manager.glb",
+    "bytes": 5363896,
+    "sha256": "be08ea1042522b7e5d5d8fde5143c278192e62789440bdce3b8760eb9c31e7b2",
+    "bounds": [
+      [-0.8745846152305603, 0.0, -0.18138989806175232],
+      [0.8746311068534851, 1.7999999523162842, 0.14036493003368378]
+    ],
+    "dimensions": [1.7492157220840454, 1.7999999523162842, 0.3217548280954361],
+    "vertices": 34297,
+    "triangles": 58751,
+    "exported_vertices": 35757,
+    "meshes": [
+      {
+        "name": "HANDS",
+        "vertices": 2024,
+        "triangles": 3396,
+        "materials": ["HANDS"]
+      },
+      {
+        "name": "EYELASHES",
+        "vertices": 2658,
+        "triangles": 1200,
+        "materials": ["EYELASHES"]
+      },
+      {
+        "name": "HEAD",
+        "vertices": 7125,
+        "triangles": 13828,
+        "materials": ["HEAD"]
+      },
+      {
+        "name": "CORNEA_LEFT",
+        "vertices": 457,
+        "triangles": 830,
+        "materials": ["CORNEA_LEFT"]
+      },
+      {
+        "name": "EYE_LEFT",
+        "vertices": 481,
+        "triangles": 791,
+        "materials": ["EYE_LEFT"]
+      },
+      {
+        "name": "CORNEA_RIGHT",
+        "vertices": 457,
+        "triangles": 830,
+        "materials": ["CORNEA_RIGHT"]
+      },
+      {
+        "name": "EYE_RIGHT",
+        "vertices": 481,
+        "triangles": 791,
+        "materials": ["EYE_RIGHT"]
+      },
+      {
+        "name": "TEETH_LOWER",
+        "vertices": 2511,
+        "triangles": 3464,
+        "materials": ["TEETH_LOWER"]
+      },
+      {
+        "name": "TEETH_UPPER",
+        "vertices": 2497,
+        "triangles": 3654,
+        "materials": ["TEETH_UPPER"]
+      },
+      {
+        "name": "SUIT_SHOES",
+        "vertices": 12745,
+        "triangles": 24499,
+        "materials": ["SUIT_SHOES"]
+      },
+      {
+        "name": "GLASSES",
+        "vertices": 2861,
+        "triangles": 5468,
+        "materials": ["GLASSES"]
+      }
+    ],
+    "images": 13,
+    "rigged": false,
+    "animations": 0,
+    "coordinate_system": "Y-up, meters, origin at ground; character faces +Z, desk user side faces -Z",
+    "scale_factor": 0.9933928925407851,
+    "source_pivot_blender": [
+      0.00022854655981063843, -0.0347982682287693, -0.0008129975176416337
+    ],
+    "duplicates_removed": [
+      {
+        "file": "model_11.obj",
+        "retained": "model_0.obj"
+      },
+      {
+        "file": "model_12.obj",
+        "retained": "model_1.obj"
+      },
+      {
+        "file": "model_13.obj",
+        "retained": "model_2.obj"
+      },
+      {
+        "file": "model_14.obj",
+        "retained": "model_3.obj"
+      },
+      {
+        "file": "model_15.obj",
+        "retained": "model_4.obj"
+      },
+      {
+        "file": "model_16.obj",
+        "retained": "model_5.obj"
+      },
+      {
+        "file": "model_17.obj",
+        "retained": "model_6.obj"
+      },
+      {
+        "file": "model_18.obj",
+        "retained": "model_7.obj"
+      },
+      {
+        "file": "model_19.obj",
+        "retained": "model_8.obj"
+      },
+      {
+        "file": "model_20.obj",
+        "retained": "model_9.obj"
+      },
+      {
+        "file": "model_21.obj",
+        "retained": "model_10.obj"
+      },
+      {
+        "file": "model_22.obj",
+        "retained": "model_0.obj"
+      },
+      {
+        "file": "model_23.obj",
+        "retained": "model_1.obj"
+      },
+      {
+        "file": "model_24.obj",
+        "retained": "model_2.obj"
+      },
+      {
+        "file": "model_25.obj",
+        "retained": "model_3.obj"
+      },
+      {
+        "file": "model_26.obj",
+        "retained": "model_4.obj"
+      },
+      {
+        "file": "model_27.obj",
+        "retained": "model_5.obj"
+      },
+      {
+        "file": "model_28.obj",
+        "retained": "model_6.obj"
+      },
+      {
+        "file": "model_29.obj",
+        "retained": "model_7.obj"
+      },
+      {
+        "file": "model_30.obj",
+        "retained": "model_8.obj"
+      },
+      {
+        "file": "model_31.obj",
+        "retained": "model_9.obj"
+      },
+      {
+        "file": "model_32.obj",
+        "retained": "model_10.obj"
+      },
+      {
+        "file": "model_33.obj",
+        "retained": "model_0.obj"
+      },
+      {
+        "file": "model_34.obj",
+        "retained": "model_1.obj"
+      },
+      {
+        "file": "model_35.obj",
+        "retained": "model_2.obj"
+      },
+      {
+        "file": "model_36.obj",
+        "retained": "model_3.obj"
+      },
+      {
+        "file": "model_37.obj",
+        "retained": "model_4.obj"
+      },
+      {
+        "file": "model_38.obj",
+        "retained": "model_5.obj"
+      },
+      {
+        "file": "model_39.obj",
+        "retained": "model_6.obj"
+      },
+      {
+        "file": "model_40.obj",
+        "retained": "model_7.obj"
+      },
+      {
+        "file": "model_41.obj",
+        "retained": "model_8.obj"
+      },
+      {
+        "file": "model_42.obj",
+        "retained": "model_9.obj"
+      },
+      {
+        "file": "model_43.obj",
+        "retained": "model_10.obj"
+      },
+      {
+        "file": "model_44.obj",
+        "retained": "model_0.obj"
+      },
+      {
+        "file": "model_45.obj",
+        "retained": "model_1.obj"
+      },
+      {
+        "file": "model_46.obj",
+        "retained": "model_2.obj"
+      },
+      {
+        "file": "model_47.obj",
+        "retained": "model_3.obj"
+      },
+      {
+        "file": "model_48.obj",
+        "retained": "model_4.obj"
+      },
+      {
+        "file": "model_49.obj",
+        "retained": "model_5.obj"
+      },
+      {
+        "file": "model_50.obj",
+        "retained": "model_6.obj"
+      },
+      {
+        "file": "model_51.obj",
+        "retained": "model_7.obj"
+      },
+      {
+        "file": "model_52.obj",
+        "retained": "model_8.obj"
+      },
+      {
+        "file": "model_53.obj",
+        "retained": "model_9.obj"
+      },
+      {
+        "file": "model_54.obj",
+        "retained": "model_10.obj"
+      },
+      {
+        "file": "model_55.obj",
+        "retained": "model_0.obj"
+      },
+      {
+        "file": "model_56.obj",
+        "retained": "model_1.obj"
+      },
+      {
+        "file": "model_57.obj",
+        "retained": "model_2.obj"
+      },
+      {
+        "file": "model_58.obj",
+        "retained": "model_3.obj"
+      },
+      {
+        "file": "model_59.obj",
+        "retained": "model_4.obj"
+      },
+      {
+        "file": "model_60.obj",
+        "retained": "model_5.obj"
+      },
+      {
+        "file": "model_61.obj",
+        "retained": "model_6.obj"
+      },
+      {
+        "file": "model_62.obj",
+        "retained": "model_7.obj"
+      },
+      {
+        "file": "model_63.obj",
+        "retained": "model_8.obj"
+      },
+      {
+        "file": "model_64.obj",
+        "retained": "model_9.obj"
+      },
+      {
+        "file": "model_65.obj",
+        "retained": "model_10.obj"
+      },
+      {
+        "file": "model_66.obj",
+        "retained": "model_0.obj"
+      },
+      {
+        "file": "model_67.obj",
+        "retained": "model_1.obj"
+      },
+      {
+        "file": "model_68.obj",
+        "retained": "model_2.obj"
+      },
+      {
+        "file": "model_69.obj",
+        "retained": "model_3.obj"
+      },
+      {
+        "file": "model_70.obj",
+        "retained": "model_4.obj"
+      },
+      {
+        "file": "model_71.obj",
+        "retained": "model_5.obj"
+      },
+      {
+        "file": "model_72.obj",
+        "retained": "model_6.obj"
+      },
+      {
+        "file": "model_73.obj",
+        "retained": "model_7.obj"
+      },
+      {
+        "file": "model_74.obj",
+        "retained": "model_8.obj"
+      },
+      {
+        "file": "model_75.obj",
+        "retained": "model_9.obj"
+      },
+      {
+        "file": "model_76.obj",
+        "retained": "model_10.obj"
+      }
+    ],
+    "source_components": {
+      "model_0": {
+        "component": "HANDS",
+        "color": "AvatarBodyMale_Color_1K.png",
+        "normal": "AvatarBodyMale_Normal1_1K.png"
+      },
+      "model_1": {
+        "component": "EYELASHES",
+        "color": null,
+        "normal": null
+      },
+      "model_2": {
+        "component": "HEAD",
+        "color": "AvatarHeadMale_Color_1K.png",
+        "normal": "AvatarHeadMale_Normal1_1K.png"
+      },
+      "model_3": {
+        "component": "CORNEA_LEFT",
+        "color": "AvatarLeftCornea_Color_512.png",
+        "normal": null
+      },
+      "model_4": {
+        "component": "EYE_LEFT",
+        "color": "AvatarEyes_Color_512.png",
+        "normal": "AvatarEyes_Normal_512.png"
+      },
+      "model_5": {
+        "component": "CORNEA_RIGHT",
+        "color": "AvatarRightCornea_Color_512.png",
+        "normal": null
+      },
+      "model_6": {
+        "component": "EYE_RIGHT",
+        "color": "AvatarEyes_Color_512.png",
+        "normal": "AvatarEyes_Normal_512.png"
+      },
+      "model_7": {
+        "component": "TEETH_LOWER",
+        "color": "AvatarTeeth_Color_1K.png",
+        "normal": "AvatarTeeth_Normal1_1K.png"
+      },
+      "model_8": {
+        "component": "TEETH_UPPER",
+        "color": "AvatarTeeth_Color_1K.png",
+        "normal": "AvatarTeeth_Normal1_1K.png"
+      },
+      "model_9": {
+        "component": "SUIT_SHOES",
+        "color": "ARARAT_Color_1K.png",
+        "normal": "ARARAT_Normal_1K.png"
+      },
+      "model_10": {
+        "component": "GLASSES",
+        "color": "glasses_10_Color_256.png",
+        "normal": null
+      }
+    },
+    "cleanup": [
+      {
+        "source": "model_1",
+        "before": 4900,
+        "after_weld": 4900,
+        "after": 1200
+      },
+      {
+        "source": "model_9",
+        "before": 40540,
+        "after_weld": 40365,
+        "after": 24499
+      }
+    ],
+    "normalization": "Uniform scale to chosen canonical height 1.80 m; feet-center ground pivot; source units unspecified",
+    "pose": "Unchanged source T-pose; no rig or animation",
+    "material_assignment": "Explicit anatomical/UV texture mapping; missing MTL means source shader settings are unknown"
+  }
+}

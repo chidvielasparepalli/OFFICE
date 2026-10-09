@@ -1,0 +1,276 @@
+{
+  "worker": {
+    "file": "assets/working/animation/standard-worker-animated.glb",
+    "bytes": 531652,
+    "sha256": "31cf85faaf4bdff5a4aa12d4ee0a92ccdb33622df8d5b9e6ee323d622d01a1d5",
+    "source": "assets/working/workers/standard-worker.blend",
+    "meshes": {
+      "STANDARD_WORKER": {
+        "hash": "b38e0678dceeafe6a26fd0f2accd612399f48821151fbbaeeb43dce48b580983",
+        "vertices": 5039,
+        "materials": ["Stickman_supplied_atlas"]
+      }
+    },
+    "bones": [
+      "root",
+      "hips",
+      "spine",
+      "chest",
+      "neck",
+      "head",
+      "headband_anchor",
+      "thigh.L",
+      "shin.L",
+      "foot.L",
+      "clavicle.L",
+      "upper_arm.L",
+      "forearm.L",
+      "hand.L",
+      "thigh.R",
+      "shin.R",
+      "foot.R",
+      "clavicle.R",
+      "upper_arm.R",
+      "forearm.R",
+      "hand.R"
+    ],
+    "clips": {
+      "stand_idle": 1,
+      "seated_idle": 1,
+      "seated_sleep": 1,
+      "seated_work": 4,
+      "seated_work_hard": 4,
+      "headband_on": 3.6,
+      "headband_off": 3.6,
+      "walk": 1,
+      "stand_up": 2.6,
+      "sit_down": 2.6
+    },
+    "rigged": true,
+    "skeletal_skin_count": 1,
+    "seated_pelvis_height": 0.465,
+    "source_geometry_unchanged": true,
+    "skinning": "rigid connected components",
+    "headband": {
+      "anchor": "headband_anchor",
+      "fit": {
+        "bone": "headband_anchor",
+        "fallback_bone": "head",
+        "headOffset": [-0.000426, 0.205, 0.023386],
+        "position": [-0.000426, 0.205, 0.023386],
+        "rotation": [0, 0, 0],
+        "scale": [1.935, 0.62, 1.595],
+        "rest_head_origin": [0.0, 1.399999976158142, -0.02500000037252903],
+        "world_center": [
+          -0.00042600001324899495, 1.6050000190734863, -0.0016140006482601166
+        ],
+        "ring_bounds": [
+          [-0.193926000013249, 1.5840344566954627, -0.20826850646221362],
+          [0.193073999986751, 1.62596558145151, 0.2050405051656934]
+        ],
+        "ring_dimensions": [0.387, 0.04193112475604721, 0.413309011627907],
+        "full_bounds": [
+          [-0.193926000013249, 1.5069639882765946, -0.2646118825762138],
+          [0.21539707360954147, 1.6451056682467415, 0.2050405051656934]
+        ],
+        "full_dimensions": [
+          0.40932307362279047, 0.13814167997014692, 0.4696523877419072
+        ],
+        "grips": [
+          [-0.1935, 0.002516879279147677, -0.00798353254515617],
+          [0.1935, -0.012677145834746772, -0.004514924381562774]
+        ],
+        "grips_asset_local": {
+          "right": [-0.1, 0.004059482708302569, -0.005005349558091642],
+          "left": [0.1, -0.02044700941088198, -0.0028306735934562842]
+        },
+        "grips_head_local": {
+          "right": [
+            -0.193926000013249, 0.20751692219449192, 0.015402467179112743
+          ],
+          "left": [0.193073999986751, 0.19232289708059747, 0.01887107534270614]
+        },
+        "fits_only_accessory": "Nonuniform accessory fit preserves canonical worker/Manager geometry and uses the same accessory GLB"
+      },
+      "duration": 3.6,
+      "visible_from_progress": 0.12,
+      "process": "waist pickup; lift above crown; lower to forehead; release to keyboard; exact reverse removal"
+    },
+    "workstation_motion": {
+      "seated_anchor": [0, 0, -0.73],
+      "transition_seconds": 2.6,
+      "scoot_seconds": 0.6,
+      "rise_seconds": 2.0,
+      "chair_rollback_meters": 0.4,
+      "standing_offset_from_seat": [
+        0.6499999761581421, 0.0, -0.6200000047683716
+      ],
+      "standing_anchor": [0.6499999761581421, 0, -1.3500000047683716],
+      "curve": "r=clamp(2.6*p/.6);q=clamp((2.6*p-.6)/2);S(t)=clamped smoothstep;chairZ=-.4*S(r);root=[.65*S((q-.42)/.4),0,chairZ+.22*S(q/.4)-.44*S((q-.8)/.2)];sit_down reverses p",
+      "calibration": "Chair and seated occupant roll back together before rising; foot steps preserve ground contact; only CHAIR geometry translates"
+    }
+  },
+  "manager": {
+    "file": "assets/working/animation/primary-manager-animated.glb",
+    "bytes": 6319716,
+    "sha256": "81e00dd872c75bfc898f110f1358f883f98014c833d48f6fb966af455b831812",
+    "source": "assets/working/desk-manager/primary-manager.blend",
+    "meshes": {
+      "HANDS": {
+        "hash": "4775aaa6657c3664f2d2a40d95f547d559757581535ad6c5971471108f0d7fc1",
+        "vertices": 2024,
+        "materials": ["HANDS"]
+      },
+      "EYELASHES": {
+        "hash": "23c61b4a836fb50292e3f0d80e7ca0fa0039e2968945cc8d1fb15f775193d5a3",
+        "vertices": 2658,
+        "materials": ["EYELASHES"]
+      },
+      "HEAD": {
+        "hash": "daeec623e001a3b9c1f2ea28a72d16b7e0fdc5e969ec5f5548fa00a82c40fe67",
+        "vertices": 7125,
+        "materials": ["HEAD"]
+      },
+      "CORNEA_LEFT": {
+        "hash": "f037b6fad746359e51d90ee67e33a03a4baf577f0589c9ebe0f123fff4626ad7",
+        "vertices": 457,
+        "materials": ["CORNEA_LEFT"]
+      },
+      "EYE_LEFT": {
+        "hash": "e51d2c9b3ca4cd25fa96b91fedf8b03ddc5358d656de71656b89ef4c7148f4de",
+        "vertices": 481,
+        "materials": ["EYE_LEFT"]
+      },
+      "CORNEA_RIGHT": {
+        "hash": "80e1d52149d71112fb47a472c93e6d74113bad4e3feebbe16770967b4fb1a887",
+        "vertices": 457,
+        "materials": ["CORNEA_RIGHT"]
+      },
+      "EYE_RIGHT": {
+        "hash": "4969fe9dc0d07a5a96bc02426edad71a45b0de509a5a86a51cbf714775cfe4b5",
+        "vertices": 481,
+        "materials": ["EYE_RIGHT"]
+      },
+      "TEETH_LOWER": {
+        "hash": "a925942908c0ec0c803c094b268cc1e6228a1bc2aef4816b8e7216291ee03a15",
+        "vertices": 2511,
+        "materials": ["TEETH_LOWER"]
+      },
+      "TEETH_UPPER": {
+        "hash": "f5b27b605d7de73c23ad52a4f7f5b00bac100cd441e9df181e269b6c862395d4",
+        "vertices": 2497,
+        "materials": ["TEETH_UPPER"]
+      },
+      "SUIT_SHOES": {
+        "hash": "5fc86dea9e9b239dd9cb73866b68de7da99eada748720e8982cb60407cc689bc",
+        "vertices": 12745,
+        "materials": ["SUIT_SHOES"]
+      },
+      "GLASSES": {
+        "hash": "41fd1e67bfaf092552ec0cddc5098381564d3673ac42409b93f268ce789498a2",
+        "vertices": 2861,
+        "materials": ["GLASSES"]
+      }
+    },
+    "bones": [
+      "root",
+      "hips",
+      "spine",
+      "chest",
+      "neck",
+      "head",
+      "headband_anchor",
+      "thigh.L",
+      "shin.L",
+      "foot.L",
+      "clavicle.L",
+      "upper_arm.L",
+      "forearm.L",
+      "hand.L",
+      "thigh.R",
+      "shin.R",
+      "foot.R",
+      "clavicle.R",
+      "upper_arm.R",
+      "forearm.R",
+      "hand.R"
+    ],
+    "clips": {
+      "stand_idle": 1,
+      "seated_idle": 1,
+      "seated_sleep": 1,
+      "seated_work": 4,
+      "seated_work_hard": 4,
+      "headband_on": 3.6,
+      "headband_off": 3.6,
+      "walk": 1,
+      "stand_up": 2.6,
+      "sit_down": 2.6
+    },
+    "rigged": true,
+    "skeletal_skin_count": 1,
+    "seated_pelvis_height": 0.51,
+    "source_geometry_unchanged": true,
+    "skinning": "anatomical region/capsule weights; up to three influences",
+    "headband": {
+      "anchor": "headband_anchor",
+      "fit": {
+        "bone": "headband_anchor",
+        "fallback_bone": "head",
+        "headOffset": [0.0008, 0.159, 0.005],
+        "position": [0.0008, 0.159, 0.005],
+        "rotation": [0, 0, 0],
+        "scale": [0.98, 0.68, 0.95],
+        "rest_head_origin": [0.0, 1.559999942779541, -0.02500000223517418],
+        "world_center": [
+          0.0007999999797903001, 1.718999981880188, -0.020000003278255463
+        ],
+        "ring_bounds": [
+          [-0.0972000000202097, 1.6960054941107425, -0.14308575909220894],
+          [0.0987999999797903, 1.7419944696496334, 0.10308575253569803]
+        ],
+        "ring_dimensions": [0.196, 0.04598897553889092, 0.24617151162790696],
+        "full_bounds": [
+          [-0.0972000000202097, 1.611476593264242, -0.17664450975572005],
+          [0.11010574269314154, 1.7629868229089196, 0.10308575253569803]
+        ],
+        "full_dimensions": [
+          0.20730574271335123, 0.15151022964467753, 0.27973026229141806
+        ],
+        "grips": [
+          [-0.098, 0.0027604482416456744, -0.004755082080187059],
+          [0.098, -0.013903966399399836, -0.002689139913783469]
+        ],
+        "grips_asset_local": {
+          "right": [-0.1, 0.004059482708302569, -0.005005349558091642],
+          "left": [0.1, -0.02044700941088198, -0.0028306735934562842]
+        },
+        "grips_head_local": {
+          "right": [
+            -0.0972000000202097, 0.16176048734229265, 0.0002449168767316573
+          ],
+          "left": [
+            0.0987999999797903, 0.14509607270124714, 0.0023108590431352473
+          ]
+        },
+        "fits_only_accessory": "Nonuniform accessory fit preserves canonical worker/Manager geometry and uses the same accessory GLB"
+      },
+      "duration": 3.6,
+      "visible_from_progress": 0.12,
+      "process": "waist pickup; lift above crown; lower to forehead; release to keyboard; exact reverse removal"
+    },
+    "workstation_motion": {
+      "seated_anchor": [0, 0, -0.73],
+      "transition_seconds": 2.6,
+      "scoot_seconds": 0.6,
+      "rise_seconds": 2.0,
+      "chair_rollback_meters": 0.4,
+      "standing_offset_from_seat": [
+        0.6499999761581421, 0.0, -0.6200000047683716
+      ],
+      "standing_anchor": [0.6499999761581421, 0, -1.3500000047683716],
+      "curve": "r=clamp(2.6*p/.6);q=clamp((2.6*p-.6)/2);S(t)=clamped smoothstep;chairZ=-.4*S(r);root=[.65*S((q-.42)/.4),0,chairZ+.22*S(q/.4)-.44*S((q-.8)/.2)];sit_down reverses p",
+      "calibration": "Chair and seated occupant roll back together before rising; foot steps preserve ground contact; only CHAIR geometry translates"
+    }
+  }
+}

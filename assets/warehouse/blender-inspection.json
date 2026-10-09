@@ -1,0 +1,2183 @@
+{
+  "blender": "5.2.1 LTS",
+  "objects": [
+    {
+      "name": "model_0",
+      "source": "model_0.obj",
+      "parent": null,
+      "vertices": 1263,
+      "polygons": 729,
+      "triangles": 729,
+      "bounds": [
+        [28.531600952148438, -4.017809867858887, 12.585494041442871],
+        [601.58740234375, 843.6199951171875, 493.19720458984375]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "ab2bfc9db1d4e9756efa6cd9e9e621caac0e17d47953927e7e1474bac42edfd9"
+    },
+    {
+      "name": "model_1",
+      "source": "model_1.obj",
+      "parent": null,
+      "vertices": 65465,
+      "polygons": 92135,
+      "triangles": 92135,
+      "bounds": [
+        [62.50555419921875, 24.25465965270996, 276.5796813964844],
+        [587.89697265625, 705.2825927734375, 317.7464904785156]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "f6c6ef41174d1fffff063cf55cea3780c7fa618b8e8fb38f756cc09ed381be32"
+    },
+    {
+      "name": "model_10",
+      "source": "model_10.obj",
+      "parent": null,
+      "vertices": 65424,
+      "polygons": 26340,
+      "triangles": 26340,
+      "bounds": [
+        [202.4503173828125, 25.608783721923828, 266.22003173828125],
+        [523.677734375, 544.9761352539062, 279.48809814453125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "6bb4f279997ac6c60bcd770cd710f8735026414566a64a7fbb096d8583b21405"
+    },
+    {
+      "name": "model_100",
+      "source": "model_100.obj",
+      "parent": null,
+      "vertices": 1000,
+      "polygons": 974,
+      "triangles": 974,
+      "bounds": [
+        [330.9440002441406, 25.296127319335938, 285.4978332519531],
+        [572.3959350585938, 268.95892333984375, 285.5212707519531]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "bbe195f26ed8b410c24280e4166f336c2878108ad6ba9d7edee414e53569082e"
+    },
+    {
+      "name": "model_11",
+      "source": "model_11.obj",
+      "parent": null,
+      "vertices": 64906,
+      "polygons": 38942,
+      "triangles": 38942,
+      "bounds": [
+        [126.70016479492188, 25.608783721923828, 272.7951965332031],
+        [578.1085205078125, 465.8616027832031, 311.58447265625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "f44eef146085b387b2997f76c1897386853bc0de766f38337dda5f195c7ebad3"
+    },
+    {
+      "name": "model_114",
+      "source": "model_114.obj",
+      "parent": null,
+      "vertices": 792,
+      "polygons": 460,
+      "triangles": 460,
+      "bounds": [
+        [185.794677734375, 83.69407653808594, 257.86151123046875],
+        [586.4832763671875, 289.2921447753906, 395.8399353027344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "44803987a0d7d78eb29ffaab3c4f7537768028debafe979acd57aea479d535d6"
+    },
+    {
+      "name": "model_12",
+      "source": "model_12.obj",
+      "parent": null,
+      "vertices": 65402,
+      "polygons": 42620,
+      "triangles": 42620,
+      "bounds": [
+        [50.80058670043945, 14.037288665771484, 255.90499877929688],
+        [591.7455444335938, 707.189697265625, 406.7590026855469]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "b6b1106734313819b94b7f52bd1cacda3037d3ac91e3b033474b22a1b3d5e9b9"
+    },
+    {
+      "name": "model_13",
+      "source": "model_13.obj",
+      "parent": null,
+      "vertices": 52239,
+      "polygons": 33551,
+      "triangles": 33551,
+      "bounds": [
+        [43.987098693847656, -4.017809867858887, 181.265625],
+        [612.6363525390625, 842.6356811523438, 442.8161926269531]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "04746d9ff1259ebaa7658f65ed7a13ed03144e6512e9116942a67a42be4f1d86"
+    },
+    {
+      "name": "model_14",
+      "source": "model_14.obj",
+      "parent": null,
+      "vertices": 1054,
+      "polygons": 650,
+      "triangles": 650,
+      "bounds": [
+        [46.46997833251953, 5.824709892272949, 255.9047088623047],
+        [600.6028442382812, 842.6356811523438, 491.3507995605469]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "74ad965062df71d78053f2f7ece0ab7498679b6c8214a6fce064c67a6686230f"
+    },
+    {
+      "name": "model_157",
+      "source": "model_157.obj",
+      "parent": null,
+      "vertices": 2232,
+      "polygons": 1116,
+      "triangles": 1116,
+      "bounds": [
+        [145.2534942626953, 1.496061086654663, 75.57762145996094],
+        [597.6597900390625, 669.4862060546875, 395.8399353027344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "f0b9885a7c365955eb0fbcadbf5e80d92b569541f2de7a7bf9a34d65c3fdf09e"
+    },
+    {
+      "name": "model_158",
+      "source": "model_158.obj",
+      "parent": null,
+      "vertices": 17152,
+      "polygons": 20098,
+      "triangles": 20098,
+      "bounds": [
+        [578.4120483398438, 432.872802734375, 291.1412048339844],
+        [590.0326538085938, 515.3740844726562, 330.2590637207031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "a9538f7c86111691be7bd26ee93c47f2b285b11510c611cb373ac63aed34a506"
+    },
+    {
+      "name": "model_159",
+      "source": "model_159.obj",
+      "parent": null,
+      "vertices": 62992,
+      "polygons": 74786,
+      "triangles": 74786,
+      "bounds": [
+        [582.2395629882812, 432.18585205078125, 291.1412048339844],
+        [590.0326538085938, 480.41705322265625, 330.2590637207031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "042b52d2a0c5ebe39f5866ade49cc9c5f88c90e32b7d1a985daa884a30f48805"
+    },
+    {
+      "name": "model_16",
+      "source": "model_16.obj",
+      "parent": null,
+      "vertices": 25640,
+      "polygons": 22392,
+      "triangles": 22392,
+      "bounds": [
+        [48.267250061035156, 29.550045013427734, 422.22119140625],
+        [613.2277221679688, 821.7429809570312, 484.89886474609375]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "3ded2051a1da2b88c11a7a9dc5f8ffd5e03bf7e6a308c5b5eb1e654716944423"
+    },
+    {
+      "name": "model_160",
+      "source": "model_160.obj",
+      "parent": null,
+      "vertices": 17078,
+      "polygons": 19705,
+      "triangles": 19705,
+      "bounds": [
+        [578.4120483398438, 432.872802734375, 291.1412048339844],
+        [590.0326538085938, 515.3740844726562, 330.2590637207031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "90174fec4f1eeb403d28b65cb8926a63f83cd2b3b0f7cf278565dcd3191177c5"
+    },
+    {
+      "name": "model_17",
+      "source": "model_17.obj",
+      "parent": null,
+      "vertices": 56,
+      "polygons": 28,
+      "triangles": 28,
+      "bounds": [
+        [48.831912994384766, -5.455190181732178, 418.1109924316406],
+        [612.6376953125, 842.6356811523438, 488.1569519042969]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "3c2f7d6b169afbdad7b7acd8629987d9e7a28e642d6d938146b6845bf8d9f2e1"
+    },
+    {
+      "name": "model_18",
+      "source": "model_18.obj",
+      "parent": null,
+      "vertices": 15215,
+      "polygons": 8748,
+      "triangles": 8748,
+      "bounds": [
+        [48.824642181396484, 4.564860137179494e-5, 255.90499877929688],
+        [592.13330078125, 548.9320678710938, 438.977294921875]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "6bf953eb24f0f82b4631c2305437274176c69c647320f2a6191eb8b5b9d5af90"
+    },
+    {
+      "name": "model_186",
+      "source": "model_186.obj",
+      "parent": null,
+      "vertices": 61264,
+      "polygons": 65434,
+      "triangles": 65434,
+      "bounds": [
+        [577.7250366210938, 446.04412841796875, 291.1412048339844],
+        [590.2644653320312, 516.06103515625, 330.2590637207031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "e90f67ea9fe25200acb3ce80ea4c36d9941ac8acd3bbee6ae5ea3e27c2434894"
+    },
+    {
+      "name": "model_19",
+      "source": "model_19.obj",
+      "parent": null,
+      "vertices": 61468,
+      "polygons": 62612,
+      "triangles": 62612,
+      "bounds": [
+        [219.33238220214844, 57.29719924926758, 401.57598876953125],
+        [245.7710418701172, 244.6002197265625, 402.3634033203125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "f9ad623ab43d56315b6d8b66f68fbf1e8c5ab87c4f435ccbbc4b83e5e00459c8"
+    },
+    {
+      "name": "model_2",
+      "source": "model_2.obj",
+      "parent": null,
+      "vertices": 65472,
+      "polygons": 63984,
+      "triangles": 63984,
+      "bounds": [
+        [471.9490661621094, 29.219877243041992, 285.6854248046875],
+        [568.47216796875, 265.0350036621094, 286.1659851074219]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "09c5e024ff7c21d7d1290a45943a2b4f719d96c40abe356937db2c68ec86d05c"
+    },
+    {
+      "name": "model_20",
+      "source": "model_20.obj",
+      "parent": null,
+      "vertices": 61468,
+      "polygons": 62612,
+      "triangles": 62612,
+      "bounds": [
+        [78.48538208007812, 57.29719924926758, 401.57598876953125],
+        [586.3989868164062, 191.7209930419922, 402.3634033203125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "1b6a1b0a2522acf87be5c48057e66b077a4e98bf6255ab8c800489ce9b1fd6b0"
+    },
+    {
+      "name": "model_206",
+      "source": "model_206.obj",
+      "parent": null,
+      "vertices": 474,
+      "polygons": 282,
+      "triangles": 282,
+      "bounds": [
+        [578.1083984375, 461.8123474121094, 292.2920227050781],
+        [588.3466186523438, 466.15234375, 300.1044616699219]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "3be5783eb8596552cdd4a9ad00cb2569426701ab94fe83ee2a2e4aa5d27cc470"
+    },
+    {
+      "name": "model_207",
+      "source": "model_207.obj",
+      "parent": null,
+      "vertices": 473,
+      "polygons": 280,
+      "triangles": 280,
+      "bounds": [
+        [578.1083984375, 461.8123474121094, 292.2920227050781],
+        [588.3466186523438, 466.15234375, 300.1044616699219]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "44b508753cb3ff17077cb3a0a70921c8a70090b1a17b93b10823a926068dc9d8"
+    },
+    {
+      "name": "model_21",
+      "source": "model_21.obj",
+      "parent": null,
+      "vertices": 61468,
+      "polygons": 62612,
+      "triangles": 62612,
+      "bounds": [
+        [429.9023742675781, 39.3838005065918, 401.57598876953125],
+        [556.43896484375, 191.7209930419922, 402.3634033203125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "f32d9ca83d98ac13f7c58196903f3f9f110c58a59bd951d365b28f7babd0341f"
+    },
+    {
+      "name": "model_22",
+      "source": "model_22.obj",
+      "parent": null,
+      "vertices": 61468,
+      "polygons": 62612,
+      "triangles": 62612,
+      "bounds": [
+        [399.9423828125, 39.3838005065918, 401.57598876953125],
+        [556.43896484375, 265.8940124511719, 402.3634033203125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "7938fcd665d5c210b5544f815f57470a79a30e3ea1b9d2fb03b2f2e41823d58f"
+    },
+    {
+      "name": "model_23",
+      "source": "model_23.obj",
+      "parent": null,
+      "vertices": 65401,
+      "polygons": 81378,
+      "triangles": 81378,
+      "bounds": [
+        [106.98799896240234, 24.599746704101562, 259.0525207519531],
+        [573.09228515625, 785.3527221679688, 429.1345520019531]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "7239e890aabc5943270896d5a21b0eb2aae98ae54c2fab5c1afca69993b1dadd"
+    },
+    {
+      "name": "model_24",
+      "source": "model_24.obj",
+      "parent": null,
+      "vertices": 23618,
+      "polygons": 14968,
+      "triangles": 14968,
+      "bounds": [
+        [48.821895599365234, 0.0, 71.6406021118164],
+        [600.6124877929688, 785.5496215820312, 452.27935791015625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "61fbbb66400bdadc45b80e4e34c277e8ffe0e41b03f55ae93e6f673960905c6c"
+    },
+    {
+      "name": "model_25",
+      "source": "model_25.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [262.5266418457031, 347.74603271484375, 382.38653564453125],
+        [537.2898559570312, 362.8820495605469, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "484d398df00a345b708cc56525ad0c152ca6f42f071cbed399f546e8d996dfbf"
+    },
+    {
+      "name": "model_26",
+      "source": "model_26.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [105.046630859375, 347.74603271484375, 382.38653564453125],
+        [379.80987548828125, 362.8820495605469, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "ec7467e42e791bc98bc6b5f41ad2e7c3c0ca80c4ac0271b9a33597c028362d3f"
+    },
+    {
+      "name": "model_27",
+      "source": "model_27.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [212.4482879638672, 348.34759521484375, 382.38653564453125],
+        [537.2898559570312, 460.79095458984375, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "d7df7d2478c760c3f4ff9c6976f48fcc8499ca16f1c3ac1483e0fefc2cc4273d"
+    },
+    {
+      "name": "model_28",
+      "source": "model_28.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [105.046630859375, 445.6549377441406, 382.38653564453125],
+        [379.80987548828125, 460.79095458984375, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "5e6ee69c0d6c66451eb70e951a46b3c5d33c2a58d560b32161ed5117f6829ef3"
+    },
+    {
+      "name": "model_29",
+      "source": "model_29.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [158.25816345214844, 445.6549377441406, 382.38653564453125],
+        [482.4784851074219, 657.6409912109375, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "de7153860cdb5e362278da865be0b404cf75a95c1e0a7ec322ac0184a55f0f72"
+    },
+    {
+      "name": "model_3",
+      "source": "model_3.obj",
+      "parent": null,
+      "vertices": 65509,
+      "polygons": 59687,
+      "triangles": 59687,
+      "bounds": [
+        [0.0, 0.0, 0.0],
+        [648.0709228515625, 965.6693115234375, 442.8161926269531]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "975969d5cee3fd7446012f2e75c9f03d6b77bbc94dd67e9333f731b009a5e060"
+    },
+    {
+      "name": "model_30",
+      "source": "model_30.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [420.0066223144531, 544.5960083007812, 382.38653564453125],
+        [537.2898559570312, 657.0394287109375, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "e15ea74c1aa25d41afa7f0d89d614d9f47a6dafc79668563a9a18a08006e555d"
+    },
+    {
+      "name": "model_31",
+      "source": "model_31.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [105.046630859375, 642.5049438476562, 382.38653564453125],
+        [379.80987548828125, 657.6409912109375, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "0f58a34d28fa1789fe1541e584f9c4f2fcdc6efe2a4717b69cc011e5560cbcff"
+    },
+    {
+      "name": "model_32",
+      "source": "model_32.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [158.25816345214844, 544.5960083007812, 382.38653564453125],
+        [324.99847412109375, 657.0394287109375, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "a073903e4e9b133fe3f3c06deb4d6c214ca2b0f3e67b8546c311af2b0740cc7f"
+    },
+    {
+      "name": "model_33",
+      "source": "model_33.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [105.046630859375, 544.5960083007812, 382.38653564453125],
+        [379.80987548828125, 559.7320556640625, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "20ccc4f5e47ec0a7289d863a9d41bdea0530164c7cbd6ab40562d9f042cb099f"
+    },
+    {
+      "name": "model_34",
+      "source": "model_34.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [262.5266418457031, 347.74603271484375, 181.08753967285156],
+        [429.1131591796875, 362.8820495605469, 193.48545837402344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "98bae12ea5aba27ad28c5a3b361b97727b030a1bd2f3b08d963389560226b3ca"
+    },
+    {
+      "name": "model_35",
+      "source": "model_35.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [420.00762939453125, 348.34759521484375, 181.08753967285156],
+        [537.2908935546875, 657.6409912109375, 193.48545837402344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "70678e5b1025d35f9a4a99c3dcabcca8eed7662575595400a3c1cdf33304e802"
+    },
+    {
+      "name": "model_36",
+      "source": "model_36.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [105.046630859375, 544.5960083007812, 181.08753967285156],
+        [537.2908935546875, 657.0394287109375, 193.48545837402344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "b1a54485f18bd2e9b7af692f9e4027b3675f7639045050d4d4bfe76b25cf9874"
+    },
+    {
+      "name": "model_37",
+      "source": "model_37.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [262.5266418457031, 445.6549377441406, 181.08753967285156],
+        [429.1131591796875, 460.79095458984375, 193.48545837402344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "6b3ae437bc635dcfdc6dc6fa688ea14a358993bb5e4b9bb1ee1462f29eaa4f6b"
+    },
+    {
+      "name": "model_38",
+      "source": "model_38.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [105.046630859375, 445.6549377441406, 181.08753967285156],
+        [537.2908935546875, 657.6409912109375, 193.48545837402344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "09d39a4d7cc797e10a4231e5f0876ad3fb29378f2b5124706d55db19ebe4ab41"
+    },
+    {
+      "name": "model_39",
+      "source": "model_39.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [105.046630859375, 347.74603271484375, 181.08753967285156],
+        [222.32986450195312, 657.0394287109375, 193.48545837402344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "769c4b1e2d7744ed5b8880b4dab3f58d1a04848999d696477a83998a968cb981"
+    },
+    {
+      "name": "model_4",
+      "source": "model_4.obj",
+      "parent": null,
+      "vertices": 8828,
+      "polygons": 4512,
+      "triangles": 4512,
+      "bounds": [
+        [43.987098693847656, -4.017809867858887, 12.58549976348877],
+        [612.6356201171875, 842.6359252929688, 493.1961975097656]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "93833e3b76b2027845fb49d67b6752b9ee5d48a6b98e39539c952d838f14d1e7"
+    },
+    {
+      "name": "model_40",
+      "source": "model_40.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [262.5266418457031, 544.5960083007812, 181.08753967285156],
+        [379.80987548828125, 657.6409912109375, 193.48545837402344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "74e3d48d4899d8397f40d4fabc74673a23207cd6dc909f8d574238ca67868143"
+    },
+    {
+      "name": "model_41",
+      "source": "model_41.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [315.7381591796875, 544.5960083007812, 181.08753967285156],
+        [482.4794921875, 657.0394287109375, 193.48545837402344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "8530ea2a0b88498bb408aed08279b897fce2dd9656ca938be0fe6dc191bc0ef4"
+    },
+    {
+      "name": "model_42",
+      "source": "model_42.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [105.046630859375, 445.6549377441406, 181.08753967285156],
+        [537.2908935546875, 555.0748901367188, 193.48545837402344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "6755bbba4424070e4bb724cd69be39dc45a2e4da0e60100c58fd636a38426517"
+    },
+    {
+      "name": "model_43",
+      "source": "model_43.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [262.5266418457031, 739.9849243164062, 382.38653564453125],
+        [537.2898559570312, 755.1209716796875, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "a0addf8e918976a4e7d1b7e6686372f726b05aa88510ba149da46b18482b247b"
+    },
+    {
+      "name": "model_44",
+      "source": "model_44.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [105.046630859375, 739.9849243164062, 382.38653564453125],
+        [379.80987548828125, 755.1209716796875, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "6d0e1d1126521db32c364910a5fb1ca57df44b2bcf224a0e5e8307aa05e5ea83"
+    },
+    {
+      "name": "model_45",
+      "source": "model_45.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [212.4482879638672, 26.723791122436523, 349.7132873535156],
+        [516.2396850585938, 754.5194091796875, 394.7844543457031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "b10d45f57ff4f9b667193f232676b9e6259efaf30c8abdc7d5bf6d17fd551543"
+    },
+    {
+      "name": "model_46",
+      "source": "model_46.obj",
+      "parent": null,
+      "vertices": 65068,
+      "polygons": 45924,
+      "triangles": 45924,
+      "bounds": [
+        [362.3634948730469, 27.138832092285156, 349.7132873535156],
+        [580.7927856445312, 149.19956970214844, 358.27984619140625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "910219283375a829df975554db50ac5355f41aedb10a455def1ceda4647f5d54"
+    },
+    {
+      "name": "model_47",
+      "source": "model_47.obj",
+      "parent": null,
+      "vertices": 62690,
+      "polygons": 42492,
+      "triangles": 42492,
+      "bounds": [
+        [108.57525634765625, 248.96957397460938, 349.72528076171875],
+        [531.9027709960938, 358.9515686035156, 395.61090087890625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "1b85af309cc11d8698efe1e9ce2b8362692a96ae68850db78c6cc5af0ab2fe00"
+    },
+    {
+      "name": "model_48",
+      "source": "model_48.obj",
+      "parent": null,
+      "vertices": 64620,
+      "polygons": 41850,
+      "triangles": 41850,
+      "bounds": [
+        [108.57525634765625, 351.5953674316406, 392.33306884765625],
+        [531.9027709960938, 653.7916259765625, 395.61090087890625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "05b0bccc17dc178f2ddd3ad11c685a9be83dc84c8ca08cedd8e842de027ec932"
+    },
+    {
+      "name": "model_49",
+      "source": "model_49.obj",
+      "parent": null,
+      "vertices": 64620,
+      "polygons": 41850,
+      "triangles": 41850,
+      "bounds": [
+        [108.57525634765625, 354.3761291503906, 191.03407287597656],
+        [531.9027709960938, 653.7916259765625, 395.61090087890625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "f1d2bf87ade4569008af1ed43c78bce5ec2410f03077bc75495cfaef9829ba1a"
+    },
+    {
+      "name": "model_5",
+      "source": "model_5.obj",
+      "parent": null,
+      "vertices": 57600,
+      "polygons": 28800,
+      "triangles": 28800,
+      "bounds": [
+        [196.01612854003906, 24.49185562133789, 265.0726623535156],
+        [237.02871704101562, 41.882450103759766, 279.4581298828125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "e7c6286fbcaaf252d1d207844897e596cfc62d1655172eb2d7037a9227065878"
+    },
+    {
+      "name": "model_50",
+      "source": "model_50.obj",
+      "parent": null,
+      "vertices": 64620,
+      "polygons": 41850,
+      "triangles": 41850,
+      "bounds": [
+        [108.57525634765625, 351.5953674316406, 191.03407287597656],
+        [531.9037475585938, 653.7916259765625, 194.31190490722656]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "0a8344a0af2e777f9a2143cec93b9463a5ad5f5224eac11d3ddeb6b01a23ee6a"
+    },
+    {
+      "name": "model_51",
+      "source": "model_51.obj",
+      "parent": null,
+      "vertices": 64620,
+      "polygons": 41850,
+      "triangles": 41850,
+      "bounds": [
+        [108.57525634765625, 351.5953674316406, 191.03407287597656],
+        [531.9037475585938, 653.7916259765625, 194.31190490722656]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "83c26cafc0953b8b12ddd8fb0404422ac41e35e4a3f8b97b16e1e24fe52b3e1f"
+    },
+    {
+      "name": "model_52",
+      "source": "model_52.obj",
+      "parent": null,
+      "vertices": 64620,
+      "polygons": 41850,
+      "triangles": 41850,
+      "bounds": [
+        [108.57525634765625, 30.858152389526367, 191.03407287597656],
+        [531.9037475585938, 751.2716064453125, 395.61090087890625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "e62cdeb809a91b11a628cdbdd29226379fb1b494bbfc99eeba4438c55ae4c810"
+    },
+    {
+      "name": "model_53",
+      "source": "model_53.obj",
+      "parent": null,
+      "vertices": 65472,
+      "polygons": 40136,
+      "triangles": 40136,
+      "bounds": [
+        [112.65730285644531, 30.858152389526367, 356.5763854980469],
+        [576.1861572265625, 651.6220092773438, 391.8765869140625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "3561f663877567d45da7ec419e95db0f87c29e5c54078964954e7f02c2928ab8"
+    },
+    {
+      "name": "model_54",
+      "source": "model_54.obj",
+      "parent": null,
+      "vertices": 65403,
+      "polygons": 38252,
+      "triangles": 38252,
+      "bounds": [
+        [107.69062805175781, 30.87685203552246, 189.06578063964844],
+        [575.703857421875, 749.10205078125, 391.8765869140625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "d6b05cda27c4b07abf013a811c735ee47381f954f93cd7f86c17589e370d4f3e"
+    },
+    {
+      "name": "model_55",
+      "source": "model_55.obj",
+      "parent": null,
+      "vertices": 65305,
+      "polygons": 40408,
+      "triangles": 40408,
+      "bounds": [
+        [107.69062805175781, 30.12483024597168, 189.06578063964844],
+        [576.4671020507812, 750.19189453125, 396.78997802734375]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "603afe3208966bb579a44cc02bf1b4ff466e7703d64e525d69bb4d55f77a31be"
+    },
+    {
+      "name": "model_56",
+      "source": "model_56.obj",
+      "parent": null,
+      "vertices": 65528,
+      "polygons": 42112,
+      "triangles": 42112,
+      "bounds": [
+        [105.56901550292969, 26.845430374145508, 181.2659149169922],
+        [580.6707763671875, 754.9447021484375, 396.78997802734375]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "fb3aaf253a1921bba5ce8b04ee7a7c4cf5761667327f023bed35a61a66eab3dd"
+    },
+    {
+      "name": "model_57",
+      "source": "model_57.obj",
+      "parent": null,
+      "vertices": 3168,
+      "polygons": 1752,
+      "triangles": 1752,
+      "bounds": [
+        [107.8792953491211, 30.23163414001465, 182.54373168945312],
+        [576.349609375, 750.037109375, 391.11932373046875]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "e207471410dfbc3b05eb08af46f052956c2dcb57c50a2d116fde985cced6bafc"
+    },
+    {
+      "name": "model_58",
+      "source": "model_58.obj",
+      "parent": null,
+      "vertices": 28388,
+      "polygons": 51380,
+      "triangles": 51380,
+      "bounds": [
+        [99.4483413696289, 6.220465183258057, 255.9022216796875],
+        [586.8235473632812, 506.2509460449219, 297.2893981933594]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "0865e4941e09ad8435e9a61c171c945bad3d827df5d9be74b5911266bdbce8e3"
+    },
+    {
+      "name": "model_59",
+      "source": "model_59.obj",
+      "parent": null,
+      "vertices": 65350,
+      "polygons": 64626,
+      "triangles": 64626,
+      "bounds": [
+        [74.70831298828125, 22.14415168762207, 258.626220703125],
+        [575.5479125976562, 272.11090087890625, 296.6669616699219]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "5ab8682aa45e53dff5366643290416e95e92af1bc2b93d3a2d4f304f4bab20a0"
+    },
+    {
+      "name": "model_6",
+      "source": "model_6.obj",
+      "parent": null,
+      "vertices": 57600,
+      "polygons": 28800,
+      "triangles": 28800,
+      "bounds": [
+        [125.5831298828125, 24.49185562133789, 265.0726623535156],
+        [166.59571838378906, 41.882450103759766, 279.4581298828125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "c7d60190c2badb6141c8933cd2ae4b90de5b5676f1b9b64cb2cb27ae175e2627"
+    },
+    {
+      "name": "model_60",
+      "source": "model_60.obj",
+      "parent": null,
+      "vertices": 60510,
+      "polygons": 54114,
+      "triangles": 54114,
+      "bounds": [
+        [73.69628143310547, 20.494251251220703, 255.90480041503906],
+        [577.1978149414062, 273.76080322265625, 296.6739196777344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "9e4575f9859fe8276db67c1919622c075fd162d17bbb8631cd9b42cd95daf421"
+    },
+    {
+      "name": "model_61",
+      "source": "model_61.obj",
+      "parent": null,
+      "vertices": 2520,
+      "polygons": 2440,
+      "triangles": 2440,
+      "bounds": [
+        [81.1161880493164, 25.55836296081543, 270.5841979980469],
+        [572.1336669921875, 268.6966857910156, 273.5600280761719]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "1a09ff553d81976fd3ff1cee7c6276bd59fad318686307279b3d5954d74f5e4e"
+    },
+    {
+      "name": "model_62",
+      "source": "model_62.obj",
+      "parent": null,
+      "vertices": 59252,
+      "polygons": 85940,
+      "triangles": 85940,
+      "bounds": [
+        [77.58646392822266, 12.524561882019043, 256.0959167480469],
+        [572.1336669921875, 283.9266357421875, 296.6669616699219]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "226fba59770f23624f2a1e38f1209cf295d1b9ab8764beca391d3cf6abf0cf7a"
+    },
+    {
+      "name": "model_63",
+      "source": "model_63.obj",
+      "parent": null,
+      "vertices": 7660,
+      "polygons": 7240,
+      "triangles": 7240,
+      "bounds": [
+        [81.11376953125, 25.292827606201172, 270.5517272949219],
+        [572.3992309570312, 268.96221923828125, 274.0339050292969]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "fc2e75ffac37fdb7061aaf1cc5620d7a70d0089cbc5eaa0e242b65ab87f6f6a3"
+    },
+    {
+      "name": "model_64",
+      "source": "model_64.obj",
+      "parent": null,
+      "vertices": 25470,
+      "polygons": 23948,
+      "triangles": 23948,
+      "bounds": [
+        [73.69628143310547, 17.933883666992188, 255.90480041503906],
+        [579.6950073242188, 465.2842712402344, 304.82257080078125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "2a74b6ccd4a3390e7f462e0a031b061b92aef12e6b4ceaddedbc37772c1b5cac"
+    },
+    {
+      "name": "model_65",
+      "source": "model_65.obj",
+      "parent": null,
+      "vertices": 320,
+      "polygons": 320,
+      "triangles": 320,
+      "bounds": [
+        [77.65857696533203, 26.556438446044922, 296.5809326171875],
+        [571.1356201171875, 267.6986083984375, 296.6739196777344]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "9d1747497cb5a59e7b852655aeef2f894f56e3f6c9a93de7ff61b877abda59e2"
+    },
+    {
+      "name": "model_66",
+      "source": "model_66.obj",
+      "parent": null,
+      "vertices": 65524,
+      "polygons": 78772,
+      "triangles": 78772,
+      "bounds": [
+        [50.80059814453125, 26.22279930114746, 255.90499877929688],
+        [591.7449951171875, 658.0413208007812, 336.0233154296875]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "7640139534b91b0ec7183de56535074f29d64885d99d6000afd038f7af33252b"
+    },
+    {
+      "name": "model_67",
+      "source": "model_67.obj",
+      "parent": null,
+      "vertices": 9252,
+      "polygons": 4734,
+      "triangles": 4734,
+      "bounds": [
+        [50.80059814453125, 27.0457820892334, 255.90499877929688],
+        [590.77001953125, 673.27734375, 351.5751037597656]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "83cc94d6c8712053a7d5f4fee3beeb72ba70b57bb0e93a70e9546360472d5dd2"
+    },
+    {
+      "name": "model_68",
+      "source": "model_68.obj",
+      "parent": null,
+      "vertices": 193,
+      "polygons": 127,
+      "triangles": 127,
+      "bounds": [
+        [56.753990173339844, 27.34958267211914, 262.0073547363281],
+        [591.1549682617188, 551.68798828125, 358.07086181640625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "0250771ed38e47f6fe95f046777b1c716f342654d5a10494c563a8179e044ca6"
+    },
+    {
+      "name": "model_69",
+      "source": "model_69.obj",
+      "parent": null,
+      "vertices": 24060,
+      "polygons": 18038,
+      "triangles": 18038,
+      "bounds": [
+        [69.18099975585938, 5.828622341156006, 203.92539978027344],
+        [590.2802124023438, 610.02001953125, 397.2449951171875]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "31ba5e19c570661e2c4494274a0fccf1969178bc13e3021e0a28cd65e8c70537"
+    },
+    {
+      "name": "model_7",
+      "source": "model_7.obj",
+      "parent": null,
+      "vertices": 64156,
+      "polygons": 45420,
+      "triangles": 45420,
+      "bounds": [
+        [87.94061279296875, 22.59431266784668, 255.9904022216797],
+        [441.9932861328125, 174.64901733398438, 365.4678955078125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "16761dbfb337855d63ca82ec109b67d09641fa8dd2d21117cfa5cec9c93b9aaf"
+    },
+    {
+      "name": "model_70",
+      "source": "model_70.obj",
+      "parent": null,
+      "vertices": 916,
+      "polygons": 752,
+      "triangles": 752,
+      "bounds": [
+        [566.1549682617188, 453.20758056640625, 255.90499877929688],
+        [591.74560546875, 550.1131591796875, 358.2677001953125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "b5310261f4dd2b2466122226dfdc88f394c4e2a0ab109ed835607e31425337ec"
+    },
+    {
+      "name": "model_71",
+      "source": "model_71.obj",
+      "parent": null,
+      "vertices": 151,
+      "polygons": 149,
+      "triangles": 149,
+      "bounds": [
+        [574.7333374023438, 461.8616027832031, 292.4170227050781],
+        [578.1085205078125, 465.8616027832031, 292.51202392578125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "61a266ea8bfe0d949bbf2a57bcf8d34ed01f8cd8ad2587e39c93674bbca668f5"
+    },
+    {
+      "name": "model_72",
+      "source": "model_72.obj",
+      "parent": null,
+      "vertices": 622,
+      "polygons": 648,
+      "triangles": 648,
+      "bounds": [
+        [574.2333984375, 461.3616027832031, 291.26202392578125],
+        [588.7332763671875, 466.6741027832031, 302.0420227050781]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "d28a93c3a88b9725a4bec7d0abc505b3ace23e3570c3618510aa65aa8fe3035c"
+    },
+    {
+      "name": "model_73",
+      "source": "model_73.obj",
+      "parent": null,
+      "vertices": 96,
+      "polygons": 96,
+      "triangles": 96,
+      "bounds": [
+        [578.5748291015625, 462.3681640625, 301.501220703125],
+        [578.8751831054688, 465.2730712890625, 301.7115478515625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "fe2e4c4b5b09c56a7ced993f65c42aff91793787e83a4abb14559f82e6d24daf"
+    },
+    {
+      "name": "model_74",
+      "source": "model_74.obj",
+      "parent": null,
+      "vertices": 692,
+      "polygons": 692,
+      "triangles": 692,
+      "bounds": [
+        [330.9417724609375, 25.78221321105957, 285.4944152832031],
+        [578.8634643554688, 465.263916015625, 301.70489501953125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "8d7671deda24574df6cf44a90295d58e21dae5834f5576a4b2ac72bdda0edd53"
+    },
+    {
+      "name": "model_75",
+      "source": "model_75.obj",
+      "parent": null,
+      "vertices": 19,
+      "polygons": 17,
+      "triangles": 17,
+      "bounds": [
+        [585.0515747070312, 461.8123474121094, 292.5420227050781],
+        [588.3466186523438, 466.15234375, 292.5420227050781]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "150e495b478545adb90c9ece89aff6245f42cf1226f0c836fec02cdaeef51e37"
+    },
+    {
+      "name": "model_76",
+      "source": "model_76.obj",
+      "parent": null,
+      "vertices": 82,
+      "polygons": 72,
+      "triangles": 72,
+      "bounds": [
+        [585.0515747070312, 461.8123474121094, 299.8919982910156],
+        [588.3466186523438, 466.15234375, 300.1045227050781]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "ed8a0fbeaba4e90cdb2668e7a90d74b41d021e990759e78c21326c29a91718fc"
+    },
+    {
+      "name": "model_77",
+      "source": "model_77.obj",
+      "parent": null,
+      "vertices": 240,
+      "polygons": 240,
+      "triangles": 240,
+      "bounds": [
+        [576.1826171875, 434.3561096191406, 291.1464538574219],
+        [583.5342407226562, 470.2828674316406, 312.1218566894531]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "598c4dee6ab1d4bdc0d1f2622c5eb0d23b84688992eabb0b9a8273acea5227f6"
+    },
+    {
+      "name": "model_78",
+      "source": "model_78.obj",
+      "parent": null,
+      "vertices": 8350,
+      "polygons": 9580,
+      "triangles": 9580,
+      "bounds": [
+        [76.02259826660156, 298.75823974609375, 255.82199096679688],
+        [523.7927856445312, 550.5357055664062, 265.5350341796875]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "006d47347462cb0e85f343761e29f3518c868d19c9a0fd1a9553286f2aa32f68"
+    },
+    {
+      "name": "model_79",
+      "source": "model_79.obj",
+      "parent": null,
+      "vertices": 12560,
+      "polygons": 23560,
+      "triangles": 23560,
+      "bounds": [
+        [330.43218994140625, 29.282533645629883, 285.4564514160156],
+        [568.4095458984375, 264.9725036621094, 285.5359191894531]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "ce91a2fcb1ce22de67d09f1660f0eaea5ad460b1ad279ab14833dd9b1c434077"
+    },
+    {
+      "name": "model_8",
+      "source": "model_8.obj",
+      "parent": null,
+      "vertices": 61776,
+      "polygons": 31896,
+      "triangles": 31896,
+      "bounds": [
+        [162.31349182128906, 25.864477157592773, 256.0892639160156],
+        [235.65597534179688, 40.50959014892578, 279.4878845214844]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "c8a7d0786a12984140e8ecb031e2a180bc3a7a3548aa5d9e31f66151ac4541ca"
+    },
+    {
+      "name": "model_80",
+      "source": "model_80.obj",
+      "parent": null,
+      "vertices": 6280,
+      "polygons": 6300,
+      "triangles": 6300,
+      "bounds": [
+        [330.15936279296875, 29.032506942749023, 285.4881286621094],
+        [568.6595458984375, 265.2225341796875, 286.1754150390625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "6ee675af99a93db0c38627323185bd368e86800065eead98d3967bd4f26be51e"
+    },
+    {
+      "name": "model_81",
+      "source": "model_81.obj",
+      "parent": null,
+      "vertices": 12980,
+      "polygons": 13270,
+      "triangles": 13270,
+      "bounds": [
+        [330.3199157714844, 24.25465965270996, 285.4851379394531],
+        [573.4373779296875, 270.0003967285156, 285.8537902832031]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "502ab1269a64607de324cb919751e9ec1a531f0f876edffadb3be04c6e5676b3"
+    },
+    {
+      "name": "model_82",
+      "source": "model_82.obj",
+      "parent": null,
+      "vertices": 50373,
+      "polygons": 66630,
+      "triangles": 66630,
+      "bounds": [
+        [330.3199157714844, 24.25465965270996, 285.45721435546875],
+        [573.4373779296875, 270.0003967285156, 286.1361389160156]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "e6288850f8f8f862baefbbe405cf72527972b473e83e49c11ad25058646a1543"
+    },
+    {
+      "name": "model_83",
+      "source": "model_83.obj",
+      "parent": null,
+      "vertices": 2180,
+      "polygons": 2200,
+      "triangles": 2200,
+      "bounds": [
+        [330.9440002441406, 25.296127319335938, 285.4978332519531],
+        [572.3959350585938, 268.95892333984375, 285.5212707519531]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "863a138ccac357259053e85f97c0a19d1b60630d6b5659991b0bafaaa14538a5"
+    },
+    {
+      "name": "model_84",
+      "source": "model_84.obj",
+      "parent": null,
+      "vertices": 1400,
+      "polygons": 1370,
+      "triangles": 1370,
+      "bounds": [
+        [333.5072326660156, 25.24504852294922, 285.9300231933594],
+        [572.447021484375, 269.010009765625, 286.0478210449219]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "d13bf5874e07c22f0061f8c7f35190967686630b493c2c9cac5ace03549acdaa"
+    },
+    {
+      "name": "model_85",
+      "source": "model_85.obj",
+      "parent": null,
+      "vertices": 3800,
+      "polygons": 3180,
+      "triangles": 3180,
+      "bounds": [
+        [314.4922180175781, 26.12240219116211, 285.49407958984375],
+        [571.5064697265625, 268.0694885253906, 297.47564697265625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "d2e79d4cfa9f70bbecc0d4730227f976c136ecc148faf855d6b527b626780259"
+    },
+    {
+      "name": "model_86",
+      "source": "model_86.obj",
+      "parent": null,
+      "vertices": 2080,
+      "polygons": 1820,
+      "triangles": 1820,
+      "bounds": [
+        [314.4922180175781, 26.12240219116211, 285.49407958984375],
+        [571.5064697265625, 268.0694885253906, 297.47564697265625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "ddd3fb834e3a9430630b9efb2e504253d2938d32d9cccaabe2cd1f10e598714a"
+    },
+    {
+      "name": "model_87",
+      "source": "model_87.obj",
+      "parent": null,
+      "vertices": 6990,
+      "polygons": 5830,
+      "triangles": 5830,
+      "bounds": [
+        [317.0672607421875, 17.933883666992188, 289.0456237792969],
+        [579.6950073242188, 276.2580261230469, 304.82257080078125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "c5e8b6bd93ce87285207598c15e97e3c52d830113ea579dd4581d3311f6a0dee"
+    },
+    {
+      "name": "model_88",
+      "source": "model_88.obj",
+      "parent": null,
+      "vertices": 240,
+      "polygons": 220,
+      "triangles": 220,
+      "bounds": [
+        [320.1316223144531, 32.02471160888672, 304.2688293457031],
+        [565.6041870117188, 262.16717529296875, 304.3063659667969]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "eda8d24e06170cbbed1264cd8d7f5574e432244fec068fcc8038d2164e76e61d"
+    },
+    {
+      "name": "model_89",
+      "source": "model_89.obj",
+      "parent": null,
+      "vertices": 64790,
+      "polygons": 81808,
+      "triangles": 81808,
+      "bounds": [
+        [189.0126495361328, 12.524561882019043, 256.02398681640625],
+        [306.20294189453125, 282.89227294921875, 286.8426208496094]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "81316519465eab8c31868d6e7926194d5b8526c8ae04b43f111e9d4201f40046"
+    },
+    {
+      "name": "model_9",
+      "source": "model_9.obj",
+      "parent": null,
+      "vertices": 64078,
+      "polygons": 34210,
+      "triangles": 34210,
+      "bounds": [
+        [81.58219146728516, 25.864477157592773, 256.0892639160156],
+        [441.9932861328125, 319.3684997558594, 395.6910400390625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "2dfe01f76a958d100e27b7b583cc5776df51d66858d4aed8bf4cb8949ec8b048"
+    },
+    {
+      "name": "model_90",
+      "source": "model_90.obj",
+      "parent": null,
+      "vertices": 64206,
+      "polygons": 67824,
+      "triangles": 67824,
+      "bounds": [
+        [189.84706115722656, 90.17485809326172, 256.02398681640625],
+        [306.20294189453125, 283.9266357421875, 274.14080810546875]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "4e939bf6da46f12b6be51414616c65e5544168cdf0ff967e06afe8f61e5758bb"
+    },
+    {
+      "name": "model_91",
+      "source": "model_91.obj",
+      "parent": null,
+      "vertices": 5740,
+      "polygons": 5208,
+      "triangles": 5208,
+      "bounds": [
+        [147.24172973632812, 4.55208683013916, 279.5105895996094],
+        [593.6277465820312, 669.0473022460938, 387.0980529785156]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "0e524ea10137622b88c12726674588a77105f2ebb39aa99f59240b34c9c977c0"
+    },
+    {
+      "name": "model_92",
+      "source": "model_92.obj",
+      "parent": null,
+      "vertices": 10288,
+      "polygons": 5112,
+      "triangles": 5112,
+      "bounds": [
+        [143.28500366210938, 0.0, 279.9751281738281],
+        [593.851318359375, 671.45361328125, 388.18927001953125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "dfe93b3a247e59bd1f3e3b5a21112f6049993e6685d1ad72b5d5154a6bc0ec61"
+    },
+    {
+      "name": "model_93",
+      "source": "model_93.obj",
+      "parent": null,
+      "vertices": 26852,
+      "polygons": 37744,
+      "triangles": 37744,
+      "bounds": [
+        [62.31621170043945, 75.30762481689453, 256.774169921875],
+        [588.0863037109375, 711.9356689453125, 279.1864929199219]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "0297967cc47d1c3ee3558e1ccb8829e9bacfdc35a6c0500a379835aa98f88696"
+    },
+    {
+      "name": "model_94",
+      "source": "model_94.obj",
+      "parent": null,
+      "vertices": 15024,
+      "polygons": 20584,
+      "triangles": 20584,
+      "bounds": [
+        [61.89506530761719, 74.44723510742188, 274.67022705078125],
+        [588.5074462890625, 706.329833984375, 276.89190673828125]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "c098069aae997883f7b862ee4020b1152d96872e7ca640f55940d0d71b39e6e7"
+    },
+    {
+      "name": "model_95",
+      "source": "model_95.obj",
+      "parent": null,
+      "vertices": 3236,
+      "polygons": 6456,
+      "triangles": 6456,
+      "bounds": [
+        [59.98759841918945, 72.97896575927734, 255.90496826171875],
+        [590.4149169921875, 707.5869750976562, 274.670166015625]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "mesh_sha256": "094f2d677b63e95e4380a273b21863d6f7d0a439bb07b8a8f260bc10135d2d02"
+    }
+  ],
+  "duplicates": [
+    {
+      "file": "model_101.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_102.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_103.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_104.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_105.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_106.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_107.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_108.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_109.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_110.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_111.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_112.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_113.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_115.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_116.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_117.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_118.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_119.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_120.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_121.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_122.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_123.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_124.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_125.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_126.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_127.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_128.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_129.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_130.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_131.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_132.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_133.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_134.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_135.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_136.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_137.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_138.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_139.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_140.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_141.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_142.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_143.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_144.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_145.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_146.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_147.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_148.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_149.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_150.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_151.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_152.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_153.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_154.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_155.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_156.obj",
+      "same_as": "model_114.obj"
+    },
+    {
+      "file": "model_161.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_162.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_163.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_164.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_165.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_166.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_167.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_168.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_169.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_170.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_171.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_172.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_173.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_174.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_175.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_176.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_177.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_178.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_179.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_180.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_181.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_182.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_183.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_184.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_185.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_187.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_188.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_189.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_190.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_191.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_192.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_193.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_194.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_195.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_196.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_197.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_198.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_199.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_200.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_201.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_202.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_203.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_204.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_205.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_208.obj",
+      "same_as": "model_206.obj"
+    },
+    {
+      "file": "model_209.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_210.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_211.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_212.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_213.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_214.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_215.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_216.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_217.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_218.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_219.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_220.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_221.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_222.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_223.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_224.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_225.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_226.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_227.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_228.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_229.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_230.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_231.obj",
+      "same_as": "model_159.obj"
+    },
+    {
+      "file": "model_232.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_233.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_234.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_235.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_236.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_237.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_238.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_239.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_240.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_241.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_242.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_243.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_244.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_245.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_246.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_247.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_248.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_249.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_250.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_251.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_252.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_253.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_254.obj",
+      "same_as": "model_158.obj"
+    },
+    {
+      "file": "model_255.obj",
+      "same_as": "model_186.obj"
+    },
+    {
+      "file": "model_256.obj",
+      "same_as": "model_160.obj"
+    },
+    {
+      "file": "model_96.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_97.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_98.obj",
+      "same_as": "model_100.obj"
+    },
+    {
+      "file": "model_99.obj",
+      "same_as": "model_100.obj"
+    }
+  ],
+  "excluded_no_faces": ["model_15.obj"],
+  "source_axis_import": "Z-up, Y-forward (no axis rotation)",
+  "source_units": "unspecified in OBJ",
+  "triangles": 3271144,
+  "bounds": [
+    [0.0, -5.455190181732178, 0.0],
+    [648.0709228515625, 965.6693115234375, 493.19720458984375]
+  ]
+}

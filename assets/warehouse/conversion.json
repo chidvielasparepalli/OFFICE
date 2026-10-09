@@ -1,0 +1,168 @@
+{
+  "asset_id": "world.office-open.v1",
+  "status": "candidate-local-preview",
+  "file": "assets/working/warehouse/office-open.glb",
+  "bytes": 4404,
+  "sha256": "8079dedafb1c361f42641090ebc90d7158a119a454fb7edc7f53f2501f75cdaf",
+  "coordinate_system": "Y-up, meters, +Z entrance, centered ground surface at [0,0,0]",
+  "source_to_meters": 0.0254,
+  "source_slab_bounds": [
+    [0.0, 0.0, 0.0],
+    [648.0709228515625, 965.6693115234375, 12.585539817810059]
+  ],
+  "source_slab_dimensions_m": [
+    16.461001440429687, 24.52800051269531, 0.31967271137237546
+  ],
+  "plan_resize": [2.1869872334486766, 1.4677103411412178],
+  "bounds": [
+    [-18.0, -0.31967271137237546, -18.0],
+    [18.0, 0, 18.0]
+  ],
+  "dimensions": [36, 0.31967271137237546, 36],
+  "triangles": 12,
+  "components": [
+    {
+      "name": "OPEN_OFFICE_FLOOR",
+      "source": "model_3.obj",
+      "triangles": 12,
+      "vertices": 8
+    }
+  ],
+  "materials": ["Neutral_open_floor"],
+  "textures": 0,
+  "anchors": [
+    {
+      "name": "ENTRANCE_FRONT",
+      "kind": "entrance",
+      "position": [0, 0, 17],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "CORRIDOR_CENTRAL",
+      "kind": "corridor",
+      "position": [0, 0, 0],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "HUB_CENTRAL",
+      "kind": "collaboration-hub",
+      "position": [0, 0, 3],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "MEETING_ROOM_01",
+      "kind": "open-meeting-area",
+      "position": [0, 0, 10],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "CAMERA_OVERVIEW",
+      "kind": "camera-target",
+      "position": [0, 0, 0],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "NAV_FRONT",
+      "kind": "navigation-waypoint",
+      "position": [0, 0, 15],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "NAV_CENTER",
+      "kind": "navigation-waypoint",
+      "position": [0, 0, 0],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "NAV_REAR",
+      "kind": "navigation-waypoint",
+      "position": [0, 0, -6],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "DEPT_EXECUTIVE",
+      "kind": "department",
+      "position": [0, 0, -11],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "WORKSTATION_EXECUTIVE",
+      "kind": "workstation-area",
+      "position": [0, 0, -11],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "DEPT_RESEARCH",
+      "kind": "department",
+      "position": [-11, 0, -10],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "WORKSTATION_RESEARCH",
+      "kind": "workstation-area",
+      "position": [-11, 0, -10],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "DEPT_CREATIVE",
+      "kind": "department",
+      "position": [11, 0, -10],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "WORKSTATION_CREATIVE",
+      "kind": "workstation-area",
+      "position": [11, 0, -10],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "DEPT_ENGINEERING",
+      "kind": "department",
+      "position": [-11, 0, 0],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "WORKSTATION_ENGINEERING",
+      "kind": "workstation-area",
+      "position": [-11, 0, 0],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "DEPT_BUSINESS",
+      "kind": "department",
+      "position": [11, 0, 0],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "WORKSTATION_BUSINESS",
+      "kind": "workstation-area",
+      "position": [11, 0, 0],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "DEPT_QUALITY",
+      "kind": "department",
+      "position": [-11, 0, 10],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "WORKSTATION_QUALITY",
+      "kind": "workstation-area",
+      "position": [-11, 0, 10],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "DEPT_OPERATIONS",
+      "kind": "department",
+      "position": [11, 0, 10],
+      "status": "proposed-layout-floor-checked"
+    },
+    {
+      "name": "WORKSTATION_OPERATIONS",
+      "kind": "workstation-area",
+      "position": [11, 0, 10],
+      "status": "proposed-layout-floor-checked"
+    }
+  ],
+  "excluded": "All other geometry: roofs, ceilings, upper floors, enclosing walls, stairs, overhead services, partial furniture batches"
+}

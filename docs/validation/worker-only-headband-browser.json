@@ -1,0 +1,342 @@
+{
+  "schemaVersion": 1,
+  "behavior": "Red working headband and hard-work clips are standard-worker-only. The dedicated Manager uses calm seated_work at native speed.",
+  "browser": "Headless Chromium through Playwright",
+  "completedAt": "2026-10-09T10:18:59.159Z",
+  "passedChecks": 22,
+  "method": "Fresh browser contexts exercise a Manager-only OfficeWorld mounted by the harness from existing development modules, then the ordinary 30-worker plus Manager preview. No application fixture or business runtime was added.",
+  "runs": [
+    {
+      "mode": "manager",
+      "startedAt": "2026-10-09T10:10:33.931Z",
+      "checks": [
+        {
+          "name": "Manager-only working uses calm seated_work with no accessory object or hard-work state",
+          "passed": true
+        },
+        {
+          "name": "Manager mesh selection retains its own identity, skeleton and calm animation",
+          "passed": true
+        },
+        {
+          "name": "Manager waiting never attaches or shows the worker accessory",
+          "passed": true,
+          "detail": {
+            "clip": "seated_idle",
+            "phase": "seated",
+            "paused": false
+          }
+        },
+        {
+          "name": "Manager sleeping never attaches or shows the worker accessory",
+          "passed": true,
+          "detail": {
+            "clip": "seated_sleep",
+            "phase": "seated",
+            "paused": false
+          }
+        },
+        {
+          "name": "Manager queued never attaches or shows the worker accessory",
+          "passed": true,
+          "detail": {
+            "clip": "seated_idle",
+            "phase": "seated",
+            "paused": false
+          }
+        },
+        {
+          "name": "Manager completed never attaches or shows the worker accessory",
+          "passed": true,
+          "detail": {
+            "clip": "seated_idle",
+            "phase": "seated",
+            "paused": false
+          }
+        },
+        {
+          "name": "Manager collaborating never attaches or shows the worker accessory",
+          "passed": true,
+          "detail": {
+            "clip": "stand_idle",
+            "phase": "standing",
+            "paused": false
+          }
+        },
+        {
+          "name": "Manager blocked never attaches or shows the worker accessory",
+          "passed": true,
+          "detail": {
+            "clip": "stand_idle",
+            "phase": "standing",
+            "paused": true
+          }
+        },
+        {
+          "name": "Manager repair never attaches or shows the worker accessory",
+          "passed": true,
+          "detail": {
+            "clip": "stand_idle",
+            "phase": "standing",
+            "paused": true
+          }
+        },
+        {
+          "name": "Manager working departure starts standing/walking without a headband removal sequence",
+          "passed": true
+        },
+        {
+          "name": "Manager returns to the assigned seat and resumes calm work without equipping a band",
+          "passed": true
+        },
+        {
+          "name": "All nine Manager states remain free of headband objects, equip/remove clips and hard-work clips",
+          "passed": true,
+          "detail": {
+            "samples": 269,
+            "clips": [
+              "seated_work",
+              "seated_idle",
+              "seated_sleep",
+              "stand_up",
+              "stand_idle",
+              "sit_down",
+              "walk"
+            ],
+            "phases": [
+              "seated",
+              "standing-up",
+              "standing",
+              "sitting",
+              "walking",
+              "turning"
+            ]
+          }
+        },
+        {
+          "name": "A fresh Manager-only world never requests the headband or canonical worker GLB",
+          "passed": true,
+          "detail": [
+            "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb"
+          ]
+        },
+        {
+          "name": "Targeted browser run has no console errors, failed requests or hot reloads",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "failed": [],
+            "reloads": []
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb"
+      ],
+      "screenshots": [
+        "test-results/worker-only-headband-manager-calm-working.png",
+        "test-results/worker-only-headband-manager-early-departure.png",
+        "test-results/worker-only-headband-manager-late-sit.png"
+      ],
+      "earlyDeparture": {
+        "before": {
+          "phase": "standing-up",
+          "hands": {
+            "left": [
+              0.14999976410480936, 0.7200000886875011, -11.161296244995492
+            ],
+            "right": [
+              -0.14999976410480936, 0.7200000886875011, -11.161296244995492
+            ]
+          },
+          "position": [0, 0, -11.206296296296296]
+        },
+        "after": {
+          "phase": "walking",
+          "hands": {
+            "left": [
+              0.8889814670977014, 0.957834377541624, -11.513368759148854
+            ],
+            "right": [
+              0.41101853983916475, 0.9578343717132356, -11.513368758171318
+            ]
+          },
+          "position": [0.65, 0, -11.53]
+        }
+      },
+      "lateSit": {
+        "before": {
+          "phase": "seated",
+          "hands": {
+            "left": [
+              0.10737610864261293, 0.8298848829908064, -10.474423989127855
+            ],
+            "right": [
+              -0.10809535988483057, 0.8212210604265391, -10.477903235086885
+            ]
+          },
+          "position": [0, 0, -10.91]
+        },
+        "after": {
+          "phase": "seated",
+          "hands": {
+            "left": [
+              0.10876753210739364, 0.826904812486436, -10.474505500948998
+            ],
+            "right": [
+              -0.10866753988967753, 0.828134093850342, -10.47401771538123
+            ]
+          },
+          "position": [0, 0, -10.91]
+        }
+      },
+      "managerTrace": {
+        "samples": 269,
+        "clips": [
+          "seated_work",
+          "seated_idle",
+          "seated_sleep",
+          "stand_up",
+          "stand_idle",
+          "sit_down",
+          "walk"
+        ],
+        "phases": [
+          "seated",
+          "standing-up",
+          "standing",
+          "sitting",
+          "walking",
+          "turning"
+        ]
+      },
+      "completedAt": "2026-10-09T10:12:13.106Z"
+    },
+    {
+      "mode": "mixed",
+      "startedAt": "2026-10-09T10:12:48.662Z",
+      "checks": [
+        {
+          "name": "Thirty standard workers share the canonical accessory while the Manager has no attachment",
+          "passed": true,
+          "detail": {
+            "workers": 30,
+            "managers": 1
+          }
+        },
+        {
+          "name": "Worker accessory geometry and materials are reused, not duplicated per employee",
+          "passed": true
+        },
+        {
+          "name": "Worker mesh selection keeps its identity and working animation running",
+          "passed": true
+        },
+        {
+          "name": "Worker completion still removes its accessory and returns to calm idle",
+          "passed": true
+        },
+        {
+          "name": "Worker working still equips the headband and enters hard-work animation",
+          "passed": true
+        },
+        {
+          "name": "Manager selection remains independent in the mixed world",
+          "passed": true
+        },
+        {
+          "name": "The shared worker headband loads exactly once in the mixed preview",
+          "passed": true,
+          "detail": [
+            "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+            "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+          ]
+        },
+        {
+          "name": "Targeted browser run has no console errors, failed requests or hot reloads",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "failed": [],
+            "reloads": []
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "screenshots": [
+        "test-results/worker-only-headband-mixed-manager-calm.png"
+      ],
+      "completedAt": "2026-10-09T10:18:59.159Z"
+    }
+  ],
+  "assets": [
+    {
+      "file": "public/assets/3d/characters/standard-worker-animated.glb",
+      "bytes": 531652,
+      "sha256": "31cf85faaf4bdff5a4aa12d4ee0a92ccdb33622df8d5b9e6ee323d622d01a1d5",
+      "unchanged": true
+    },
+    {
+      "file": "public/assets/3d/characters/primary-manager-animated.glb",
+      "bytes": 6319716,
+      "sha256": "81e00dd872c75bfc898f110f1358f883f98014c833d48f6fb966af455b831812",
+      "unchanged": true
+    },
+    {
+      "file": "public/assets/3d/accessories/red-headband.glb",
+      "bytes": 646796,
+      "sha256": "64f7e7e9b503c2ea9922c65731c42f84677fe6896774f8765e558d56ddafcacf",
+      "unchanged": true
+    },
+    {
+      "file": "public/assets/3d/workstations/standard-workstation.glb",
+      "bytes": 754004,
+      "sha256": "3650dee26161bd9f0a8ae7998a70d630148284097a2d3eb311239b83308caea0",
+      "unchanged": true
+    }
+  ],
+  "projectChecks": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "typecheck": "passed",
+    "lint": "passed with five existing prototype warnings",
+    "tests": "132 passed in 11 files",
+    "formatting": "passed",
+    "productionBuild": "passed; existing large-chunk advisory",
+    "productionBundle": "dist/assets/index-CsAp6wTD.js"
+  },
+  "visualReview": {
+    "inspected": [
+      "Manager calm seated work",
+      "Manager standing from its chair",
+      "Manager returned to its workstation",
+      "Manager selected among thirty workers"
+    ],
+    "finding": "Dedicated Manager remains unaccessorized, seated toward the keyboard while working, with no obvious furniture penetration in reviewed frames. Return resumes calm work. All nine Manager states and departure/return trace contain no accessory object or forbidden clip.",
+    "limitation": "Representative frames and live scene traces, not a full swept-body or every-subframe collision test. The late-sit screenshot captured the already seated return pose."
+  },
+  "limitations": [
+    "No hardware or 100-agent performance benchmark was repeated.",
+    "The original Manager GLB retains historical unused headband clips/helper to preserve supplied asset bytes; runtime never selects those clips or attaches the accessory.",
+    "Existing navigation ground-clearance/crowd limitations and asset licensing status are unchanged."
+  ]
+}

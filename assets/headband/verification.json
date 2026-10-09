@@ -1,0 +1,43 @@
+{
+  "file": "public/assets/3d/accessories/red-headband.glb",
+  "bytes": 646796,
+  "sha256": "64f7e7e9b503c2ea9922c65731c42f84677fe6896774f8765e558d56ddafcacf",
+  "source_hashes_unchanged": {
+    "Headband_BaseColor.png": "6ef4d8152b5832fe5299b47699350a5a3d1594ec2847eb17fb85a68772765568",
+    "Headband_Roughness.png": "3e68ea10a075ab4bef102665b013c3d5f5adcf37fcf2307c16bc80212253d261",
+    "model_0.obj": "b75059f4758abbc991d06d3c8de55df95fb73d03596a5b162f2990c27733cee3"
+  },
+  "vertices": 5839,
+  "triangles": 10552,
+  "source_positions_maximum_bidirectional_delta_m": 1.0302094343803919e-8,
+  "meshes": 1,
+  "primitives": 1,
+  "materials": 1,
+  "images": [
+    {
+      "name": "Headband_BaseColor",
+      "dimensions": [1024, 1024],
+      "bytes": 315394
+    },
+    {
+      "name": "Headband_Roughness",
+      "dimensions": [512, 512],
+      "bytes": 79635
+    }
+  ],
+  "external_resource_uris": [],
+  "rigged": false,
+  "animations": [],
+  "fit_views_reviewed": [
+    "worker front",
+    "worker side",
+    "worker back",
+    "worker isometric",
+    "manager front",
+    "manager side",
+    "manager back",
+    "manager isometric"
+  ],
+  "review": "Continuous supplied red ring above eyes/glasses; distinct characters preserved; rear knot/bow/tails visible. Rigid folded ring has nonuniform small clearance, not cloth conformance.",
+  "browser_validation": "owned by main integration task"
+}

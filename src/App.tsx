@@ -1,5 +1,19 @@
 import { ArrowUpRight, Building2, Unplug } from 'lucide-react'
+import { lazy, Suspense } from 'react'
+import { OfficeWorld } from './components/3d/OfficeWorld'
 import './App.css'
+
+const WorkerAssetPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('workers') === 'preview'
+    ? lazy(() => import('./dev/WorkerAssetPreview'))
+    : null
+
+const OfficeNavigationPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('office') === 'scenarios'
+    ? lazy(() => import('./dev/OfficeNavigationPreview'))
+    : null
 
 function App() {
   return (
@@ -28,10 +42,22 @@ function App() {
         <div className="office-introduction">
           <h1>AI Corporate Office OS</h1>
           <p>
-            A workspace for building a real multi-agent company and its
-            interactive 3D office.
+            Explore the office space. Agent activity will appear here when a
+            real runtime is connected.
           </p>
         </div>
+
+        {OfficeNavigationPreview ? (
+          <Suspense fallback={<p>Loading office navigation scenarios…</p>}>
+            <OfficeNavigationPreview />
+          </Suspense>
+        ) : WorkerAssetPreview ? (
+          <Suspense fallback={<p>Loading worker asset inspection…</p>}>
+            <WorkerAssetPreview />
+          </Suspense>
+        ) : (
+          <OfficeWorld />
+        )}
 
         <div className="office-foundation">
           <section
@@ -48,48 +74,12 @@ function App() {
               </p>
             </div>
           </section>
-
-          <section
-            className="prototype-notice"
-            aria-labelledby="prototype-heading"
-          >
-            <h2 id="prototype-heading">Your 3D prototype is preserved.</h2>
-            <p>
-              The existing department, workstation, character, screen, and
-              camera components are kept in the source. The scene is not mounted
-              in this phase.
-            </p>
-            <details className="prototype-source">
-              <summary>View prototype source</summary>
-              <ul aria-label="Preserved prototype components">
-                <li>
-                  <code>DepartmentPod.tsx</code>
-                </li>
-                <li>
-                  <code>Workstation.tsx</code>
-                </li>
-                <li>
-                  <code>AgentCharacter.tsx</code>
-                </li>
-                <li>
-                  <code>WorkstationScreen.tsx</code>
-                </li>
-                <li>
-                  <code>CameraController.tsx</code>
-                </li>
-              </ul>
-              <p>
-                Mock office data remains prototype/test data. It is not loaded
-                by this shell.
-              </p>
-            </details>
-          </section>
         </div>
       </main>
 
       <footer className="office-footer">
-        <span>React + Vite foundation</span>
-        <span>Next phase: 3D engine foundation</span>
+        <span>OFFICE</span>
+        <span>3D office foundation</span>
       </footer>
     </div>
   )

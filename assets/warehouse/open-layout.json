@@ -1,0 +1,97 @@
+{
+  "width": 36,
+  "depth": 36,
+  "workerEnvelopeHeight": 2.1,
+  "departments": [
+    {
+      "id": "executive",
+      "name": "Executive",
+      "anchor": "DEPT_EXECUTIVE",
+      "position": [0, 0, -11],
+      "size": [6, 6],
+      "color": "#7187a8"
+    },
+    {
+      "id": "research",
+      "name": "Research",
+      "anchor": "DEPT_RESEARCH",
+      "position": [-11, 0, -10],
+      "size": [8, 6],
+      "color": "#688e89"
+    },
+    {
+      "id": "creative",
+      "name": "Creative",
+      "anchor": "DEPT_CREATIVE",
+      "position": [11, 0, -10],
+      "size": [8, 6],
+      "color": "#a5879c"
+    },
+    {
+      "id": "engineering",
+      "name": "Engineering",
+      "anchor": "DEPT_ENGINEERING",
+      "position": [-11, 0, 0],
+      "size": [8, 6],
+      "color": "#648ba6"
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "anchor": "DEPT_BUSINESS",
+      "position": [11, 0, 0],
+      "size": [8, 6],
+      "color": "#b89964"
+    },
+    {
+      "id": "quality",
+      "name": "Quality",
+      "anchor": "DEPT_QUALITY",
+      "position": [-11, 0, 10],
+      "size": [8, 6],
+      "color": "#829369"
+    },
+    {
+      "id": "operations",
+      "name": "Operations",
+      "anchor": "DEPT_OPERATIONS",
+      "position": [11, 0, 10],
+      "size": [8, 6],
+      "color": "#9c8172"
+    }
+  ],
+  "anchors": [
+    { "name": "ENTRANCE_FRONT", "kind": "entrance", "position": [0, 0, 17] },
+    { "name": "CORRIDOR_CENTRAL", "kind": "corridor", "position": [0, 0, 0] },
+    {
+      "name": "HUB_CENTRAL",
+      "kind": "collaboration-hub",
+      "position": [0, 0, 3]
+    },
+    {
+      "name": "MEETING_ROOM_01",
+      "kind": "open-meeting-area",
+      "position": [0, 0, 10]
+    },
+    {
+      "name": "CAMERA_OVERVIEW",
+      "kind": "camera-target",
+      "position": [0, 0, 0]
+    },
+    {
+      "name": "NAV_FRONT",
+      "kind": "navigation-waypoint",
+      "position": [0, 0, 15]
+    },
+    {
+      "name": "NAV_CENTER",
+      "kind": "navigation-waypoint",
+      "position": [0, 0, 0]
+    },
+    {
+      "name": "NAV_REAR",
+      "kind": "navigation-waypoint",
+      "position": [0, 0, -6]
+    }
+  ]
+}

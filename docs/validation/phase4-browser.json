@@ -1,0 +1,691 @@
+{
+  "schemaVersion": 1,
+  "phase": "Phase 4 — deterministic local navigation, selection and spatial inspection",
+  "startedAt": "2026-10-09T09:12:47.565Z",
+  "completedAt": "2026-10-09T09:34:41.869Z",
+  "functionalChecksCompletedAt": "2026-10-09T09:32:06.475Z",
+  "browser": "Chromium through Playwright",
+  "execution": {
+    "main": {
+      "source": "test-results/phase4-main-evidence.json",
+      "passedChecks": 42
+    },
+    "isolatedTail": {
+      "source": "test-results/phase4-tail.json",
+      "passedChecks": 10
+    },
+    "uniquePassedChecks": 51,
+    "note": "Combined evidence from the same frozen application. The main run completed every scenario, physical route, selection, camera, resize and asset check. Its delayed-load recovery wait in a second page timed out; a fresh one-page-at-a-time run passed guarded loading and full seated-working recovery, previous-preview compatibility and production checks without application changes. This is not a claim that one uninterrupted script passed."
+  },
+  "environment": {
+    "development": "http://127.0.0.1:5173/?office=scenarios",
+    "production": "http://127.0.0.1:4173/?office=scenarios",
+    "previousMilestone": "http://127.0.0.1:5173/?workers=preview",
+    "viewport": {
+      "width": 1600,
+      "height": 1200
+    },
+    "responsiveViewport": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "inspectedModels": {
+    "standardWorkers": 30,
+    "dedicatedManagers": 1,
+    "sharedWorkstations": 31
+  },
+  "passedChecks": 51,
+  "checks": [
+    {
+      "name": "Open R3F canvas has 30 canonical workers, one distinct Manager and 31 instanced desks",
+      "passed": true
+    },
+    {
+      "name": "Canonical worker resources are shared while skeleton poses remain independent",
+      "passed": true
+    },
+    {
+      "name": "All 31 explicit working samples reached seated hard-work with attached accessories",
+      "passed": true
+    },
+    {
+      "name": "scenario-worker-13: visible accessory has an unobstructed exact geometry hit",
+      "passed": true
+    },
+    {
+      "name": "scenario-worker-13: character and headband selection preserve ID, running animation and a grounded ring",
+      "passed": true
+    },
+    {
+      "name": "scenario-worker-13: seated body and canonical identity are intact",
+      "passed": true,
+      "detail": {
+        "floor": 0.0000015366420653268197,
+        "hips": [-8.5, 0.4650000035762787, -1.31],
+        "kind": "standard-worker"
+      }
+    },
+    {
+      "name": "scenario-worker-13: business context stays explicitly unavailable",
+      "passed": true,
+      "detail": {
+        "Agent ID": "scenario-worker-13",
+        "Character": "Canonical stickman worker",
+        "Visual scenario input": "working",
+        "Runtime status": "Unavailable — runtime disconnected",
+        "Role": "Unavailable — runtime disconnected",
+        "Department": "Unavailable — runtime disconnected",
+        "Height": "1.75 m",
+        "Current position": "(-8.50, 0.00, -1.31) m",
+        "Heading": "0.00 rad",
+        "Workstation": "Assigned workstation; ID not supplied",
+        "Workstation position": "(-8.50, 0.00, -0.58) m",
+        "Destination": "No active destination",
+        "Destination position": "Not reported",
+        "Movement": "stationary",
+        "Posture / transition": "seated",
+        "Speed": "0.00 m/s",
+        "Path progress": "Not reported",
+        "Collaboration target": "Not reported",
+        "Current task": "Unavailable — runtime disconnected",
+        "Description": "Unavailable — runtime disconnected",
+        "Progress": "Unavailable — runtime disconnected",
+        "Manager": "Unavailable — runtime disconnected",
+        "Dependencies": "Unavailable — runtime disconnected",
+        "Collaborator": "Unavailable — runtime disconnected",
+        "Next action": "Unavailable — runtime disconnected",
+        "Blockers": "Unavailable — runtime disconnected",
+        "Cost": "Unavailable — runtime disconnected"
+      }
+    },
+    {
+      "name": "scenario-worker-13: movement context distinguishes live position, destination and path progress",
+      "passed": true
+    },
+    {
+      "name": "scenario-worker-13: camera can focus the current moving location",
+      "passed": true
+    },
+    {
+      "name": "scenario-worker-13: route arrival applies collaboration with its status marker",
+      "passed": true
+    },
+    {
+      "name": "Hub occupancy rejects a second visitor without moving the Manager",
+      "passed": true
+    },
+    {
+      "name": "scenario-worker-13: return faces the desk, sits, equips and resumes working",
+      "passed": true,
+      "detail": {
+        "position": [-8.5, 0, -1.31],
+        "initialPosition": [-8.5, 0, -1.31],
+        "heading": 6.283185307179586,
+        "normalizedHeading": -2.4492935982947064e-16,
+        "floor": 0.0000015209404117827225,
+        "workingHard": true,
+        "diagnostic": null
+      }
+    },
+    {
+      "name": "scenario-worker-13 hub and return: continuous physical movement stays on walkable ground",
+      "passed": true,
+      "detail": {
+        "samples": 447,
+        "seconds": 96.63340000000596,
+        "maximumStepMeters": 0.1610857721285448,
+        "invalidWalkingPoints": 0,
+        "phases": [
+          "seated",
+          "removing",
+          "standing-up",
+          "walking",
+          "standing",
+          "turning",
+          "sitting",
+          "equipping"
+        ],
+        "removedBeforeWalking": true
+      }
+    },
+    {
+      "name": "scenario-worker-13: completed removes the accessory and updates its marker",
+      "passed": true
+    },
+    {
+      "name": "scenario-worker-13: waiting stays seated without pretending to work",
+      "passed": true
+    },
+    {
+      "name": "scenario-manager-primary: visible accessory has an unobstructed exact geometry hit",
+      "passed": true
+    },
+    {
+      "name": "scenario-manager-primary: character and headband selection preserve ID, running animation and a grounded ring",
+      "passed": true
+    },
+    {
+      "name": "scenario-manager-primary: seated body and canonical identity are intact",
+      "passed": true,
+      "detail": {
+        "floor": -4.170739124149475e-7,
+        "hips": [0, 0.5099999904632568, -10.91],
+        "kind": "manager"
+      }
+    },
+    {
+      "name": "scenario-manager-primary: business context stays explicitly unavailable",
+      "passed": true,
+      "detail": {
+        "Agent ID": "scenario-manager-primary",
+        "Character": "Dedicated Manager model",
+        "Visual scenario input": "working",
+        "Runtime status": "Unavailable — runtime disconnected",
+        "Role": "Unavailable — runtime disconnected",
+        "Department": "Unavailable — runtime disconnected",
+        "Height": "1.80 m",
+        "Current position": "(0.00, 0.00, -10.91) m",
+        "Heading": "0.00 rad",
+        "Workstation": "Assigned workstation; ID not supplied",
+        "Workstation position": "(0.00, 0.00, -10.18) m",
+        "Destination": "No active destination",
+        "Destination position": "Not reported",
+        "Movement": "stationary",
+        "Posture / transition": "seated",
+        "Speed": "0.00 m/s",
+        "Path progress": "Not reported",
+        "Collaboration target": "Not reported",
+        "Current task": "Unavailable — runtime disconnected",
+        "Description": "Unavailable — runtime disconnected",
+        "Progress": "Unavailable — runtime disconnected",
+        "Manager": "Unavailable — runtime disconnected",
+        "Dependencies": "Unavailable — runtime disconnected",
+        "Collaborator": "Unavailable — runtime disconnected",
+        "Next action": "Unavailable — runtime disconnected",
+        "Blockers": "Unavailable — runtime disconnected",
+        "Cost": "Unavailable — runtime disconnected"
+      }
+    },
+    {
+      "name": "scenario-manager-primary: movement context distinguishes live position, destination and path progress",
+      "passed": true
+    },
+    {
+      "name": "scenario-manager-primary: camera can focus the current moving location",
+      "passed": true
+    },
+    {
+      "name": "scenario-manager-primary: route arrival applies collaboration with its status marker",
+      "passed": true
+    },
+    {
+      "name": "scenario-manager-primary: return faces the desk, sits, equips and resumes working",
+      "passed": true,
+      "detail": {
+        "position": [0, 0, -10.91],
+        "initialPosition": [0, 0, -10.91],
+        "heading": 0,
+        "normalizedHeading": 0,
+        "floor": -4.257040340680565e-7,
+        "workingHard": true,
+        "diagnostic": null
+      }
+    },
+    {
+      "name": "scenario-manager-primary hub and return: continuous physical movement stays on walkable ground",
+      "passed": true,
+      "detail": {
+        "samples": 552,
+        "seconds": 139.3466999999881,
+        "maximumStepMeters": 0.15885404053204866,
+        "invalidWalkingPoints": 0,
+        "phases": [
+          "seated",
+          "removing",
+          "standing-up",
+          "walking",
+          "standing",
+          "turning",
+          "sitting",
+          "equipping"
+        ],
+        "removedBeforeWalking": true
+      }
+    },
+    {
+      "name": "scenario-manager-primary: completed removes the accessory and updates its marker",
+      "passed": true
+    },
+    {
+      "name": "scenario-manager-primary: waiting stays seated without pretending to work",
+      "passed": true
+    },
+    {
+      "name": "Blocked movement freezes the exact physical position and pose",
+      "passed": true
+    },
+    {
+      "name": "Paused spatial feedback reports zero movement speed",
+      "passed": true,
+      "detail": {
+        "speed": "0.00 m/s",
+        "movement": "paused"
+      }
+    },
+    {
+      "name": "Repair preserves the interrupted physical state",
+      "passed": true
+    },
+    {
+      "name": "Interrupted outer-row worker plans a safe live-position return",
+      "passed": true
+    },
+    {
+      "name": "Worker01 interrupted route and return: continuous physical movement stays on walkable ground",
+      "passed": true,
+      "detail": {
+        "samples": 202,
+        "seconds": 68.86669999998809,
+        "maximumStepMeters": 0.15825013139205346,
+        "invalidWalkingPoints": 0,
+        "phases": [
+          "seated",
+          "removing",
+          "standing-up",
+          "walking",
+          "standing",
+          "turning",
+          "sitting",
+          "equipping"
+        ],
+        "removedBeforeWalking": true
+      }
+    },
+    {
+      "name": "Department and workstation camera levels remain distinct and useful",
+      "passed": true
+    },
+    {
+      "name": "Smooth zoom, damped pan and constrained orbit work through pointer controls",
+      "passed": true,
+      "detail": {
+        "before": {
+          "position": [36.070102, 57.71216400000001, 43.284123],
+          "target": [0, 0, 0],
+          "distance": 80.65520092177832,
+          "azimuth": 0.6947382693793773,
+          "polar": 0.7733970082590133,
+          "damping": true
+        },
+        "zoomed": {
+          "position": [
+            30.219241065385912, 48.35078637485105, 36.26308978113828
+          ],
+          "target": [0, 0, 0],
+          "distance": 67.572278,
+          "azimuth": 0.6947382693793772,
+          "polar": 0.7733970082590131,
+          "damping": true
+        },
+        "panned": {
+          "position": [
+            25.034208578473425, 47.344864896224564, 36.9894563985584
+          ],
+          "target": [-4.556331571485911, 0, 1.4808077263899995],
+          "distance": 66.16646,
+          "azimuth": 0.6947382693793772,
+          "polar": 0.7733970082590129,
+          "damping": true
+        },
+        "orbited": {
+          "position": [
+            -8.000922155998007, 66.12615318032591, 4.085576477247229
+          ],
+          "target": [-6.700223847576518, 0, 2.177572699960059],
+          "distance": 66.16646,
+          "azimuth": -0.5983425536377782,
+          "polar": 0.03490658503988659,
+          "damping": true
+        }
+      }
+    },
+    {
+      "name": "Reset restores company overview and clears selection ring",
+      "passed": true
+    },
+    {
+      "name": "Responsive resize retains a usable canvas inside the viewport",
+      "passed": true
+    },
+    {
+      "name": "Exact asset bytes verified: /assets/working/warehouse/office-open.glb",
+      "passed": true
+    },
+    {
+      "name": "Exact asset bytes verified: /assets/3d/characters/standard-worker-animated.glb",
+      "passed": true
+    },
+    {
+      "name": "Exact asset bytes verified: /assets/3d/workstations/standard-workstation.glb",
+      "passed": true
+    },
+    {
+      "name": "Exact asset bytes verified: /assets/3d/characters/primary-manager-animated.glb",
+      "passed": true
+    },
+    {
+      "name": "Exact asset bytes verified: /assets/3d/accessories/red-headband.glb",
+      "passed": true
+    },
+    {
+      "name": "Shared assets load once without broken requests, console errors or hot reloads",
+      "passed": true,
+      "detail": {
+        "requests": [
+          "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+          "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+          "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+          "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+          "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+        ],
+        "errors": [],
+        "failed": [],
+        "reloads": []
+      }
+    },
+    {
+      "name": "A navigation request before the character loads is rejected without changing state",
+      "passed": true,
+      "detail": "Wait for this character to finish loading before requesting navigation."
+    },
+    {
+      "name": "The delayed canonical worker request resumes successfully",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "visibility": "visible"
+      }
+    },
+    {
+      "name": "Delayed asset load recovers into the correct seated working pose",
+      "passed": true,
+      "detail": {
+        "name": "delayed asset readiness",
+        "errors": [],
+        "failed": [],
+        "responses": [
+          {
+            "url": "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+            "status": 200
+          }
+        ],
+        "visibility": "visible"
+      }
+    },
+    {
+      "name": "Existing workers=preview preserves 31 models and its walk/return/headband milestone",
+      "passed": true,
+      "detail": {
+        "name": "existing worker preview",
+        "errors": [],
+        "failed": [],
+        "responses": [
+          {
+            "url": "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+            "status": 200
+          },
+          {
+            "url": "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb",
+            "status": 200
+          }
+        ]
+      }
+    },
+    {
+      "name": "Production query parameters cannot enable fixtures, controls or fake runtime state",
+      "passed": true,
+      "detail": {
+        "canvas": true,
+        "controlsAbsent": true,
+        "samplesAbsent": true,
+        "fixtureCodeAbsent": true,
+        "automaticAssetRequests": [],
+        "errors": [],
+        "failed": [],
+        "bundles": [
+          {
+            "url": "http://127.0.0.1:4173/assets/index-ckY9W2iS.js",
+            "bytes": 1381452,
+            "sha256": "6b7442a28948fe65e3b67dfffc4710877879a11ffccb47a94a88747578b127c0",
+            "matchesBuiltFile": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Production Chromium loads current index-ckY9W2iS.js with exact built bytes",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:4173/assets/index-ckY9W2iS.js",
+          "bytes": 1381452,
+          "sha256": "6b7442a28948fe65e3b67dfffc4710877879a11ffccb47a94a88747578b127c0",
+          "matchesBuiltFile": true
+        }
+      ]
+    },
+    {
+      "name": "Production serves final asset bytes: /assets/3d/characters/standard-worker-animated.glb",
+      "passed": true
+    },
+    {
+      "name": "Production serves final asset bytes: /assets/3d/workstations/standard-workstation.glb",
+      "passed": true
+    },
+    {
+      "name": "Production serves final asset bytes: /assets/3d/characters/primary-manager-animated.glb",
+      "passed": true
+    },
+    {
+      "name": "Production serves final asset bytes: /assets/3d/accessories/red-headband.glb",
+      "passed": true
+    }
+  ],
+  "assets": [
+    {
+      "url": "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+      "bytes": 4404,
+      "sha256": "8079dedafb1c361f42641090ebc90d7158a119a454fb7edc7f53f2501f75cdaf"
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+      "bytes": 531652,
+      "sha256": "31cf85faaf4bdff5a4aa12d4ee0a92ccdb33622df8d5b9e6ee323d622d01a1d5"
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+      "bytes": 754004,
+      "sha256": "3650dee26161bd9f0a8ae7998a70d630148284097a2d3eb311239b83308caea0"
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+      "bytes": 6319716,
+      "sha256": "81e00dd872c75bfc898f110f1358f883f98014c833d48f6fb966af455b831812"
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb",
+      "bytes": 646796,
+      "sha256": "64f7e7e9b503c2ea9922c65731c42f84677fe6896774f8765e558d56ddafcacf"
+    }
+  ],
+  "uniqueAssetRequests": [
+    "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+    "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+  ],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "hotReloads": [],
+  "hotReloadObservationScope": "Main scenario run",
+  "performanceObservations": {
+    "initialReadyWallSeconds": 28.433142,
+    "drawCalls": 86,
+    "triangles": 1431353,
+    "geometries": 27,
+    "textures": 62,
+    "caveat": "Headless Chromium on this shared host; observations only, not a cross-device or 100-agent benchmark.",
+    "observedFramesPerSecond": 1.3546059569121844,
+    "finalRender": {
+      "frame": 1917,
+      "calls": 86,
+      "triangles": 1431353,
+      "geometries": 27,
+      "textures": 62
+    },
+    "graphics": {
+      "renderer": "WebKit WebGL",
+      "vendor": "WebKit",
+      "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "unmaskedVendor": "Google Inc. (Google)",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)"
+    },
+    "graphicsObservationSource": "Representative departure capture, using the same headless Chromium launch configuration",
+    "interpretation": "Functional stability with 31 characters passed. The observed overview sample was about 1.35 frames/s; responsive performance and scaling to 100 agents are not certified by this run."
+  },
+  "production": {
+    "canvas": true,
+    "controlsAbsent": true,
+    "samplesAbsent": true,
+    "fixtureCodeAbsent": true,
+    "automaticAssetRequests": [],
+    "errors": [],
+    "failed": [],
+    "bundles": [
+      {
+        "url": "http://127.0.0.1:4173/assets/index-ckY9W2iS.js",
+        "bytes": 1381452,
+        "sha256": "6b7442a28948fe65e3b67dfffc4710877879a11ffccb47a94a88747578b127c0",
+        "matchesBuiltFile": true
+      }
+    ]
+  },
+  "screenshots": [
+    "test-results/phase4-overview.png",
+    "test-results/phase4-scenario-worker-13-working.png",
+    "test-results/phase4-scenario-worker-13-hub.png",
+    "test-results/phase4-scenario-manager-primary-working.png",
+    "test-results/phase4-scenario-manager-primary-hub.png",
+    "test-results/phase4-final-overview.png"
+  ],
+  "representativeDepartureCapture": {
+    "startedAt": "2026-10-09T09:33:39.971Z",
+    "images": [
+      {
+        "path": "test-results/phase4-scenario-manager-primary-walk-departure.png",
+        "agentId": "scenario-manager-primary",
+        "kind": "manager",
+        "clip": "walk",
+        "phase": "walking",
+        "paused": true,
+        "diagnostic": null,
+        "motionId": "scenario-motion-2",
+        "completedMotionId": null,
+        "pathProgress": 0.01716293212769508,
+        "headbandProgress": 0,
+        "headbandVisible": false,
+        "workingHard": false,
+        "position": [0.829603741390619, 0, -11.348982055921267],
+        "heading": 0.7814766148726882
+      }
+    ],
+    "errors": [],
+    "failed": [],
+    "note": "Explicit blocked input freezes the actual walking pose beside the supplied workstation so the departure clearance can be inspected visually. This is not a full swept-volume collision test.",
+    "graphics": {
+      "renderer": "WebKit WebGL",
+      "vendor": "WebKit",
+      "unmaskedRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "unmaskedVendor": "Google Inc. (Google)",
+      "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+      "shadingLanguageVersion": "WebGL GLSL ES 3.00 (OpenGL ES GLSL ES 3.0 Chromium)"
+    },
+    "instanceCounts": {
+      "workers": 30,
+      "managers": 1,
+      "deskParts": [
+        {
+          "name": "shared-workstations-CHAIR",
+          "count": 31
+        },
+        {
+          "name": "shared-workstations-DESK_MAT",
+          "count": 31
+        },
+        {
+          "name": "shared-workstations-FRAME_ELECTRONICS",
+          "count": 31
+        },
+        {
+          "name": "shared-workstations-KEYS_ACCESSORIES",
+          "count": 31
+        },
+        {
+          "name": "shared-workstations-SCREENS_OFF",
+          "count": 31
+        },
+        {
+          "name": "shared-workstations-WOOD_TOP",
+          "count": 31
+        }
+      ]
+    },
+    "completedAt": "2026-10-09T09:34:41.869Z"
+  },
+  "manualVisualReview": {
+    "inspected": [
+      "Worker13 working and hub poses",
+      "Dedicated Manager working and hub poses",
+      "Manager departure walking pose held by explicit blocked input"
+    ],
+    "finding": "No obvious floating, detached accessory or character/furniture penetration was visible in the reviewed frames. The Manager departure frame shows the character clear beside the supplied desk and rolled-back chair.",
+    "coverageLimit": "Representative frame review, not inspection of every animated frame or every navigation corner."
+  },
+  "limitations": [
+    "Navigation clearance is a 0.24 m ground-root proxy around measured workstation footprints. It is not full animated-body swept-volume collision detection.",
+    "The development hub admits one visitor at a time; general multi-agent crowd avoidance and scheduling are not implemented.",
+    "Timing and frame-rate observations are from headless Chromium on a shared host, not a hardware-independent or 100-agent performance benchmark.",
+    "Scenario inputs are isolated development fixtures. Production has no seeded employees or invented business runtime, tasks, costs or activity."
+  ]
+}

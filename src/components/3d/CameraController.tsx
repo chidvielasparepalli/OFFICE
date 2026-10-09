@@ -1,90 +1,177 @@
-import React, { useEffect, useRef } from 'react'
-import { useThree } from '@react-three/fiber'
+import { useEffect, useRef } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
+import { MathUtils, PerspectiveCamera } from 'three'
 import gsap from 'gsap'
-import { useOfficeState } from '../../context/OfficeContext'
+import {
+  MIN_DISTANCE,
+  MAX_DISTANCE,
+  MIN_POLAR_ANGLE,
+  MAX_POLAR_ANGLE,
+  constrainPan,
+  overviewPosition,
+  PROCEDURAL_BOUNDS,
+  type OfficeBounds,
+  framePosition,
+  type CameraFocus,
+  OPEN_MIN_DISTANCE,
+  OPEN_MIN_POLAR_ANGLE,
+  OPEN_MAX_POLAR_ANGLE,
+} from './officeCamera'
 
-export const CameraController: React.FC = () => {
-  const { camera } = useThree()
+export function CameraController({
+  resetVersion,
+  bounds = PROCEDURAL_BOUNDS,
+  focus = null,
+  openOffice = false,
+}: {
+  resetVersion: number
+  bounds?: OfficeBounds
+  focus?: CameraFocus | null
+  openOffice?: boolean
+}) {
+  const { camera, gl, size, invalidate } = useThree()
   const controlsRef = useRef<OrbitControlsImpl>(null)
-  const { cameraTarget, resetCameraOverview } = useOfficeState()
-  const currentTweenRef = useRef<gsap.core.Tween | null>(null)
+  const tweenRef = useRef<gsap.core.Tween | null>(null)
+  const zoomTargetRef = useRef<number | null>(null)
+  const previousResetRef = useRef(resetVersion)
+  const previousFocusRef = useRef(focus)
+  const minimumDistance = openOffice ? OPEN_MIN_DISTANCE : MIN_DISTANCE
 
-  // Keyboard shortcut listener: Space or Esc to reset overview
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (
-        e.target instanceof HTMLInputElement ||
-        e.target instanceof HTMLTextAreaElement
-      )
-        return
-      if (e.code === 'Space' || e.key === 'Escape') {
-        e.preventDefault()
-        resetCameraOverview()
-      }
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [resetCameraOverview])
-
-  // Smooth cinematic camera transition whenever cameraTarget changes
-  useEffect(() => {
-    if (!controlsRef.current) return
+  // Drei updates controls at priority -1; clamp even the last sub-threshold drift.
+  useFrame(() => {
     const controls = controlsRef.current
+    if (controls) constrainPan(camera.position, controls.target, bounds)
+  })
 
-    if (currentTweenRef.current) {
-      currentTweenRef.current.kill()
-    }
+  function stopTransition() {
+    tweenRef.current?.kill()
+    zoomTargetRef.current = null
+  }
 
-    const duration = cameraTarget.mode === 'agent' ? 1.4 : 1.2
-    const ease = 'power3.out'
-
-    const [tx, ty, tz] = cameraTarget.targetPos
-    const [cx, cy, cz] = cameraTarget.cameraPos
-
-    // Animate camera position and orbit target simultaneously
-    const animObj = {
-      cx: camera.position.x,
-      cy: camera.position.y,
-      cz: camera.position.z,
+  useEffect(() => {
+    const controls = controlsRef.current
+    if (!controls || !(camera instanceof PerspectiveCamera)) return
+    stopTransition()
+    // Flush leftover drag inertia before GSAP takes over the same camera.
+    controls.enableDamping = false
+    controls.update()
+    const reducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+    controls.enableDamping = !reducedMotion
+    const destination = focus
+      ? framePosition(size.width / size.height, focus, openOffice)
+      : overviewPosition(size.width / size.height, bounds, openOffice)
+    const animate =
+      (previousResetRef.current !== resetVersion ||
+        previousFocusRef.current !== focus) &&
+      !reducedMotion
+    previousResetRef.current = resetVersion
+    previousFocusRef.current = focus
+    const view = {
+      x: camera.position.x,
+      y: camera.position.y,
+      z: camera.position.z,
       tx: controls.target.x,
-      ty: controls.target.y,
       tz: controls.target.z,
     }
-
-    currentTweenRef.current = gsap.to(animObj, {
-      cx,
-      cy,
-      cz,
-      tx,
-      ty,
-      tz,
-      duration,
-      ease,
+    tweenRef.current = gsap.to(view, {
+      x: destination.x,
+      y: destination.y,
+      z: destination.z,
+      tx: focus?.target[0] ?? 0,
+      tz: focus?.target[2] ?? 0,
+      duration: animate ? 0.8 : 0,
+      ease: 'power3.out',
       onUpdate: () => {
-        camera.position.set(animObj.cx, animObj.cy, animObj.cz)
-        controls.target.set(animObj.tx, animObj.ty, animObj.tz)
+        camera.position.set(view.x, view.y, view.z)
+        controls.target.set(view.tx, 0, view.tz)
         controls.update()
+        invalidate()
       },
     })
+    return stopTransition
+  }, [
+    camera,
+    size.width,
+    size.height,
+    resetVersion,
+    invalidate,
+    bounds,
+    focus,
+    openOffice,
+  ])
 
-    return () => {
-      if (currentTweenRef.current) {
-        currentTweenRef.current.kill()
-      }
+  useEffect(() => {
+    const controls = controlsRef.current
+    if (!controls) return
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updateMotion = () => {
+      stopTransition()
+      controls.enableDamping = !motion.matches
+      controls.update()
+      invalidate()
     }
-  }, [cameraTarget, camera])
+    const wheel = (event: WheelEvent) => {
+      event.preventDefault()
+      // Intercept wheel only; OrbitControls still owns pinch, pan and orbit.
+      event.stopImmediatePropagation()
+      tweenRef.current?.kill()
+      const distance = camera.position.distanceTo(controls.target)
+      const delta =
+        event.deltaY *
+        (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? size.height : 1)
+      const destination = MathUtils.clamp(
+        (zoomTargetRef.current ?? distance) *
+          Math.exp(MathUtils.clamp(delta, -100, 100) * 0.002),
+        minimumDistance,
+        MAX_DISTANCE,
+      )
+      zoomTargetRef.current = destination
+      const zoom = { distance }
+      tweenRef.current = gsap.to(zoom, {
+        distance: destination,
+        duration: motion.matches ? 0 : 0.25,
+        ease: 'power2.out',
+        onUpdate: () => {
+          camera.position
+            .sub(controls.target)
+            .setLength(zoom.distance)
+            .add(controls.target)
+          controls.update()
+          invalidate()
+        },
+        onComplete: () => {
+          zoomTargetRef.current = null
+        },
+      })
+    }
+    motion.addEventListener('change', updateMotion)
+    gl.domElement.addEventListener('wheel', wheel, {
+      capture: true,
+      passive: false,
+    })
+    return () => {
+      motion.removeEventListener('change', updateMotion)
+      gl.domElement.removeEventListener('wheel', wheel, true)
+      stopTransition()
+    }
+  }, [camera, gl, invalidate, size.height, minimumDistance])
 
   return (
     <OrbitControls
       ref={controlsRef}
+      makeDefault
       enableDamping
-      dampingFactor={0.06}
-      minDistance={2.5}
-      maxDistance={65}
-      minPolarAngle={Math.PI / 8}
-      maxPolarAngle={Math.PI / 2.3} // Keep camera above floor
+      dampingFactor={0.08}
+      screenSpacePanning={false}
+      minDistance={minimumDistance}
+      maxDistance={MAX_DISTANCE}
+      minPolarAngle={openOffice ? OPEN_MIN_POLAR_ANGLE : MIN_POLAR_ANGLE}
+      maxPolarAngle={openOffice ? OPEN_MAX_POLAR_ANGLE : MAX_POLAR_ANGLE}
+      onStart={stopTransition}
     />
   )
 }

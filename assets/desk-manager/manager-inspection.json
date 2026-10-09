@@ -1,0 +1,1638 @@
+{
+  "blender": "5.2.1 LTS",
+  "import_axes": "Y-up hypothesis; visual confirmation required",
+  "source_units": "unspecified",
+  "objects": [
+    {
+      "file": "model_0.obj",
+      "object": "model_0",
+      "parent": null,
+      "vertices": 2024,
+      "polygons": 3396,
+      "triangles": 3396,
+      "blender_bounds": [
+        [-0.8801730275154114, -0.13123343884944916, 1.3778599500656128],
+        [0.8806768655776978, 0.017359109595417976, 1.4584468603134155]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "be4f6e40f365801f9675549948f5d408b57a52e9f7e1346ee82c1187e00e2445"
+    },
+    {
+      "file": "model_1.obj",
+      "object": "model_1",
+      "parent": null,
+      "vertices": 6300,
+      "polygons": 4900,
+      "triangles": 4900,
+      "blender_bounds": [
+        [-0.04499309882521629, -0.11294571310281754, 1.6716899871826172],
+        [0.04556802287697792, -0.09749047458171844, 1.6915677785873413]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "8494661a245f651aacb3cd5abf9eaeeb1b2976d334da6053852413e0c9b85c1e"
+    },
+    {
+      "file": "model_2.obj",
+      "object": "model_2",
+      "parent": null,
+      "vertices": 7125,
+      "polygons": 13828,
+      "triangles": 13828,
+      "blender_bounds": [
+        [-0.0904569998383522, -0.14280295372009277, 1.4923100471496582],
+        [0.09433797001838684, 0.08832383155822754, 1.8111588954925537]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "80b47eae074b6147416bcd03a5ce56734f9b41e3c4b0bf61b273279f3ce37347"
+    },
+    {
+      "file": "model_3.obj",
+      "object": "model_3",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [0.018299199640750885, -0.10618147999048233, 1.6705000400543213],
+        [0.04244192689657211, -0.08022347092628479, 1.6946460008621216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "733770f7ce24d430be2aa5bacce0bd174025685f0e1ee4af1e4aa7494135d17f"
+    },
+    {
+      "file": "model_4.obj",
+      "object": "model_4",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [0.018550099804997444, -0.10338353365659714, 1.6707500219345093],
+        [0.04219704493880272, -0.08055907487869263, 1.6944018602371216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "1550786c80b36871cb236de27a0564b478ea23ddbe611983f76f7afa3d785f8e"
+    },
+    {
+      "file": "model_5.obj",
+      "object": "model_5",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [-0.04254620149731636, -0.106374591588974, 1.6701099872589111],
+        [-0.018404904752969742, -0.08042047172784805, 1.6942561864852905]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "9ce569ee60ccde4b0c3de74217801d2cdce137a996f3a27600cf08e59289d228"
+    },
+    {
+      "file": "model_6.obj",
+      "object": "model_6",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [-0.04227229952812195, -0.10357223451137543, 1.6703499555587769],
+        [-0.01863006502389908, -0.08072587102651596, 1.6940019130706787]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "a52a89d00a6b4670b36c88d13c84d763595f2568959433724d7ec26f50520d4a"
+    },
+    {
+      "file": "model_7.obj",
+      "object": "model_7",
+      "parent": null,
+      "vertices": 2511,
+      "polygons": 3464,
+      "triangles": 3464,
+      "blender_bounds": [
+        [-0.031276900321245193, -0.1193096712231636, 1.5919300317764282],
+        [0.031061824411153793, -0.030352577567100525, 1.6248531341552734]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "6624af54e97f6672daf82f77a38ad8d2ecd70160af25e94eb3bee06f88d9bbe1"
+    },
+    {
+      "file": "model_8.obj",
+      "object": "model_8",
+      "parent": null,
+      "vertices": 2497,
+      "polygons": 3654,
+      "triangles": 3654,
+      "blender_bounds": [
+        [-0.03213590011000633, -0.12255776673555374, 1.6074199676513672],
+        [0.031991492956876755, -0.030212676152586937, 1.6359103918075562]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "b07cbff30d97c0d46155ef4e1cc20692b15602075a73c9f37e5b9406201e6238"
+    },
+    {
+      "file": "model_9.obj",
+      "object": "model_9",
+      "parent": null,
+      "vertices": 23140,
+      "polygons": 40540,
+      "triangles": 40540,
+      "blender_bounds": [
+        [-0.6990140080451965, -0.17609676718711853, -0.0008130071801133454],
+        [0.6919962167739868, 0.14779812097549438, 1.5653324127197266]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "c2471139b8359130b667eb34d146e09293357e5916b0fc22a3161c154f8b757e"
+    },
+    {
+      "file": "model_10.obj",
+      "object": "model_10",
+      "parent": null,
+      "vertices": 2861,
+      "polygons": 5468,
+      "triangles": 5468,
+      "blender_bounds": [
+        [-0.0857648029923439, -0.12566420435905457, 1.6547800302505493],
+        [0.08821771293878555, 0.012700928375124931, 1.6993966102600098]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "169fc3470e59f867e7e610b54414793d3d04428f0f05a01e65b5ac5d75065648"
+    },
+    {
+      "file": "model_11.obj",
+      "object": "model_11",
+      "parent": null,
+      "vertices": 2024,
+      "polygons": 3396,
+      "triangles": 3396,
+      "blender_bounds": [
+        [-0.8801730275154114, -0.13123343884944916, 1.3778599500656128],
+        [0.8806768655776978, 0.017359109595417976, 1.4584468603134155]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "be4f6e40f365801f9675549948f5d408b57a52e9f7e1346ee82c1187e00e2445"
+    },
+    {
+      "file": "model_12.obj",
+      "object": "model_12",
+      "parent": null,
+      "vertices": 6300,
+      "polygons": 4900,
+      "triangles": 4900,
+      "blender_bounds": [
+        [-0.04499309882521629, -0.11294571310281754, 1.6716899871826172],
+        [0.04556802287697792, -0.09749047458171844, 1.6915677785873413]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "8494661a245f651aacb3cd5abf9eaeeb1b2976d334da6053852413e0c9b85c1e"
+    },
+    {
+      "file": "model_13.obj",
+      "object": "model_13",
+      "parent": null,
+      "vertices": 7125,
+      "polygons": 13828,
+      "triangles": 13828,
+      "blender_bounds": [
+        [-0.0904569998383522, -0.14280295372009277, 1.4923100471496582],
+        [0.09433797001838684, 0.08832383155822754, 1.8111588954925537]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "80b47eae074b6147416bcd03a5ce56734f9b41e3c4b0bf61b273279f3ce37347"
+    },
+    {
+      "file": "model_14.obj",
+      "object": "model_14",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [0.018299199640750885, -0.10618147999048233, 1.6705000400543213],
+        [0.04244192689657211, -0.08022347092628479, 1.6946460008621216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "733770f7ce24d430be2aa5bacce0bd174025685f0e1ee4af1e4aa7494135d17f"
+    },
+    {
+      "file": "model_15.obj",
+      "object": "model_15",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [0.018550099804997444, -0.10338353365659714, 1.6707500219345093],
+        [0.04219704493880272, -0.08055907487869263, 1.6944018602371216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "1550786c80b36871cb236de27a0564b478ea23ddbe611983f76f7afa3d785f8e"
+    },
+    {
+      "file": "model_16.obj",
+      "object": "model_16",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [-0.04254620149731636, -0.106374591588974, 1.6701099872589111],
+        [-0.018404904752969742, -0.08042047172784805, 1.6942561864852905]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "9ce569ee60ccde4b0c3de74217801d2cdce137a996f3a27600cf08e59289d228"
+    },
+    {
+      "file": "model_17.obj",
+      "object": "model_17",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [-0.04227229952812195, -0.10357223451137543, 1.6703499555587769],
+        [-0.01863006502389908, -0.08072587102651596, 1.6940019130706787]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "a52a89d00a6b4670b36c88d13c84d763595f2568959433724d7ec26f50520d4a"
+    },
+    {
+      "file": "model_18.obj",
+      "object": "model_18",
+      "parent": null,
+      "vertices": 2511,
+      "polygons": 3464,
+      "triangles": 3464,
+      "blender_bounds": [
+        [-0.031276900321245193, -0.1193096712231636, 1.5919300317764282],
+        [0.031061824411153793, -0.030352577567100525, 1.6248531341552734]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "6624af54e97f6672daf82f77a38ad8d2ecd70160af25e94eb3bee06f88d9bbe1"
+    },
+    {
+      "file": "model_19.obj",
+      "object": "model_19",
+      "parent": null,
+      "vertices": 2497,
+      "polygons": 3654,
+      "triangles": 3654,
+      "blender_bounds": [
+        [-0.03213590011000633, -0.12255776673555374, 1.6074199676513672],
+        [0.031991492956876755, -0.030212676152586937, 1.6359103918075562]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "b07cbff30d97c0d46155ef4e1cc20692b15602075a73c9f37e5b9406201e6238"
+    },
+    {
+      "file": "model_20.obj",
+      "object": "model_20",
+      "parent": null,
+      "vertices": 23140,
+      "polygons": 40540,
+      "triangles": 40540,
+      "blender_bounds": [
+        [-0.6990140080451965, -0.17609676718711853, -0.0008130071801133454],
+        [0.6919962167739868, 0.14779812097549438, 1.5653324127197266]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "c2471139b8359130b667eb34d146e09293357e5916b0fc22a3161c154f8b757e"
+    },
+    {
+      "file": "model_21.obj",
+      "object": "model_21",
+      "parent": null,
+      "vertices": 2861,
+      "polygons": 5468,
+      "triangles": 5468,
+      "blender_bounds": [
+        [-0.0857648029923439, -0.12566420435905457, 1.6547800302505493],
+        [0.08821771293878555, 0.012700928375124931, 1.6993966102600098]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "169fc3470e59f867e7e610b54414793d3d04428f0f05a01e65b5ac5d75065648"
+    },
+    {
+      "file": "model_22.obj",
+      "object": "model_22",
+      "parent": null,
+      "vertices": 2024,
+      "polygons": 3396,
+      "triangles": 3396,
+      "blender_bounds": [
+        [-0.8801730275154114, -0.13123343884944916, 1.3778599500656128],
+        [0.8806768655776978, 0.017359109595417976, 1.4584468603134155]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "be4f6e40f365801f9675549948f5d408b57a52e9f7e1346ee82c1187e00e2445"
+    },
+    {
+      "file": "model_23.obj",
+      "object": "model_23",
+      "parent": null,
+      "vertices": 6300,
+      "polygons": 4900,
+      "triangles": 4900,
+      "blender_bounds": [
+        [-0.04499309882521629, -0.11294571310281754, 1.6716899871826172],
+        [0.04556802287697792, -0.09749047458171844, 1.6915677785873413]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "8494661a245f651aacb3cd5abf9eaeeb1b2976d334da6053852413e0c9b85c1e"
+    },
+    {
+      "file": "model_24.obj",
+      "object": "model_24",
+      "parent": null,
+      "vertices": 7125,
+      "polygons": 13828,
+      "triangles": 13828,
+      "blender_bounds": [
+        [-0.0904569998383522, -0.14280295372009277, 1.4923100471496582],
+        [0.09433797001838684, 0.08832383155822754, 1.8111588954925537]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "80b47eae074b6147416bcd03a5ce56734f9b41e3c4b0bf61b273279f3ce37347"
+    },
+    {
+      "file": "model_25.obj",
+      "object": "model_25",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [0.018299199640750885, -0.10618147999048233, 1.6705000400543213],
+        [0.04244192689657211, -0.08022347092628479, 1.6946460008621216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "733770f7ce24d430be2aa5bacce0bd174025685f0e1ee4af1e4aa7494135d17f"
+    },
+    {
+      "file": "model_26.obj",
+      "object": "model_26",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [0.018550099804997444, -0.10338353365659714, 1.6707500219345093],
+        [0.04219704493880272, -0.08055907487869263, 1.6944018602371216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "1550786c80b36871cb236de27a0564b478ea23ddbe611983f76f7afa3d785f8e"
+    },
+    {
+      "file": "model_27.obj",
+      "object": "model_27",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [-0.04254620149731636, -0.106374591588974, 1.6701099872589111],
+        [-0.018404904752969742, -0.08042047172784805, 1.6942561864852905]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "9ce569ee60ccde4b0c3de74217801d2cdce137a996f3a27600cf08e59289d228"
+    },
+    {
+      "file": "model_28.obj",
+      "object": "model_28",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [-0.04227229952812195, -0.10357223451137543, 1.6703499555587769],
+        [-0.01863006502389908, -0.08072587102651596, 1.6940019130706787]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "a52a89d00a6b4670b36c88d13c84d763595f2568959433724d7ec26f50520d4a"
+    },
+    {
+      "file": "model_29.obj",
+      "object": "model_29",
+      "parent": null,
+      "vertices": 2511,
+      "polygons": 3464,
+      "triangles": 3464,
+      "blender_bounds": [
+        [-0.031276900321245193, -0.1193096712231636, 1.5919300317764282],
+        [0.031061824411153793, -0.030352577567100525, 1.6248531341552734]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "6624af54e97f6672daf82f77a38ad8d2ecd70160af25e94eb3bee06f88d9bbe1"
+    },
+    {
+      "file": "model_30.obj",
+      "object": "model_30",
+      "parent": null,
+      "vertices": 2497,
+      "polygons": 3654,
+      "triangles": 3654,
+      "blender_bounds": [
+        [-0.03213590011000633, -0.12255776673555374, 1.6074199676513672],
+        [0.031991492956876755, -0.030212676152586937, 1.6359103918075562]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "b07cbff30d97c0d46155ef4e1cc20692b15602075a73c9f37e5b9406201e6238"
+    },
+    {
+      "file": "model_31.obj",
+      "object": "model_31",
+      "parent": null,
+      "vertices": 23140,
+      "polygons": 40540,
+      "triangles": 40540,
+      "blender_bounds": [
+        [-0.6990140080451965, -0.17609676718711853, -0.0008130071801133454],
+        [0.6919962167739868, 0.14779812097549438, 1.5653324127197266]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "c2471139b8359130b667eb34d146e09293357e5916b0fc22a3161c154f8b757e"
+    },
+    {
+      "file": "model_32.obj",
+      "object": "model_32",
+      "parent": null,
+      "vertices": 2861,
+      "polygons": 5468,
+      "triangles": 5468,
+      "blender_bounds": [
+        [-0.0857648029923439, -0.12566420435905457, 1.6547800302505493],
+        [0.08821771293878555, 0.012700928375124931, 1.6993966102600098]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "169fc3470e59f867e7e610b54414793d3d04428f0f05a01e65b5ac5d75065648"
+    },
+    {
+      "file": "model_33.obj",
+      "object": "model_33",
+      "parent": null,
+      "vertices": 2024,
+      "polygons": 3396,
+      "triangles": 3396,
+      "blender_bounds": [
+        [-0.8801730275154114, -0.13123343884944916, 1.3778599500656128],
+        [0.8806768655776978, 0.017359109595417976, 1.4584468603134155]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "be4f6e40f365801f9675549948f5d408b57a52e9f7e1346ee82c1187e00e2445"
+    },
+    {
+      "file": "model_34.obj",
+      "object": "model_34",
+      "parent": null,
+      "vertices": 6300,
+      "polygons": 4900,
+      "triangles": 4900,
+      "blender_bounds": [
+        [-0.04499309882521629, -0.11294571310281754, 1.6716899871826172],
+        [0.04556802287697792, -0.09749047458171844, 1.6915677785873413]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "8494661a245f651aacb3cd5abf9eaeeb1b2976d334da6053852413e0c9b85c1e"
+    },
+    {
+      "file": "model_35.obj",
+      "object": "model_35",
+      "parent": null,
+      "vertices": 7125,
+      "polygons": 13828,
+      "triangles": 13828,
+      "blender_bounds": [
+        [-0.0904569998383522, -0.14280295372009277, 1.4923100471496582],
+        [0.09433797001838684, 0.08832383155822754, 1.8111588954925537]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "80b47eae074b6147416bcd03a5ce56734f9b41e3c4b0bf61b273279f3ce37347"
+    },
+    {
+      "file": "model_36.obj",
+      "object": "model_36",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [0.018299199640750885, -0.10618147999048233, 1.6705000400543213],
+        [0.04244192689657211, -0.08022347092628479, 1.6946460008621216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "733770f7ce24d430be2aa5bacce0bd174025685f0e1ee4af1e4aa7494135d17f"
+    },
+    {
+      "file": "model_37.obj",
+      "object": "model_37",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [0.018550099804997444, -0.10338353365659714, 1.6707500219345093],
+        [0.04219704493880272, -0.08055907487869263, 1.6944018602371216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "1550786c80b36871cb236de27a0564b478ea23ddbe611983f76f7afa3d785f8e"
+    },
+    {
+      "file": "model_38.obj",
+      "object": "model_38",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [-0.04254620149731636, -0.106374591588974, 1.6701099872589111],
+        [-0.018404904752969742, -0.08042047172784805, 1.6942561864852905]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "9ce569ee60ccde4b0c3de74217801d2cdce137a996f3a27600cf08e59289d228"
+    },
+    {
+      "file": "model_39.obj",
+      "object": "model_39",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [-0.04227229952812195, -0.10357223451137543, 1.6703499555587769],
+        [-0.01863006502389908, -0.08072587102651596, 1.6940019130706787]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "a52a89d00a6b4670b36c88d13c84d763595f2568959433724d7ec26f50520d4a"
+    },
+    {
+      "file": "model_40.obj",
+      "object": "model_40",
+      "parent": null,
+      "vertices": 2511,
+      "polygons": 3464,
+      "triangles": 3464,
+      "blender_bounds": [
+        [-0.031276900321245193, -0.1193096712231636, 1.5919300317764282],
+        [0.031061824411153793, -0.030352577567100525, 1.6248531341552734]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "6624af54e97f6672daf82f77a38ad8d2ecd70160af25e94eb3bee06f88d9bbe1"
+    },
+    {
+      "file": "model_41.obj",
+      "object": "model_41",
+      "parent": null,
+      "vertices": 2497,
+      "polygons": 3654,
+      "triangles": 3654,
+      "blender_bounds": [
+        [-0.03213590011000633, -0.12255776673555374, 1.6074199676513672],
+        [0.031991492956876755, -0.030212676152586937, 1.6359103918075562]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "b07cbff30d97c0d46155ef4e1cc20692b15602075a73c9f37e5b9406201e6238"
+    },
+    {
+      "file": "model_42.obj",
+      "object": "model_42",
+      "parent": null,
+      "vertices": 23140,
+      "polygons": 40540,
+      "triangles": 40540,
+      "blender_bounds": [
+        [-0.6990140080451965, -0.17609676718711853, -0.0008130071801133454],
+        [0.6919962167739868, 0.14779812097549438, 1.5653324127197266]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "c2471139b8359130b667eb34d146e09293357e5916b0fc22a3161c154f8b757e"
+    },
+    {
+      "file": "model_43.obj",
+      "object": "model_43",
+      "parent": null,
+      "vertices": 2861,
+      "polygons": 5468,
+      "triangles": 5468,
+      "blender_bounds": [
+        [-0.0857648029923439, -0.12566420435905457, 1.6547800302505493],
+        [0.08821771293878555, 0.012700928375124931, 1.6993966102600098]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "169fc3470e59f867e7e610b54414793d3d04428f0f05a01e65b5ac5d75065648"
+    },
+    {
+      "file": "model_44.obj",
+      "object": "model_44",
+      "parent": null,
+      "vertices": 2024,
+      "polygons": 3396,
+      "triangles": 3396,
+      "blender_bounds": [
+        [-0.8801730275154114, -0.13123343884944916, 1.3778599500656128],
+        [0.8806768655776978, 0.017359109595417976, 1.4584468603134155]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "be4f6e40f365801f9675549948f5d408b57a52e9f7e1346ee82c1187e00e2445"
+    },
+    {
+      "file": "model_45.obj",
+      "object": "model_45",
+      "parent": null,
+      "vertices": 6300,
+      "polygons": 4900,
+      "triangles": 4900,
+      "blender_bounds": [
+        [-0.04499309882521629, -0.11294571310281754, 1.6716899871826172],
+        [0.04556802287697792, -0.09749047458171844, 1.6915677785873413]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "8494661a245f651aacb3cd5abf9eaeeb1b2976d334da6053852413e0c9b85c1e"
+    },
+    {
+      "file": "model_46.obj",
+      "object": "model_46",
+      "parent": null,
+      "vertices": 7125,
+      "polygons": 13828,
+      "triangles": 13828,
+      "blender_bounds": [
+        [-0.0904569998383522, -0.14280295372009277, 1.4923100471496582],
+        [0.09433797001838684, 0.08832383155822754, 1.8111588954925537]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "80b47eae074b6147416bcd03a5ce56734f9b41e3c4b0bf61b273279f3ce37347"
+    },
+    {
+      "file": "model_47.obj",
+      "object": "model_47",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [0.018299199640750885, -0.10618147999048233, 1.6705000400543213],
+        [0.04244192689657211, -0.08022347092628479, 1.6946460008621216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "733770f7ce24d430be2aa5bacce0bd174025685f0e1ee4af1e4aa7494135d17f"
+    },
+    {
+      "file": "model_48.obj",
+      "object": "model_48",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [0.018550099804997444, -0.10338353365659714, 1.6707500219345093],
+        [0.04219704493880272, -0.08055907487869263, 1.6944018602371216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "1550786c80b36871cb236de27a0564b478ea23ddbe611983f76f7afa3d785f8e"
+    },
+    {
+      "file": "model_49.obj",
+      "object": "model_49",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [-0.04254620149731636, -0.106374591588974, 1.6701099872589111],
+        [-0.018404904752969742, -0.08042047172784805, 1.6942561864852905]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "9ce569ee60ccde4b0c3de74217801d2cdce137a996f3a27600cf08e59289d228"
+    },
+    {
+      "file": "model_50.obj",
+      "object": "model_50",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [-0.04227229952812195, -0.10357223451137543, 1.6703499555587769],
+        [-0.01863006502389908, -0.08072587102651596, 1.6940019130706787]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "a52a89d00a6b4670b36c88d13c84d763595f2568959433724d7ec26f50520d4a"
+    },
+    {
+      "file": "model_51.obj",
+      "object": "model_51",
+      "parent": null,
+      "vertices": 2511,
+      "polygons": 3464,
+      "triangles": 3464,
+      "blender_bounds": [
+        [-0.031276900321245193, -0.1193096712231636, 1.5919300317764282],
+        [0.031061824411153793, -0.030352577567100525, 1.6248531341552734]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "6624af54e97f6672daf82f77a38ad8d2ecd70160af25e94eb3bee06f88d9bbe1"
+    },
+    {
+      "file": "model_52.obj",
+      "object": "model_52",
+      "parent": null,
+      "vertices": 2497,
+      "polygons": 3654,
+      "triangles": 3654,
+      "blender_bounds": [
+        [-0.03213590011000633, -0.12255776673555374, 1.6074199676513672],
+        [0.031991492956876755, -0.030212676152586937, 1.6359103918075562]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "b07cbff30d97c0d46155ef4e1cc20692b15602075a73c9f37e5b9406201e6238"
+    },
+    {
+      "file": "model_53.obj",
+      "object": "model_53",
+      "parent": null,
+      "vertices": 23140,
+      "polygons": 40540,
+      "triangles": 40540,
+      "blender_bounds": [
+        [-0.6990140080451965, -0.17609676718711853, -0.0008130071801133454],
+        [0.6919962167739868, 0.14779812097549438, 1.5653324127197266]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "c2471139b8359130b667eb34d146e09293357e5916b0fc22a3161c154f8b757e"
+    },
+    {
+      "file": "model_54.obj",
+      "object": "model_54",
+      "parent": null,
+      "vertices": 2861,
+      "polygons": 5468,
+      "triangles": 5468,
+      "blender_bounds": [
+        [-0.0857648029923439, -0.12566420435905457, 1.6547800302505493],
+        [0.08821771293878555, 0.012700928375124931, 1.6993966102600098]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "169fc3470e59f867e7e610b54414793d3d04428f0f05a01e65b5ac5d75065648"
+    },
+    {
+      "file": "model_55.obj",
+      "object": "model_55",
+      "parent": null,
+      "vertices": 2024,
+      "polygons": 3396,
+      "triangles": 3396,
+      "blender_bounds": [
+        [-0.8801730275154114, -0.13123343884944916, 1.3778599500656128],
+        [0.8806768655776978, 0.017359109595417976, 1.4584468603134155]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "be4f6e40f365801f9675549948f5d408b57a52e9f7e1346ee82c1187e00e2445"
+    },
+    {
+      "file": "model_56.obj",
+      "object": "model_56",
+      "parent": null,
+      "vertices": 6300,
+      "polygons": 4900,
+      "triangles": 4900,
+      "blender_bounds": [
+        [-0.04499309882521629, -0.11294571310281754, 1.6716899871826172],
+        [0.04556802287697792, -0.09749047458171844, 1.6915677785873413]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "8494661a245f651aacb3cd5abf9eaeeb1b2976d334da6053852413e0c9b85c1e"
+    },
+    {
+      "file": "model_57.obj",
+      "object": "model_57",
+      "parent": null,
+      "vertices": 7125,
+      "polygons": 13828,
+      "triangles": 13828,
+      "blender_bounds": [
+        [-0.0904569998383522, -0.14280295372009277, 1.4923100471496582],
+        [0.09433797001838684, 0.08832383155822754, 1.8111588954925537]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "80b47eae074b6147416bcd03a5ce56734f9b41e3c4b0bf61b273279f3ce37347"
+    },
+    {
+      "file": "model_58.obj",
+      "object": "model_58",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [0.018299199640750885, -0.10618147999048233, 1.6705000400543213],
+        [0.04244192689657211, -0.08022347092628479, 1.6946460008621216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "733770f7ce24d430be2aa5bacce0bd174025685f0e1ee4af1e4aa7494135d17f"
+    },
+    {
+      "file": "model_59.obj",
+      "object": "model_59",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [0.018550099804997444, -0.10338353365659714, 1.6707500219345093],
+        [0.04219704493880272, -0.08055907487869263, 1.6944018602371216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "1550786c80b36871cb236de27a0564b478ea23ddbe611983f76f7afa3d785f8e"
+    },
+    {
+      "file": "model_60.obj",
+      "object": "model_60",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [-0.04254620149731636, -0.106374591588974, 1.6701099872589111],
+        [-0.018404904752969742, -0.08042047172784805, 1.6942561864852905]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "9ce569ee60ccde4b0c3de74217801d2cdce137a996f3a27600cf08e59289d228"
+    },
+    {
+      "file": "model_61.obj",
+      "object": "model_61",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [-0.04227229952812195, -0.10357223451137543, 1.6703499555587769],
+        [-0.01863006502389908, -0.08072587102651596, 1.6940019130706787]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "a52a89d00a6b4670b36c88d13c84d763595f2568959433724d7ec26f50520d4a"
+    },
+    {
+      "file": "model_62.obj",
+      "object": "model_62",
+      "parent": null,
+      "vertices": 2511,
+      "polygons": 3464,
+      "triangles": 3464,
+      "blender_bounds": [
+        [-0.031276900321245193, -0.1193096712231636, 1.5919300317764282],
+        [0.031061824411153793, -0.030352577567100525, 1.6248531341552734]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "6624af54e97f6672daf82f77a38ad8d2ecd70160af25e94eb3bee06f88d9bbe1"
+    },
+    {
+      "file": "model_63.obj",
+      "object": "model_63",
+      "parent": null,
+      "vertices": 2497,
+      "polygons": 3654,
+      "triangles": 3654,
+      "blender_bounds": [
+        [-0.03213590011000633, -0.12255776673555374, 1.6074199676513672],
+        [0.031991492956876755, -0.030212676152586937, 1.6359103918075562]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "b07cbff30d97c0d46155ef4e1cc20692b15602075a73c9f37e5b9406201e6238"
+    },
+    {
+      "file": "model_64.obj",
+      "object": "model_64",
+      "parent": null,
+      "vertices": 23140,
+      "polygons": 40540,
+      "triangles": 40540,
+      "blender_bounds": [
+        [-0.6990140080451965, -0.17609676718711853, -0.0008130071801133454],
+        [0.6919962167739868, 0.14779812097549438, 1.5653324127197266]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "c2471139b8359130b667eb34d146e09293357e5916b0fc22a3161c154f8b757e"
+    },
+    {
+      "file": "model_65.obj",
+      "object": "model_65",
+      "parent": null,
+      "vertices": 2861,
+      "polygons": 5468,
+      "triangles": 5468,
+      "blender_bounds": [
+        [-0.0857648029923439, -0.12566420435905457, 1.6547800302505493],
+        [0.08821771293878555, 0.012700928375124931, 1.6993966102600098]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "169fc3470e59f867e7e610b54414793d3d04428f0f05a01e65b5ac5d75065648"
+    },
+    {
+      "file": "model_66.obj",
+      "object": "model_66",
+      "parent": null,
+      "vertices": 2024,
+      "polygons": 3396,
+      "triangles": 3396,
+      "blender_bounds": [
+        [-0.8801730275154114, -0.13123343884944916, 1.3778599500656128],
+        [0.8806768655776978, 0.017359109595417976, 1.4584468603134155]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "be4f6e40f365801f9675549948f5d408b57a52e9f7e1346ee82c1187e00e2445"
+    },
+    {
+      "file": "model_67.obj",
+      "object": "model_67",
+      "parent": null,
+      "vertices": 6300,
+      "polygons": 4900,
+      "triangles": 4900,
+      "blender_bounds": [
+        [-0.04499309882521629, -0.11294571310281754, 1.6716899871826172],
+        [0.04556802287697792, -0.09749047458171844, 1.6915677785873413]
+      ],
+      "materials": [],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "8494661a245f651aacb3cd5abf9eaeeb1b2976d334da6053852413e0c9b85c1e"
+    },
+    {
+      "file": "model_68.obj",
+      "object": "model_68",
+      "parent": null,
+      "vertices": 7125,
+      "polygons": 13828,
+      "triangles": 13828,
+      "blender_bounds": [
+        [-0.0904569998383522, -0.14280295372009277, 1.4923100471496582],
+        [0.09433797001838684, 0.08832383155822754, 1.8111588954925537]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "80b47eae074b6147416bcd03a5ce56734f9b41e3c4b0bf61b273279f3ce37347"
+    },
+    {
+      "file": "model_69.obj",
+      "object": "model_69",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [0.018299199640750885, -0.10618147999048233, 1.6705000400543213],
+        [0.04244192689657211, -0.08022347092628479, 1.6946460008621216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "733770f7ce24d430be2aa5bacce0bd174025685f0e1ee4af1e4aa7494135d17f"
+    },
+    {
+      "file": "model_70.obj",
+      "object": "model_70",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [0.018550099804997444, -0.10338353365659714, 1.6707500219345093],
+        [0.04219704493880272, -0.08055907487869263, 1.6944018602371216]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "1550786c80b36871cb236de27a0564b478ea23ddbe611983f76f7afa3d785f8e"
+    },
+    {
+      "file": "model_71.obj",
+      "object": "model_71",
+      "parent": null,
+      "vertices": 457,
+      "polygons": 830,
+      "triangles": 830,
+      "blender_bounds": [
+        [-0.04254620149731636, -0.106374591588974, 1.6701099872589111],
+        [-0.018404904752969742, -0.08042047172784805, 1.6942561864852905]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "9ce569ee60ccde4b0c3de74217801d2cdce137a996f3a27600cf08e59289d228"
+    },
+    {
+      "file": "model_72.obj",
+      "object": "model_72",
+      "parent": null,
+      "vertices": 481,
+      "polygons": 791,
+      "triangles": 791,
+      "blender_bounds": [
+        [-0.04227229952812195, -0.10357223451137543, 1.6703499555587769],
+        [-0.01863006502389908, -0.08072587102651596, 1.6940019130706787]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "a52a89d00a6b4670b36c88d13c84d763595f2568959433724d7ec26f50520d4a"
+    },
+    {
+      "file": "model_73.obj",
+      "object": "model_73",
+      "parent": null,
+      "vertices": 2511,
+      "polygons": 3464,
+      "triangles": 3464,
+      "blender_bounds": [
+        [-0.031276900321245193, -0.1193096712231636, 1.5919300317764282],
+        [0.031061824411153793, -0.030352577567100525, 1.6248531341552734]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "6624af54e97f6672daf82f77a38ad8d2ecd70160af25e94eb3bee06f88d9bbe1"
+    },
+    {
+      "file": "model_74.obj",
+      "object": "model_74",
+      "parent": null,
+      "vertices": 2497,
+      "polygons": 3654,
+      "triangles": 3654,
+      "blender_bounds": [
+        [-0.03213590011000633, -0.12255776673555374, 1.6074199676513672],
+        [0.031991492956876755, -0.030212676152586937, 1.6359103918075562]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "b07cbff30d97c0d46155ef4e1cc20692b15602075a73c9f37e5b9406201e6238"
+    },
+    {
+      "file": "model_75.obj",
+      "object": "model_75",
+      "parent": null,
+      "vertices": 23140,
+      "polygons": 40540,
+      "triangles": 40540,
+      "blender_bounds": [
+        [-0.6990140080451965, -0.17609676718711853, -0.0008130071801133454],
+        [0.6919962167739868, 0.14779812097549438, 1.5653324127197266]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "c2471139b8359130b667eb34d146e09293357e5916b0fc22a3161c154f8b757e"
+    },
+    {
+      "file": "model_76.obj",
+      "object": "model_76",
+      "parent": null,
+      "vertices": 2861,
+      "polygons": 5468,
+      "triangles": 5468,
+      "blender_bounds": [
+        [-0.0857648029923439, -0.12566420435905457, 1.6547800302505493],
+        [0.08821771293878555, 0.012700928375124931, 1.6993966102600098]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0,
+      "geometry_uv_sha256": "169fc3470e59f867e7e610b54414793d3d04428f0f05a01e65b5ac5d75065648"
+    }
+  ],
+  "duplicates": [
+    {
+      "file": "model_11.obj",
+      "retained": "model_0.obj"
+    },
+    {
+      "file": "model_12.obj",
+      "retained": "model_1.obj"
+    },
+    {
+      "file": "model_13.obj",
+      "retained": "model_2.obj"
+    },
+    {
+      "file": "model_14.obj",
+      "retained": "model_3.obj"
+    },
+    {
+      "file": "model_15.obj",
+      "retained": "model_4.obj"
+    },
+    {
+      "file": "model_16.obj",
+      "retained": "model_5.obj"
+    },
+    {
+      "file": "model_17.obj",
+      "retained": "model_6.obj"
+    },
+    {
+      "file": "model_18.obj",
+      "retained": "model_7.obj"
+    },
+    {
+      "file": "model_19.obj",
+      "retained": "model_8.obj"
+    },
+    {
+      "file": "model_20.obj",
+      "retained": "model_9.obj"
+    },
+    {
+      "file": "model_21.obj",
+      "retained": "model_10.obj"
+    },
+    {
+      "file": "model_22.obj",
+      "retained": "model_0.obj"
+    },
+    {
+      "file": "model_23.obj",
+      "retained": "model_1.obj"
+    },
+    {
+      "file": "model_24.obj",
+      "retained": "model_2.obj"
+    },
+    {
+      "file": "model_25.obj",
+      "retained": "model_3.obj"
+    },
+    {
+      "file": "model_26.obj",
+      "retained": "model_4.obj"
+    },
+    {
+      "file": "model_27.obj",
+      "retained": "model_5.obj"
+    },
+    {
+      "file": "model_28.obj",
+      "retained": "model_6.obj"
+    },
+    {
+      "file": "model_29.obj",
+      "retained": "model_7.obj"
+    },
+    {
+      "file": "model_30.obj",
+      "retained": "model_8.obj"
+    },
+    {
+      "file": "model_31.obj",
+      "retained": "model_9.obj"
+    },
+    {
+      "file": "model_32.obj",
+      "retained": "model_10.obj"
+    },
+    {
+      "file": "model_33.obj",
+      "retained": "model_0.obj"
+    },
+    {
+      "file": "model_34.obj",
+      "retained": "model_1.obj"
+    },
+    {
+      "file": "model_35.obj",
+      "retained": "model_2.obj"
+    },
+    {
+      "file": "model_36.obj",
+      "retained": "model_3.obj"
+    },
+    {
+      "file": "model_37.obj",
+      "retained": "model_4.obj"
+    },
+    {
+      "file": "model_38.obj",
+      "retained": "model_5.obj"
+    },
+    {
+      "file": "model_39.obj",
+      "retained": "model_6.obj"
+    },
+    {
+      "file": "model_40.obj",
+      "retained": "model_7.obj"
+    },
+    {
+      "file": "model_41.obj",
+      "retained": "model_8.obj"
+    },
+    {
+      "file": "model_42.obj",
+      "retained": "model_9.obj"
+    },
+    {
+      "file": "model_43.obj",
+      "retained": "model_10.obj"
+    },
+    {
+      "file": "model_44.obj",
+      "retained": "model_0.obj"
+    },
+    {
+      "file": "model_45.obj",
+      "retained": "model_1.obj"
+    },
+    {
+      "file": "model_46.obj",
+      "retained": "model_2.obj"
+    },
+    {
+      "file": "model_47.obj",
+      "retained": "model_3.obj"
+    },
+    {
+      "file": "model_48.obj",
+      "retained": "model_4.obj"
+    },
+    {
+      "file": "model_49.obj",
+      "retained": "model_5.obj"
+    },
+    {
+      "file": "model_50.obj",
+      "retained": "model_6.obj"
+    },
+    {
+      "file": "model_51.obj",
+      "retained": "model_7.obj"
+    },
+    {
+      "file": "model_52.obj",
+      "retained": "model_8.obj"
+    },
+    {
+      "file": "model_53.obj",
+      "retained": "model_9.obj"
+    },
+    {
+      "file": "model_54.obj",
+      "retained": "model_10.obj"
+    },
+    {
+      "file": "model_55.obj",
+      "retained": "model_0.obj"
+    },
+    {
+      "file": "model_56.obj",
+      "retained": "model_1.obj"
+    },
+    {
+      "file": "model_57.obj",
+      "retained": "model_2.obj"
+    },
+    {
+      "file": "model_58.obj",
+      "retained": "model_3.obj"
+    },
+    {
+      "file": "model_59.obj",
+      "retained": "model_4.obj"
+    },
+    {
+      "file": "model_60.obj",
+      "retained": "model_5.obj"
+    },
+    {
+      "file": "model_61.obj",
+      "retained": "model_6.obj"
+    },
+    {
+      "file": "model_62.obj",
+      "retained": "model_7.obj"
+    },
+    {
+      "file": "model_63.obj",
+      "retained": "model_8.obj"
+    },
+    {
+      "file": "model_64.obj",
+      "retained": "model_9.obj"
+    },
+    {
+      "file": "model_65.obj",
+      "retained": "model_10.obj"
+    },
+    {
+      "file": "model_66.obj",
+      "retained": "model_0.obj"
+    },
+    {
+      "file": "model_67.obj",
+      "retained": "model_1.obj"
+    },
+    {
+      "file": "model_68.obj",
+      "retained": "model_2.obj"
+    },
+    {
+      "file": "model_69.obj",
+      "retained": "model_3.obj"
+    },
+    {
+      "file": "model_70.obj",
+      "retained": "model_4.obj"
+    },
+    {
+      "file": "model_71.obj",
+      "retained": "model_5.obj"
+    },
+    {
+      "file": "model_72.obj",
+      "retained": "model_6.obj"
+    },
+    {
+      "file": "model_73.obj",
+      "retained": "model_7.obj"
+    },
+    {
+      "file": "model_74.obj",
+      "retained": "model_8.obj"
+    },
+    {
+      "file": "model_75.obj",
+      "retained": "model_9.obj"
+    },
+    {
+      "file": "model_76.obj",
+      "retained": "model_10.obj"
+    }
+  ],
+  "images": [
+    {
+      "file": "ARARAT_Color_1K.png",
+      "size": [1024, 1024]
+    },
+    {
+      "file": "ARARAT_Normal_1K.png",
+      "size": [1024, 1024]
+    },
+    {
+      "file": "AvatarBodyMale_Color_1K.png",
+      "size": [1024, 1024]
+    },
+    {
+      "file": "AvatarBodyMale_Normal1_1K.png",
+      "size": [1024, 1024]
+    },
+    {
+      "file": "AvatarEyes_Color_512.png",
+      "size": [512, 512]
+    },
+    {
+      "file": "AvatarEyes_Normal_512.png",
+      "size": [512, 512]
+    },
+    {
+      "file": "AvatarHeadMale_Color_1K.png",
+      "size": [1024, 1024]
+    },
+    {
+      "file": "AvatarHeadMale_Normal1_1K.png",
+      "size": [1024, 1024]
+    },
+    {
+      "file": "AvatarLeftCornea_Color_512.png",
+      "size": [512, 512]
+    },
+    {
+      "file": "AvatarRightCornea_Color_512.png",
+      "size": [512, 512]
+    },
+    {
+      "file": "AvatarTeeth_Color_1K.png",
+      "size": [1024, 1024]
+    },
+    {
+      "file": "AvatarTeeth_Normal1_1K.png",
+      "size": [1024, 1024]
+    },
+    {
+      "file": "glasses_10_Color_256.png",
+      "size": [256, 256]
+    }
+  ],
+  "armatures": [],
+  "actions": []
+}

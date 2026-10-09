@@ -1,0 +1,385 @@
+{
+  "standardWorker": {
+    "file": "assets/working/workers/standard-worker.glb",
+    "bytes": 193324,
+    "sha256": "d50fde986356cb219d51170e90a127674a2737eff00f03599517b2d370a30097",
+    "bounds": [
+      [-0.871519923210144, 0.0, -0.1828138381242752],
+      [0.871519923210144, 1.75, 0.17358586192131042]
+    ],
+    "dimensions": [1.743039846420288, 1.75, 0.35639970004558563],
+    "meshes": [
+      {
+        "name": "STANDARD_WORKER",
+        "vertices": 5039,
+        "triangles": 3700,
+        "materials": ["Stickman_supplied_atlas"]
+      }
+    ],
+    "triangles": 3700,
+    "vertices": 5039,
+    "coordinate_system": "Y-up, meters, +Z facing/desk direction, ground pivot",
+    "scale_factor": 0.026921453517415612,
+    "source_pivot_blender": [
+      -0.0044097900390625, -1.9969356060028076, -28.2893009185791
+    ],
+    "texture": "x.png",
+    "texture_dimensions": [512, 512],
+    "material_assignment": "Supplied image assigned to existing UVs; missing MTL means original shader settings are unknown",
+    "rigged": false,
+    "animations": 0,
+    "pose": "Unchanged source T-pose",
+    "normalization": "Uniform scale to chosen canonical height 1.75 m; original units unspecified"
+  },
+  "workstation": {
+    "file": "assets/working/workers/office-workstation.glb",
+    "bytes": 512288,
+    "sha256": "ba34038e199e66ac7028e566fce39eb1b82951225f5cf3c72915da66fa11bacd",
+    "bounds": [
+      [-1.0998679399490356, 0.0, -1.38201904296875],
+      [1.1536164283752441, 1.194731593132019, 0.4966827929019928]
+    ],
+    "dimensions": [2.25348436832428, 1.194731593132019, 1.8787018358707428],
+    "meshes": [
+      {
+        "name": "DESK",
+        "vertices": 3551,
+        "triangles": 7160,
+        "materials": ["Neutral_desk"]
+      },
+      {
+        "name": "CHAIR",
+        "vertices": 3525,
+        "triangles": 6992,
+        "materials": ["Neutral_chair"]
+      },
+      {
+        "name": "MONITOR",
+        "vertices": 1459,
+        "triangles": 2418,
+        "materials": ["Neutral_monitor"]
+      },
+      {
+        "name": "KEYBOARD",
+        "vertices": 2887,
+        "triangles": 2797,
+        "materials": ["Neutral_keyboard"]
+      },
+      {
+        "name": "MOUSE",
+        "vertices": 457,
+        "triangles": 698,
+        "materials": ["Neutral_mouse"]
+      }
+    ],
+    "triangles": 20065,
+    "vertices": 11879,
+    "coordinate_system": "Y-up, meters, +Z facing/desk direction, ground pivot",
+    "scale_factor": 0.024996998446987787,
+    "desk_top_height": 0.75,
+    "source_plan_center_blender": [-1.1330986022949219, -28.236698150634766],
+    "source_desk_ground": 0.2924010455608368,
+    "texture": null,
+    "rigged": false,
+    "animations": 0,
+    "normalization": "Units unspecified; uniform scale calibrated to a chosen 0.75 m desk top; desk assembly lowered to floor independently of chair",
+    "omitted_prefixes": [
+      "arch20_039",
+      "arch20_068",
+      "arch20_069",
+      "Arch35_078"
+    ],
+    "cleanup": [
+      {
+        "source": "archmodels53_20_00",
+        "before": 428,
+        "after_planar": 412
+      },
+      {
+        "source": "archmodels53_20_01",
+        "before": 428,
+        "after_planar": 408
+      },
+      {
+        "source": "archmodels53_20_02",
+        "before": 428,
+        "after_planar": 412
+      },
+      {
+        "source": "archmodels53_20_03",
+        "before": 368,
+        "after_planar": 366
+      },
+      {
+        "source": "archmodels53_20_04",
+        "before": 18652,
+        "after_planar": 17863
+      },
+      {
+        "source": "archmodels53_20_05",
+        "before": 1782,
+        "after_planar": 1762
+      },
+      {
+        "source": "archmodels53_20_06",
+        "before": 12,
+        "after_planar": 12
+      },
+      {
+        "source": "archmodels53_20_07",
+        "before": 1782,
+        "after_planar": 1764
+      },
+      {
+        "source": "archmodels53_20_08",
+        "before": 368,
+        "after_planar": 366
+      },
+      {
+        "source": "archmodels53_20_09",
+        "before": 18650,
+        "after_planar": 17866
+      },
+      {
+        "source": "archmodels53_20_10",
+        "before": 1782,
+        "after_planar": 1764
+      },
+      {
+        "source": "archmodels53_20_11",
+        "before": 12,
+        "after_planar": 12
+      },
+      {
+        "source": "archmodels53_20_12",
+        "before": 1782,
+        "after_planar": 1762
+      },
+      {
+        "source": "archmodels53_20_13",
+        "before": 368,
+        "after_planar": 366
+      },
+      {
+        "source": "archmodels53_20_14",
+        "before": 18668,
+        "after_planar": 17943
+      },
+      {
+        "source": "archmodels53_20_15",
+        "before": 1782,
+        "after_planar": 1764
+      },
+      {
+        "source": "archmodels53_20_16",
+        "before": 12,
+        "after_planar": 12
+      },
+      {
+        "source": "archmodels53_20_17",
+        "before": 1782,
+        "after_planar": 1760
+      },
+      {
+        "source": "archmodels53_20_18",
+        "before": 368,
+        "after_planar": 366
+      },
+      {
+        "source": "archmodels53_20_19",
+        "before": 18641,
+        "after_planar": 17895
+      },
+      {
+        "source": "archmodels53_20_20",
+        "before": 1782,
+        "after_planar": 1764
+      },
+      {
+        "source": "archmodels53_20_21",
+        "before": 12,
+        "after_planar": 12
+      },
+      {
+        "source": "archmodels53_20_22",
+        "before": 1782,
+        "after_planar": 1764
+      },
+      {
+        "source": "archmodels53_20_23",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_24",
+        "before": 332,
+        "after_planar": 332
+      },
+      {
+        "source": "archmodels53_20_25",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_26",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_27",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_28",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_29",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_30",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_31",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_32",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_33",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_34",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_35",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "archmodels53_20_36",
+        "before": 204,
+        "after_planar": 204
+      },
+      {
+        "source": "objArmchair_07_Mesh_01",
+        "before": 11168,
+        "after_planar": 9884
+      },
+      {
+        "source": "objArmchair_07_Mesh_02",
+        "before": 5808,
+        "after_planar": 4128
+      },
+      {
+        "source": "objArmchair_07_Mesh_03",
+        "before": 1408,
+        "after_planar": 1186
+      },
+      {
+        "source": "objArmchair_07_Mesh_04",
+        "before": 444,
+        "after_planar": 276
+      },
+      {
+        "source": "objArmchair_07_Mesh_05",
+        "before": 7332,
+        "after_planar": 5500
+      },
+      {
+        "source": "objArmchair_07_Mesh_06",
+        "before": 15532,
+        "after_planar": 14914
+      },
+      {
+        "source": "objArmchair_07_Mesh_07",
+        "before": 2636,
+        "after_planar": 2388
+      },
+      {
+        "source": "objArmchair_07_Mesh_08",
+        "before": 5188,
+        "after_planar": 5168
+      },
+      {
+        "source": "objArmchair_07_Mesh_09",
+        "before": 2648,
+        "after_planar": 2550
+      },
+      {
+        "source": "Arch35_020_00",
+        "before": 625,
+        "after_planar": 584
+      },
+      {
+        "source": "Arch35_020_01",
+        "before": 30,
+        "after_planar": 30
+      },
+      {
+        "source": "Arch35_020_02",
+        "before": 162,
+        "after_planar": 160
+      },
+      {
+        "source": "Arch35_020_03",
+        "before": 668,
+        "after_planar": 668
+      },
+      {
+        "source": "Arch35_020_04",
+        "before": 1296,
+        "after_planar": 496
+      },
+      {
+        "source": "Arch35_020_05",
+        "before": 483,
+        "after_planar": 480
+      },
+      {
+        "source": "Arch35_051_00",
+        "before": 23009,
+        "after_planar": 22950
+      },
+      {
+        "source": "Arch35_051_01",
+        "before": 10220,
+        "after_planar": 7409
+      },
+      {
+        "source": "Arch35_051_02",
+        "before": 594,
+        "after_planar": 462
+      },
+      {
+        "source": "Arch35_025_00",
+        "before": 2951,
+        "after_planar": 2848
+      },
+      {
+        "source": "Arch35_025_01",
+        "before": 1339,
+        "after_planar": 1309
+      },
+      {
+        "source": "Arch35_025_02",
+        "before": 264,
+        "after_planar": 260
+      }
+    ]
+  }
+}

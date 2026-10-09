@@ -1,5 +1,11 @@
 # AI Corporate Office OS — Master Build Plan
 
+> **Authorized Phase 4, 2026-10-09 — Agent Interaction + Office Navigation:** The current user-approved milestone supersedes the older “First Employee” Phase 4 outline below. Extend the verified distinct character/headband foundation with exact-ID selection, truthful context, typed runtime input/local spatial feedback, validated deterministic waypoint navigation and isolated development scenarios for thirty workers plus Manager. Preserve the completed assets and animation system. See `docs/PHASE4_INTERACTIONS.md`. Stop after interaction/navigation validation; backend, database, authentication, providers, orchestration and real task execution remain unauthorized.
+
+> **Headband ownership correction, 2026-10-09:** The supplied red headband is exclusively for standard workers: state-driven waist pickup, placement, working-hard typing and removal. The dedicated Manager never loads or wears it and uses calm seated work at normal speed. Shared navigation and state interfaces remain unchanged. See `assets/headband/ANIMATION.md`. No business runtime or backend is introduced.
+
+> **Authorized extension, 2026-10-09:** Character rigging/animation for the existing canonical worker and dedicated Manager is part of the current asset foundation. See `assets/animation/README.md`. Deterministic visual state/path playback is permitted; this does not start Phase 4 or authorize a backend, orchestration or real agent execution.
+
 > **Repository:** `chidvielasparepalli/OFFICE`  
 > **Goal:** Build a complete, personal AI Corporate Office OS where autonomous AI employees live and work inside an interactive 3D office.  
 > **Primary builder:** Codex / GPT-6 Astra + Claude Code as needed.  
@@ -955,7 +961,8 @@ Use procedural animation only where it makes sense.
 
 ## Working
 
-- active headband
+- standard workers: active headband and faster typing
+- Manager: calm seated work, no headband or accelerated typing
 - typing / screen interaction
 - focused posture
 
@@ -986,13 +993,12 @@ Use procedural animation only where it makes sense.
 
 # 25. Headband System
 
-The headband is the visual "active employee" indicator.
+The supplied red headband is a standard-worker working-hard accessory. The Manager never retrieves, wears or removes it in any state.
 
-- Sleeping: inactive
-- Working: active
-- Collaborating: active
-- Blocked: warning state
-- Critical: alert state
+- Standard worker working: retrieve, equip, then use the faster working clip
+- Standard worker leaving work: safely remove and stow before idle or movement
+- Manager working: normal seated working clip, without accessory gestures
+- Blocked/repair: retain the existing safe interruption and separate status indicator
 
 Keep the visual treatment subtle and professional.
 
@@ -3064,3 +3070,17 @@ The initial Phase 0 audit identified:
 The next implementation milestone is therefore:
 
 **Git import baseline → native Linux dependency baseline → Phase 1 foundation repair → truthful OFFICE shell → validation → 3D scene mounting.**
+
+# Open-office design amendment — 2026-10-09
+
+The user-approved Phase 3 direction supersedes any conventional enclosed-building interpretation elsewhere in this plan. The world must be an open, spacious, single-level corporate workspace with no roof, ceiling, upper slab or tall wall blocking the top/isometric view. Reuse only useful warehouse components; the complete shell is optional. Organize departments as separated open zones with visible circulation. Maintain the hierarchy company → departments → agents → workstations → tasks/activity.
+
+The sole camera controller must support overview, department/workstation focus, smooth zoom, pan, constrained orbit and reset. Future workers must remain identifiable at overview and show real state; selection must expose supplied context without fake tasks, progress, costs or looping activity. The accepted states are sleeping, queued, working, walking, collaborating, waiting, completed, blocked and repair. Phase 3 prepares assets, layout, visibility and state/selection interfaces only. No backend, real runtime, orchestration, providers, task execution or employee reasoning is authorized. See [the implementation contract](docs/OPEN_OFFICE_CONTRACT.md) and [asset intake report](assets/warehouse/README.md).
+
+## Worker asset authorization — 2026-10-09
+
+The user separately authorized canonical worker and supplied workstation asset intake, conversion, shared rendering and selection validation, including at least 30 static asset instances. The Stickman is for normal workers only; the Manager model remains absent in a separate registry slot. This authorization does not start Phase 4, create a fake workforce, or authorize real runtime/orchestration/provider work. See [the worker asset report](assets/workers/README.md) for the implemented boundary and acceptance evidence.
+
+## Desk + Manager asset authorization — 2026-10-09
+
+The subsequent user request supplies the official Modern Desk Setup and Indian Man in suit, superseding the earlier empty Manager slot and standard desk choice. These assets are inspected, normalized and registered as the canonical workstation and dedicated Manager. The stickman is unchanged. The new desk reuses only the earlier supplied chair. Thirty worker samples, one Manager sample and 31 shared desks are validated without runtime state. The production renderer accepts the real normalized snapshot when supplied; development samples remain excluded from production. Missing license/source attribution and original shaders are recorded. No commit/deployment, Phase 4, backend, providers, task execution or runtime is included. See [the current asset report](assets/desk-manager/README.md).

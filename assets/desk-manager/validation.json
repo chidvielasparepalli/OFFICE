@@ -1,0 +1,202 @@
+{
+  "date": "2026-10-09",
+  "browser": "151.0.7922.34",
+  "checks": [
+    {
+      "name": "30 unchanged stickman instances",
+      "passed": true
+    },
+    {
+      "name": "Dedicated Manager is grounded and 1.80 m tall",
+      "passed": true
+    },
+    {
+      "name": "31 desks share six instanced geometry/material batches",
+      "passed": true
+    },
+    {
+      "name": "Manager has independent geometry and ID mapping",
+      "passed": true
+    },
+    {
+      "name": "Desk top 0.75 m; chair and desk frame on floor",
+      "passed": true
+    },
+    {
+      "name": "All character envelopes clear their desk and chair",
+      "passed": true
+    },
+    {
+      "name": "All supplied runtime textures decoded",
+      "passed": true
+    },
+    {
+      "name": "31 heads in overview and unoccluded",
+      "passed": true
+    },
+    {
+      "name": "No roof, ceiling or enclosing walls",
+      "passed": true
+    },
+    {
+      "name": "Actual Manager mesh click selects its own entity ID",
+      "passed": true
+    },
+    {
+      "name": "Actual worker mesh click still selects worker ID",
+      "passed": true
+    },
+    {
+      "name": "Department zoom frames workspace",
+      "passed": true
+    },
+    {
+      "name": "Workstation inspection zoom",
+      "passed": true
+    },
+    {
+      "name": "Executive workspace uses separate spatial anchor",
+      "passed": true
+    },
+    {
+      "name": "Smooth scroll zoom",
+      "passed": true
+    },
+    {
+      "name": "Right-drag pan",
+      "passed": true
+    },
+    {
+      "name": "Orbit responds and stays above floor",
+      "passed": true
+    },
+    {
+      "name": "Reset restores overview",
+      "passed": true
+    },
+    {
+      "name": "Mobile 390: all characters visible and unoccluded",
+      "passed": true
+    },
+    {
+      "name": "Mobile 390: 31 visible non-overlapping markers",
+      "passed": true
+    },
+    {
+      "name": "Mobile 390: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Mobile 320: all characters visible and unoccluded",
+      "passed": true
+    },
+    {
+      "name": "Mobile 320: 31 visible non-overlapping markers",
+      "passed": true
+    },
+    {
+      "name": "Mobile 320: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Keyboard Manager selection and reduced motion",
+      "passed": true
+    },
+    {
+      "name": "No idle animation loop",
+      "passed": true
+    },
+    {
+      "name": "One request: office-open.glb",
+      "passed": true
+    },
+    {
+      "name": "One request: standard-worker.glb",
+      "passed": true
+    },
+    {
+      "name": "One request: standard-workstation.glb",
+      "passed": true
+    },
+    {
+      "name": "One request: primary-manager.glb",
+      "passed": true
+    },
+    {
+      "name": "Old workstation GLB no longer loaded",
+      "passed": true
+    },
+    {
+      "name": "No console errors",
+      "passed": true
+    },
+    {
+      "name": "No failed requests",
+      "passed": true
+    }
+  ],
+  "render": {
+    "frame": 2,
+    "calls": 26,
+    "triangles": 1104241,
+    "points": 0,
+    "lines": 0
+  },
+  "errors": [],
+  "failed_requests": [],
+  "production": {
+    "productionQueryCannotEnableSamples": true,
+    "noSamplePlacementsInBundle": true,
+    "noAssetsRequestedByDisconnectedScene": true,
+    "runtimeFiles": [
+      {
+        "file": "characters/standard-worker.glb",
+        "bytes": 193324,
+        "exactRuntimeFileServed": true
+      },
+      {
+        "file": "characters/primary-manager.glb",
+        "bytes": 5363896,
+        "exactRuntimeFileServed": true
+      },
+      {
+        "file": "workstations/standard-workstation.glb",
+        "bytes": 754004,
+        "exactRuntimeFileServed": true
+      }
+    ],
+    "errors": [],
+    "failed": []
+  },
+  "deliberate_missing_asset_tests": {
+    "manager": {
+      "errorDisplayed": true,
+      "remainingMarkers": 30,
+      "noSubstitute": true
+    },
+    "standard-worker": {
+      "errorDisplayed": true,
+      "remainingMarkers": 1,
+      "noSubstitute": true
+    },
+    "workstation": {
+      "errorDisplayed": true,
+      "remainingMarkers": 31,
+      "noSubstitute": true
+    }
+  },
+  "project": {
+    "typecheck": "pass",
+    "lint": "pass; five existing prototype warnings",
+    "tests": 41,
+    "format": "pass",
+    "build": "pass; existing chunk-size warning",
+    "audit_vulnerabilities": 0,
+    "git_diff_check": "pass"
+  },
+  "limits": [
+    "No physical-device/100-agent FPS benchmark",
+    "Static T-poses only",
+    "Original shader settings and licensing unverified"
+  ]
+}

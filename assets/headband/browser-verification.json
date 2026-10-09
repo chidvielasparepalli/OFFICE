@@ -1,0 +1,452 @@
+{
+  "verifiedAt": "2026-10-09T07:26:04.974Z",
+  "passed": true,
+  "environment": {
+    "browser": "Chromium (Playwright, real WebGL)",
+    "url": "http://127.0.0.1:5173/?workers=preview",
+    "viewport": {
+      "width": 1600,
+      "height": 1200
+    },
+    "resizeViewport": {
+      "width": 390,
+      "height": 844
+    },
+    "reducedMotion": "reduce",
+    "modelCounts": {
+      "standardWorkers": 30,
+      "dedicatedManagers": 1,
+      "sharedWorkstations": 31
+    },
+    "inputs": "Explicit DEV animation test states; no runtime or business fixtures."
+  },
+  "checksPassed": 50,
+  "checks": [
+    {
+      "name": "12. Thirty workers and one distinct Manager share accessory geometry/materials",
+      "passed": true
+    },
+    {
+      "name": "5/7. Every working band is visible and attached to its animated anchor",
+      "passed": true
+    },
+    {
+      "name": "15. Open overview keeps all characters visible without roof/wall geometry",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: 13/14. Independent model selection and close focus",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: 2/16. Naturally seated and grounded",
+      "passed": true,
+      "detail": {
+        "hips": [-13.5, 0.4650000035762787, -11.31],
+        "floor": 0.0000014887481833704852
+      }
+    },
+    {
+      "name": "asset-sample-01: 5/17. Attached band remains close to head with finite bounds",
+      "passed": true,
+      "detail": {
+        "visible": true,
+        "parent": "headband_anchor",
+        "position": [
+          -13.500426000013249, 1.3110374457702076, -11.193085880783313
+        ],
+        "center": [-13.48926446379279, 1.2838723976402893, -11.22299718426468],
+        "size": [0.409323078207672, 0.16696011371966946, 0.4773055575757468]
+      }
+    },
+    {
+      "name": "asset-sample-01: Visible accessory participates in character picking",
+      "passed": true,
+      "detail": {
+        "visible": true,
+        "hits": 2,
+        "triangleAreaValid": true
+      }
+    },
+    {
+      "name": "asset-sample-01: 6. Hard-work clip visibly animates",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: 8/9. Completion stops hard work and visibly removes the band",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: 10/11. Completion leaves a calm seated pose with no visible band",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: Hidden accessory cannot intercept selection",
+      "passed": true,
+      "detail": {
+        "visible": false,
+        "hits": 0,
+        "triangleAreaValid": true
+      }
+    },
+    {
+      "name": "asset-sample-01: 3. Visible retrieval near the hands",
+      "passed": true,
+      "detail": {
+        "id": "asset-sample-01",
+        "agentId": "asset-sample-01",
+        "kind": "standard-worker",
+        "clip": "headband_on",
+        "phase": "equipping",
+        "paused": false,
+        "diagnostic": null,
+        "headbandProgress": 0.16666666666666669,
+        "headbandVisible": true,
+        "workingHard": false,
+        "position": [-13.5, 0, -11.31],
+        "heading": 0,
+        "head": [-13.5, 1.1075747947168533, -11.22673848938641],
+        "headCenter": [-13.5, 1.2475747947168534, -11.22673848938641],
+        "hips": [-13.5, 0.4650000035762787, -11.31],
+        "hands": [
+          [-13.328791080223008, 0.6882807924879893, -11.27946912539851],
+          [-13.933702592898573, 0.6700388186169741, -11.297212330735713]
+        ],
+        "band": {
+          "visible": true,
+          "parent": "headband_anchor",
+          "position": [
+            -13.619999997317791, 0.6849998924351427, -11.274999867903478
+          ],
+          "center": [
+            -13.608838461097331, 0.6580760411661872, -11.305128461590567
+          ],
+          "size": [0.409323078207672, 0.1706521395679922, 0.4781642421355574]
+        },
+        "minimumY": null,
+        "cameraDistance": 5.052333879684616
+      }
+    },
+    {
+      "name": "asset-sample-01: 4. Band travels toward its position on the head",
+      "passed": true,
+      "detail": {
+        "retrieved": [
+          -13.619999997317791, 0.6849998924351427, -11.274999867903478
+        ],
+        "placed": [-13.500426000013249, 1.3104370392550404, -11.189071502296706]
+      }
+    },
+    {
+      "name": "asset-sample-01: 18. Re-entering work during removal recovers without a stuck pose",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: 18. Mid-equipment blocked input removes the band before pausing",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: 18. Repair cleanup reaches a quiet final pose",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: Walking removes equipment before leaving the chair",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: 1. Working retraces the accepted route, sits, equips and works",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: Collaborating stands without equipment or random movement",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: 18. Every exercised interruption returned to stable work",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: 13/14. Independent model selection and close focus",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: 2/16. Naturally seated and grounded",
+      "passed": true,
+      "detail": {
+        "hips": [0, 0.5099999904632568, -10.91],
+        "floor": -4.35933404809966e-7
+      }
+    },
+    {
+      "name": "asset-manager-primary: 5/17. Attached band remains close to head with finite bounds",
+      "passed": true,
+      "detail": {
+        "visible": true,
+        "parent": "headband_anchor",
+        "position": [
+          0.0007999999797903001, 1.2863890545578238, -10.845300724782602
+        ],
+        "center": [
+          0.006452871037181472, 1.2558397630481373, -10.864208687134148
+        ],
+        "size": [0.20730574503540994, 0.1702444427458789, 0.28941650175129574]
+      }
+    },
+    {
+      "name": "asset-manager-primary: Visible accessory participates in character picking",
+      "passed": true,
+      "detail": {
+        "visible": true,
+        "hits": 2,
+        "triangleAreaValid": true
+      }
+    },
+    {
+      "name": "asset-manager-primary: 6. Hard-work clip visibly animates",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: 8/9. Completion stops hard work and visibly removes the band",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: 10/11. Completion leaves a calm seated pose with no visible band",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: Hidden accessory cannot intercept selection",
+      "passed": true,
+      "detail": {
+        "visible": false,
+        "hits": 0,
+        "triangleAreaValid": true
+      }
+    },
+    {
+      "name": "asset-manager-primary: 3. Visible retrieval near the hands",
+      "passed": true,
+      "detail": {
+        "id": "asset-manager-primary",
+        "agentId": "asset-manager-primary",
+        "kind": "manager",
+        "clip": "headband_on",
+        "phase": "equipping",
+        "paused": false,
+        "diagnostic": null,
+        "headbandProgress": 0.16666666666666669,
+        "headbandVisible": true,
+        "workingHard": false,
+        "position": [0, 0, -10.91],
+        "heading": 0,
+        "head": [0, 1.1280620961538461, -10.860649974436484],
+        "headCenter": [0, 1.2680620961538462, -10.860649974436484],
+        "hips": [0, 0.5099999904632568, -10.91],
+        "hands": [
+          [0.124862593200388, 0.7094633880695099, -10.878626733267973],
+          [-0.3382021265320502, 0.715055990981557, -10.893974603901475]
+        ],
+        "band": {
+          "visible": true,
+          "parent": "headband_anchor",
+          "position": [
+            -0.11999999731779099, 0.7300002157315744, -10.874999815160033
+          ],
+          "center": [
+            -0.1143471262603998, 0.6994833397294872, -10.893960050541171
+          ],
+          "size": [
+            0.20730574503540994, 0.17070427912696706, 0.28964218209719306
+          ]
+        },
+        "minimumY": null,
+        "cameraDistance": 5.052333879684616
+      }
+    },
+    {
+      "name": "asset-manager-primary: 4. Band travels toward its position on the head",
+      "passed": true,
+      "detail": {
+        "retrieved": [
+          -0.11999999731779099, 0.7300002157315744, -10.874999815160033
+        ],
+        "placed": [
+          0.0007999999797903001, 1.286322902969267, -10.844541330004075
+        ]
+      }
+    },
+    {
+      "name": "asset-manager-primary: 18. Re-entering work during removal recovers without a stuck pose",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: 18. Mid-equipment blocked input removes the band before pausing",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: 18. Repair cleanup reaches a quiet final pose",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: Walking removes equipment before leaving the chair",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: 1. Working retraces the accepted route, sits, equips and works",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: Collaborating stands without equipment or random movement",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: 18. Every exercised interruption returned to stable work",
+      "passed": true
+    },
+    {
+      "name": "Offscreen exercise starts with the Manager camera focused",
+      "passed": true
+    },
+    {
+      "name": "Offscreen movement and desk return resume a correct inspected pose",
+      "passed": true
+    },
+    {
+      "name": "15. Department and workstation zoom remain usable",
+      "passed": true
+    },
+    {
+      "name": "15. Responsive canvas remains available",
+      "passed": true
+    },
+    {
+      "name": "19. No console/runtime errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "20. No failed asset requests",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Shared GLBs are each loaded once",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "name": "Loaded final bytes match disk: /assets/working/warehouse/office-open.glb",
+      "passed": true,
+      "detail": {
+        "sha256": "8079dedafb1c361f42641090ebc90d7158a119a454fb7edc7f53f2501f75cdaf",
+        "bytes": 4404
+      }
+    },
+    {
+      "name": "Loaded final bytes match disk: /assets/3d/characters/standard-worker-animated.glb",
+      "passed": true,
+      "detail": {
+        "sha256": "31cf85faaf4bdff5a4aa12d4ee0a92ccdb33622df8d5b9e6ee323d622d01a1d5",
+        "bytes": 531652
+      }
+    },
+    {
+      "name": "Loaded final bytes match disk: /assets/3d/workstations/standard-workstation.glb",
+      "passed": true,
+      "detail": {
+        "sha256": "3650dee26161bd9f0a8ae7998a70d630148284097a2d3eb311239b83308caea0",
+        "bytes": 754004
+      }
+    },
+    {
+      "name": "Loaded final bytes match disk: /assets/3d/characters/primary-manager-animated.glb",
+      "passed": true,
+      "detail": {
+        "sha256": "81e00dd872c75bfc898f110f1358f883f98014c833d48f6fb966af455b831812",
+        "bytes": 6319716
+      }
+    },
+    {
+      "name": "Loaded final bytes match disk: /assets/3d/accessories/red-headband.glb",
+      "passed": true,
+      "detail": {
+        "sha256": "64f7e7e9b503c2ea9922c65731c42f84677fe6896774f8765e558d56ddafcacf",
+        "bytes": 646796
+      }
+    },
+    {
+      "name": "No hot reload interrupted animation validation",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "assets": [
+    {
+      "url": "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+      "bytes": 4404,
+      "sha256": "8079dedafb1c361f42641090ebc90d7158a119a454fb7edc7f53f2501f75cdaf"
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+      "bytes": 531652,
+      "sha256": "31cf85faaf4bdff5a4aa12d4ee0a92ccdb33622df8d5b9e6ee323d622d01a1d5"
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+      "bytes": 754004,
+      "sha256": "3650dee26161bd9f0a8ae7998a70d630148284097a2d3eb311239b83308caea0"
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+      "bytes": 6319716,
+      "sha256": "81e00dd872c75bfc898f110f1358f883f98014c833d48f6fb966af455b831812"
+    },
+    {
+      "url": "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb",
+      "bytes": 646796,
+      "sha256": "64f7e7e9b503c2ea9922c65731c42f84677fe6896774f8765e558d56ddafcacf"
+    }
+  ],
+  "uniqueAssetRequestUrls": [
+    "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+    "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+  ],
+  "consoleAndRuntimeErrors": [],
+  "failedRequests": [],
+  "hotReloads": [],
+  "screenshotEvidence": [
+    "test-results/headband-overview.png",
+    "test-results/headband-asset-sample-01-retrieving.png",
+    "test-results/headband-asset-sample-01-overhead.png",
+    "test-results/headband-asset-sample-01-forehead.png",
+    "test-results/headband-asset-sample-01-working.png",
+    "test-results/headband-asset-sample-01-removing.png",
+    "test-results/headband-asset-manager-primary-retrieving.png",
+    "test-results/headband-asset-manager-primary-overhead.png",
+    "test-results/headband-asset-manager-primary-forehead.png",
+    "test-results/headband-asset-manager-primary-working.png",
+    "test-results/headband-asset-manager-primary-removing.png"
+  ],
+  "screenshotMethod": "For phase-specific captures only, pause the R3F render loop after observing the requested real animation phase, capture, then immediately resume demand rendering. Animation state, clip times and skeleton poses are not overwritten.",
+  "productionVerification": {
+    "report": "test-results/headband-production.json",
+    "passed": true,
+    "canvas": true,
+    "noSamples": true,
+    "noPreviewControls": true,
+    "noAutomaticAssetLoads": true,
+    "assetHashesVerified": true,
+    "headbandHashVerified": true,
+    "errors": [],
+    "failed": []
+  },
+  "reportGenerationNote": "All 44 browser behavior checks passed. The report tail initially looked for the DEV warehouse GLB under public/; its Vite route serves assets/working/. That report-only path mapping was corrected and the five already captured HTTP response hashes were verified against the unchanged final files without rerunning or altering the browser observations."
+}

@@ -1,0 +1,94 @@
+{
+  "blender": "5.2.1 LTS",
+  "method": "Independent isolated evaluation of the final authored rig poses, original workstation triangles and the shared chair/root motion curve; triangle BVH intersections and ground-relative sole vertices.",
+  "rig_script_sha256": "aa43c166a8e88ad07caedf40d0ac976a1e8dfd32a45c94840b9cb4d8ba50d0df",
+  "coordinates": "Runtime X,Y-up,Z-forward; meters; chair and actor follow the registered workstation anchor.",
+  "sampling": {
+    "working_seconds": [0, 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4],
+    "stand_up_frames": 79,
+    "stand_up_fps": 30,
+    "stand_up_duration_seconds": 2.6,
+    "walk_frames": 9,
+    "walk_duration_seconds": 1,
+    "samples_per_character": 97
+  },
+  "reverse": "sit_down uses the identical authored physical curve in reverse; exported clip equivalence is independently checked by assets/animation/verification.json.",
+  "characters": {
+    "worker": {
+      "glb": "assets/working/animation/standard-worker-animated.glb",
+      "sha256": "31cf85faaf4bdff5a4aa12d4ee0a92ccdb33622df8d5b9e6ee323d622d01a1d5",
+      "bytes": 531652,
+      "source_geometry_unchanged": true,
+      "workstation_motion": {
+        "seated_anchor": [0, 0, -0.73],
+        "transition_seconds": 2.6,
+        "scoot_seconds": 0.6,
+        "rise_seconds": 2.0,
+        "chair_rollback_meters": 0.4,
+        "standing_offset_from_seat": [
+          0.6499999761581421, 0.0, -0.6200000047683716
+        ],
+        "standing_anchor": [0.6499999761581421, 0, -1.3500000047683716],
+        "curve": "r=clamp(2.6*p/.6);q=clamp((2.6*p-.6)/2);S(t)=clamped smoothstep;chairZ=-.4*S(r);root=[.65*S((q-.42)/.4),0,chairZ+.22*S(q/.4)-.44*S((q-.8)/.2)];sit_down reverses p",
+        "calibration": "Chair and seated occupant roll back together before rising; foot steps preserve ground contact; only CHAIR geometry translates"
+      },
+      "max_desk_triangle_intersections": 0,
+      "max_chair_triangle_intersections": {
+        "seated": 88,
+        "scoot": 192,
+        "initial_rise_through_0_9_seconds": 67,
+        "remainder_of_transition": 0,
+        "walking_at_exit": 0
+      },
+      "static_seat_surface_overlap_estimate_m": 0.019987940788269043,
+      "minimum_authored_sole_height_m": -1.3723223446504562e-6,
+      "maximum_lower_sole_height_during_scoot_m": 3.446598668688239e-7,
+      "maximum_lower_sole_height_during_full_transition_m": 0.00944039411842823,
+      "maximum_lower_sole_height_during_walk_m": -3.9090232917260437e-7,
+      "independent_exported_glb_sparse_floor_range_m": [
+        -0.0006041519757352845, 1.5107297760811612e-6
+      ]
+    },
+    "manager": {
+      "glb": "assets/working/animation/primary-manager-animated.glb",
+      "sha256": "81e00dd872c75bfc898f110f1358f883f98014c833d48f6fb966af455b831812",
+      "bytes": 6319716,
+      "source_geometry_unchanged": true,
+      "workstation_motion": {
+        "seated_anchor": [0, 0, -0.73],
+        "transition_seconds": 2.6,
+        "scoot_seconds": 0.6,
+        "rise_seconds": 2.0,
+        "chair_rollback_meters": 0.4,
+        "standing_offset_from_seat": [
+          0.6499999761581421, 0.0, -0.6200000047683716
+        ],
+        "standing_anchor": [0.6499999761581421, 0, -1.3500000047683716],
+        "curve": "r=clamp(2.6*p/.6);q=clamp((2.6*p-.6)/2);S(t)=clamped smoothstep;chairZ=-.4*S(r);root=[.65*S((q-.42)/.4),0,chairZ+.22*S(q/.4)-.44*S((q-.8)/.2)];sit_down reverses p",
+        "calibration": "Chair and seated occupant roll back together before rising; foot steps preserve ground contact; only CHAIR geometry translates"
+      },
+      "max_desk_triangle_intersections": 0,
+      "max_chair_triangle_intersections": {
+        "seated": 343,
+        "scoot": 476,
+        "initial_rise_through_0_9_seconds": 336,
+        "remainder_of_transition": 0,
+        "walking_at_exit": 0
+      },
+      "static_seat_surface_overlap_estimate_m": 0.03235328197479248,
+      "minimum_authored_sole_height_m": -2.4932353426265763e-7,
+      "maximum_lower_sole_height_during_scoot_m": 1.4015479621320992e-7,
+      "maximum_lower_sole_height_during_full_transition_m": 0.009441599249839783,
+      "maximum_lower_sole_height_during_walk_m": 2.727008450165158e-7,
+      "independent_exported_glb_sparse_floor_range_m": [
+        -0.0002623672377371004, 0.0011955032783228256
+      ]
+    }
+  },
+  "limitations": [
+    "Occupied padded-seat meshes intersect slightly: the supplied cushion does not deform; seated static downward surface estimates are reported, not treated as rigid penetration-free contact.",
+    "During the restrained stand/sit side-step, both soles can briefly clear the floor by up to 9.45 mm; this is deterministic authored motion, not a physics contact solver.",
+    "Chair ray depths are not a universal signed-distance field; overlap counts include intended cushion contact while seated/scooting.",
+    "These authored-frame measurements do not replace exported-GLB interpolation checks or browser playback; see verification.json and browser evidence."
+  ]
+}

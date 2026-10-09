@@ -1,0 +1,1989 @@
+{
+  "blender": "5.2.1 LTS",
+  "import_axes": "source Y-up, -Z forward; visual inspection required",
+  "units": "not declared in OBJ",
+  "objects": [
+    {
+      "name": "arch20_039_00",
+      "parent": null,
+      "vertices": 73,
+      "polygons": 64,
+      "triangles": 128,
+      "bounds": [
+        [-43.346900939941406, -44.65629577636719, 30.610301971435547],
+        [-35.0791015625, -32.963294982910156, 31.34260368347168]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_01",
+      "parent": null,
+      "vertices": 936,
+      "polygons": 930,
+      "triangles": 1868,
+      "bounds": [
+        [-43.65060043334961, -44.92539596557617, 30.291702270507812],
+        [-34.775299072265625, -32.777496337890625, 32.63430404663086]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_02",
+      "parent": null,
+      "vertices": 41,
+      "polygons": 49,
+      "triangles": 78,
+      "bounds": [
+        [-43.442901611328125, -44.68519592285156, 30.336902618408203],
+        [-34.96780014038086, -32.77909469604492, 30.605804443359375]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_03",
+      "parent": null,
+      "vertices": 936,
+      "polygons": 930,
+      "triangles": 1868,
+      "bounds": [
+        [-43.65060043334961, -44.92539596557617, 32.51040267944336],
+        [-34.775299072265625, -32.777496337890625, 34.853004455566406]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_04",
+      "parent": null,
+      "vertices": 41,
+      "polygons": 49,
+      "triangles": 78,
+      "bounds": [
+        [-43.442901611328125, -44.68519592285156, 32.55560302734375],
+        [-34.96780014038086, -32.77909469604492, 32.82460403442383]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_05",
+      "parent": null,
+      "vertices": 72,
+      "polygons": 70,
+      "triangles": 140,
+      "bounds": [
+        [-43.347198486328125, -44.65629577636719, 33.14210510253906],
+        [-35.079200744628906, -32.963096618652344, 33.20780563354492]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_06",
+      "parent": null,
+      "vertices": 812,
+      "polygons": 808,
+      "triangles": 1556,
+      "bounds": [
+        [-42.2234992980957, -35.72809600830078, 33.16960525512695],
+        [-36.163299560546875, -33.91439437866211, 33.533905029296875]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_07",
+      "parent": null,
+      "vertices": 73,
+      "polygons": 64,
+      "triangles": 128,
+      "bounds": [
+        [-43.346900939941406, -44.65629577636719, 32.82260513305664],
+        [-35.0791015625, -32.963294982910156, 33.1676025390625]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_08",
+      "parent": null,
+      "vertices": 1980,
+      "polygons": 1950,
+      "triangles": 3900,
+      "bounds": [
+        [-37.80350112915039, -34.54359436035156, 33.16370391845703],
+        [-36.912899017333984, -34.029396057128906, 33.479103088378906]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_09",
+      "parent": null,
+      "vertices": 812,
+      "polygons": 808,
+      "triangles": 1556,
+      "bounds": [
+        [-42.72359848022461, -37.153594970703125, 33.16960525512695],
+        [-36.95869827270508, -34.50139617919922, 33.533905029296875]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_039_10",
+      "parent": null,
+      "vertices": 1980,
+      "polygons": 1950,
+      "triangles": 3900,
+      "bounds": [
+        [-38.537498474121094, -35.32489776611328, 33.16370391845703],
+        [-37.64690017700195, -34.70849609375, 33.479103088378906]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_00",
+      "parent": null,
+      "vertices": 2514,
+      "polygons": 2512,
+      "triangles": 5024,
+      "bounds": [
+        [-14.35200023651123, -41.419097900390625, 31.644001007080078],
+        [-6.791800022125244, -33.321598052978516, 32.91690444946289]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_01",
+      "parent": null,
+      "vertices": 264,
+      "polygons": 230,
+      "triangles": 460,
+      "bounds": [
+        [-14.048800468444824, -41.17909622192383, 31.727102279663086],
+        [-7.2368998527526855, -33.58629608154297, 32.837303161621094]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_02",
+      "parent": null,
+      "vertices": 210,
+      "polygons": 196,
+      "triangles": 392,
+      "bounds": [
+        [-8.518400192260742, -40.23789596557617, 31.724201202392578],
+        [-7.1194000244140625, -33.53279495239258, 32.821903228759766]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_03",
+      "parent": null,
+      "vertices": 264,
+      "polygons": 262,
+      "triangles": 524,
+      "bounds": [
+        [-8.864700317382812, -33.70139694213867, 31.355602264404297],
+        [-8.52970027923584, -33.33109664916992, 32.112403869628906]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_04",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.198200225830078, -40.87269592285156, 32.26820373535156],
+        [-12.819100379943848, -39.875396728515625, 32.27340316772461]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_05",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.306300163269043, -40.07479476928711, 32.193702697753906],
+        [-12.988499641418457, -39.2621955871582, 32.19890213012695]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_06",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.41450023651123, -39.461097717285156, 32.12410354614258],
+        [-13.096699714660645, -38.648494720458984, 32.129302978515625]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_07",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.522700309753418, -38.84739685058594, 32.029205322265625],
+        [-13.204899787902832, -38.03479766845703, 32.03440475463867]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_08",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.630999565124512, -38.23369598388672, 31.953502655029297],
+        [-13.31309986114502, -37.42109680175781, 31.958703994750977]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_09",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-15.54539966583252, -43.238494873046875, 30.292001724243164],
+        [-7.277699947357178, -31.821197509765625, 30.31200408935547]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_10",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-16.027299880981445, -43.57709503173828, 30.312702178955078],
+        [-6.795899868011475, -31.482698440551758, 30.332704544067383]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_11",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-16.473899841308594, -43.86969757080078, 30.333402633666992],
+        [-6.3491997718811035, -31.19009780883789, 30.353403091430664]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_12",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-16.027299880981445, -43.57709503173828, 30.354202270507812],
+        [-6.795899868011475, -31.482698440551758, 30.374204635620117]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_13",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-25.171499252319336, -43.495697021484375, 30.291501998901367],
+        [-16.903799057006836, -32.07839584350586, 30.311504364013672]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_14",
+      "parent": null,
+      "vertices": 2514,
+      "polygons": 2512,
+      "triangles": 5024,
+      "bounds": [
+        [-13.788700103759766, -41.12229537963867, 30.37630271911621],
+        [-7.318399906158447, -33.93609619140625, 31.64920425415039]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_15",
+      "parent": null,
+      "vertices": 264,
+      "polygons": 230,
+      "triangles": 460,
+      "bounds": [
+        [-13.474300384521484, -40.8777961730957, 30.459402084350586],
+        [-7.73829984664917, -34.17929458618164, 31.569602966308594]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_16",
+      "parent": null,
+      "vertices": 210,
+      "polygons": 196,
+      "triangles": 392,
+      "bounds": [
+        [-7.85860013961792, -40.92139434814453, 30.456501007080078],
+        [-7.619100093841553, -34.1360969543457, 31.554203033447266]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_17",
+      "parent": null,
+      "vertices": 264,
+      "polygons": 262,
+      "triangles": 524,
+      "bounds": [
+        [-8.132499694824219, -34.22419738769531, 30.371402740478516],
+        [-7.607900142669678, -32.72659683227539, 31.059701919555664]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_18",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.574299812316895, -40.54899597167969, 31.085203170776367],
+        [-13.331000328063965, -39.57929611206055, 31.090303421020508]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_19",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.574299812316895, -39.73879623413086, 31.010602951049805],
+        [-13.331100463867188, -38.95659637451172, 31.015804290771484]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_20",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.574299812316895, -39.115596771240234, 30.941003799438477],
+        [-13.331100463867188, -38.333396911621094, 30.946203231811523]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_21",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.574299812316895, -38.492496490478516, 30.846101760864258],
+        [-13.331100463867188, -37.710296630859375, 30.851303100585938]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_22",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-13.574299812316895, -37.86929702758789, 30.770401000976562],
+        [-13.331100463867188, -37.08709716796875, 30.775602340698242]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_23",
+      "parent": null,
+      "vertices": 910,
+      "polygons": 770,
+      "triangles": 1540,
+      "bounds": [
+        [-20.28529930114746, -39.720096588134766, 30.314802169799805],
+        [-18.503599166870117, -33.86259460449219, 30.73720359802246]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_24",
+      "parent": null,
+      "vertices": 771,
+      "polygons": 735,
+      "triangles": 1435,
+      "bounds": [
+        [-20.272600173950195, -39.84499740600586, 30.32640266418457],
+        [-18.495399475097656, -34.19589614868164, 30.725603103637695]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_25",
+      "parent": null,
+      "vertices": 916,
+      "polygons": 914,
+      "triangles": 1828,
+      "bounds": [
+        [-19.0393009185791, -39.63679504394531, 30.58910369873047],
+        [-18.499399185180664, -37.98829650878906, 30.752004623413086]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_26",
+      "parent": null,
+      "vertices": 316,
+      "polygons": 245,
+      "triangles": 455,
+      "bounds": [
+        [-20.287799835205078, -39.668094635009766, 30.314802169799805],
+        [-18.516700744628906, -33.79729461669922, 30.73720359802246]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_27",
+      "parent": null,
+      "vertices": 210,
+      "polygons": 196,
+      "triangles": 392,
+      "bounds": [
+        [-8.208499908447266, -40.76429748535156, 32.97030258178711],
+        [-7.386099815368652, -33.9932975769043, 34.0680046081543]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_28",
+      "parent": null,
+      "vertices": 2514,
+      "polygons": 2512,
+      "triangles": 5024,
+      "bounds": [
+        [-14.100600242614746, -40.960697174072266, 32.89010238647461],
+        [-7.071199893951416, -33.30919647216797, 34.16290283203125]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_068_29",
+      "parent": null,
+      "vertices": 264,
+      "polygons": 230,
+      "triangles": 460,
+      "bounds": [
+        [-13.802800178527832, -40.71529769897461, 32.97320556640625],
+        [-7.504899978637695, -33.542396545410156, 34.08330535888672]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_00",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-4.3744001388549805, -25.17279815673828, 30.292001724243164],
+        [4.963699817657471, -13.006097793579102, 30.312002182006836]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_01",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-4.551400184631348, -25.290498733520508, 30.312702178955078],
+        [5.140699863433838, -12.888498306274414, 30.33270263671875]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_02",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-4.499599933624268, -25.256397247314453, 30.333402633666992],
+        [5.088900089263916, -12.922497749328613, 30.35340118408203]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_03",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [5.518499851226807, -24.293498992919922, 30.291500091552734],
+        [14.281599998474121, -12.522798538208008, 30.31150245666504]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_04",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [5.158100128173828, -24.509597778320312, 30.33190155029297],
+        [13.74839973449707, -12.860998153686523, 30.35190200805664]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_05",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [5.102099895477295, -24.549297332763672, 30.311201095581055],
+        [13.804400444030762, -12.821297645568848, 30.331201553344727]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_06",
+      "parent": null,
+      "vertices": 910,
+      "polygons": 770,
+      "triangles": 1540,
+      "bounds": [
+        [0.28619998693466187, -22.615997314453125, 30.53900146484375],
+        [3.0476999282836914, -17.083398818969727, 30.961400985717773]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_07",
+      "parent": null,
+      "vertices": 771,
+      "polygons": 735,
+      "triangles": 1435,
+      "bounds": [
+        [0.26159998774528503, -22.3179988861084, 30.55050277709961],
+        [2.9670000076293945, -16.979598999023438, 30.94980239868164]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_08",
+      "parent": null,
+      "vertices": 916,
+      "polygons": 914,
+      "triangles": 1828,
+      "bounds": [
+        [0.2872999906539917, -18.774198532104492, 30.813201904296875],
+        [1.0771000385284424, -17.212997436523438, 30.9762020111084]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_09",
+      "parent": null,
+      "vertices": 316,
+      "polygons": 245,
+      "triangles": 455,
+      "bounds": [
+        [0.3075999915599823, -22.672597885131836, 30.53900146484375],
+        [3.055799961090088, -17.131397247314453, 30.961400985717773]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_10",
+      "parent": null,
+      "vertices": 3600,
+      "polygons": 3600,
+      "triangles": 7200,
+      "bounds": [
+        [10.368200302124023, -22.5596981048584, 30.4801025390625],
+        [11.249300003051758, -15.071497917175293, 30.952301025390625]
+      ],
+      "materials": ["Material__3"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_11",
+      "parent": null,
+      "vertices": 2264,
+      "polygons": 2312,
+      "triangles": 4624,
+      "bounds": [
+        [5.86959981918335, -23.08909797668457, 30.71360206604004],
+        [11.088800430297852, -14.788297653198242, 30.866201400756836]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_12",
+      "parent": null,
+      "vertices": 2048,
+      "polygons": 2096,
+      "triangles": 4192,
+      "bounds": [
+        [5.89769983291626, -23.07729721069336, 30.56220245361328],
+        [11.068499565124512, -14.79959774017334, 30.714801788330078]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_13",
+      "parent": null,
+      "vertices": 416,
+      "polygons": 464,
+      "triangles": 928,
+      "bounds": [
+        [5.883200168609619, -23.088298797607422, 30.540802001953125],
+        [11.088800430297852, -14.788297653198242, 30.560802459716797]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_14",
+      "parent": null,
+      "vertices": 416,
+      "polygons": 464,
+      "triangles": 928,
+      "bounds": [
+        [5.883200168609619, -23.088298797607422, 30.865901947021484],
+        [11.088800430297852, -14.788297653198242, 30.885902404785156]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_15",
+      "parent": null,
+      "vertices": 3600,
+      "polygons": 3600,
+      "triangles": 7200,
+      "bounds": [
+        [3.9888999462127686, -22.05489730834961, 30.292001724243164],
+        [6.06879997253418, -14.668498039245605, 30.764202117919922]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_16",
+      "parent": null,
+      "vertices": 2264,
+      "polygons": 2312,
+      "triangles": 4624,
+      "bounds": [
+        [4.169600009918213, -22.274797439575195, 30.378101348876953],
+        [10.501399993896484, -13.398697853088379, 30.530702590942383]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_17",
+      "parent": null,
+      "vertices": 2048,
+      "polygons": 2096,
+      "triangles": 4192,
+      "bounds": [
+        [-0.44929999113082886, -23.299297332763672, 30.37400245666504],
+        [5.849899768829346, -14.445298194885254, 30.526601791381836]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_18",
+      "parent": null,
+      "vertices": 416,
+      "polygons": 464,
+      "triangles": 928,
+      "bounds": [
+        [-0.4462999999523163, -23.309898376464844, 30.352602005004883],
+        [5.887599945068359, -14.433298110961914, 30.372602462768555]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "arch20_069_19",
+      "parent": null,
+      "vertices": 416,
+      "polygons": 464,
+      "triangles": 928,
+      "bounds": [
+        [4.161900043487549, -22.276498794555664, 30.358301162719727],
+        [10.49489974975586, -13.400097846984863, 30.3783016204834]
+      ],
+      "materials": ["wire_000000000"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_020_00",
+      "parent": null,
+      "vertices": 381,
+      "polygons": 274,
+      "triangles": 625,
+      "bounds": [
+        [21.489999771118164, -48.10639572143555, 32.61060333251953],
+        [45.0171012878418, -30.235595703125, 48.08740234375]
+      ],
+      "materials": ["01___Default"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_020_01",
+      "parent": null,
+      "vertices": 32,
+      "polygons": 1,
+      "triangles": 30,
+      "bounds": [
+        [22.7189998626709, -46.65499496459961, 33.734703063964844],
+        [43.45989990234375, -31.167695999145508, 47.04380416870117]
+      ],
+      "materials": ["01___Default"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_020_02",
+      "parent": null,
+      "vertices": 126,
+      "polygons": 70,
+      "triangles": 162,
+      "bounds": [
+        [22.024499893188477, -48.10639572143555, 32.633304595947266],
+        [45.0171012878418, -30.948196411132812, 47.879905700683594]
+      ],
+      "materials": ["01___Default"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_020_03",
+      "parent": null,
+      "vertices": 336,
+      "polygons": 334,
+      "triangles": 668,
+      "bounds": [
+        [26.864999771118164, -44.185794830322266, 30.238601684570312],
+        [39.022701263427734, -33.23219680786133, 30.942203521728516]
+      ],
+      "materials": ["01___Default"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_020_04",
+      "parent": null,
+      "vertices": 688,
+      "polygons": 684,
+      "triangles": 1296,
+      "bounds": [
+        [31.53890037536621, -42.41859436035156, 30.287904739379883],
+        [36.237098693847656, -38.002296447753906, 34.764404296875]
+      ],
+      "materials": ["01___Default"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_020_05",
+      "parent": null,
+      "vertices": 326,
+      "polygons": 168,
+      "triangles": 483,
+      "bounds": [
+        [33.190399169921875, -40.31689453125, 47.26980209350586],
+        [34.289398193359375, -39.495094299316406, 47.96510314941406]
+      ],
+      "materials": ["01___Default"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_025_00",
+      "parent": null,
+      "vertices": 1599,
+      "polygons": 1426,
+      "triangles": 2951,
+      "bounds": [
+        [12.092900276184082, -35.613895416259766, 30.24150276184082],
+        [15.147500038146973, -31.44289779663086, 31.591402053833008]
+      ],
+      "materials": ["Material__0"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_025_01",
+      "parent": null,
+      "vertices": 787,
+      "polygons": 650,
+      "triangles": 1339,
+      "bounds": [
+        [12.091400146484375, -35.45359802246094, 30.373701095581055],
+        [15.151599884033203, -31.604698181152344, 31.610502243041992]
+      ],
+      "materials": ["Material__0"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_025_02",
+      "parent": null,
+      "vertices": 134,
+      "polygons": 138,
+      "triangles": 264,
+      "bounds": [
+        [13.883700370788574, -35.117897033691406, 31.12860107421875],
+        [14.297900199890137, -34.529396057128906, 31.5122013092041]
+      ],
+      "materials": ["Material__0"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_051_00",
+      "parent": null,
+      "vertices": 15522,
+      "polygons": 8021,
+      "triangles": 23009,
+      "bounds": [
+        [19.34869956970215, -30.600399017333984, 30.6239013671875],
+        [35.88869857788086, -21.690298080444336, 30.65620231628418]
+      ],
+      "materials": ["Material__2"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_051_01",
+      "parent": null,
+      "vertices": 6193,
+      "polygons": 5307,
+      "triangles": 10220,
+      "bounds": [
+        [16.979400634765625, -33.577396392822266, 30.230802536010742],
+        [37.601200103759766, -20.096397399902344, 30.661102294921875]
+      ],
+      "materials": ["Material__2"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_051_02",
+      "parent": null,
+      "vertices": 368,
+      "polygons": 293,
+      "triangles": 594,
+      "bounds": [
+        [19.73870086669922, -32.94459533691406, 30.40610122680664],
+        [36.71670150756836, -25.89019775390625, 30.557802200317383]
+      ],
+      "materials": ["Material__2"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_00",
+      "parent": null,
+      "vertices": 540,
+      "polygons": 470,
+      "triangles": 1004,
+      "bounds": [
+        [-39.056400299072266, -27.27849769592285, 30.244802474975586],
+        [-31.520200729370117, -18.56789779663086, 32.19480514526367]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_01",
+      "parent": null,
+      "vertices": 802,
+      "polygons": 796,
+      "triangles": 1600,
+      "bounds": [
+        [-34.405399322509766, -27.11109733581543, 31.29020118713379],
+        [-32.22570037841797, -18.853199005126953, 33.42240524291992]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_02",
+      "parent": null,
+      "vertices": 1326,
+      "polygons": 912,
+      "triangles": 2168,
+      "bounds": [
+        [-38.53219985961914, -24.331398010253906, 31.747802734375],
+        [-35.247398376464844, -20.664098739624023, 32.182701110839844]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_03",
+      "parent": null,
+      "vertices": 423,
+      "polygons": 366,
+      "triangles": 696,
+      "bounds": [
+        [-39.31700134277344, -25.750398635864258, 31.56020164489746],
+        [-34.65570068359375, -19.928098678588867, 32.20610427856445]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_04",
+      "parent": null,
+      "vertices": 44,
+      "polygons": 1,
+      "triangles": 42,
+      "bounds": [
+        [-39.31700134277344, -25.753498077392578, 31.54250144958496],
+        [-34.65570068359375, -19.94009780883789, 32.05110549926758]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_05",
+      "parent": null,
+      "vertices": 1667,
+      "polygons": 1137,
+      "triangles": 2727,
+      "bounds": [
+        [-39.29750061035156, -25.732498168945312, 31.55980110168457],
+        [-34.67530059814453, -19.958297729492188, 32.0680046081543]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_06",
+      "parent": null,
+      "vertices": 78,
+      "polygons": 53,
+      "triangles": 126,
+      "bounds": [
+        [-39.29750061035156, -25.5956974029541, 31.377002716064453],
+        [-38.9202995300293, -20.116798400878906, 32.051002502441406]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_07",
+      "parent": null,
+      "vertices": 816,
+      "polygons": 840,
+      "triangles": 1552,
+      "bounds": [
+        [-39.14179992675781, -25.58249855041504, 31.546401977539062],
+        [-34.85329818725586, -20.11269760131836, 32.17420196533203]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_08",
+      "parent": null,
+      "vertices": 3140,
+      "polygons": 1626,
+      "triangles": 4654,
+      "bounds": [
+        [-38.49250030517578, -24.38869857788086, 31.783201217651367],
+        [-35.857200622558594, -20.901697158813477, 32.090999603271484]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_09",
+      "parent": null,
+      "vertices": 1684,
+      "polygons": 861,
+      "triangles": 2514,
+      "bounds": [
+        [-37.30939865112305, -24.25859832763672, 31.9408016204834],
+        [-35.53260040283203, -21.95389747619629, 32.18130111694336]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_10",
+      "parent": null,
+      "vertices": 135,
+      "polygons": 92,
+      "triangles": 223,
+      "bounds": [
+        [-38.53020095825195, -20.828197479248047, 31.747802734375],
+        [-38.014198303222656, -20.66429901123047, 31.8778018951416]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "Arch35_078_11",
+      "parent": null,
+      "vertices": 12648,
+      "polygons": 12641,
+      "triangles": 25286,
+      "bounds": [
+        [-39.067298889160156, -26.483497619628906, 30.220699310302734],
+        [-28.344999313354492, -11.086896896362305, 32.187904357910156]
+      ],
+      "materials": ["Material__1"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_00",
+      "parent": null,
+      "vertices": 216,
+      "polygons": 110,
+      "triangles": 428,
+      "bounds": [
+        [-30.76490020751953, -12.619098663330078, 6.678400993347168],
+        [-27.164899826049805, -12.019099235534668, 7.0784010887146]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_01",
+      "parent": null,
+      "vertices": 216,
+      "polygons": 110,
+      "triangles": 428,
+      "bounds": [
+        [-30.76490020751953, -12.619098663330078, 17.91010093688965],
+        [-27.164899826049805, -12.019099235534668, 18.310100555419922]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_02",
+      "parent": null,
+      "vertices": 216,
+      "polygons": 110,
+      "triangles": 428,
+      "bounds": [
+        [-30.76490020751953, -12.619098663330078, 12.294200897216797],
+        [-27.164899826049805, -12.019099235534668, 12.69420051574707]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_03",
+      "parent": null,
+      "vertices": 188,
+      "polygons": 156,
+      "triangles": 368,
+      "bounds": [
+        [-24.239900588989258, -30.37980079650879, 0.8189021348953247],
+        [-22.645299911499023, -28.782499313354492, 2.515902280807495]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_04",
+      "parent": null,
+      "vertices": 9424,
+      "polygons": 9341,
+      "triangles": 18652,
+      "bounds": [
+        [-24.088199615478516, -30.110200881958008, 1.2116020917892456],
+        [-22.10849952697754, -27.850099563598633, 2.1822023391723633]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_05",
+      "parent": null,
+      "vertices": 893,
+      "polygons": 918,
+      "triangles": 1782,
+      "bounds": [
+        [-24.127700805664062, -29.645099639892578, 0.29240211844444275],
+        [-22.867300033569336, -27.876399993896484, 2.122202157974243]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_06",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-23.709800720214844, -29.767099380493164, 1.091102123260498],
+        [-22.501699447631836, -28.20210075378418, 1.3935022354125977]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_07",
+      "parent": null,
+      "vertices": 893,
+      "polygons": 918,
+      "triangles": 1782,
+      "bounds": [
+        [-23.343000411987305, -30.081100463867188, 0.29240214824676514],
+        [-22.082599639892578, -28.312400817871094, 2.1222023963928223]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_08",
+      "parent": null,
+      "vertices": 188,
+      "polygons": 156,
+      "triangles": 368,
+      "bounds": [
+        [-24.039600372314453, -15.509900093078613, 0.8189010620117188],
+        [-22.44499969482422, -13.912599563598633, 2.5159010887145996]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_09",
+      "parent": null,
+      "vertices": 9424,
+      "polygons": 9341,
+      "triangles": 18650,
+      "bounds": [
+        [-23.887800216674805, -15.240300178527832, 1.21160089969635],
+        [-21.908199310302734, -12.980199813842773, 2.1822011470794678]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_10",
+      "parent": null,
+      "vertices": 893,
+      "polygons": 918,
+      "triangles": 1782,
+      "bounds": [
+        [-23.927400588989258, -14.775300025939941, 0.292400985956192],
+        [-22.66699981689453, -13.006500244140625, 2.1222012042999268]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_11",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-23.50950050354004, -14.897199630737305, 1.0911009311676025],
+        [-22.30139923095703, -13.332200050354004, 1.3935010433197021]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_12",
+      "parent": null,
+      "vertices": 893,
+      "polygons": 918,
+      "triangles": 1782,
+      "bounds": [
+        [-23.1427001953125, -15.211299896240234, 0.2924010157585144],
+        [-21.882299423217773, -13.442500114440918, 2.1222012042999268]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_13",
+      "parent": null,
+      "vertices": 188,
+      "polygons": 156,
+      "triangles": 368,
+      "bounds": [
+        [-35.451499938964844, -15.556400299072266, 0.8189010620117188],
+        [-33.856998443603516, -13.959099769592285, 2.5159010887145996]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_14",
+      "parent": null,
+      "vertices": 9437,
+      "polygons": 9344,
+      "triangles": 18668,
+      "bounds": [
+        [-35.299800872802734, -15.286700248718262, 1.21160089969635],
+        [-33.320098876953125, -13.026700019836426, 2.1822011470794678]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_15",
+      "parent": null,
+      "vertices": 893,
+      "polygons": 918,
+      "triangles": 1782,
+      "bounds": [
+        [-35.33940124511719, -14.821700096130371, 0.292400985956192],
+        [-34.07899856567383, -13.052900314331055, 2.1222012042999268]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_16",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-34.92150115966797, -14.943699836730957, 1.0911009311676025],
+        [-33.713401794433594, -13.378700256347656, 1.3935010433197021]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_17",
+      "parent": null,
+      "vertices": 893,
+      "polygons": 918,
+      "triangles": 1782,
+      "bounds": [
+        [-34.55459976196289, -15.257699966430664, 0.2924010157585144],
+        [-33.2942008972168, -13.488900184631348, 2.1222012042999268]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_18",
+      "parent": null,
+      "vertices": 188,
+      "polygons": 156,
+      "triangles": 368,
+      "bounds": [
+        [-35.65190124511719, -30.42620086669922, 0.8189021944999695],
+        [-34.05730056762695, -28.828899383544922, 2.515902280807495]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_19",
+      "parent": null,
+      "vertices": 9428,
+      "polygons": 9340,
+      "triangles": 18641,
+      "bounds": [
+        [-35.500099182128906, -30.156600952148438, 1.2116020917892456],
+        [-33.52040100097656, -27.896499633789062, 2.1822023391723633]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_20",
+      "parent": null,
+      "vertices": 893,
+      "polygons": 918,
+      "triangles": 1782,
+      "bounds": [
+        [-35.53969955444336, -29.691499710083008, 0.29240211844444275],
+        [-34.279300689697266, -27.922800064086914, 2.122202157974243]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_21",
+      "parent": null,
+      "vertices": 8,
+      "polygons": 6,
+      "triangles": 12,
+      "bounds": [
+        [-35.12179946899414, -29.813499450683594, 1.091102123260498],
+        [-33.913700103759766, -28.24850082397461, 1.3935022354125977]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_22",
+      "parent": null,
+      "vertices": 893,
+      "polygons": 918,
+      "triangles": 1782,
+      "bounds": [
+        [-34.75490188598633, -30.127500534057617, 0.29240214824676514],
+        [-33.494598388671875, -28.358800888061523, 2.1222023963928223]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_23",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [34.60499954223633, -46.236698150634766, 0.2958007752895355],
+        [36.60499954223633, -10.236698150634766, 28.29580307006836]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_24",
+      "parent": null,
+      "vertices": 168,
+      "polygons": 182,
+      "triangles": 332,
+      "bounds": [
+        [-37.29570007324219, -40.29629898071289, 8.297802925109863],
+        [34.65190124511719, -38.69629669189453, 28.29780387878418]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_25",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-45.13309860229492, -46.2366943359375, 28.29599952697754],
+        [42.86690139770508, -10.236698150634766, 30.296003341674805]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_26",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-36.364898681640625, -31.293498992919922, 23.118999481201172],
+        [-21.564899444580078, -12.621598243713379, 23.71900177001953]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_27",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-36.364898681640625, -13.287498474121094, 20.91939926147461],
+        [-21.564899444580078, -12.621598243713379, 23.119401931762695]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_28",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-36.364898681640625, -13.28749942779541, 15.346200942993164],
+        [-21.564899444580078, -12.621598243713379, 20.8739013671875]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_29",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-21.965599060058594, -31.293500900268555, 3.1200008392333984],
+        [-21.565500259399414, -13.293498039245605, 23.12000274658203]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_30",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-35.958900451660156, -31.253000259399414, 3.1194024085998535],
+        [-21.97089958190918, -30.685998916625977, 23.118701934814453]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_31",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-36.325401306152344, -31.293500900268555, 3.1200008392333984],
+        [-35.92539978027344, -13.293498039245605, 23.12000274658203]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_32",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-39.2489013671875, -46.236698150634766, 0.2958007752895355],
+        [-37.2489013671875, -10.236698150634766, 28.29580307006836]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_33",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-36.364898681640625, -13.287500381469727, 3.125800848007202],
+        [-21.564899444580078, -12.621600151062012, 4.11120080947876]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_34",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-36.364898681640625, -13.28749942779541, 9.730401039123535],
+        [-21.564899444580078, -12.621599197387695, 15.258001327514648]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_35",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-36.364898681640625, -31.293500900268555, 2.5189008712768555],
+        [-21.564899444580078, -12.621600151062012, 3.1189024448394775]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "archmodels53_20_36",
+      "parent": null,
+      "vertices": 104,
+      "polygons": 114,
+      "triangles": 204,
+      "bounds": [
+        [-36.364898681640625, -13.287500381469727, 4.114601135253906],
+        [-21.564899444580078, -12.621599197387695, 9.64220142364502]
+      ],
+      "materials": ["wire_127127127"],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "objArmchair_07_Mesh_01",
+      "parent": null,
+      "vertices": 5592,
+      "polygons": 5584,
+      "triangles": 11168,
+      "bounds": [
+        [-11.429699897766113, -0.04139931872487068, 9.040299415588379],
+        [20.907699584960938, 15.22910213470459, 21.368799209594727]
+      ],
+      "materials": ["Material__25"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "objArmchair_07_Mesh_02",
+      "parent": null,
+      "vertices": 2908,
+      "polygons": 2906,
+      "triangles": 5808,
+      "bounds": [
+        [-9.446999549865723, -2.1110994815826416, 7.237198352813721],
+        [19.108999252319336, 20.441701889038086, 18.07469940185547]
+      ],
+      "materials": ["Material__25"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "objArmchair_07_Mesh_03",
+      "parent": null,
+      "vertices": 704,
+      "polygons": 704,
+      "triangles": 1408,
+      "bounds": [
+        [-6.3917999267578125, -2.5336999893188477, -1.5039483969303546e-6],
+        [16.062299728393555, 19.920400619506836, 0.7852001786231995]
+      ],
+      "materials": ["Material__25"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "objArmchair_07_Mesh_04",
+      "parent": null,
+      "vertices": 224,
+      "polygons": 222,
+      "triangles": 444,
+      "bounds": [
+        [-3.3833000659942627, 6.07450008392334, 0.0368991456925869],
+        [13.053799629211426, 11.312199592590332, 3.0724995136260986]
+      ],
+      "materials": ["Material__25"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "objArmchair_07_Mesh_05",
+      "parent": null,
+      "vertices": 3668,
+      "polygons": 3666,
+      "triangles": 7332,
+      "bounds": [
+        [-7.5457000732421875, -5.766199588775635, 7.81049919128418],
+        [17.023700714111328, 13.467500686645508, 17.732799530029297]
+      ],
+      "materials": ["Material__25"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "objArmchair_07_Mesh_06",
+      "parent": null,
+      "vertices": 7768,
+      "polygons": 7772,
+      "triangles": 15532,
+      "bounds": [
+        [-7.89739990234375, 11.48020076751709, 6.912898063659668],
+        [17.37540054321289, 27.050703048706055, 42.12289810180664]
+      ],
+      "materials": ["Material__25"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "objArmchair_07_Mesh_07",
+      "parent": null,
+      "vertices": 1320,
+      "polygons": 1325,
+      "triangles": 2636,
+      "bounds": [
+        [3.44569993019104, 7.193999767303467, 2.981499195098877],
+        [6.250100135803223, 10.000101089477539, 11.506898880004883]
+      ],
+      "materials": ["Material__25"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "objArmchair_07_Mesh_08",
+      "parent": null,
+      "vertices": 2615,
+      "polygons": 2594,
+      "triangles": 5188,
+      "bounds": [
+        [-3.828700065612793, -0.7842996716499329, 5.0943989753723145],
+        [13.727299690246582, 14.301700592041016, 10.182000160217285]
+      ],
+      "materials": ["Material__25"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    },
+    {
+      "name": "objArmchair_07_Mesh_09",
+      "parent": null,
+      "vertices": 1339,
+      "polygons": 1324,
+      "triangles": 2648,
+      "bounds": [
+        [-7.401899814605713, -3.6707992553710938, 7.984399318695068],
+        [4.966700077056885, 8.694900512695312, 8.717000007629395]
+      ],
+      "materials": ["Material__25"],
+      "uv_layers": 0,
+      "modifiers": [],
+      "vertex_groups": 0
+    }
+  ],
+  "archives": [
+    {
+      "file": "source/Office Desk.zip",
+      "entries": [
+        {
+          "name": "Office Desk.obj",
+          "bytes": 19456127,
+          "sha256": "95765a7f489feaad6fba0687944ba8ba5b216868d4d94bc69e65683bfa86dc10"
+        }
+      ]
+    }
+  ],
+  "armatures": [],
+  "actions": [],
+  "images": [],
+  "triangles": 311440,
+  "vertices": 164472
+}

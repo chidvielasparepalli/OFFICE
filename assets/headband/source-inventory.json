@@ -1,0 +1,51 @@
+{
+  "location": "A:\\New folder\\Prop118 Red Headband",
+  "files": [
+    {
+      "file": "Headband_BaseColor.png",
+      "bytes": 825592,
+      "sha256": "6ef4d8152b5832fe5299b47699350a5a3d1594ec2847eb17fb85a68772765568",
+      "dimensions": [2048, 2048]
+    },
+    {
+      "file": "Headband_Roughness.png",
+      "bytes": 710636,
+      "sha256": "3e68ea10a075ab4bef102665b013c3d5f5adcf37fcf2307c16bc80212253d261",
+      "dimensions": [2048, 2048]
+    },
+    {
+      "file": "model_0.obj",
+      "bytes": 1780152,
+      "sha256": "b75059f4758abbc991d06d3c8de55df95fb73d03596a5b162f2990c27733cee3"
+    }
+  ],
+  "source_url": null,
+  "creator": null,
+  "license": "unverified",
+  "redistribution_permission": "unverified",
+  "attribution_requirement": "unverified",
+  "units": "unspecified in OBJ; normalization is explicitly chosen",
+  "coordinates": "Z-up inferred from ring and downward tails; knot at +Y; front at -Y",
+  "obj": {
+    "objects": ["model_0"],
+    "groups": [],
+    "material_libraries": ["model_0.mtl"],
+    "missing_material_libraries": ["model_0.mtl"],
+    "usemtl": [],
+    "vertices": 5839,
+    "normals": 5839,
+    "uv_coordinates": 5839,
+    "face_records": 17549,
+    "zero_area_faces": 6997,
+    "repeated_index_faces": 71,
+    "bounds": [
+      [-38.20640182495117, -52.15380096435547, -62.55149841308594],
+      [42.669437408447266, 60.423126220703125, 22.634180068969727]
+    ],
+    "dimensions": [80.87583923339844, 112.5769271850586, 85.18567848205566],
+    "origin": [0, 0, 0],
+    "rigged": false,
+    "skinned": false,
+    "animation_clips": []
+  }
+}

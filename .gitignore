@@ -22,6 +22,16 @@ coverage/
 test-results/
 playwright-report/
 
+# Large, unchanged asset sources and local Blender working scenes
+/assets/source/warehouse/
+/assets/working/warehouse/*
+!/assets/working/warehouse/office-open.glb
+/assets/working/workers/
+/assets/working/desk-manager/
+/assets/working/animation/
+/assets/working/headband/
+__pycache__/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

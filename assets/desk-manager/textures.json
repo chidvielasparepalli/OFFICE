@@ -1,0 +1,137 @@
+[
+  {
+    "kind": "workstation",
+    "source": "download (20)_0.png",
+    "file": "assets/working/desk-manager/workstation-textures/download (20)_0.jpg",
+    "original_dimensions": [512, 1024],
+    "dimensions": [512, 1024],
+    "bytes": 117021,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  },
+  {
+    "kind": "workstation",
+    "source": "download (21)_1.png",
+    "file": "assets/working/desk-manager/workstation-textures/download (21)_1.jpg",
+    "original_dimensions": [512, 1024],
+    "dimensions": [256, 512],
+    "bytes": 39868,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  },
+  {
+    "kind": "manager",
+    "source": "ARARAT_Color_1K.png",
+    "file": "assets/working/desk-manager/manager-textures/ARARAT_Color_1K.jpg",
+    "original_dimensions": [1024, 1024],
+    "dimensions": [1024, 1024],
+    "bytes": 32661,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  },
+  {
+    "kind": "manager",
+    "source": "ARARAT_Normal_1K.png",
+    "file": "assets/working/desk-manager/manager-textures/ARARAT_Normal_1K.png",
+    "original_dimensions": [1024, 1024],
+    "dimensions": [1024, 1024],
+    "bytes": 2084115,
+    "encoding": "lossless RGB PNG normal map"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarBodyMale_Color_1K.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarBodyMale_Color_1K.jpg",
+    "original_dimensions": [1024, 1024],
+    "dimensions": [1024, 1024],
+    "bytes": 93835,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarBodyMale_Normal1_1K.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarBodyMale_Normal1_1K.png",
+    "original_dimensions": [1024, 1024],
+    "dimensions": [1024, 1024],
+    "bytes": 761453,
+    "encoding": "lossless RGB PNG normal map"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarEyes_Color_512.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarEyes_Color_512.jpg",
+    "original_dimensions": [512, 512],
+    "dimensions": [256, 256],
+    "bytes": 14105,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarEyes_Normal_512.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarEyes_Normal_512.png",
+    "original_dimensions": [512, 512],
+    "dimensions": [256, 256],
+    "bytes": 59301,
+    "encoding": "lossless RGB PNG normal map"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarHeadMale_Color_1K.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarHeadMale_Color_1K.jpg",
+    "original_dimensions": [1024, 1024],
+    "dimensions": [1024, 1024],
+    "bytes": 133343,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarHeadMale_Normal1_1K.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarHeadMale_Normal1_1K.png",
+    "original_dimensions": [1024, 1024],
+    "dimensions": [1024, 1024],
+    "bytes": 234188,
+    "encoding": "lossless RGB PNG normal map"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarLeftCornea_Color_512.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarLeftCornea_Color_512.jpg",
+    "original_dimensions": [512, 512],
+    "dimensions": [256, 256],
+    "bytes": 8555,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarRightCornea_Color_512.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarRightCornea_Color_512.jpg",
+    "original_dimensions": [512, 512],
+    "dimensions": [256, 256],
+    "bytes": 9184,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarTeeth_Color_1K.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarTeeth_Color_1K.jpg",
+    "original_dimensions": [1024, 1024],
+    "dimensions": [512, 512],
+    "bytes": 38438,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  },
+  {
+    "kind": "manager",
+    "source": "AvatarTeeth_Normal1_1K.png",
+    "file": "assets/working/desk-manager/manager-textures/AvatarTeeth_Normal1_1K.png",
+    "original_dimensions": [1024, 1024],
+    "dimensions": [512, 512],
+    "bytes": 401782,
+    "encoding": "lossless RGB PNG normal map"
+  },
+  {
+    "kind": "manager",
+    "source": "glasses_10_Color_256.png",
+    "file": "assets/working/desk-manager/manager-textures/glasses_10_Color_256.jpg",
+    "original_dimensions": [256, 256],
+    "dimensions": [256, 256],
+    "bytes": 2541,
+    "encoding": "JPEG quality 90, no chroma subsampling"
+  }
+]

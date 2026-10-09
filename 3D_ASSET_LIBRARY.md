@@ -1,5 +1,9 @@
 # 3D Asset Library — AI Corporate Office OS
 
+> **Supplied red headband, 2026-10-09:** `A:\New folder\Prop118 Red Headband` contains one OBJ and two PNGs, with a missing MTL. The original files are preserved. One normalized 646,796-byte GLB retains all 10,552 valid triangles and shares embedded textures across standard workers only. The Manager never loads or wears this accessory. `RedHeadbandAsset` registers `accessory.red-headband.v1`. Historical fits, exact hashes, shader reconstruction and unverified rights are documented in `assets/headband/README.md`; current worker-only attachment behavior is in `assets/headband/ANIMATION.md`.
+
+> **Character animation derivatives, 2026-10-09:** Both supplied canonical characters now have separate Blender rigs and proportion-fitted office clips. Meshes/materials remain unchanged. The registry uses `standard-worker-animated.glb` and `primary-manager-animated.glb`; original static working copies remain available. See `assets/animation/README.md` for source hashes, rigging, shared-resource playback and limitations. Original rights remain unverified.
+
 > Curated starter library for the OFFICE 3D world.
 >
 > **Rule:** keep a record of the source URL, creator, format, license, and any attribution requirement for every external asset before adding it to the app.
@@ -428,3 +432,16 @@ The next step after downloading the starter assets is:
 7. Export production GLBs into `public/assets/3d/`.
 8. Record the optimized file name against this manifest.
 9. Build the R3F asset registry around the optimized files.
+## Warehouse intake update — 2026-10-09
+
+The user-provided `A:\New folder\office_WAREHOUSE` package has been inspected in Blender. Its 257 OBJs lack MTL files, UVs, textures and licensing evidence. The approved design is an open, single-level corporate workspace; the complete warehouse shell conflicts with that design. Only a connected ground slab from `model_3.obj` is reused, deliberately resized to 36 × 36 m. The Y-up, meter-based `office-open.glb` is 4,404 bytes, with one mesh, 12 triangles and 22 named spatial anchors. Roofs, ceilings, upper slabs, enclosing walls and overhead services are excluded.
+
+Seven open department zones and a state-selection interface are prepared without workers or fabricated business state. The candidate is registered for development preview only; the production procedural shell remains active pending provenance/licensing. See [the measured intake report](assets/warehouse/README.md), [exact source inventory](assets/warehouse/source-inventory.json), [open-office contract](docs/OPEN_OFFICE_CONTRACT.md), and [provenance record](THIRD_PARTY_ASSETS.md). Phase 4 has not started. Earlier asset candidates remain references, not accepted production assets.
+
+## Canonical worker decision — 2026-10-09
+
+The supplied `A:\New folder\Stickman` is now the sole canonical normal-worker appearance; earlier character candidates are not substitutes. The Manager will have a distinct future asset and currently has no model. The supplied `A:\New folder\office-desk\source\Office Desk` provides the desk/chair and computer workstation. Both were inspected in Blender and converted into local GLBs, with originals preserved and licensing recorded as unverified. Thirty static asset samples are validated using shared GPU instances, without a runtime snapshot or fabricated activity. See [the full worker asset report](assets/workers/README.md). This is the user-authorized worker asset phase, not Phase 4 runtime implementation.
+
+## Official desk + Manager decision — 2026-10-09
+
+The latest request supersedes the previous desk and empty Manager slot. `A:\New folder\Modern Desk Setup – Game Ready 3D Model` is the canonical standard workstation; `A:\New folder\Indian Man in suit` is the dedicated Manager. The stickman remains the sole normal-worker model. The new desk contains no chair; only the previously supplied chair is reused in its GLB. Blender inspection removes 66 duplicate Manager meshes; originals remain unchanged. Runtime GLBs are registered under `public/assets/3d/` after validation of 30 stickmen, one Manager and 31 shared desks. Exact measurements, files, texture mappings, hashes and unverified licensing are in [the current report](assets/desk-manager/README.md). No commit/deployment or Phase 4 runtime is added.

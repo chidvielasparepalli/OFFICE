@@ -1,0 +1,210 @@
+{
+  "date": "2026-10-09",
+  "browser": "Chromium",
+  "workerCount": 30,
+  "managerCount": 1,
+  "workstationCount": 31,
+  "assets": {
+    "worker": {
+      "file": "assets/working/animation/standard-worker-animated.glb",
+      "bytes": 454844,
+      "sha256": "32ea0f7b929f1b637ca81f13879869c8f49dfbc2f32bcb4e1dc42e26ed83401c"
+    },
+    "manager": {
+      "file": "assets/working/animation/primary-manager-animated.glb",
+      "bytes": 6242096,
+      "sha256": "8b6307477fa73281187a3c0ce400d1fa0abedfbf8c41ad24280a6e2683908d85"
+    }
+  },
+  "checks": [
+    {
+      "name": "30 animated canonical workers and dedicated Manager",
+      "passed": true
+    },
+    {
+      "name": "Shared worker geometry/materials; independent skeletons",
+      "passed": true
+    },
+    {
+      "name": "Dedicated Manager geometry remains distinct",
+      "passed": true
+    },
+    {
+      "name": "31 desks use six shared instanced parts",
+      "passed": true
+    },
+    {
+      "name": "Actual seated hips, bent knees and grounded ankles",
+      "passed": true
+    },
+    {
+      "name": "Hands reach keyboard height",
+      "passed": true
+    },
+    {
+      "name": "All textures decoded and no roof/walls",
+      "passed": true
+    },
+    {
+      "name": "31 heads visible in company overview",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Both character types perform working motion",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: mesh selection and camera focus",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: stood up and walks explicit path",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: chair rolls 0.4 m while desk stays fixed",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: blocked freezes pose and movement",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: returns and sits without diagnostics",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: chair returns to desk",
+      "passed": true
+    },
+    {
+      "name": "asset-manager-primary: seated waiting pose",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: mesh selection and camera focus",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: stood up and walks explicit path",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: chair rolls 0.4 m while desk stays fixed",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: blocked freezes pose and movement",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: returns and sits without diagnostics",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: chair returns to desk",
+      "passed": true
+    },
+    {
+      "name": "asset-sample-01: seated waiting pose",
+      "passed": true
+    },
+    {
+      "name": "Department focus",
+      "passed": true
+    },
+    {
+      "name": "Workstation inspection",
+      "passed": true
+    },
+    {
+      "name": "Smooth wheel zoom",
+      "passed": true
+    },
+    {
+      "name": "Pan",
+      "passed": true
+    },
+    {
+      "name": "Orbit limits",
+      "passed": true
+    },
+    {
+      "name": "Reset overview",
+      "passed": true
+    },
+    {
+      "name": "Responsive overview keeps all heads visible",
+      "passed": true
+    },
+    {
+      "name": "Sleeping employees stop continuous rendering",
+      "passed": true,
+      "detail": {
+        "before": 558,
+        "after": 558
+      }
+    },
+    {
+      "name": "Working employees resume animation",
+      "passed": true
+    },
+    {
+      "name": "One load per shared GLB, including open floor",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb"
+      ]
+    },
+    {
+      "name": "No console errors or failed requests",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": []
+      }
+    }
+  ],
+  "render": {
+    "frame": 14,
+    "calls": 55,
+    "triangles": 1104241,
+    "points": 0,
+    "lines": 0
+  },
+  "assetRequests": [
+    "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb"
+  ],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "production": {
+    "passed": true,
+    "canvas": true,
+    "noSamples": true,
+    "noPreviewControls": true,
+    "noAutomaticAssetLoads": true,
+    "assetHashesVerified": true,
+    "errors": [],
+    "failed": []
+  },
+  "projectChecks": {
+    "typecheck": "passed",
+    "lint": "passed; five existing prototype warnings",
+    "tests": 69,
+    "format": "passed",
+    "build": "passed; existing large-chunk advisory",
+    "audit": "zero vulnerabilities"
+  },
+  "limitations": [
+    "Browser emulation is not a physical-device performance benchmark.",
+    "100 simultaneous animated workers were not benchmarked.",
+    "Contact tolerances are recorded separately in contact-verification.json."
+  ]
+}

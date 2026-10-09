@@ -1,0 +1,60 @@
+{
+  "sources": [
+    {
+      "kind": "workstation",
+      "files_verified": 43,
+      "copies_verified": 43,
+      "repeated_index_degenerate_faces": 86380
+    },
+    {
+      "kind": "manager",
+      "files_verified": 90,
+      "copies_verified": 90,
+      "repeated_index_degenerate_faces": 287665
+    }
+  ],
+  "exports": [
+    {
+      "kind": "workstation",
+      "file": "assets/working/desk-manager/standard-workstation.glb",
+      "triangles": 30144,
+      "exported_vertices": 16803,
+      "bytes": 754004,
+      "materials": 6,
+      "images": 2,
+      "external_dependencies": 0,
+      "embedded_images": ["download (21)_1", "download (20)_0"]
+    },
+    {
+      "kind": "manager",
+      "file": "assets/working/desk-manager/primary-manager.glb",
+      "triangles": 58751,
+      "exported_vertices": 35757,
+      "bytes": 5363896,
+      "materials": 11,
+      "images": 13,
+      "external_dependencies": 0,
+      "embedded_images": [
+        "AvatarLeftCornea_Color_512",
+        "AvatarRightCornea_Color_512",
+        "AvatarEyes_Normal_512",
+        "AvatarEyes_Color_512",
+        "glasses_10_Color_256",
+        "AvatarBodyMale_Normal1_1K",
+        "AvatarBodyMale_Color_1K",
+        "AvatarHeadMale_Normal1_1K",
+        "AvatarHeadMale_Color_1K",
+        "ARARAT_Normal_1K",
+        "ARARAT_Color_1K",
+        "AvatarTeeth_Normal1_1K",
+        "AvatarTeeth_Color_1K"
+      ]
+    }
+  ],
+  "canonical_stickman_unchanged": "d50fde986356cb219d51170e90a127674a2737eff00f03599517b2d370a30097",
+  "runtime_files": [
+    "public/assets/3d/characters/standard-worker-animated.glb",
+    "public/assets/3d/characters/primary-manager-animated.glb",
+    "public/assets/3d/workstations/standard-workstation.glb"
+  ]
+}

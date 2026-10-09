@@ -1,0 +1,34 @@
+{
+  "blender": "5.2.1 LTS",
+  "import_axes": "source Y-up, -Z forward; visual inspection required",
+  "units": "not declared in OBJ",
+  "objects": [
+    {
+      "name": "model_0",
+      "parent": null,
+      "vertices": 5039,
+      "polygons": 3700,
+      "triangles": 3700,
+      "bounds": [
+        [-32.37710189819336, -8.444803237915039, -28.2893009185791],
+        [32.368282318115234, 4.793703079223633, 36.71461868286133]
+      ],
+      "materials": [],
+      "uv_layers": 1,
+      "modifiers": [],
+      "vertex_groups": 0
+    }
+  ],
+  "archives": [],
+  "armatures": [],
+  "actions": [],
+  "images": [
+    {
+      "file": "x.png",
+      "size": [512, 512],
+      "linked_by_source_mtl": false
+    }
+  ],
+  "triangles": 3700,
+  "vertices": 5039
+}

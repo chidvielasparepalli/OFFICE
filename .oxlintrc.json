@@ -7,7 +7,25 @@
   },
   "overrides": [
     {
-      "files": ["src/App.tsx", "src/main.tsx"],
+      "files": [
+        "src/App.tsx",
+        "src/main.tsx",
+        "src/components/3d/OfficeWorld.tsx",
+        "src/components/3d/OfficeBuilding.tsx",
+        "src/components/3d/WarehouseBuilding.tsx",
+        "src/components/3d/OpenOfficeZones.tsx",
+        "src/components/3d/OfficeCharacters.tsx",
+        "src/components/3d/AnimatedCharacter.tsx",
+        "src/components/OfficeContextPanel.tsx",
+        "src/office/officeState.ts",
+        "src/office/workerPresentation.ts",
+        "src/office/characterMotion.ts",
+        "src/office/characterAnimation.ts",
+        "src/assets/officeAssets.ts",
+        "src/components/3d/OfficeLighting.tsx",
+        "src/components/3d/CameraController.tsx",
+        "src/components/3d/officeCamera.ts"
+      ],
       "rules": {
         "eslint/no-restricted-imports": [
           "error",
@@ -18,7 +36,11 @@
                   "**/data/mockOfficeData",
                   "**/data/mockOfficeData.*",
                   "**/context/OfficeContext",
-                  "**/context/OfficeContext.*"
+                  "**/context/OfficeContext.*",
+                  "**/3d/AgentCharacter",
+                  "./AgentCharacter",
+                  "./Workstation",
+                  "./DepartmentPod"
                 ],
                 "message": "The production shell must stay isolated from prototype fixtures and the simulation provider."
               }

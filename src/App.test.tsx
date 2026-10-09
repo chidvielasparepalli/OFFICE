@@ -3,6 +3,11 @@ import { act, cleanup, render, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import App from './App'
 
+// WebGL and camera interaction are verified in Chromium, outside jsdom.
+vi.mock('./components/3d/OfficeWorld', () => ({
+  OfficeWorld: () => <section aria-label="Interactive 3D office" />,
+}))
+
 beforeEach(() => {
   localStorage.clear()
 })
@@ -16,7 +21,7 @@ afterEach(() => {
 
 describe('OFFICE foundation', () => {
   it('identifies the project and reports the disconnected runtime without business metrics', () => {
-    const { container } = render(<App />)
+    render(<App />)
 
     expect(screen.getByRole('heading', { level: 1 }).textContent).toBe(
       'AI Corporate Office OS',
@@ -32,7 +37,9 @@ describe('OFFICE foundation', () => {
         /active agents|completed tasks|token burn|api credits/i,
       ),
     ).toBeNull()
-    expect(container.querySelector('canvas')).toBeNull()
+    expect(
+      screen.getByRole('region', { name: 'Interactive 3D office' }),
+    ).toBeDefined()
     expect(
       screen.queryByRole('button', { name: /dispatch|approve|run task/i }),
     ).toBeNull()
@@ -62,7 +69,7 @@ describe('OFFICE foundation', () => {
     )
   })
 
-  it('provides access to the canonical repository and the preserved source inventory', () => {
+  it('provides access to the canonical repository', () => {
     render(<App />)
 
     const repository = screen.getByRole('link', { name: 'View repository' })
@@ -70,8 +77,5 @@ describe('OFFICE foundation', () => {
       'https://github.com/chidvielasparepalli/OFFICE',
     )
     expect(repository.getAttribute('rel')).toContain('noopener')
-    expect(screen.getByText('View prototype source')).toBeDefined()
-    expect(screen.getByText('AgentCharacter.tsx')).toBeDefined()
-    expect(screen.getByText('CameraController.tsx')).toBeDefined()
   })
 })

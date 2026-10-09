@@ -1,0 +1,35 @@
+{
+  "source": "A:\\New folder\\Stickman",
+  "files": [
+    {
+      "file": "model_0.obj",
+      "bytes": 1193706,
+      "sha256": "2baa1507ae306d947bf032b0a7f499e49d21e6056f911904fac626ef99bad2ff",
+      "vertices": 5039,
+      "faces": 7903,
+      "triangles": 7903,
+      "lines": 0,
+      "uv_coordinates": 5039,
+      "normals": 5039,
+      "bounds": [
+        [-32.37710189819336, -28.2893009185791, -4.793700218200684],
+        [32.368282318115234, 36.71461868286133, 8.444801330566406]
+      ],
+      "dimensions": [64.7453842163086, 65.00391960144043, 13.23850154876709],
+      "objects": ["model_0"],
+      "groups": [],
+      "material_libraries": ["model_0.mtl"],
+      "materials": [],
+      "missing_libraries": ["model_0.mtl"]
+    },
+    {
+      "file": "x.png",
+      "bytes": 7167,
+      "sha256": "77e4e54d06b0fecbc8013bc5af9c4d85e737bcfb62521ba313e53da652244f6d"
+    }
+  ],
+  "file_count": 2,
+  "bytes": 1200873,
+  "triangles": 7903,
+  "byte_identical_groups": []
+}
