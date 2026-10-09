@@ -69,6 +69,7 @@ export function presentedAgents(
       role: agent.role,
       collaborationTargetId: agent.collaborationTargetId,
       motion: agent.motion,
+      navigationDiagnostic: agent.navigationDiagnostic,
       workstation:
         agent.workstation && validGroundPose(agent.workstation)
           ? agent.workstation

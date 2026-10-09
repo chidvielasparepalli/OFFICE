@@ -57,6 +57,7 @@ export function OfficeWorld({
   onSpatialEvent,
   onSelectionChange,
   selectionRequest,
+  onSelectTask,
 }: {
   runtime?: OfficeRuntimeSnapshot | null
   inspectionSamples?: readonly AgentPlacement[]
@@ -64,6 +65,7 @@ export function OfficeWorld({
   onSpatialEvent?: (snapshot: AgentSpatialSnapshot) => void
   onSelectionChange?: OfficeSelectionHandler
   selectionRequest?: { version: number; selection: OfficeSelection }
+  onSelectTask?: (taskId: string) => void
 }) {
   const openOffice =
     warehousePreview || inspectionSamples !== undefined || runtime !== null
@@ -241,7 +243,10 @@ export function OfficeWorld({
             fallback={
               <p className="webgl-fallback">
                 3D view unavailable. Enable WebGL in your browser to explore the
-                office. The agent runtime is not connected.
+                office.{' '}
+                {runtime
+                  ? 'Supplied runtime context remains available.'
+                  : 'The agent runtime is not connected.'}
               </p>
             }
           >
@@ -367,6 +372,7 @@ export function OfficeWorld({
         </div>
         {openOffice && (
           <OfficeContextPanel
+            onSelectTask={onSelectTask}
             selection={selection}
             runtime={runtime}
             departmentName={selectedZone?.name}

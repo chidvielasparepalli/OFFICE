@@ -353,6 +353,39 @@
 .office-foundation {
   margin-top: 1.5rem;
 }
+.runtime-task-context,
+.runtime-diagnostics {
+  margin-block: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+.runtime-task-context dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) 3fr;
+  gap: 0.5rem 1rem;
+}
+.runtime-task-context dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.runtime-task-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.runtime-task-table th,
+.runtime-task-table td {
+  padding: 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+.runtime-diagnostics pre {
+  overflow: auto;
+  font-size: 0.8125rem;
+}
 .runtime-notice {
   display: flex;
   align-items: flex-start;

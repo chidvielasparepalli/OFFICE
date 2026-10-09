@@ -1,0 +1,68 @@
+.manager-preview-controls {
+  max-height: 25rem;
+  overflow: auto;
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: #fff;
+}
+.manager-preview-controls h2,
+.manager-preview-controls h3 {
+  margin-block: 0 0.65rem;
+  font-size: 1rem;
+}
+.manager-preview-controls form,
+.manager-preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.6rem;
+  margin-block: 0.75rem;
+}
+.manager-preview-controls label {
+  display: flex;
+  flex: 1 1 12rem;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8125rem;
+}
+.manager-preview-controls input,
+.manager-preview-controls textarea,
+.manager-preview-controls select {
+  min-height: 2.5rem;
+  padding: 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 0.3rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+.manager-preview-controls textarea {
+  resize: vertical;
+  min-height: 2.5rem;
+}
+.manager-preview-context {
+  max-height: 25rem;
+  overflow: auto;
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: #fff;
+}
+.manager-preview-context > summary {
+  cursor: pointer;
+}
+.manager-preview-context dl {
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) 3fr;
+  gap: 0.5rem 1rem;
+}
+.manager-preview-context dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.manager-preview-graph {
+  overflow-x: auto;
+}

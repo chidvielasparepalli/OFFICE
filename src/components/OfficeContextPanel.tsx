@@ -33,15 +33,35 @@ const positionValue = (position: WorldPosition | null | undefined) =>
       ') m'
     : 'Not reported'
 
-function BusinessDetails({ agent }: { agent?: AgentContext }) {
+function BusinessDetails({
+  agent,
+  onSelectTask,
+}: {
+  agent?: AgentContext
+  onSelectTask?: (taskId: string) => void
+}) {
   const unavailable = agent ? 'Not reported' : DISCONNECTED
   return (
     <>
       <dl>
         <dt>Current task</dt>
         <dd>
-          {agent ? (agent.task?.title ?? 'No task reported') : unavailable}
+          {agent?.task && onSelectTask ? (
+            <button type="button" onClick={() => onSelectTask(agent.task!.id)}>
+              {agent.task.title}
+            </button>
+          ) : agent ? (
+            (agent.task?.title ?? 'No task reported')
+          ) : (
+            unavailable
+          )}
         </dd>
+        {agent?.task?.status && (
+          <>
+            <dt>Task status</dt>
+            <dd>{agent.task.status}</dd>
+          </>
+        )}
         <dt>Description</dt>
         <dd>{agent?.task?.description ?? unavailable}</dd>
         <dt>Progress</dt>
@@ -63,6 +83,12 @@ function BusinessDetails({ agent }: { agent?: AgentContext }) {
         </dd>
         <dt>Collaborator</dt>
         <dd>{agent?.collaborator ?? unavailable}</dd>
+        <dt>Requested destination</dt>
+        <dd>
+          {agent?.destinationId === null
+            ? 'None'
+            : (agent?.destinationId ?? unavailable)}
+        </dd>
         <dt>Next action</dt>
         <dd>{agent?.nextAction ?? unavailable}</dd>
         <dt>Blockers</dt>
@@ -251,6 +277,7 @@ export interface OfficeContextPanelProps {
   onFocusAgent?: (agentId: string) => void
   onInspectWorkstation?: (agentId: string) => void
   onRefreshSpatial?: (agentId: string) => void
+  onSelectTask?: (taskId: string) => void
 }
 
 export function OfficeContextPanel({
@@ -264,6 +291,7 @@ export function OfficeContextPanel({
   onFocusAgent,
   onInspectWorkstation,
   onRefreshSpatial,
+  onSelectTask,
 }: OfficeContextPanelProps) {
   const suppliedAgent =
     selection.kind === 'agent' ? runtime?.agents[selection.id] : undefined
@@ -355,7 +383,7 @@ export function OfficeContextPanel({
               onInspectWorkstation={onInspectWorkstation}
               onRefreshSpatial={onRefreshSpatial}
             />
-            <BusinessDetails agent={agent} />
+            <BusinessDetails agent={agent} onSelectTask={onSelectTask} />
           </>
         ) : (
           <>

@@ -1,4 +1,4 @@
-/** Read-only input from the future normalized state layer. No simulation lives here. */
+/** Read-only presentation input from the normalized runtime adapter. No simulation lives here. */
 export type WorldPosition = readonly [number, number, number]
 export type OfficeAgentStatus =
   | 'sleeping'
@@ -46,6 +46,7 @@ export interface AgentRuntimeTask {
   title: string
   description: string
   progressPercent: number | null
+  status?: string
 }
 
 export interface AgentRuntimeActivity {
@@ -69,6 +70,10 @@ export interface AgentRuntimeContext extends AgentRuntimePosition {
   /** Assigned desk stays fixed while the worker's ground position changes. */
   workstation?: Readonly<AgentRuntimeWorkstation>
   motion?: Readonly<AgentMotion>
+  /** A presentation route can fail without fabricating movement or task progress. */
+  navigationDiagnostic?: string
+  /** Requested runtime destination, independent of the resolved/sampled physical route. */
+  destinationId?: string | null
   /** Explicit visual destination entity; does not fabricate a runtime collaborator. */
   collaborationTargetId?: string | null
   manager: string | null

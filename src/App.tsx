@@ -15,6 +15,18 @@ const OfficeNavigationPreview =
     ? lazy(() => import('./dev/OfficeNavigationPreview'))
     : null
 
+const OfficeRuntimePreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('runtime') === 'preview'
+    ? lazy(() => import('./dev/OfficeRuntimePreview'))
+    : null
+
+const ManagerOrchestrationPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('manager') === 'preview'
+    ? lazy(() => import('./dev/ManagerOrchestrationPreview'))
+    : null
+
 function App() {
   return (
     <div className="office-shell">
@@ -42,12 +54,23 @@ function App() {
         <div className="office-introduction">
           <h1>AI Corporate Office OS</h1>
           <p>
-            Explore the office space. Agent activity will appear here when a
-            real runtime is connected.
+            {ManagerOrchestrationPreview
+              ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
+              : OfficeRuntimePreview
+                ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
+                : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
           </p>
         </div>
 
-        {OfficeNavigationPreview ? (
+        {ManagerOrchestrationPreview ? (
+          <Suspense fallback={<p>Loading Manager orchestration preview…</p>}>
+            <ManagerOrchestrationPreview />
+          </Suspense>
+        ) : OfficeRuntimePreview ? (
+          <Suspense fallback={<p>Loading local runtime preview…</p>}>
+            <OfficeRuntimePreview />
+          </Suspense>
+        ) : OfficeNavigationPreview ? (
           <Suspense fallback={<p>Loading office navigation scenarios…</p>}>
             <OfficeNavigationPreview />
           </Suspense>
@@ -59,22 +82,24 @@ function App() {
           <OfficeWorld />
         )}
 
-        <div className="office-foundation">
-          <section
-            className="runtime-notice"
-            role="status"
-            aria-labelledby="runtime-heading"
-          >
-            <Unplug size={24} aria-hidden="true" />
-            <div>
-              <h2 id="runtime-heading">Agent runtime not connected</h2>
-              <p>
-                No agents are running here. Tasks, costs, approvals, and results
-                will appear only when a real runtime is connected.
-              </p>
-            </div>
-          </section>
-        </div>
+        {!OfficeRuntimePreview && !ManagerOrchestrationPreview && (
+          <div className="office-foundation">
+            <section
+              className="runtime-notice"
+              role="status"
+              aria-labelledby="runtime-heading"
+            >
+              <Unplug size={24} aria-hidden="true" />
+              <div>
+                <h2 id="runtime-heading">Agent runtime not connected</h2>
+                <p>
+                  No agents are running here. Tasks, costs, approvals, and
+                  results will appear only when a real runtime is connected.
+                </p>
+              </div>
+            </section>
+          </div>
+        )}
       </main>
 
       <footer className="office-footer">
