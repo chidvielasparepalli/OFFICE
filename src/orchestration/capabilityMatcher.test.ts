@@ -40,6 +40,7 @@ function state(...agents: RuntimeAgent[]): RuntimeState {
     departments: {},
     requests: {},
     plans: {},
+    toolExecutions: {},
     events: [],
     activities: [],
     selectedAgentId: null,

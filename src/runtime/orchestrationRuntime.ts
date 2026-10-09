@@ -3,6 +3,7 @@ import {
   meetsCapabilities,
 } from '../orchestration/capabilityMatcher'
 import { validatePlanProposal } from '../orchestration/planValidation'
+import { hasLiveToolExecution } from './toolRuntime'
 import type {
   ExecutionPlan,
   ManagerRequest,
@@ -352,7 +353,8 @@ function synchronize(
   } else if (
     tasks.length > 0 &&
     tasks.every((task) => task?.status === 'completed') &&
-    coordinating
+    coordinating &&
+    !hasLiveToolExecution(tx.state, { taskId: coordination.id })
   ) {
     tx.apply({ type: 'completeTask', taskId: coordination.id })
     status = 'completed'

@@ -336,6 +336,7 @@ export class ManagerOrchestrator {
             (event) =>
               event.type.startsWith('TASK_') ||
               event.type.startsWith('AGENT_') ||
+              event.type.startsWith('TOOL_') ||
               event.type === 'PLAN_ACCEPTED' ||
               event.type === 'RUNTIME_CONNECTED',
           )

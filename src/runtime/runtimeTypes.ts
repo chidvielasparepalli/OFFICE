@@ -9,6 +9,10 @@ import type {
   ManagerRequest,
   OrchestrationCommand,
 } from '../orchestration/orchestrationTypes'
+import type {
+  ToolExecutionResult,
+  ToolRuntimeCommand,
+} from '../tools/toolTypes'
 
 export type RuntimeTaskStatus =
   | 'queued'
@@ -98,6 +102,9 @@ export interface RuntimeBusinessChanges {
   readonly connection?: 'disconnected' | 'local'
   readonly requests?: Readonly<Record<string, Readonly<ManagerRequest>>>
   readonly plans?: Readonly<Record<string, Readonly<ExecutionPlan>>>
+  readonly toolExecutions?: Readonly<
+    Record<string, Readonly<ToolExecutionResult>>
+  >
 }
 
 export type RuntimeEventType =
@@ -129,6 +136,11 @@ export type RuntimeEventType =
   | 'PLAN_DISPATCHED'
   | 'PLAN_STATUS_CHANGED'
   | 'REQUEST_CANCELLED'
+  | 'TOOL_REQUESTED'
+  | 'TOOL_STARTED'
+  | 'TOOL_COMPLETED'
+  | 'TOOL_FAILED'
+  | 'TOOL_CANCELLED'
 
 export interface RuntimeEvent {
   readonly id: string
@@ -163,6 +175,9 @@ export interface RuntimeState {
   readonly departments: Readonly<Record<string, Readonly<RuntimeDepartment>>>
   readonly requests: Readonly<Record<string, Readonly<ManagerRequest>>>
   readonly plans: Readonly<Record<string, Readonly<ExecutionPlan>>>
+  readonly toolExecutions: Readonly<
+    Record<string, Readonly<ToolExecutionResult>>
+  >
   readonly events: readonly Readonly<RuntimeEvent>[]
   readonly activities: readonly Readonly<RuntimeActivity>[]
   readonly selectedAgentId: string | null
@@ -193,6 +208,7 @@ export interface CreateTaskInput {
 
 export type RuntimeCommand =
   | OrchestrationCommand
+  | ToolRuntimeCommand
   | { readonly type: 'connect' | 'disconnect' }
   | {
       readonly type: 'registerDepartment'

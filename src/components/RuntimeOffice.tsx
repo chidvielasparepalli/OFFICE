@@ -13,18 +13,32 @@ import type {
   AgentSpatialSnapshot,
   OfficeSelection,
 } from '../office/officeState'
-import type { OfficeRuntime } from '../runtime/officeRuntime'
+import type {
+  RuntimeCommand,
+  RuntimeResult,
+  RuntimeState,
+} from '../runtime/runtimeTypes'
 import { createOfficeRuntimeBridge } from '../runtime/officeRuntimeBridge'
 import { RuntimeTaskPanel } from './RuntimeTaskPanel'
 
 const RuntimeWorld = memo(OfficeWorld)
 
+/** The renderer consumes snapshots and discrete feedback, never a command reducer. */
+export interface RuntimeOfficePort {
+  getSnapshot(): RuntimeState
+  subscribe(listener: () => void): () => void
+  dispatch(command: RuntimeCommand): RuntimeResult | Promise<RuntimeResult>
+  getMetrics?(): object
+}
+
 export function RuntimeOffice({
   runtime,
   diagnostics = false,
+  executionNotice,
 }: {
-  runtime: OfficeRuntime
+  runtime: RuntimeOfficePort
   diagnostics?: boolean
+  executionNotice?: string
 }) {
   const state = useSyncExternalStore(
     runtime.subscribe,
@@ -57,6 +71,16 @@ export function RuntimeOffice({
   const renderCommits = useRef(0)
   const [counters, setCounters] = useState<object | null>(null)
   const [feedbackError, setFeedbackError] = useState<string | null>(null)
+  const feedbackLifetime = useRef(0)
+
+  useEffect(() => {
+    feedbackLifetime.current++
+    return () => {
+      // This ref is a monotonic callback generation, not a captured DOM resource.
+      // oxlint-disable-next-line react-hooks/exhaustive-deps
+      feedbackLifetime.current++
+    }
+  }, [runtime])
 
   useEffect(() => {
     renderCommits.current++
@@ -89,7 +113,22 @@ export function RuntimeOffice({
         current.agents[command.agentId]?.destination?.id === command.intentId
       ) {
         const result = runtime.dispatch(command)
-        setFeedbackError(result.ok ? null : result.error.message)
+        const generation = feedbackLifetime.current
+        const recordResult = (value: RuntimeResult) => {
+          if (feedbackLifetime.current === generation)
+            setFeedbackError(value.ok ? null : value.error.message)
+        }
+        if (result instanceof Promise)
+          void result.then(recordResult, () =>
+            recordResult({
+              ok: false,
+              error: {
+                code: 'TRANSPORT',
+                message: 'Host feedback could not be delivered.',
+              },
+            }),
+          )
+        else recordResult(result)
       }
     }
   }, [bridge, runtime])
@@ -135,7 +174,8 @@ export function RuntimeOffice({
         data-testid="runtime-store-status"
       >
         {state.connection === 'local'
-          ? 'Local runtime connected — in-memory state. No AI or external task execution.'
+          ? (executionNotice ??
+            'Local runtime connected — in-memory state. No AI or external task execution.')
           : 'Runtime disconnected. No agent or task state is supplied to the office.'}
       </p>
       <RuntimeWorld
@@ -163,7 +203,7 @@ export function RuntimeOffice({
             data-testid="runtime-sample-counters"
             onClick={() =>
               setCounters({
-                store: runtime.getMetrics(),
+                store: runtime.getMetrics?.() ?? null,
                 bridge: bridge.getMetrics(),
                 renderCommits: renderCommits.current,
                 events: state.events.length,

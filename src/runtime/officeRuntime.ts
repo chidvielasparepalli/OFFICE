@@ -1,10 +1,17 @@
 import type { OfficeAgentStatus, WorldPosition } from '../office/officeState'
+import { ToolFault } from '../tools/toolTypes'
 import {
   applyOrchestrationCommand,
   invalidatePlanningOnDisconnect,
   isOrchestrationCommand,
   OrchestrationFault,
 } from './orchestrationRuntime'
+import {
+  applyToolRuntimeCommand,
+  cancelLiveToolExecutions,
+  hasLiveToolExecution,
+  isToolRuntimeCommand,
+} from './toolRuntime'
 import type {
   AgentSpatialIntent,
   OfficeRuntimeOptions,
@@ -151,6 +158,7 @@ export function createEmptyRuntimeState(): RuntimeState {
     departments: {},
     requests: {},
     plans: {},
+    toolExecutions: {},
     events: [],
     activities: [],
     selectedAgentId: null,
@@ -207,6 +215,10 @@ function businessChanges(
   const departments = changedRecords(before.departments, after.departments)
   const requests = changedRecords(before.requests, after.requests)
   const plans = changedRecords(before.plans, after.plans)
+  const toolExecutions = changedRecords(
+    before.toolExecutions,
+    after.toolExecutions,
+  )
   return {
     ...(agents ? { agents } : {}),
     ...(tasks ? { tasks } : {}),
@@ -214,6 +226,7 @@ function businessChanges(
     ...(departments ? { departments } : {}),
     ...(requests ? { requests } : {}),
     ...(plans ? { plans } : {}),
+    ...(toolExecutions ? { toolExecutions } : {}),
     ...(before.connection !== after.connection
       ? { connection: after.connection }
       : {}),
@@ -255,6 +268,7 @@ class Transaction {
       this.generated.has(id) ||
       has(this.state.tasks, id) ||
       has(this.state.agents, id) ||
+      has(this.state.toolExecutions, id) ||
       orchestrationIdUsed(this.state, id) ||
       this.state.events.some((event) => event.id === id) ||
       intentUsed(this.state, id)
@@ -305,6 +319,14 @@ class Transaction {
     }
   }
   taskPatch(id: string, patch: Partial<RuntimeTask>) {
+    // Invalidate execution authority before a pause/terminal transition publishes.
+    // Host subscribers abort side effects; late callbacks cannot resume old work.
+    if (patch.status !== undefined && patch.status !== 'in_progress')
+      cancelLiveToolExecutions(
+        this,
+        (execution) => execution.taskId === id,
+        `Task changed to ${patch.status}.`,
+      )
     this.state = {
       ...this.state,
       tasks: {
@@ -569,7 +591,10 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
   if (command.type === 'connect' || command.type === 'disconnect') {
     const connection = command.type === 'connect' ? 'local' : 'disconnected'
     if (tx.state.connection === connection) return
-    if (command.type === 'disconnect') invalidatePlanningOnDisconnect(tx)
+    if (command.type === 'disconnect') {
+      cancelLiveToolExecutions(tx, () => true, 'Runtime disconnected.', true)
+      invalidatePlanningOnDisconnect(tx)
+    }
     tx.state = { ...tx.state, connection }
     tx.emit(
       command.type === 'connect' ? 'RUNTIME_CONNECTED' : 'RUNTIME_DISCONNECTED',
@@ -596,6 +621,10 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
   )
   if (isOrchestrationCommand(command)) {
     applyOrchestrationCommand(tx, command)
+    return
+  }
+  if (isToolRuntimeCommand(command)) {
+    applyToolRuntimeCommand(tx, command)
     return
   }
   switch (command.type) {
@@ -978,6 +1007,11 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
     case 'completeTask': {
       const task = tx.task(command.taskId)
       requireCondition(
+        !hasLiveToolExecution(tx.state, { taskId: task.id }),
+        'TOOL_ACTIVE',
+        'Finish or cancel the active tool before completing its task.',
+      )
+      requireCondition(
         task.status === 'in_progress',
         'INVALID_TRANSITION',
         'Only an in-progress task can be completed.',
@@ -1157,6 +1191,11 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
     }
     case 'requestMovement': {
       const agent = tx.agent(command.agentId)
+      requireCondition(
+        !hasLiveToolExecution(tx.state, { agentId: agent.id }),
+        'TOOL_ACTIVE',
+        'Finish or cancel the active tool before requesting movement.',
+      )
       requireCondition(
         agent.status !== 'blocked' && agent.status !== 'repair',
         'INVALID_TRANSITION',
@@ -1342,6 +1381,9 @@ export class OfficeRuntime {
               ? structuredClone(restored.requests)
               : {},
             plans: restored.plans ? structuredClone(restored.plans) : {},
+            toolExecutions: restored.toolExecutions
+              ? structuredClone(restored.toolExecutions)
+              : {},
           })
     this.now = options.now ?? (() => new Date().toISOString())
     let sequence =
@@ -1355,6 +1397,7 @@ export class OfficeRuntime {
         } while (
           has(this.snapshot.tasks, id) ||
           has(this.snapshot.agents, id) ||
+          has(this.snapshot.toolExecutions, id) ||
           orchestrationIdUsed(this.snapshot, id) ||
           this.snapshot.events.some((event) => event.id === id) ||
           intentUsed(this.snapshot, id)
@@ -1408,7 +1451,9 @@ export class OfficeRuntime {
       return {
         ok: false,
         error:
-          error instanceof RuntimeFault || error instanceof OrchestrationFault
+          error instanceof RuntimeFault ||
+          error instanceof OrchestrationFault ||
+          error instanceof ToolFault
             ? { code: error.code, message: error.message }
             : {
                 code: 'INVALID_COMMAND',

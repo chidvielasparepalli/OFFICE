@@ -1,0 +1,1019 @@
+{
+  "phase": "Phase 7 — Agent tools and execution",
+  "verifiedAt": "2026-10-09T17:07:33.815Z",
+  "branch": "codex/phase7-tools-execution",
+  "checkpoint": "08da2a78c902c1e4d0fb3f959e4043c5eba58915",
+  "browser": "Playwright Chromium 151, headless SwiftShader; not a hardware GPU benchmark",
+  "methodology": "Fresh sequential Chromium sessions on frozen source. Visible controls issue explicit development actions; read-only runtime/scene inspection checks results. Pointer clicks verify mesh identity and camera focus. Actual files, subprocesses and a disposable Git repository validate host effects. The production endpoint probe intentionally receives 404; application requests have no failures. An earlier native-fetch binding issue, pre-session callback request and Windows cancellation cleanup timing were reproduced and fixed before these final runs. Timeout and operator cancellation have separate fixed host profiles.",
+  "baseline": {
+    "preservedAutomatedTests": 336,
+    "checkpointCreatedBeforePhase7": true,
+    "criticalSourceUnchanged": {
+      "src/runtime/officeRuntimeBridge.ts": true,
+      "src/orchestration/planner.ts": true,
+      "src/orchestration/planValidation.ts": true,
+      "src/dev/ManagerOrchestrationPreview.tsx": true,
+      "src/dev/managerFixtures.ts": true,
+      "src/components/3d/AnimatedCharacter.tsx": true,
+      "src/dev/OfficeRuntimePreview.tsx": true,
+      "src/office/characterMotion.ts": true
+    }
+  },
+  "automatedValidation": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "typecheck": "passed",
+    "lint": "passed with five existing unmounted-prototype warnings",
+    "tests": 457,
+    "testFiles": 31,
+    "addedTests": 121,
+    "formatting": "passed",
+    "productionBuild": "passed; existing large-chunk advisory and future Vite native config-loader compatibility warning"
+  },
+  "totalPassingChecks": 110,
+  "sourceSha256": {
+    "package-lock.json": "ea3557ecc9ecbcb05a1099e0144db91b970cc8166431a40a96d5364e12374731",
+    "package.json": "409d710f76f56206e42b2bd96d828db51a7a6180c42d6e8ee0dc8f89c3c53b15",
+    "src/App.tsx": "2fbc1c9ae9adf97dcf46a3e4ea66a48a184b87ea3a4e8882cd06c17828c36e91",
+    "src/assets/officeAssets.ts": "4b21ef85ccdb81294fa0335f660842cad6eb3a54bedc9f2e50923e826ef659e6",
+    "src/components/3d/AnimatedCharacter.tsx": "649cc066ad321c36a4a9e8716f3cef0482aaad1c1e4072644d87ed2353f0d750",
+    "src/components/3d/CameraController.tsx": "9f547c8ca1260a30432c7d7836abf29457dee5515a3935454e7184595504edf6",
+    "src/components/RuntimeOffice.test.tsx": "ced9e5fc0f6647040495e01f416baf562ad0d28a3c6ee40a33754d3442567614",
+    "src/components/RuntimeOffice.tsx": "03177fe48c91be27f6f1551a9890e0c42884559ef963835212dc9184fc515ce3",
+    "src/dev/ManagerOrchestrationPreview.tsx": "469be4fb7441ccf5d5ac07b5724883ccac7a81f890e43a33c2074807832996f5",
+    "src/dev/OfficeRuntimePreview.tsx": "b517b82f8cf3c967d23a4e3ed48742030eb906483661120827e26a598e0e9801",
+    "src/dev/ToolExecutionPreview.test.tsx": "1a4308eeeb4a86d67701877c702d3cc6a1d49ad14bbed342e67267a93be84244",
+    "src/dev/ToolExecutionPreview.tsx": "7fca9e2f0cc8878acaec52d04494909a745b991a96170f401b6b64c7dc3d2df5",
+    "src/dev/deterministicResearchProvider.ts": "ed00cfcc6993a127e80cf4a33bb317c016f35259955b7d003a2caa440d2e93fc",
+    "src/dev/managerFixtures.ts": "26f4c9a0c767ac6f2155c3be49559fd20fe3d5f5ddf9adfc663239a0f36f39c4",
+    "src/dev/toolPreviewClient.test.ts": "21b154144adf785abd80400b93ceef599c0f5d5699427c7eef2b66e6992732b1",
+    "src/dev/toolPreviewClient.ts": "4a5bda46f29af433ef4c28b3294d000d9f7a600d168cd5b2f4ec5b4d9a4a1823",
+    "src/dev/toolPreviewProtocol.ts": "a3c5a5fac10ec8a5aeac43fffb10af66e1731bd8183be10a796326e7bac57aa0",
+    "src/office/characterMotion.ts": "27f2debd9bb3c1751db59672180a69e7be6d4002e183287ddcb323e5d297ec8d",
+    "src/office/officeNavigation.ts": "68d24d19608509eac66c5a0d91419cdf9d3d4565b483f6c8d9ee5de6e3cc64ae",
+    "src/orchestration/ManagerOrchestrator.ts": "20f3e96fa35449b2233520ac9254916f7f1feb0f719a252f8a6d776264ccf035",
+    "src/orchestration/capabilityMatcher.test.ts": "b68f35d02d005963331989c1b7d81d64c12c41bd30466a4b86b418c36b820cf2",
+    "src/orchestration/planValidation.test.ts": "1b8d469ab177ca5d4fe3cc05ade6c104c51a35defcc33aa26cfe52a8aeb1cdf6",
+    "src/orchestration/planValidation.ts": "21622dd25368821b74c8fdfc7aca5b591062b9deaa376444d9dd56302512156f",
+    "src/orchestration/planner.ts": "59c0d6fa942021065e628b45ab9695b20baa4360f5abef6443489176f84d714c",
+    "src/runtime/officeRuntime.ts": "e5577ec88d57679ad2ef07281d0e5d4baf39161974bce0037053e08b7db0dd17",
+    "src/runtime/officeRuntimeBridge.test.ts": "12e0fd7a56df3e8da9bcb1b9cb6e3e89e48004a534bcc2e2f31fa34be6d44ce1",
+    "src/runtime/officeRuntimeBridge.ts": "0eeea9de5d936753482e310c2e67b5aef1325f1c0fa465bb84d0197d4acb622e",
+    "src/runtime/orchestrationRuntime.ts": "9bbb235550de64b693be6046d888745ce6d87ebe0cd28b4795bc6ab1c9bf37b5",
+    "src/runtime/runtimeTypes.ts": "5af44df94c5d90a5e7b0c8d4daac7dd00f546c6fe29a1acff0fbadd156af6167",
+    "src/runtime/toolRuntime.test.ts": "0bf966b7bd89689939fe0c49856b77f34c51a3c03f244ae7131f012638d87336",
+    "src/runtime/toolRuntime.ts": "a90554c169f5c3b67b0acfa6f1ea040e20af33681e5dc1b9b3437a875b7267e6",
+    "src/tools/ToolExecutor.ts": "2b917922219501512c6a170b4baae0646707565956b24060ac6426eada68973a",
+    "src/tools/ToolRegistry.ts": "b2467c2a9d1521102c33297dbc60f2fdd6e82cc56bdb20fc6c50233c52d417ea",
+    "src/tools/researchTool.ts": "cac0c3483e7309b2655b505e54c907763dbc17b094543f412fa38f42ec45613d",
+    "src/tools/toolTypes.ts": "f7ff1ab16daca808be5df467a9e6234fc231c012f6986c05af5b1bac12734e9c",
+    "src/tools/toolValidation.ts": "5afb3fff39d2c274974b0bd9cfc8516c78e76c89aa6fdafa9c6f1469bbfed41c",
+    "src/tools/tools.test.ts": "710110b554640fcc5633e83afb349d1b92de7bc7a749b670541cabd1721ddd0d",
+    "tools-host/adapters/filesystem.test.ts": "9f37b6fea2d7e9d4db92d0060609c5126b8163b3449b4654d051389886148504",
+    "tools-host/adapters/filesystem.ts": "78ab019db5da3a77fde35df017e3c95e1319577618c4355d1ec24ef6f7c5c562",
+    "tools-host/adapters/git.test.ts": "0b490448ef65280fd5af3d4f040607d2924bf0d91f83a3e37671ffc9db25604d",
+    "tools-host/adapters/git.ts": "daac67d6016d2e5eb1471634d080f6182577cbaa7ab40aa213ca736749380dd9",
+    "tools-host/adapters/paths.ts": "aa79577a8d8557961de9ceba654fce8aa185241ed57dfabb319fdc63334e6b36",
+    "tools-host/adapters/process.ts": "714a66363fd0e11433526df09319cbd3509d8ce09c0bc3b18f53b35edde08453",
+    "tools-host/adapters/shared.ts": "dd5411e46067264cc417502a668fb9396e29e962e26c34fa2f3235bdba05b956",
+    "tools-host/adapters/terminal.test.ts": "9083b6da633371dfab8bb36d13471b956747c8e78c16c8efd85b9eaf948bcb72",
+    "tools-host/adapters/terminal.ts": "6590f49e5158c3b2ebf5aedcd05e096d03703fcc6041459fd5cb3e48fa969ee2",
+    "tools-host/adapters/testSupport.ts": "e9bf2b203b0f40aac18ad82d4cc402a5935c2a95b189ebb78ff98b38012993b3",
+    "tools-host/preview/fixtures.test.ts": "e1753806703438073479935080d4c8bf61456cef245987332ae51ad14aef1e88",
+    "tools-host/preview/fixtures.ts": "1fbc02f1ade7016483c3e48b8637ffef5bf0936e8b05e5ac587a89f89ed4f4cb",
+    "tools-host/preview/plugin.test.ts": "4762a4ba2d3b59c121db8764be324d652459042617a17b7a2a778f5747da654b",
+    "tools-host/preview/plugin.ts": "83de4be487974b1a54f06a25735e3eea945b60b3647ecc98f61e5df606bc4933",
+    "tools-host/preview/session.ts": "57f02f7f44c42c699f614d24d02526542a3762831dda4e7e7f0ab06626d34912",
+    "tsconfig.node.json": "87b6bc4759a67ffcabaece22d8df02b39e3186b5f1ff5f0a7e68c1367c986b21",
+    "vite.config.ts": "04afbd97f3484de59f4e3db386015b85db94dd88e269baadd57233f69f44c4ae",
+    "vitest.config.ts": "323097b5bdfd981335e49c9521dc1612e3cd744495a3b3cffd4581ef8218817c"
+  },
+  "productionScripts": [
+    {
+      "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+      "bytes": 1382420,
+      "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+      "matchesDist": true,
+      "excludesFixtures": true
+    }
+  ],
+  "productionJavaScriptByteIdenticalToPhase6": true,
+  "screenshots": [
+    {
+      "path": "docs/validation/phase7-research-working.png",
+      "sha256": "21a1eed7bdddeac6f2c9279b83d6ca451d62754ecaec03712f256f2aa925e206",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/validation/phase7-permission-denied.png",
+      "sha256": "8443dfeb571fc0db53aaea7ade40c05299c46ce1b793937aa21c71dc545f1ad1",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/validation/phase7-manager-tool-attention.png",
+      "sha256": "d03a85bb89190509e47a568af9126302978d84309f44ba4ea67161bd31a2b010",
+      "visuallyInspected": true
+    }
+  ],
+  "runs": [
+    {
+      "name": "tools-execution",
+      "startedAt": "2026-10-09T16:56:24.001Z",
+      "checks": [
+        {
+          "name": "Default tool preview has no host session, agents or tasks before explicit connection",
+          "passed": true
+        },
+        {
+          "name": "Host connection registers two labelled workers and a distinct Manager without fabricating tasks",
+          "passed": true
+        },
+        {
+          "name": "Standard workers share geometry/material while Manager remains distinct and has no accessory",
+          "passed": true
+        },
+        {
+          "name": "Manager request/plan dispatch assigns an actual task and workstation intent",
+          "passed": true
+        },
+        {
+          "name": "Existing walk-seat-headband sequence remains continuous and diagnostic-free",
+          "passed": true,
+          "detail": {
+            "samples": 483,
+            "maximumStepMeters": 0.08500000000000003,
+            "phases": [
+              "standing",
+              "walking",
+              "turning",
+              "sitting",
+              "equipping"
+            ],
+            "diagnostics": []
+          }
+        },
+        {
+          "name": "Manager coordinates through its real task, seated calmly with no headband",
+          "passed": true
+        },
+        {
+          "name": "Animated worker mesh selects the exact runtime ID and preserves the skeleton",
+          "passed": true
+        },
+        {
+          "name": "Selected worker/task context shows the host task and truthful execution notice",
+          "passed": true
+        },
+        {
+          "name": "Research executes through allowed host permissions and explicitly identifies its fixture result",
+          "passed": true
+        },
+        {
+          "name": "Tool lifecycle is audited without completing task or inventing progress",
+          "passed": true
+        },
+        {
+          "name": "Execution permission/output and activity are visible in browser",
+          "passed": true
+        },
+        {
+          "name": "Animation continues without polling snapshots or launching repeated tools",
+          "passed": true
+        },
+        {
+          "name": "Explicit completion updates Manager result and drives existing worker headband removal",
+          "passed": true
+        },
+        {
+          "name": "Filesystem tool reads actual bounded fixture content with validated output",
+          "passed": true
+        },
+        {
+          "name": "Terminal invokes fixed Node profile with actual exit code and version output",
+          "passed": true
+        },
+        {
+          "name": "Sequential tools reuse task/agent and leave completion unresolved",
+          "passed": true
+        },
+        {
+          "name": "Git status and diff report actual selected fixture changes",
+          "passed": true
+        },
+        {
+          "name": "Explicit Git stage/commit returns real commit ID only for disposable files",
+          "passed": true
+        },
+        {
+          "name": "Git tool success does not claim task completion",
+          "passed": true
+        },
+        {
+          "name": "Unauthorized research-worker terminal request never starts, and records permission failure",
+          "passed": true
+        },
+        {
+          "name": "Denied tool blocks real task and Manager plan for attention",
+          "passed": true
+        },
+        {
+          "name": "Blocked selected-agent context updates from host state",
+          "passed": true
+        },
+        {
+          "name": "Real bounded process timeout records failure and leaves task blocked",
+          "passed": true
+        },
+        {
+          "name": "Explicit cancellation stops the running operation and leaves unresolved waiting task",
+          "passed": true
+        },
+        {
+          "name": "Late process output cannot overwrite cancelled result or complete its task",
+          "passed": true
+        },
+        {
+          "name": "Manager selection remains exact, distinct and headband-free during attention state",
+          "passed": true
+        },
+        {
+          "name": "Company overview reset still works",
+          "passed": true
+        },
+        {
+          "name": "Disconnect hides runtime characters while retaining truthful execution history",
+          "passed": true
+        },
+        {
+          "name": "Reconnect retains same canonical host records and Manager identity",
+          "passed": true
+        },
+        {
+          "name": "All scene scenarios share cached GLB requests without duplicate asset loading",
+          "passed": true,
+          "detail": [
+            "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+            "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+          ]
+        },
+        {
+          "name": "No console errors, failed requests, navigation errors or source hot reloads",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "failed": [],
+            "reloads": []
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "screenshots": [
+        "test-results/phase7-research-working.png",
+        "test-results/phase7-permission-denied.png",
+        "test-results/phase7-manager-tool-attention.png"
+      ],
+      "fixtureCommit": "372f092b1bd373ff6b8cd1b056ac5ec69f99e276",
+      "metrics": {
+        "mode": "host snapshot cache",
+        "messages": 237,
+        "subscribers": 4
+      },
+      "graphics": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "drawCalls": 27,
+        "triangles": 156609,
+        "geometries": 27
+      },
+      "completedAt": "2026-10-09T16:58:14.595Z",
+      "passingChecks": 31
+    },
+    {
+      "name": "timeout-cancellation-probe",
+      "startedAt": "2026-10-09T16:46:24.792Z",
+      "checks": [
+        {
+          "name": "Real timeout is failed",
+          "passed": true
+        },
+        {
+          "name": "Force physical cancellation before deadline",
+          "passed": true,
+          "detail": {
+            "executionId": "phase7-execution-3",
+            "agentId": "phase7-coder",
+            "taskId": "phase7-request-1:task",
+            "toolId": "terminal.run",
+            "status": "cancelled",
+            "requestedAt": "2026-10-09T16:46:33.297Z",
+            "startedAt": "2026-10-09T16:46:33.298Z",
+            "completedAt": "2026-10-09T16:46:34.109Z",
+            "inputSummary": {
+              "rootId": "fixture",
+              "commandId": "cancellable"
+            },
+            "permission": {
+              "allowed": true,
+              "code": "ALLOWED",
+              "reason": "Explicit host grant and agent capabilities verified.",
+              "requiredPermissions": ["execute"]
+            },
+            "output": null,
+            "error": {
+              "code": "TOOL_CANCELLED",
+              "message": "Cancelled by the operator."
+            },
+            "metadata": {
+              "category": "terminal"
+            }
+          }
+        },
+        {
+          "name": "No failed app requests",
+          "passed": true,
+          "detail": {
+            "failed": [],
+            "errors": []
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "screenshots": [],
+      "passingChecks": 3
+    },
+    {
+      "name": "phase6-orchestration-regression",
+      "startedAt": "2026-10-09T16:59:54.018Z",
+      "checks": [
+        {
+          "name": "Manager preview starts disconnected without requests, plans, tasks or characters",
+          "passed": true
+        },
+        {
+          "name": "Explicit connection registers two capability-matched workers and a dedicated Manager",
+          "passed": true
+        },
+        {
+          "name": "Workers share canonical geometry and material with independent skeletons",
+          "passed": true
+        },
+        {
+          "name": "Connection alone creates no requests or business tasks",
+          "passed": true
+        },
+        {
+          "name": "A: Request intake preserves exact user text and single Manager ownership",
+          "passed": true
+        },
+        {
+          "name": "Planning waits for an explicit action and is labelled as a deterministic development template",
+          "passed": true
+        },
+        {
+          "name": "A: Accepted structured plan commits ordinary runtime task records and the dependency graph",
+          "passed": true
+        },
+        {
+          "name": "Planning does not dispatch workers or invent artifacts",
+          "passed": true
+        },
+        {
+          "name": "Manager coordination uses an actual runtime task and the dedicated calm seated-work model",
+          "passed": true
+        },
+        {
+          "name": "A: Explicit dispatch assigns the eligible research worker and requests its own workstation",
+          "passed": true
+        },
+        {
+          "name": "A: The dependent task remains unassigned and its worker stays asleep",
+          "passed": true
+        },
+        {
+          "name": "Dispatched worker walks, sits and equips its headband continuously without navigation diagnostics",
+          "passed": true,
+          "detail": {
+            "samples": 197,
+            "maximumStepMeters": 0.1609502417210369,
+            "phases": [
+              "standing",
+              "walking",
+              "turning",
+              "sitting",
+              "equipping",
+              "seated"
+            ],
+            "diagnostics": []
+          }
+        },
+        {
+          "name": "Worker animation never manufactures task progress or completion",
+          "passed": true
+        },
+        {
+          "name": "Worker mesh selection resolves its exact runtime ID and preserves working animation",
+          "passed": true
+        },
+        {
+          "name": "Existing agent and task inspectors show the dispatched task and real Manager relationship",
+          "passed": true
+        },
+        {
+          "name": "Active animation does not call the planner, dispatcher or monitor on frame ticks",
+          "passed": true,
+          "detail": {
+            "before": {
+              "runtime": {
+                "commands": 29,
+                "commits": 22,
+                "notifications": 88,
+                "rejectedCommands": 0,
+                "subscribers": 4
+              },
+              "manager": {
+                "plannerCalls": 1,
+                "monitorPasses": 3,
+                "dispatchAttempts": 1,
+                "monitorFailures": 0,
+                "monitorError": null
+              }
+            },
+            "after": {
+              "runtime": {
+                "commands": 29,
+                "commits": 22,
+                "notifications": 88,
+                "rejectedCommands": 0,
+                "subscribers": 4
+              },
+              "manager": {
+                "plannerCalls": 1,
+                "monitorPasses": 3,
+                "dispatchAttempts": 1,
+                "monitorFailures": 0,
+                "monitorError": null
+              }
+            }
+          }
+        },
+        {
+          "name": "B: Manual completion is observed by the Manager and unlocks the dependent without dispatching it",
+          "passed": true
+        },
+        {
+          "name": "Worker completion removes its headband and partial result reports only actual completed work",
+          "passed": true
+        },
+        {
+          "name": "A ready dependency waits until another explicit Manager dispatch",
+          "passed": true
+        },
+        {
+          "name": "B: Second dispatch selects the implementation capability and respects the completed prerequisite",
+          "passed": true
+        },
+        {
+          "name": "E: Full success reaches completed request and plan only after both explicit task completions",
+          "passed": true
+        },
+        {
+          "name": "E: ExecutionResult reports actual completed IDs with no fabricated artifacts",
+          "passed": true
+        },
+        {
+          "name": "C: Blocked worker state propagates to Manager request blocked and plan needs_attention",
+          "passed": true
+        },
+        {
+          "name": "C: Blocked presentation preserves the physical pose and hides the worker accessory",
+          "passed": true
+        },
+        {
+          "name": "Explicit resume restores the same task without creating a new plan",
+          "passed": true
+        },
+        {
+          "name": "D: Task failure is observed as needs_attention rather than false overall success",
+          "passed": true
+        },
+        {
+          "name": "D: Failed prerequisite cannot dispatch its dependent and result identifies failure",
+          "passed": true
+        },
+        {
+          "name": "Manager mesh selection remains separate and never attaches a worker headband",
+          "passed": true
+        },
+        {
+          "name": "Disconnected preview labels retained records and removes all runtime characters",
+          "passed": true
+        },
+        {
+          "name": "Reconnect preserves existing requests, plans and character identities without reseeding",
+          "passed": true
+        },
+        {
+          "name": "Shared GLBs load once throughout both request scenarios and reconnect",
+          "passed": true,
+          "detail": [
+            "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+            "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+          ]
+        },
+        {
+          "name": "Manager preview has no console errors, failed requests, hot reloads or monitor failures",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "failed": [],
+            "reloads": [],
+            "monitor": {
+              "plannerCalls": 2,
+              "monitorPasses": 15,
+              "dispatchAttempts": 3,
+              "monitorFailures": 0,
+              "monitorError": null
+            }
+          }
+        },
+        {
+          "name": "Reset clears only the local session and disposes all old runtime subscriptions",
+          "passed": true
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "screenshots": [
+        "test-results/phase6-manager-coordinating.png",
+        "test-results/phase6-worker-delegated-task.png",
+        "test-results/phase6-manager-attention-context.png"
+      ],
+      "sourceHashes": {
+        "src/runtime/officeRuntime.ts": "e5577ec88d57679ad2ef07281d0e5d4baf39161974bce0037053e08b7db0dd17",
+        "src/runtime/orchestrationRuntime.ts": "9bbb235550de64b693be6046d888745ce6d87ebe0cd28b4795bc6ab1c9bf37b5",
+        "src/runtime/officeRuntimeBridge.ts": "0eeea9de5d936753482e310c2e67b5aef1325f1c0fa465bb84d0197d4acb622e",
+        "src/orchestration/ManagerOrchestrator.ts": "20f3e96fa35449b2233520ac9254916f7f1feb0f719a252f8a6d776264ccf035",
+        "src/orchestration/planner.ts": "59c0d6fa942021065e628b45ab9695b20baa4360f5abef6443489176f84d714c",
+        "src/orchestration/planValidation.ts": "21622dd25368821b74c8fdfc7aca5b591062b9deaa376444d9dd56302512156f",
+        "src/dev/ManagerOrchestrationPreview.tsx": "469be4fb7441ccf5d5ac07b5724883ccac7a81f890e43a33c2074807832996f5",
+        "src/dev/managerFixtures.ts": "26f4c9a0c767ac6f2155c3be49559fd20fe3d5f5ddf9adfc663239a0f36f39c4",
+        "src/components/3d/AnimatedCharacter.tsx": "649cc066ad321c36a4a9e8716f3cef0482aaad1c1e4072644d87ed2353f0d750"
+      },
+      "metrics": {
+        "runtime": {
+          "commands": 67,
+          "commits": 47,
+          "notifications": 188,
+          "rejectedCommands": 0,
+          "subscribers": 4
+        },
+        "manager": {
+          "plannerCalls": 2,
+          "monitorPasses": 15,
+          "dispatchAttempts": 3,
+          "monitorFailures": 0,
+          "monitorError": null
+        }
+      },
+      "graphics": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "drawCalls": 21,
+        "triangles": 149295,
+        "geometries": 24
+      },
+      "completedAt": "2026-10-09T17:01:16.249Z",
+      "passingChecks": 33
+    },
+    {
+      "name": "phase5-runtime-regression",
+      "startedAt": "2026-10-09T17:01:17.002Z",
+      "checks": [
+        {
+          "name": "Local runtime begins disconnected with no seeded production agents or tasks",
+          "passed": true
+        },
+        {
+          "name": "Explicit connection registers two canonical workers and one dedicated Manager at authored locations",
+          "passed": true
+        },
+        {
+          "name": "Canonical worker resources are shared with independent skeletons and a distinct Manager",
+          "passed": true
+        },
+        {
+          "name": "Connecting and rendering create no task records automatically",
+          "passed": true
+        },
+        {
+          "name": "Create task produces a real queued unassigned record and task inspector",
+          "passed": true
+        },
+        {
+          "name": "Assignment updates the authoritative agent and task relationship",
+          "passed": true
+        },
+        {
+          "name": "Starting work creates an explicit workstation intent and actual navigation",
+          "passed": true
+        },
+        {
+          "name": "Task-driven worker travel and seating are continuous without teleport or navigation diagnostics",
+          "passed": true,
+          "detail": {
+            "samples": 493,
+            "maximumStepMeters": 0.08500000000000002,
+            "phases": [
+              "standing",
+              "walking",
+              "turning",
+              "sitting",
+              "equipping"
+            ],
+            "diagnostics": [],
+            "diagnosticRows": []
+          }
+        },
+        {
+          "name": "Walking, seating and animation never manufacture task progress or completion",
+          "passed": true
+        },
+        {
+          "name": "Worker mesh selection identifies its actual runtime entity without resetting animation",
+          "passed": true
+        },
+        {
+          "name": "Agent inspector uses supplied role, task, manager, dependencies and activity",
+          "passed": true
+        },
+        {
+          "name": "Working animation advances without per-frame runtime commands, commits, subscriptions or path planning",
+          "passed": true,
+          "detail": {
+            "before": {
+              "store": {
+                "commands": 21,
+                "commits": 18,
+                "notifications": 54,
+                "rejectedCommands": 0,
+                "subscribers": 3
+              },
+              "bridge": {
+                "projections": 7,
+                "plans": 1,
+                "graphBuilds": 1,
+                "feedback": 1
+              },
+              "renderCommits": 10,
+              "events": 14,
+              "activities": 14
+            },
+            "after": {
+              "store": {
+                "commands": 21,
+                "commits": 18,
+                "notifications": 54,
+                "rejectedCommands": 0,
+                "subscribers": 3
+              },
+              "bridge": {
+                "projections": 7,
+                "plans": 1,
+                "graphBuilds": 1,
+                "feedback": 1
+              },
+              "renderCommits": 11,
+              "events": 14,
+              "activities": 14
+            }
+          }
+        },
+        {
+          "name": "Explicit progress updates agree across runtime, agent inspector and task panel",
+          "passed": true
+        },
+        {
+          "name": "Disconnect hides agents while retaining existing task records",
+          "passed": true
+        },
+        {
+          "name": "Reconnect preserves the working task and restores a valid seated worker",
+          "passed": true
+        },
+        {
+          "name": "Explicit completion records history and removes the worker accessory",
+          "passed": true
+        },
+        {
+          "name": "Dependent work cannot start while its prerequisite is incomplete",
+          "passed": true
+        },
+        {
+          "name": "Completing A unlocks B without automatic work or progress",
+          "passed": true
+        },
+        {
+          "name": "An explicit start begins the unlocked dependent task and presents its prerequisite",
+          "passed": true
+        },
+        {
+          "name": "Collaboration removes the worker accessory before deterministic travel",
+          "passed": true
+        },
+        {
+          "name": "Collaboration arrival records the real requested collaborator while task progress stays unchanged",
+          "passed": true
+        },
+        {
+          "name": "Collaboration hub and assigned-desk return remain continuous and deterministic",
+          "passed": true,
+          "detail": {
+            "samples": 808,
+            "maximumStepMeters": 0.12181732289483982,
+            "phases": [
+              "seated",
+              "removing",
+              "standing-up",
+              "walking",
+              "standing",
+              "turning",
+              "sitting",
+              "equipping"
+            ],
+            "diagnostics": [],
+            "diagnosticRows": []
+          }
+        },
+        {
+          "name": "Returning resumes the same task and worker animation without fake completion",
+          "passed": true
+        },
+        {
+          "name": "Block commands preserve physical pose and expose a real blocker",
+          "passed": true
+        },
+        {
+          "name": "Repair requires explicit acknowledgment before work can restart",
+          "passed": true
+        },
+        {
+          "name": "Repair acknowledgment requeues work without starting animation",
+          "passed": true
+        },
+        {
+          "name": "Explicit resume restores the same task and clears acknowledged blockers",
+          "passed": true
+        },
+        {
+          "name": "Manager review uses its dedicated calm model without any worker-only accessory or hard-work state",
+          "passed": true
+        },
+        {
+          "name": "Current-task selection opens the exact authoritative task context",
+          "passed": true
+        },
+        {
+          "name": "Task selection and updates leave existing model instances and shared assets intact",
+          "passed": true
+        },
+        {
+          "name": "Shared GLBs load once across state changes, reset and reconnect",
+          "passed": true,
+          "detail": [
+            "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+            "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+          ]
+        },
+        {
+          "name": "Runtime preview has no console errors, failed requests or hot reloads",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "failed": [],
+            "reloads": []
+          }
+        },
+        {
+          "name": "Reset creates an empty disconnected runtime and cleans old subscriptions",
+          "passed": true
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "screenshots": [
+        "test-results/phase6-regression-connected-development-office.png",
+        "test-results/phase6-regression-worker-real-local-task.png",
+        "test-results/phase6-regression-runtime-collaboration-hub.png",
+        "test-results/phase6-regression-manager-runtime-review.png"
+      ],
+      "sourceHashes": {
+        "src/runtime/officeRuntime.ts": "e5577ec88d57679ad2ef07281d0e5d4baf39161974bce0037053e08b7db0dd17",
+        "src/runtime/officeRuntimeBridge.ts": "0eeea9de5d936753482e310c2e67b5aef1325f1c0fa465bb84d0197d4acb622e",
+        "src/components/RuntimeOffice.tsx": "03177fe48c91be27f6f1551a9890e0c42884559ef963835212dc9184fc515ce3",
+        "src/dev/OfficeRuntimePreview.tsx": "b517b82f8cf3c967d23a4e3ed48742030eb906483661120827e26a598e0e9801",
+        "src/office/characterMotion.ts": "27f2debd9bb3c1751db59672180a69e7be6d4002e183287ddcb323e5d297ec8d",
+        "src/components/3d/AnimatedCharacter.tsx": "649cc066ad321c36a4a9e8716f3cef0482aaad1c1e4072644d87ed2353f0d750"
+      },
+      "metrics": {
+        "store": {
+          "commands": 52,
+          "commits": 44,
+          "notifications": 132,
+          "rejectedCommands": 2,
+          "subscribers": 3
+        },
+        "bridge": {
+          "projections": 21,
+          "plans": 6,
+          "graphBuilds": 1,
+          "feedback": 5
+        },
+        "renderCommits": 52,
+        "events": 34,
+        "activities": 34
+      },
+      "graphics": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "drawCalls": 21,
+        "triangles": 149295,
+        "geometries": 30
+      },
+      "completedAt": "2026-10-09T17:03:22.680Z",
+      "passingChecks": 33
+    },
+    {
+      "name": "31-character-preservation",
+      "startedAt": "2026-10-09T17:03:23.400Z",
+      "checks": [
+        {
+          "name": "Existing spatial scenario still mounts 30 canonical workers and one distinct calm Manager",
+          "passed": true
+        },
+        {
+          "name": "Thirty workers still share mesh, material and headband resources with independent skeletons",
+          "passed": true
+        },
+        {
+          "name": "Existing worker mesh selection remains exact and preserves its animation",
+          "passed": true
+        },
+        {
+          "name": "Existing manager mesh selection remains exact and preserves its animation",
+          "passed": true
+        },
+        {
+          "name": "Existing 31-character scenario retains five cached GLB requests without errors or hot reloads",
+          "passed": true,
+          "detail": {
+            "requests": [
+              "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+              "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+              "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+              "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+              "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+            ],
+            "errors": [],
+            "failed": [],
+            "reloads": []
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "screenshots": [
+        "test-results/phase6-regression-preserved-company-overview.png",
+        "test-results/phase6-regression-preserved-worker-closeup.png",
+        "test-results/phase6-regression-preserved-manager-closeup.png"
+      ],
+      "resources": {
+        "workers": 30,
+        "managers": 1,
+        "sharedWorkerGeometries": 1,
+        "sharedWorkerMaterials": 1,
+        "independentWorkerSkeletons": 30,
+        "sharedHeadbandGeometry": 1
+      },
+      "graphics": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "drawCalls": 22,
+        "triangles": 997027,
+        "geometries": 28
+      },
+      "completedAt": "2026-10-09T17:04:52.159Z",
+      "passingChecks": 5
+    },
+    {
+      "name": "production-isolation",
+      "startedAt": "2026-10-09T17:07:06.535Z",
+      "checks": [
+        {
+          "name": "Production query parameters cannot activate development runtime fixtures or controls",
+          "passed": true
+        },
+        {
+          "name": "Served production JavaScript matches the final dist build and excludes all tool adapters and Phase 5–7 development fixture strings",
+          "passed": true,
+          "detail": [
+            {
+              "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+              "bytes": 1382420,
+              "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+              "matchesDist": true,
+              "excludesFixtures": true
+            }
+          ]
+        },
+        {
+          "name": "Disconnected production world does not request worker, Manager, desk or headband GLBs",
+          "passed": true,
+          "detail": []
+        },
+        {
+          "name": "Production preview has no console errors or failed network requests",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "failed": []
+          }
+        },
+        {
+          "name": "Production preview does not expose the development execution endpoint",
+          "passed": true,
+          "detail": {
+            "status": 404
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "requests": [],
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+          "bytes": 1382420,
+          "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+          "matchesDist": true,
+          "excludesFixtures": true
+        }
+      ],
+      "completedAt": "2026-10-09T17:07:07.487Z",
+      "passingChecks": 5
+    }
+  ],
+  "limitations": [
+    "Local host capabilities are not an OS sandbox; configured roots must not be concurrently mutated by an adversarial process.",
+    "Cancellation does not roll back an atomic write or commit that already completed.",
+    "Research is an explicit deterministic fixture; no external provider or autonomous tool loop exists.",
+    "Production is disconnected; development middleware, fixtures and tool adapters are absent from the served production client.",
+    "No hardware/100-agent performance claim, durable recovery, production authentication, deployment, memory, QA/repair or costs."
+  ]
+}

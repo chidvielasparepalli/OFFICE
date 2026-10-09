@@ -82,6 +82,7 @@ function fixture(): RuntimeState {
     connection: 'local',
     requests: {},
     plans: {},
+    toolExecutions: {},
     revision: 1,
     agents: {
       worker,

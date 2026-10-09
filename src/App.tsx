@@ -27,6 +27,12 @@ const ManagerOrchestrationPreview =
     ? lazy(() => import('./dev/ManagerOrchestrationPreview'))
     : null
 
+const ToolExecutionPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('tools') === 'preview'
+    ? lazy(() => import('./dev/ToolExecutionPreview'))
+    : null
+
 function App() {
   return (
     <div className="office-shell">
@@ -54,15 +60,21 @@ function App() {
         <div className="office-introduction">
           <h1>AI Corporate Office OS</h1>
           <p>
-            {ManagerOrchestrationPreview
-              ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
-              : OfficeRuntimePreview
-                ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
-                : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
+            {ToolExecutionPreview
+              ? 'Tool execution development preview. Host permissions protect disposable workspaces; no autonomous work or external AI provider is connected.'
+              : ManagerOrchestrationPreview
+                ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
+                : OfficeRuntimePreview
+                  ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
+                  : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
           </p>
         </div>
 
-        {ManagerOrchestrationPreview ? (
+        {ToolExecutionPreview ? (
+          <Suspense fallback={<p>Loading tool execution preview…</p>}>
+            <ToolExecutionPreview />
+          </Suspense>
+        ) : ManagerOrchestrationPreview ? (
           <Suspense fallback={<p>Loading Manager orchestration preview…</p>}>
             <ManagerOrchestrationPreview />
           </Suspense>
@@ -82,24 +94,26 @@ function App() {
           <OfficeWorld />
         )}
 
-        {!OfficeRuntimePreview && !ManagerOrchestrationPreview && (
-          <div className="office-foundation">
-            <section
-              className="runtime-notice"
-              role="status"
-              aria-labelledby="runtime-heading"
-            >
-              <Unplug size={24} aria-hidden="true" />
-              <div>
-                <h2 id="runtime-heading">Agent runtime not connected</h2>
-                <p>
-                  No agents are running here. Tasks, costs, approvals, and
-                  results will appear only when a real runtime is connected.
-                </p>
-              </div>
-            </section>
-          </div>
-        )}
+        {!OfficeRuntimePreview &&
+          !ManagerOrchestrationPreview &&
+          !ToolExecutionPreview && (
+            <div className="office-foundation">
+              <section
+                className="runtime-notice"
+                role="status"
+                aria-labelledby="runtime-heading"
+              >
+                <Unplug size={24} aria-hidden="true" />
+                <div>
+                  <h2 id="runtime-heading">Agent runtime not connected</h2>
+                  <p>
+                    No agents are running here. Tasks, costs, approvals, and
+                    results will appear only when a real runtime is connected.
+                  </p>
+                </div>
+              </section>
+            </div>
+          )}
       </main>
 
       <footer className="office-footer">

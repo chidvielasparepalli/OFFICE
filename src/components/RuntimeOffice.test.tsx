@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { ComponentProps } from 'react'
 import { RuntimeOffice } from './RuntimeOffice'
 import { createOfficeRuntime } from '../runtime/officeRuntime'
-import type { RuntimeCommand } from '../runtime/runtimeTypes'
+import type { RuntimeCommand, RuntimeResult } from '../runtime/runtimeTypes'
 import type { OfficeWorld } from './3d/OfficeWorld'
 import type { AgentSpatialSnapshot } from '../office/officeState'
 
@@ -58,6 +58,63 @@ function setup() {
 }
 
 describe('runtime office integration', () => {
+  it('supports asynchronous host feedback without optimistically completing a route or task', async () => {
+    const { runtime, issue } = setup()
+    issue({ type: 'startTask', taskId: 'task' })
+    let release!: () => void
+    const dispatch = vi.fn(
+      (command: RuntimeCommand) =>
+        new Promise<RuntimeResult>((resolve) => {
+          release = () => resolve(runtime.dispatch(command))
+        }),
+    )
+    render(
+      <RuntimeOffice
+        runtime={{
+          getSnapshot: runtime.getSnapshot,
+          subscribe: runtime.subscribe,
+          dispatch,
+        }}
+        executionNotice="Controlled host execution."
+      />,
+    )
+    expect(screen.getByText('Controlled host execution.')).toBeDefined()
+    const spatial: AgentSpatialSnapshot = {
+      agentId: 'worker',
+      position: [0, 0, 0],
+      headingRadians: 0,
+      workstation: runtime.getSnapshot().workstations.desk,
+      destination: null,
+      movementState: 'stationary',
+      speedMetersPerSecond: 0,
+      pathProgress: null,
+      collaborationTargetId: null,
+      phase: 'standing',
+      diagnostic: null,
+      motionId: null,
+      completedMotionId: null,
+    }
+    view().spatialViews!.current.set('worker', spatial)
+    act(() => view().onSpatialEvent?.(spatial))
+    const motion = view().runtime!.agents.worker.motion!
+    const arrival = {
+      ...spatial,
+      position: motion.points.at(-1)!,
+      motionId: motion.id,
+      completedMotionId: motion.id,
+      pathProgress: 1,
+    }
+    view().spatialViews!.current.set('worker', arrival)
+    act(() => view().onSpatialEvent?.(arrival))
+    expect(dispatch).toHaveBeenCalledTimes(1)
+    expect(runtime.getSnapshot().agents.worker.destination).not.toBeNull()
+    expect(runtime.getSnapshot().tasks.task.status).toBe('in_progress')
+    await act(async () => release())
+    expect(runtime.getSnapshot().agents.worker.destination).toBeNull()
+    expect(runtime.getSnapshot().tasks.task.status).toBe('in_progress')
+    act(() => view().onSpatialEvent?.(arrival))
+    expect(dispatch).toHaveBeenCalledTimes(1)
+  })
   it('keeps the default runtime empty and unsubscribes on unmount', () => {
     const runtime = createOfficeRuntime()
     const mounted = render(<RuntimeOffice runtime={runtime} />)
