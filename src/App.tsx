@@ -15,6 +15,30 @@ const OfficeNavigationPreview =
     ? lazy(() => import('./dev/OfficeNavigationPreview'))
     : null
 
+const OfficeRuntimePreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('runtime') === 'preview'
+    ? lazy(() => import('./dev/OfficeRuntimePreview'))
+    : null
+
+const ManagerOrchestrationPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('manager') === 'preview'
+    ? lazy(() => import('./dev/ManagerOrchestrationPreview'))
+    : null
+
+const ToolExecutionPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('tools') === 'preview'
+    ? lazy(() => import('./dev/ToolExecutionPreview'))
+    : null
+
+const MemoryPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('memory') === 'preview'
+    ? lazy(() => import('./dev/MemoryPreview'))
+    : null
+
 function App() {
   return (
     <div className="office-shell">
@@ -42,12 +66,35 @@ function App() {
         <div className="office-introduction">
           <h1>AI Corporate Office OS</h1>
           <p>
-            Explore the office space. Agent activity will appear here when a
-            real runtime is connected.
+            {MemoryPreview
+              ? 'Memory development preview. Scoped, explicit memory operations use the local runtime; no automatic learning or external provider is connected.'
+              : ToolExecutionPreview
+                ? 'Tool execution development preview. Host permissions protect disposable workspaces; no autonomous work or external AI provider is connected.'
+                : ManagerOrchestrationPreview
+                  ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
+                  : OfficeRuntimePreview
+                    ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
+                    : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
           </p>
         </div>
 
-        {OfficeNavigationPreview ? (
+        {MemoryPreview ? (
+          <Suspense fallback={<p>Loading memory preview…</p>}>
+            <MemoryPreview />
+          </Suspense>
+        ) : ToolExecutionPreview ? (
+          <Suspense fallback={<p>Loading tool execution preview…</p>}>
+            <ToolExecutionPreview />
+          </Suspense>
+        ) : ManagerOrchestrationPreview ? (
+          <Suspense fallback={<p>Loading Manager orchestration preview…</p>}>
+            <ManagerOrchestrationPreview />
+          </Suspense>
+        ) : OfficeRuntimePreview ? (
+          <Suspense fallback={<p>Loading local runtime preview…</p>}>
+            <OfficeRuntimePreview />
+          </Suspense>
+        ) : OfficeNavigationPreview ? (
           <Suspense fallback={<p>Loading office navigation scenarios…</p>}>
             <OfficeNavigationPreview />
           </Suspense>
@@ -59,22 +106,27 @@ function App() {
           <OfficeWorld />
         )}
 
-        <div className="office-foundation">
-          <section
-            className="runtime-notice"
-            role="status"
-            aria-labelledby="runtime-heading"
-          >
-            <Unplug size={24} aria-hidden="true" />
-            <div>
-              <h2 id="runtime-heading">Agent runtime not connected</h2>
-              <p>
-                No agents are running here. Tasks, costs, approvals, and results
-                will appear only when a real runtime is connected.
-              </p>
+        {!OfficeRuntimePreview &&
+          !ManagerOrchestrationPreview &&
+          !ToolExecutionPreview &&
+          !MemoryPreview && (
+            <div className="office-foundation">
+              <section
+                className="runtime-notice"
+                role="status"
+                aria-labelledby="runtime-heading"
+              >
+                <Unplug size={24} aria-hidden="true" />
+                <div>
+                  <h2 id="runtime-heading">Agent runtime not connected</h2>
+                  <p>
+                    No agents are running here. Tasks, costs, approvals, and
+                    results will appear only when a real runtime is connected.
+                  </p>
+                </div>
+              </section>
             </div>
-          </section>
-        </div>
+          )}
       </main>
 
       <footer className="office-footer">

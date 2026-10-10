@@ -1,0 +1,590 @@
+{
+  "phase": "Phase 8 — Memory system",
+  "verifiedAt": "2026-10-10T18:32:58.459Z",
+  "branch": "codex/phase8-memory-system",
+  "checkpoint": "fc03a208a642de87aecddb15e5dc91fdbeecd2c2",
+  "browser": "Playwright Chromium, headless SwiftShader; not a hardware GPU benchmark",
+  "methodology": "Fresh sequential browser sessions on final source. Visible development controls issue explicit commands; read-only scene/runtime inspection measures results. Physical marker and mesh clicks check selection. The final full test run uses two Vitest workers after an oversubscribed run hit two existing real-Git tests’ unchanged five-second deadlines. No tests or deadlines were relaxed. The production endpoint probe expects 404; application requests have no failures.",
+  "automatedValidation": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "typecheck": "passed",
+    "lint": "passed with five existing prototype warnings",
+    "tests": 524,
+    "testFiles": 33,
+    "preservedPhase7Assertions": 457,
+    "addedTests": 67,
+    "command": "npm test -- --maxWorkers=2",
+    "formatting": "passed",
+    "productionBuild": "passed with existing chunk/config-loader advisories"
+  },
+  "totalPassingChecks": 73,
+  "sourceSha256": {
+    "package-lock.json": "ea3557ecc9ecbcb05a1099e0144db91b970cc8166431a40a96d5364e12374731",
+    "package.json": "409d710f76f56206e42b2bd96d828db51a7a6180c42d6e8ee0dc8f89c3c53b15",
+    "src/App.tsx": "3c0e15c2dd9b1533aa21fe97004640a30d5ca3305a6997d1125172e193072903",
+    "src/assets/officeAssets.ts": "4b21ef85ccdb81294fa0335f660842cad6eb3a54bedc9f2e50923e826ef659e6",
+    "src/components/3d/AnimatedCharacter.tsx": "649cc066ad321c36a4a9e8716f3cef0482aaad1c1e4072644d87ed2353f0d750",
+    "src/components/3d/CameraController.tsx": "9f547c8ca1260a30432c7d7836abf29457dee5515a3935454e7184595504edf6",
+    "src/dev/MemoryPreview.test.tsx": "4d9da2a41c23acc311e2359bf741d47623e72d690775befa09570dc540fd0e25",
+    "src/dev/MemoryPreview.tsx": "f09a678c09f0fe82a93d2f00922eebcd7434633c3430b821cfecbe95f969b64f",
+    "src/dev/memoryFixtures.ts": "a9154110d8a6ed79401c9cbda9c89be2458e98fd57fbe065597eb0aed8cf399c",
+    "src/dev/toolPreviewClient.ts": "ed5c950606c6c4360bdb0d9f21f26c8152a4ca9dcd20db92deb3806689db627a",
+    "src/memory/InMemoryMemoryRepository.ts": "e9ee3bbfa1df9bf6453fced2cf2452b5ce14ed5247306186d29fdf249f20fedd",
+    "src/memory/MemoryService.ts": "1e982d2daa35c44859198a2a54838e082c2e6fb1ec417fe7aefed80acc052fe4",
+    "src/memory/memory.test.ts": "3e9e4ffa6e83d690f63347450458faa2cb3aee79e3f45e3ae32c9c65cf8d8339",
+    "src/memory/memoryPolicy.ts": "81d4da3853c8cd004fedf0a75ef58340b878d43dcef2b311f3d06344dd855fe3",
+    "src/memory/memoryRetrieval.ts": "f25825b873d4dcfbefab5789713c15a8ac3195b0dd7c3429fe8a0c0482740e67",
+    "src/memory/memoryTypes.ts": "f67192dcd74e61a3948cf378c9c91b5b2e0bfa18063cb1591711fd1b6e151dc6",
+    "src/office/characterMotion.ts": "27f2debd9bb3c1751db59672180a69e7be6d4002e183287ddcb323e5d297ec8d",
+    "src/office/officeNavigation.ts": "68d24d19608509eac66c5a0d91419cdf9d3d4565b483f6c8d9ee5de6e3cc64ae",
+    "src/orchestration/ManagerOrchestrator.ts": "20f3e96fa35449b2233520ac9254916f7f1feb0f719a252f8a6d776264ccf035",
+    "src/orchestration/capabilityMatcher.test.ts": "491cae60a75f6e973cfd602d58358a33653f9c1b36cdfcb1f86f33ec4e207318",
+    "src/orchestration/planValidation.test.ts": "66f81c4944aa2ab5ed2fe3ccdb64c7dd9010494834c48f21cd7e39ed9e5da6b9",
+    "src/runtime/memoryRuntime.ts": "70beba792bb9fe8fc3b9d559cfaf7024ddf258066d73dcf28891d8658b27eefb",
+    "src/runtime/officeRuntime.ts": "e187d9c55a937473c32748948e61a199a3cc8955d8664a46c6cb5b2049ec71f4",
+    "src/runtime/officeRuntimeBridge.test.ts": "afb3acbfe8e19001bef5b2838ff56028ec67ecc4fbd2dc7f51976f1aa7da1ed0",
+    "src/runtime/officeRuntimeBridge.ts": "0eeea9de5d936753482e310c2e67b5aef1325f1c0fa465bb84d0197d4acb622e",
+    "src/runtime/runtimeTypes.ts": "2f5bea3ea0e8905b1b556b08c12b8a13c23a93f6df9552009c85ffc1f01dfe6a",
+    "src/tools/ToolExecutor.ts": "2b917922219501512c6a170b4baae0646707565956b24060ac6426eada68973a",
+    "src/tools/ToolRegistry.ts": "b2467c2a9d1521102c33297dbc60f2fdd6e82cc56bdb20fc6c50233c52d417ea"
+  },
+  "foundationUnchanged": {
+    "src/components/3d/AnimatedCharacter.tsx": true,
+    "src/components/3d/CameraController.tsx": true,
+    "src/office/characterMotion.ts": true,
+    "src/office/officeNavigation.ts": true,
+    "src/assets/officeAssets.ts": true,
+    "src/runtime/officeRuntimeBridge.ts": true,
+    "src/orchestration/ManagerOrchestrator.ts": true,
+    "src/tools/ToolExecutor.ts": true,
+    "src/tools/ToolRegistry.ts": true,
+    "package.json": true,
+    "package-lock.json": true
+  },
+  "productionScripts": [
+    {
+      "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+      "bytes": 1382420,
+      "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+      "matchesDist": true,
+      "excludesFixtures": true
+    }
+  ],
+  "productionJavaScriptByteIdenticalToPhase7": true,
+  "screenshots": [
+    {
+      "path": "docs/validation/phase8-memory-context.png",
+      "sha256": "629ed8444bac5b0ea0a5363c858c85d65a5b4e21cd880bccfc01935a11765cd6"
+    },
+    {
+      "path": "docs/validation/phase8-memory-manager.png",
+      "sha256": "2daa1deb0b124581609b467c17c5983364ea859ad064eb66461bbca9af7b328e"
+    }
+  ],
+  "runs": [
+    {
+      "name": "memory",
+      "startedAt": "2026-10-10T17:58:59.254Z",
+      "checks": [
+        {
+          "name": "Memory preview starts empty and disconnected without seeded memories or tasks",
+          "passed": true
+        },
+        {
+          "name": "Explicit connection reuses two standard workers and the dedicated Manager without creating business work",
+          "passed": true
+        },
+        {
+          "name": "Worker resources remain shared with independent skeletons and a distinct headband-free Manager",
+          "passed": true
+        },
+        {
+          "name": "A: Explicit project preference retains user attribution and does not wake any agent",
+          "passed": true
+        },
+        {
+          "name": "Explicit task start preserves existing workstation seating and worker-only headband behavior",
+          "passed": true
+        },
+        {
+          "name": "Worker mesh selection remains exact during memory scenarios",
+          "passed": true
+        },
+        {
+          "name": "Task completion removes the headband but never creates memory automatically",
+          "passed": true
+        },
+        {
+          "name": "B: Explicit task lesson links to an actually completed task",
+          "passed": true
+        },
+        {
+          "name": "Later task retrieves prior project preference and completed-task lesson",
+          "passed": true
+        },
+        {
+          "name": "Context preserves source and trust and measures its entire serialization",
+          "passed": true
+        },
+        {
+          "name": "Context character budget includes identity and metadata without dumping every memory",
+          "passed": true
+        },
+        {
+          "name": "Exact keyword retrieval excludes irrelevant candidates",
+          "passed": true
+        },
+        {
+          "name": "C: Worker A retrieves its own private lesson",
+          "passed": true
+        },
+        {
+          "name": "Worker B is denied worker-private access and previous content is cleared",
+          "passed": true
+        },
+        {
+          "name": "Manager is denied worker-private access and previous content is cleared",
+          "passed": true
+        },
+        {
+          "name": "D: Manager planning context retrieves the explicit shared architecture decision",
+          "passed": true
+        },
+        {
+          "name": "Manager remains calmly seated with no headband or accelerated working clip",
+          "passed": true
+        },
+        {
+          "name": "E: Replacement and old memory retain reciprocal history links",
+          "passed": true
+        },
+        {
+          "name": "Active retrieval includes the revised fact and excludes the superseded assertion",
+          "passed": true
+        },
+        {
+          "name": "F: Real registered fixture-tool completion creates no automatic memory",
+          "passed": true
+        },
+        {
+          "name": "Explicit tool-derived memory preserves execution provenance and unverified trust",
+          "passed": true
+        },
+        {
+          "name": "Worker cannot promote unverified evidence without a verification grant",
+          "passed": true
+        },
+        {
+          "name": "Context contains private and project facts only for the authorized worker with trust labels intact",
+          "passed": true
+        },
+        {
+          "name": "Animation continues without per-frame memory queries or runtime commits",
+          "passed": true,
+          "detail": {
+            "before": {
+              "commands": 54,
+              "commits": 45,
+              "notifications": 138,
+              "rejectedCommands": 3,
+              "subscribers": 3
+            },
+            "after": {
+              "commands": 54,
+              "commits": 45,
+              "notifications": 138,
+              "rejectedCommands": 3,
+              "subscribers": 3
+            },
+            "frames": 7
+          }
+        },
+        {
+          "name": "Memory operations did not manufacture task progress, completion or movement",
+          "passed": true
+        },
+        {
+          "name": "Manager exact mesh selection and camera focus remain independent",
+          "passed": true
+        },
+        {
+          "name": "Company overview remains available after memory context and selection",
+          "passed": true
+        },
+        {
+          "name": "Disconnect removes characters without exposing the privileged memory snapshot",
+          "passed": true
+        },
+        {
+          "name": "Reconnect retains the same memory history without reseeding or writing extra memories",
+          "passed": true
+        },
+        {
+          "name": "Memory events use existing runtime history and audit contains no memory bodies",
+          "passed": true
+        },
+        {
+          "name": "Shared assets load once across memory writes, retrievals and reconnect",
+          "passed": true,
+          "detail": [
+            "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+            "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+          ]
+        },
+        {
+          "name": "No console errors, failed requests, spatial diagnostics or source hot reloads",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "failed": [],
+            "reloads": []
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "screenshots": [
+        "test-results/phase8-memory-context.png",
+        "test-results/phase8-memory-manager.png"
+      ],
+      "metrics": {
+        "commands": 60,
+        "commits": 50,
+        "notifications": 153,
+        "rejectedCommands": 3,
+        "subscribers": 3
+      },
+      "completedAt": "2026-10-10T18:00:23.574Z",
+      "passingChecks": 32
+    },
+    {
+      "name": "phase7-tools-regression",
+      "startedAt": "2026-10-10T18:19:12.585Z",
+      "checks": [
+        {
+          "name": "Default tool preview has no host session, agents or tasks before explicit connection",
+          "passed": true
+        },
+        {
+          "name": "Host connection registers two labelled workers and a distinct Manager without fabricating tasks",
+          "passed": true
+        },
+        {
+          "name": "Standard workers share geometry/material while Manager remains distinct and has no accessory",
+          "passed": true
+        },
+        {
+          "name": "Manager request/plan dispatch assigns an actual task and workstation intent",
+          "passed": true
+        },
+        {
+          "name": "Existing walk-seat-headband sequence remains continuous and diagnostic-free",
+          "passed": true,
+          "detail": {
+            "samples": 438,
+            "maximumStepMeters": 0.08500000000000003,
+            "phases": [
+              "standing",
+              "walking",
+              "turning",
+              "sitting",
+              "equipping"
+            ],
+            "diagnostics": []
+          }
+        },
+        {
+          "name": "Manager coordinates through its real task, seated calmly with no headband",
+          "passed": true
+        },
+        {
+          "name": "Animated worker mesh selects the exact runtime ID and preserves the skeleton",
+          "passed": true
+        },
+        {
+          "name": "Selected worker/task context shows the host task and truthful execution notice",
+          "passed": true
+        },
+        {
+          "name": "Research executes through allowed host permissions and explicitly identifies its fixture result",
+          "passed": true
+        },
+        {
+          "name": "Tool lifecycle is audited without completing task or inventing progress",
+          "passed": true
+        },
+        {
+          "name": "Execution permission/output and activity are visible in browser",
+          "passed": true
+        },
+        {
+          "name": "Animation continues without polling snapshots or launching repeated tools",
+          "passed": true
+        },
+        {
+          "name": "Explicit completion updates Manager result and drives existing worker headband removal",
+          "passed": true
+        },
+        {
+          "name": "Filesystem tool reads actual bounded fixture content with validated output",
+          "passed": true
+        },
+        {
+          "name": "Terminal invokes fixed Node profile with actual exit code and version output",
+          "passed": true
+        },
+        {
+          "name": "Sequential tools reuse task/agent and leave completion unresolved",
+          "passed": true
+        },
+        {
+          "name": "Git status and diff report actual selected fixture changes",
+          "passed": true
+        },
+        {
+          "name": "Explicit Git stage/commit returns real commit ID only for disposable files",
+          "passed": true
+        },
+        {
+          "name": "Git tool success does not claim task completion",
+          "passed": true
+        },
+        {
+          "name": "Unauthorized research-worker terminal request never starts, and records permission failure",
+          "passed": true
+        },
+        {
+          "name": "Denied tool blocks real task and Manager plan for attention",
+          "passed": true
+        },
+        {
+          "name": "Blocked selected-agent context updates from host state",
+          "passed": true
+        },
+        {
+          "name": "Real bounded process timeout records failure and leaves task blocked",
+          "passed": true
+        },
+        {
+          "name": "Explicit cancellation stops the running operation and leaves unresolved waiting task",
+          "passed": true
+        },
+        {
+          "name": "Late process output cannot overwrite cancelled result or complete its task",
+          "passed": true
+        },
+        {
+          "name": "Manager selection remains exact, distinct and headband-free during attention state",
+          "passed": true
+        },
+        {
+          "name": "Company overview reset still works",
+          "passed": true
+        },
+        {
+          "name": "Disconnect hides runtime characters while retaining truthful execution history",
+          "passed": true
+        },
+        {
+          "name": "Reconnect retains same canonical host records and Manager identity",
+          "passed": true
+        },
+        {
+          "name": "All scene scenarios share cached GLB requests without duplicate asset loading",
+          "passed": true,
+          "detail": [
+            "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+            "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+            "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+          ]
+        },
+        {
+          "name": "No console errors, failed requests, navigation errors or source hot reloads",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "failed": [],
+            "reloads": []
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "screenshots": [
+        "test-results/phase7-research-working.png",
+        "test-results/phase7-permission-denied.png",
+        "test-results/phase7-manager-tool-attention.png"
+      ],
+      "fixtureCommit": "14cd622cc87125861732cb81130a34e8cf4c9014",
+      "metrics": {
+        "mode": "host snapshot cache",
+        "messages": 237,
+        "subscribers": 4
+      },
+      "graphics": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "drawCalls": 27,
+        "triangles": 156609,
+        "geometries": 27
+      },
+      "completedAt": "2026-10-10T18:21:07.804Z",
+      "passingChecks": 31
+    },
+    {
+      "name": "31-character-preservation",
+      "startedAt": "2026-10-10T18:27:56.035Z",
+      "checks": [
+        {
+          "name": "Existing spatial scenario still mounts 30 canonical workers and one distinct calm Manager",
+          "passed": true
+        },
+        {
+          "name": "Thirty workers still share mesh, material and headband resources with independent skeletons",
+          "passed": true
+        },
+        {
+          "name": "Existing worker mesh selection remains exact and preserves its animation",
+          "passed": true
+        },
+        {
+          "name": "Existing manager mesh selection remains exact and preserves its animation",
+          "passed": true
+        },
+        {
+          "name": "Existing 31-character scenario retains five cached GLB requests without errors or hot reloads",
+          "passed": true,
+          "detail": {
+            "requests": [
+              "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+              "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+              "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+              "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+              "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+            ],
+            "errors": [],
+            "failed": [],
+            "reloads": []
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "reloads": [],
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "screenshots": [
+        "test-results/phase6-regression-preserved-company-overview.png",
+        "test-results/phase6-regression-preserved-worker-closeup.png",
+        "test-results/phase6-regression-preserved-manager-closeup.png"
+      ],
+      "resources": {
+        "workers": 30,
+        "managers": 1,
+        "sharedWorkerGeometries": 1,
+        "sharedWorkerMaterials": 1,
+        "independentWorkerSkeletons": 30,
+        "sharedHeadbandGeometry": 1
+      },
+      "graphics": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "drawCalls": 22,
+        "triangles": 997027,
+        "geometries": 28
+      },
+      "completedAt": "2026-10-10T18:29:33.571Z",
+      "passingChecks": 5
+    },
+    {
+      "name": "production-isolation",
+      "startedAt": "2026-10-10T18:32:40.974Z",
+      "checks": [
+        {
+          "name": "Production query parameters cannot activate development runtime fixtures or controls",
+          "passed": true
+        },
+        {
+          "name": "Served production JavaScript matches the final dist build and excludes all tool adapters and Phase 5–8 development fixture strings",
+          "passed": true,
+          "detail": [
+            {
+              "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+              "bytes": 1382420,
+              "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+              "matchesDist": true,
+              "excludesFixtures": true
+            }
+          ]
+        },
+        {
+          "name": "Disconnected production world does not request worker, Manager, desk or headband GLBs",
+          "passed": true,
+          "detail": []
+        },
+        {
+          "name": "Production preview has no console errors or failed network requests",
+          "passed": true,
+          "detail": {
+            "errors": [],
+            "failed": []
+          }
+        },
+        {
+          "name": "Production preview does not expose the development execution endpoint",
+          "passed": true,
+          "detail": {
+            "status": 404
+          }
+        }
+      ],
+      "errors": [],
+      "failed": [],
+      "requests": [],
+      "scripts": [
+        {
+          "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+          "bytes": 1382420,
+          "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+          "matchesDist": true,
+          "excludesFixtures": true
+        }
+      ],
+      "completedAt": "2026-10-10T18:32:41.855Z",
+      "passingChecks": 5
+    }
+  ],
+  "limitations": [
+    "In-memory lifetime only; remote persistence requires an asynchronous atomic commit/synchronization design.",
+    "Raw runtime snapshots/events are trusted host data. Untrusted agents must receive only principal-bound memory repositories.",
+    "Secret detection is defensive pattern validation, not a universal detector. Only curated non-secret data belongs in memory.",
+    "Working expiry excludes retrieval but does not purge historical records. Event history remains unbounded.",
+    "No automatic learning, providers, embeddings, Supabase, autonomous loops, QA/repair engine, costs, communications or deployment.",
+    "Full Phase 5/6 browser suites were not repeated; their automated assertions remain passing, and Phase 7 plus 31-character browser regressions were rerun."
+  ]
+}

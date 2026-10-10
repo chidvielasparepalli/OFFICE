@@ -442,7 +442,12 @@ class CharacterMotionController {
         }
       } else {
         this.setClip('stand_idle')
-        if (status === 'walking' && !this.frame.diagnostic)
+        if (
+          status === 'walking' &&
+          !this.frame.diagnostic &&
+          (!this.input.motion ||
+            this.frame.completedMotionId !== this.input.motion.id)
+        )
           this.frame.diagnostic =
             'Walking requires an unfinished explicit path.'
       }

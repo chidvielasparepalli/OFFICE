@@ -23,7 +23,7 @@ The open preview uses the overview direction `[20,32,24]`, polar limits 2–60 d
 
 `src/office/officeState.ts` defines a read-only `OfficeRuntimeSnapshot`, `AgentContext`, `DepartmentContext`, `OfficeSelection` and `OfficeSelectionHandler`. The default snapshot is **null**, meaning disconnected, not an empty simulated company.
 
-The future normalized state layer supplies the snapshot. Neither the 3D layer nor the context panel fetches a provider, invents metrics, changes task status, or starts work. `OfficeWorld` owns transient selection only. The canonical worker renderer maps raycast instance indices to supplied IDs and uses the same selection handler as department surfaces and accessible buttons:
+The normalized runtime adapter supplies the snapshot. [Phase 5](PHASE5_RUNTIME.md) now implements a local command-driven store and bridge; the production default remains disconnected. Neither the 3D layer nor the context panel fetches a provider, invents metrics, changes task status, or starts work. `OfficeWorld` owns transient selection presentation; `RuntimeOffice` synchronizes exact selected agent/task IDs with the runtime store. The canonical worker renderer maps hits to supplied IDs and uses the same selection handler as department surfaces and accessible buttons:
 
 ```ts
 onSelect({ kind: 'agent', id: agent.id })
@@ -59,7 +59,7 @@ The separately authorized animation extension implements deterministic visual pl
 
 ## Character animation extension
 
-The latest [headband extension](../assets/headband/ANIMATION.md) supersedes the earlier working and blocked/repair behavior below: working equips the supplied accessory and plays a dedicated faster clip; leaving work removes it before movement or calm idle. Blocked/repair finishes removal before pausing. Initial seating requires the actual seat anchor. Known accepted routes may be retraced automatically on working entry; unknown locations still require a supplied safe path.
+The latest [headband extension](../assets/headband/ANIMATION.md) supersedes the earlier working and blocked/repair behavior below: standard-worker working equips the supplied accessory and plays a dedicated faster clip; leaving work removes it before movement or calm idle. Blocked/repair finishes removal before pausing. The Manager never loads or wears the band and uses normal-speed calm seated work. Initial seating requires the actual seat anchor. Known accepted routes may be retraced automatically on working entry; unknown locations still require a supplied safe path.
 
 The earlier rigid-transform/batch description above is historical for characters; desks remain instanced. Each skeletal character now maps mesh raycasts directly to its supplied entity ID. Current animated ground/head positions drive camera focus and markers. Standard workers and Manager continue to use distinct registered models.
 

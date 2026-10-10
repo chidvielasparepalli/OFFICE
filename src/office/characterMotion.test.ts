@@ -45,6 +45,33 @@ const returning: AgentMotion = {
 const quarterTurnSeconds = 0.25
 
 describe('deterministic character motion', () => {
+  it('waits for acknowledgment of the completed current path without hiding missing or invalid commands', () => {
+    const controller = createCharacterMotion({ ...worker, status: 'waiting' })
+    const walking = { ...worker, status: 'walking' as const, motion: outbound }
+    controller.update(walking)
+    const arrived = controller.advance(POSTURE_TRANSITION_SECONDS + 2)
+    expect(arrived.completedMotionId).toBe(outbound.id)
+    expect(arrived.clip).toBe('stand_idle')
+    expect(arrived.diagnostic).toBeNull()
+    controller.update({ ...walking })
+    expect(controller.advance(0.5).position).toEqual(destination)
+    expect(controller.advance(0).diagnostic).toBeNull()
+    controller.update({ ...worker, status: 'walking' })
+    expect(controller.advance(0).diagnostic).toContain(
+      'unfinished explicit path',
+    )
+    controller.update({
+      ...walking,
+      motion: { ...outbound, id: 'invalid', points: [] },
+    })
+    expect(controller.advance(0).diagnostic).toContain('Invalid movement path')
+    const canceled = createCharacterMotion({ ...worker, status: 'waiting' })
+    canceled.update(walking)
+    canceled.advance(POSTURE_TRANSITION_SECONDS + 0.5)
+    canceled.update({ ...worker, status: 'walking' })
+    expect(canceled.advance(0).completedMotionId).toBeNull()
+    expect(canceled.advance(0).diagnostic).toContain('unfinished explicit path')
+  })
   it('stops a previously accepted command when a changed layout rejects the same ID', () => {
     const controller = createCharacterMotion(worker)
     controller.update({ ...worker, status: 'walking', motion: outbound })

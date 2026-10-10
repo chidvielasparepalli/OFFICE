@@ -1,0 +1,777 @@
+{
+  "phase": "Phase 6 — Manager orchestration core",
+  "verifiedAt": "2026-10-09T15:05:14.245Z",
+  "branch": "codex/phase6-manager-orchestration",
+  "browser": "Playwright Chromium, headless SwiftShader",
+  "methodology": "Four fresh sequential Chromium sessions on final source. Visible controls issue explicit development commands; read-only runtime/scene inspection measures results. Actual marker and mesh pointer clicks check exact selection. An earlier harness-only offscreen pointer miss was corrected by scrolling the canvas before a fresh full run; no application change was required.",
+  "baseline": {
+    "phase5TestsReviewedBeforeImplementation": 226,
+    "phase5HistoricalBrowserChecks": 42,
+    "preservedUncommittedPhase5": true,
+    "sourceBaselineFile": "test-results/phase6-baseline-files.json"
+  },
+  "automatedValidation": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "typecheck": "passed",
+    "lint": "passed with five existing unmounted-prototype warnings",
+    "tests": 336,
+    "testFiles": 22,
+    "preservedPhase5Tests": 226,
+    "addedTests": 110,
+    "formatting": "passed",
+    "productionBuild": "passed with existing large-chunk advisory"
+  },
+  "totalPassingChecks": 75,
+  "sourceSha256": {
+    "src/runtime/officeRuntime.ts": "eb076f313a038fcbaae7d801c733bb64c9c6c5d16a22c41a1b4cf016a6094c22",
+    "src/runtime/orchestrationRuntime.ts": "eaae89cde11a609bf951895a329b2b5437895c48944a54d8dadc32329913c55d",
+    "src/runtime/officeRuntimeBridge.ts": "0eeea9de5d936753482e310c2e67b5aef1325f1c0fa465bb84d0197d4acb622e",
+    "src/orchestration/ManagerOrchestrator.ts": "b150e34201b7bee451e480814b0f759e45405cc574d5bd3e94dd121ffc2c4600",
+    "src/orchestration/planner.ts": "59c0d6fa942021065e628b45ab9695b20baa4360f5abef6443489176f84d714c",
+    "src/orchestration/planValidation.ts": "21622dd25368821b74c8fdfc7aca5b591062b9deaa376444d9dd56302512156f",
+    "src/dev/ManagerOrchestrationPreview.tsx": "469be4fb7441ccf5d5ac07b5724883ccac7a81f890e43a33c2074807832996f5",
+    "src/dev/managerFixtures.ts": "26f4c9a0c767ac6f2155c3be49559fd20fe3d5f5ddf9adfc663239a0f36f39c4",
+    "src/components/3d/AnimatedCharacter.tsx": "649cc066ad321c36a4a9e8716f3cef0482aaad1c1e4072644d87ed2353f0d750",
+    "src/components/RuntimeOffice.tsx": "6eeced0d9f9c95e9b491c3aa3ed9abdd42fea1575f19250d31b974d31ba65058",
+    "src/dev/OfficeRuntimePreview.tsx": "b517b82f8cf3c967d23a4e3ed48742030eb906483661120827e26a598e0e9801",
+    "src/office/characterMotion.ts": "27f2debd9bb3c1751db59672180a69e7be6d4002e183287ddcb323e5d297ec8d"
+  },
+  "productionScripts": [
+    {
+      "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+      "bytes": 1382420,
+      "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+      "matchesDist": true,
+      "excludesFixtures": true
+    }
+  ],
+  "runs": [
+    {
+      "name": "manager-orchestration",
+      "startedAt": "2026-10-09T14:50:27.737Z",
+      "completedAt": "2026-10-09T14:56:15.839Z",
+      "passingChecks": 33,
+      "consoleErrors": 0,
+      "failedRequests": 0,
+      "hotReloads": 0,
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "metrics": {
+        "runtime": {
+          "commands": 67,
+          "commits": 47,
+          "notifications": 188,
+          "rejectedCommands": 0,
+          "subscribers": 4
+        },
+        "manager": {
+          "plannerCalls": 2,
+          "monitorPasses": 15,
+          "dispatchAttempts": 3,
+          "monitorFailures": 0,
+          "monitorError": null
+        }
+      },
+      "graphics": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "drawCalls": 21,
+        "triangles": 149295,
+        "geometries": 24
+      }
+    },
+    {
+      "name": "phase5-runtime-regression",
+      "startedAt": "2026-10-09T14:56:57.031Z",
+      "completedAt": "2026-10-09T15:01:17.127Z",
+      "passingChecks": 33,
+      "consoleErrors": 0,
+      "failedRequests": 0,
+      "hotReloads": 0,
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "metrics": {
+        "store": {
+          "commands": 52,
+          "commits": 44,
+          "notifications": 132,
+          "rejectedCommands": 2,
+          "subscribers": 3
+        },
+        "bridge": {
+          "projections": 21,
+          "plans": 6,
+          "graphBuilds": 1,
+          "feedback": 5
+        },
+        "renderCommits": 52,
+        "events": 34,
+        "activities": 34
+      },
+      "graphics": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "drawCalls": 21,
+        "triangles": 149295,
+        "geometries": 30
+      }
+    },
+    {
+      "name": "31-character-preservation",
+      "startedAt": "2026-10-09T15:01:17.815Z",
+      "completedAt": "2026-10-09T15:02:35.952Z",
+      "passingChecks": 5,
+      "consoleErrors": 0,
+      "failedRequests": 0,
+      "hotReloads": 0,
+      "requests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "graphics": {
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "drawCalls": 22,
+        "triangles": 997027,
+        "geometries": 28
+      }
+    },
+    {
+      "name": "production-isolation",
+      "startedAt": "2026-10-09T15:02:36.716Z",
+      "completedAt": "2026-10-09T15:02:37.584Z",
+      "passingChecks": 4,
+      "consoleErrors": 0,
+      "failedRequests": 0,
+      "hotReloads": 0,
+      "requests": []
+    }
+  ],
+  "checks": [
+    {
+      "run": "manager-orchestration",
+      "name": "Manager preview starts disconnected without requests, plans, tasks or characters",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Explicit connection registers two capability-matched workers and a dedicated Manager",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Workers share canonical geometry and material with independent skeletons",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Connection alone creates no requests or business tasks",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "A: Request intake preserves exact user text and single Manager ownership",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Planning waits for an explicit action and is labelled as a deterministic development template",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "A: Accepted structured plan commits ordinary runtime task records and the dependency graph",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Planning does not dispatch workers or invent artifacts",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Manager coordination uses an actual runtime task and the dedicated calm seated-work model",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "A: Explicit dispatch assigns the eligible research worker and requests its own workstation",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "A: The dependent task remains unassigned and its worker stays asleep",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Dispatched worker walks, sits and equips its headband continuously without navigation diagnostics",
+      "passed": true,
+      "detail": {
+        "samples": 197,
+        "maximumStepMeters": 0.16125149549933826,
+        "phases": [
+          "standing",
+          "walking",
+          "turning",
+          "sitting",
+          "equipping",
+          "seated"
+        ],
+        "diagnostics": []
+      }
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Worker animation never manufactures task progress or completion",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Worker mesh selection resolves its exact runtime ID and preserves working animation",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Existing agent and task inspectors show the dispatched task and real Manager relationship",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Active animation does not call the planner, dispatcher or monitor on frame ticks",
+      "passed": true,
+      "detail": {
+        "before": {
+          "runtime": {
+            "commands": 29,
+            "commits": 22,
+            "notifications": 88,
+            "rejectedCommands": 0,
+            "subscribers": 4
+          },
+          "manager": {
+            "plannerCalls": 1,
+            "monitorPasses": 3,
+            "dispatchAttempts": 1,
+            "monitorFailures": 0,
+            "monitorError": null
+          }
+        },
+        "after": {
+          "runtime": {
+            "commands": 29,
+            "commits": 22,
+            "notifications": 88,
+            "rejectedCommands": 0,
+            "subscribers": 4
+          },
+          "manager": {
+            "plannerCalls": 1,
+            "monitorPasses": 3,
+            "dispatchAttempts": 1,
+            "monitorFailures": 0,
+            "monitorError": null
+          }
+        }
+      }
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "B: Manual completion is observed by the Manager and unlocks the dependent without dispatching it",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Worker completion removes its headband and partial result reports only actual completed work",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "A ready dependency waits until another explicit Manager dispatch",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "B: Second dispatch selects the implementation capability and respects the completed prerequisite",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "E: Full success reaches completed request and plan only after both explicit task completions",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "E: ExecutionResult reports actual completed IDs with no fabricated artifacts",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "C: Blocked worker state propagates to Manager request blocked and plan needs_attention",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "C: Blocked presentation preserves the physical pose and hides the worker accessory",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Explicit resume restores the same task without creating a new plan",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "D: Task failure is observed as needs_attention rather than false overall success",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "D: Failed prerequisite cannot dispatch its dependent and result identifies failure",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Manager mesh selection remains separate and never attaches a worker headband",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Disconnected preview labels retained records and removes all runtime characters",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Reconnect preserves existing requests, plans and character identities without reseeding",
+      "passed": true
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Shared GLBs load once throughout both request scenarios and reconnect",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Manager preview has no console errors, failed requests, hot reloads or monitor failures",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": [],
+        "reloads": [],
+        "monitor": {
+          "plannerCalls": 2,
+          "monitorPasses": 15,
+          "dispatchAttempts": 3,
+          "monitorFailures": 0,
+          "monitorError": null
+        }
+      }
+    },
+    {
+      "run": "manager-orchestration",
+      "name": "Reset clears only the local session and disposes all old runtime subscriptions",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Local runtime begins disconnected with no seeded production agents or tasks",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Explicit connection registers two canonical workers and one dedicated Manager at authored locations",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Canonical worker resources are shared with independent skeletons and a distinct Manager",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Connecting and rendering create no task records automatically",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Create task produces a real queued unassigned record and task inspector",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Assignment updates the authoritative agent and task relationship",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Starting work creates an explicit workstation intent and actual navigation",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Task-driven worker travel and seating are continuous without teleport or navigation diagnostics",
+      "passed": true,
+      "detail": {
+        "samples": 192,
+        "maximumStepMeters": 0.16125149549933826,
+        "phases": [
+          "standing",
+          "walking",
+          "turning",
+          "sitting",
+          "equipping",
+          "seated"
+        ],
+        "diagnostics": [],
+        "diagnosticRows": []
+      }
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Walking, seating and animation never manufacture task progress or completion",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Worker mesh selection identifies its actual runtime entity without resetting animation",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Agent inspector uses supplied role, task, manager, dependencies and activity",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Working animation advances without per-frame runtime commands, commits, subscriptions or path planning",
+      "passed": true,
+      "detail": {
+        "before": {
+          "store": {
+            "commands": 21,
+            "commits": 18,
+            "notifications": 54,
+            "rejectedCommands": 0,
+            "subscribers": 3
+          },
+          "bridge": {
+            "projections": 7,
+            "plans": 1,
+            "graphBuilds": 1,
+            "feedback": 1
+          },
+          "renderCommits": 10,
+          "events": 14,
+          "activities": 14
+        },
+        "after": {
+          "store": {
+            "commands": 21,
+            "commits": 18,
+            "notifications": 54,
+            "rejectedCommands": 0,
+            "subscribers": 3
+          },
+          "bridge": {
+            "projections": 7,
+            "plans": 1,
+            "graphBuilds": 1,
+            "feedback": 1
+          },
+          "renderCommits": 11,
+          "events": 14,
+          "activities": 14
+        }
+      }
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Explicit progress updates agree across runtime, agent inspector and task panel",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Disconnect hides agents while retaining existing task records",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Reconnect preserves the working task and restores a valid seated worker",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Explicit completion records history and removes the worker accessory",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Dependent work cannot start while its prerequisite is incomplete",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Completing A unlocks B without automatic work or progress",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "An explicit start begins the unlocked dependent task and presents its prerequisite",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Collaboration removes the worker accessory before deterministic travel",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Collaboration arrival records the real requested collaborator while task progress stays unchanged",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Collaboration hub and assigned-desk return remain continuous and deterministic",
+      "passed": true,
+      "detail": {
+        "samples": 826,
+        "maximumStepMeters": 0.151250000000001,
+        "phases": [
+          "seated",
+          "removing",
+          "standing-up",
+          "walking",
+          "standing",
+          "turning",
+          "sitting",
+          "equipping"
+        ],
+        "diagnostics": [],
+        "diagnosticRows": []
+      }
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Returning resumes the same task and worker animation without fake completion",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Block commands preserve physical pose and expose a real blocker",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Repair requires explicit acknowledgment before work can restart",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Repair acknowledgment requeues work without starting animation",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Explicit resume restores the same task and clears acknowledged blockers",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Manager review uses its dedicated calm model without any worker-only accessory or hard-work state",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Current-task selection opens the exact authoritative task context",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Task selection and updates leave existing model instances and shared assets intact",
+      "passed": true
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Shared GLBs load once across state changes, reset and reconnect",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Runtime preview has no console errors, failed requests or hot reloads",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": [],
+        "reloads": []
+      }
+    },
+    {
+      "run": "phase5-runtime-regression",
+      "name": "Reset creates an empty disconnected runtime and cleans old subscriptions",
+      "passed": true
+    },
+    {
+      "run": "31-character-preservation",
+      "name": "Existing spatial scenario still mounts 30 canonical workers and one distinct calm Manager",
+      "passed": true
+    },
+    {
+      "run": "31-character-preservation",
+      "name": "Thirty workers still share mesh, material and headband resources with independent skeletons",
+      "passed": true
+    },
+    {
+      "run": "31-character-preservation",
+      "name": "Existing worker mesh selection remains exact and preserves its animation",
+      "passed": true
+    },
+    {
+      "run": "31-character-preservation",
+      "name": "Existing manager mesh selection remains exact and preserves its animation",
+      "passed": true
+    },
+    {
+      "run": "31-character-preservation",
+      "name": "Existing 31-character scenario retains five cached GLB requests without errors or hot reloads",
+      "passed": true,
+      "detail": {
+        "requests": [
+          "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+          "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+          "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+          "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+          "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+        ],
+        "errors": [],
+        "failed": [],
+        "reloads": []
+      }
+    },
+    {
+      "run": "production-isolation",
+      "name": "Production query parameters cannot activate development runtime fixtures or controls",
+      "passed": true
+    },
+    {
+      "run": "production-isolation",
+      "name": "Served production JavaScript matches the final dist build and excludes Phase 5 and Phase 6 development fixture strings",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+          "bytes": 1382420,
+          "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+          "matchesDist": true,
+          "excludesFixtures": true
+        }
+      ]
+    },
+    {
+      "run": "production-isolation",
+      "name": "Disconnected production world does not request worker, Manager, desk or headband GLBs",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "run": "production-isolation",
+      "name": "Production preview has no console errors or failed network requests",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": []
+      }
+    }
+  ],
+  "screenshots": [
+    "test-results/phase6-manager-coordinating.png",
+    "test-results/phase6-worker-delegated-task.png",
+    "test-results/phase6-manager-attention-context.png",
+    "test-results/phase6-regression-connected-development-office.png",
+    "test-results/phase6-regression-worker-real-local-task.png",
+    "test-results/phase6-regression-runtime-collaboration-hub.png",
+    "test-results/phase6-regression-manager-runtime-review.png",
+    "test-results/phase6-regression-preserved-company-overview.png",
+    "test-results/phase6-regression-preserved-worker-closeup.png",
+    "test-results/phase6-regression-preserved-manager-closeup.png"
+  ],
+  "phase6Files": [
+    "docs/PHASE5_RUNTIME.md",
+    "docs/PHASE6_ORCHESTRATION.md",
+    "src/dev/ManagerOrchestrationPreview.css",
+    "src/dev/ManagerOrchestrationPreview.test.tsx",
+    "src/dev/ManagerOrchestrationPreview.tsx",
+    "src/dev/managerFixtures.ts",
+    "src/orchestration/ManagerOrchestrator.test.ts",
+    "src/orchestration/ManagerOrchestrator.ts",
+    "src/orchestration/capabilityMatcher.test.ts",
+    "src/orchestration/capabilityMatcher.ts",
+    "src/orchestration/orchestrationBridge.test.ts",
+    "src/orchestration/orchestrationTypes.ts",
+    "src/orchestration/planValidation.test.ts",
+    "src/orchestration/planValidation.ts",
+    "src/orchestration/planner.test.ts",
+    "src/orchestration/planner.ts",
+    "src/runtime/officeRuntime.ts",
+    "src/runtime/officeRuntimeBridge.test.ts",
+    "src/runtime/orchestrationRuntime.test.ts",
+    "src/runtime/orchestrationRuntime.ts",
+    "src/runtime/runtimeTypes.ts",
+    "BUILD_PLAN.md",
+    "CODEX_HANDOFF.md",
+    "README.md",
+    "src/App.tsx",
+    "docs/validation/phase6-orchestration-browser.json"
+  ],
+  "preservedPhase5Files": [
+    "src/dev/OfficeRuntimePreview.tsx",
+    "src/dev/runtimeFixtures.ts",
+    "docs/OPEN_OFFICE_CONTRACT.md",
+    "src/office/characterMotion.ts",
+    "src/App.css",
+    "docs/validation/phase5-runtime-browser.json",
+    "src/components/3d/OfficeWorld.tsx",
+    "src/office/officeState.ts",
+    "src/components/RuntimeOffice.tsx",
+    "src/components/OfficeContextPanel.test.tsx",
+    "src/runtime/officeRuntimeBridge.ts",
+    "src/components/OfficeContextPanel.tsx",
+    "src/office/workerPresentation.ts",
+    "src/runtime/officeRuntime.test.ts",
+    "docs/PHASE4_INTERACTIONS.md",
+    "src/office/characterMotion.test.ts",
+    "src/components/RuntimeTaskPanel.tsx",
+    "src/components/RuntimeOffice.test.tsx",
+    "src/dev/OfficeRuntimePreview.test.tsx"
+  ],
+  "limitations": [
+    "No hardware FPS or 100-agent benchmark.",
+    "The older full Phase 4 browser suite was not repeated; the 31-character preservation checks were.",
+    "Task execution outcomes are explicit development inputs, not actual external work or verified artifacts.",
+    "No provider, backend, Supabase, durable persistence, autonomous tools or Phase 7."
+  ]
+}

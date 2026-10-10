@@ -1,5 +1,7 @@
 # Phase 4 — agent interaction and office navigation
 
+This document records the accepted Phase 4 checkpoint. [Phase 5](PHASE5_RUNTIME.md) now supplies a local command-driven business-state engine through these existing interfaces. Phase 4 validation counts below are historical; they do not describe the current total suite.
+
 This phase extends the verified character foundation. The supplied worker, Manager, workstation and headband GLBs, their rigs and their clips are unchanged. There is no backend, authentication, task execution, provider integration or production agent runtime.
 
 ## Selection and camera

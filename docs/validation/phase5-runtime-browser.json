@@ -1,0 +1,455 @@
+{
+  "phase": "Phase 5 — local deterministic runtime framework",
+  "verifiedAt": "2026-10-09T13:50:09.545Z",
+  "browser": "Playwright Chromium, headless",
+  "viewport": {
+    "width": 1500,
+    "height": 1150
+  },
+  "methodology": "Three sequential fresh browser runs: explicit local runtime scenarios, brief preservation of the existing 31-character scene, then the actual production build. Commands were issued through visible development controls; read-only scene/store inspection measured results. Animated marker selection used physical pointer clicks at current visible positions, followed by actual mesh selection.",
+  "totalPassingChecks": 42,
+  "sourceSha256": {
+    "src/runtime/officeRuntime.ts": "ab21995a2fe6e3eb9ae30db58ab630d1c8bb10bce9ece415b8b1e2370dab4bdd",
+    "src/runtime/officeRuntimeBridge.ts": "0eeea9de5d936753482e310c2e67b5aef1325f1c0fa465bb84d0197d4acb622e",
+    "src/components/RuntimeOffice.tsx": "6eeced0d9f9c95e9b491c3aa3ed9abdd42fea1575f19250d31b974d31ba65058",
+    "src/dev/OfficeRuntimePreview.tsx": "b517b82f8cf3c967d23a4e3ed48742030eb906483661120827e26a598e0e9801",
+    "src/office/characterMotion.ts": "27f2debd9bb3c1751db59672180a69e7be6d4002e183287ddcb323e5d297ec8d",
+    "src/components/3d/AnimatedCharacter.tsx": "649cc066ad321c36a4a9e8716f3cef0482aaad1c1e4072644d87ed2353f0d750"
+  },
+  "productionScripts": [
+    {
+      "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+      "bytes": 1382420,
+      "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+      "matchesDist": true,
+      "excludesFixtures": true
+    }
+  ],
+  "checks": [
+    {
+      "run": "runtime-scenarios",
+      "name": "Local runtime begins disconnected with no seeded production agents or tasks",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Explicit connection registers two canonical workers and one dedicated Manager at authored locations",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Canonical worker resources are shared with independent skeletons and a distinct Manager",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Connecting and rendering create no task records automatically",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Create task produces a real queued unassigned record and task inspector",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Assignment updates the authoritative agent and task relationship",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Starting work creates an explicit workstation intent and actual navigation",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Task-driven worker travel and seating are continuous without teleport or navigation diagnostics",
+      "passed": true,
+      "detail": {
+        "samples": 405,
+        "maximumStepMeters": 0.08500000000000002,
+        "phases": ["standing", "walking", "turning", "sitting", "equipping"],
+        "diagnostics": [],
+        "diagnosticRows": []
+      }
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Walking, seating and animation never manufacture task progress or completion",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Worker mesh selection identifies its actual runtime entity without resetting animation",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Agent inspector uses supplied role, task, manager, dependencies and activity",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Working animation advances without per-frame runtime commands, commits, subscriptions or path planning",
+      "passed": true,
+      "detail": {
+        "before": {
+          "store": {
+            "commands": 21,
+            "commits": 18,
+            "notifications": 54,
+            "rejectedCommands": 0,
+            "subscribers": 3
+          },
+          "bridge": {
+            "projections": 7,
+            "plans": 1,
+            "graphBuilds": 1,
+            "feedback": 1
+          },
+          "renderCommits": 10,
+          "events": 14,
+          "activities": 14
+        },
+        "after": {
+          "store": {
+            "commands": 21,
+            "commits": 18,
+            "notifications": 54,
+            "rejectedCommands": 0,
+            "subscribers": 3
+          },
+          "bridge": {
+            "projections": 7,
+            "plans": 1,
+            "graphBuilds": 1,
+            "feedback": 1
+          },
+          "renderCommits": 11,
+          "events": 14,
+          "activities": 14
+        }
+      }
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Explicit progress updates agree across runtime, agent inspector and task panel",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Disconnect hides agents while retaining existing task records",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Reconnect preserves the working task and restores a valid seated worker",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Explicit completion records history and removes the worker accessory",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Dependent work cannot start while its prerequisite is incomplete",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Completing A unlocks B without automatic work or progress",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "An explicit start begins the unlocked dependent task and presents its prerequisite",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Collaboration removes the worker accessory before deterministic travel",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Collaboration arrival records the real requested collaborator while task progress stays unchanged",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Collaboration hub and assigned-desk return remain continuous and deterministic",
+      "passed": true,
+      "detail": {
+        "samples": 793,
+        "maximumStepMeters": 0.11434331053912139,
+        "phases": [
+          "seated",
+          "removing",
+          "standing-up",
+          "walking",
+          "standing",
+          "turning",
+          "sitting",
+          "equipping"
+        ],
+        "diagnostics": [],
+        "diagnosticRows": []
+      }
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Returning resumes the same task and worker animation without fake completion",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Block commands preserve physical pose and expose a real blocker",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Repair requires explicit acknowledgment before work can restart",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Repair acknowledgment requeues work without starting animation",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Explicit resume restores the same task and clears acknowledged blockers",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Manager review uses its dedicated calm model without any worker-only accessory or hard-work state",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Current-task selection opens the exact authoritative task context",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Task selection and updates leave existing model instances and shared assets intact",
+      "passed": true
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Shared GLBs load once across state changes, reset and reconnect",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Runtime preview has no console errors, failed requests or hot reloads",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": [],
+        "reloads": []
+      }
+    },
+    {
+      "run": "runtime-scenarios",
+      "name": "Reset creates an empty disconnected runtime and cleans old subscriptions",
+      "passed": true
+    },
+    {
+      "run": "existing-31-character-preservation",
+      "name": "Existing spatial scenario still mounts 30 canonical workers and one distinct calm Manager",
+      "passed": true
+    },
+    {
+      "run": "existing-31-character-preservation",
+      "name": "Thirty workers still share mesh, material and headband resources with independent skeletons",
+      "passed": true
+    },
+    {
+      "run": "existing-31-character-preservation",
+      "name": "Existing worker mesh selection remains exact and preserves its animation",
+      "passed": true
+    },
+    {
+      "run": "existing-31-character-preservation",
+      "name": "Existing manager mesh selection remains exact and preserves its animation",
+      "passed": true
+    },
+    {
+      "run": "existing-31-character-preservation",
+      "name": "Existing 31-character scenario retains five cached GLB requests without errors or hot reloads",
+      "passed": true,
+      "detail": {
+        "requests": [
+          "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+          "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+          "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+          "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+          "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+        ],
+        "errors": [],
+        "failed": [],
+        "reloads": []
+      }
+    },
+    {
+      "run": "production-boundary",
+      "name": "Production query parameters cannot activate development runtime fixtures or controls",
+      "passed": true
+    },
+    {
+      "run": "production-boundary",
+      "name": "Served production JavaScript matches the final dist build and excludes Phase 5 development fixture strings",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+          "bytes": 1382420,
+          "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+          "matchesDist": true,
+          "excludesFixtures": true
+        }
+      ]
+    },
+    {
+      "run": "production-boundary",
+      "name": "Disconnected production world does not request worker, Manager, desk or headband GLBs",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "run": "production-boundary",
+      "name": "Production preview has no console errors or failed network requests",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": []
+      }
+    }
+  ],
+  "runtimeMetrics": {
+    "store": {
+      "commands": 52,
+      "commits": 44,
+      "notifications": 132,
+      "rejectedCommands": 2,
+      "subscribers": 3
+    },
+    "bridge": {
+      "projections": 21,
+      "plans": 6,
+      "graphBuilds": 1,
+      "feedback": 5
+    },
+    "renderCommits": 52,
+    "events": 34,
+    "activities": 34
+  },
+  "sharedResourceEvidence": {
+    "workers": 30,
+    "managers": 1,
+    "sharedWorkerGeometries": 1,
+    "sharedWorkerMaterials": 1,
+    "independentWorkerSkeletons": 30,
+    "sharedHeadbandGeometry": 1
+  },
+  "graphics": {
+    "runtime": {
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "drawCalls": 21,
+      "triangles": 149295,
+      "geometries": 30
+    },
+    "preserved31Characters": {
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "drawCalls": 22,
+      "triangles": 997027,
+      "geometries": 28
+    }
+  },
+  "networkAndConsole": [
+    {
+      "run": "runtime-scenarios",
+      "startedAt": "2026-10-09T13:45:45.115Z",
+      "completedAt": "2026-10-09T13:47:50.387Z",
+      "errors": [],
+      "failedRequests": [],
+      "hotReloads": [],
+      "glbRequests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "uniqueGlbRequests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "run": "existing-31-character-preservation",
+      "startedAt": "2026-10-09T13:48:07.801Z",
+      "completedAt": "2026-10-09T13:49:32.600Z",
+      "errors": [],
+      "failedRequests": [],
+      "hotReloads": [],
+      "glbRequests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ],
+      "uniqueGlbRequests": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "run": "production-boundary",
+      "startedAt": "2026-10-09T13:49:53.275Z",
+      "completedAt": "2026-10-09T13:49:54.193Z",
+      "errors": [],
+      "failedRequests": [],
+      "hotReloads": [],
+      "glbRequests": [],
+      "uniqueGlbRequests": []
+    }
+  ],
+  "resolvedRegression": {
+    "description": "A valid completed walking command briefly reported a missing unfinished path while awaiting runtime arrival acknowledgment. The diagnostic now excludes a successfully completed supplied command. Routing, clips and task transitions were unchanged.",
+    "verification": "Targeted work → collaboration hub → assigned desk browser cycle completed with no transient diagnostics; the final full runtime cycle also passed.",
+    "diagnosticFrameCount": 0
+  },
+  "screenshots": [
+    "test-results/phase5-connected-development-office.png",
+    "test-results/phase5-worker-real-local-task.png",
+    "test-results/phase5-runtime-collaboration-hub.png",
+    "test-results/phase5-manager-runtime-review.png",
+    "test-results/phase5-preserved-company-overview.png",
+    "test-results/phase5-preserved-worker-closeup.png",
+    "test-results/phase5-preserved-manager-closeup.png"
+  ],
+  "scopeAndLimitations": [
+    "The runtime is a local in-memory service. Development fixture agents and task inputs require explicit connection and commands, and are excluded from production bundles. No external task execution, model provider, backend or persistent production state is claimed.",
+    "Task progress and completion are explicit runtime commands; animation and arrival feedback do not manufacture business progress.",
+    "Thirty workers plus one Manager were functionally preserved with shared resources. This run is not a 100-agent hardware performance certification; recorded WebGL backend and draw counts are observations only.",
+    "Existing supplied models, rigs, clips and open office assets were preserved. Worker-only headbands and the Manager calm seated-work animation remain distinct."
+  ]
+}

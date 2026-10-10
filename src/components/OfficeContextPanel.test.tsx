@@ -69,6 +69,63 @@ const snapshot: OfficeRuntimeSnapshot = {
 const select = vi.fn()
 const inspect = vi.fn()
 describe('office selection contract', () => {
+  it('selects the exact supplied task and updates its runtime status', () => {
+    const onSelectTask = vi.fn()
+    const runtime = {
+      ...snapshot,
+      agents: {
+        a1: {
+          ...agent,
+          destinationId: 'hub:central',
+          task: { ...agent.task!, status: 'in_progress' },
+        },
+      },
+    }
+    const props = {
+      selection: { kind: 'agent' as const, id: 'a1' },
+      onSelect: select,
+      onInspect: inspect,
+      onSelectTask,
+    }
+    const { rerender } = render(
+      <OfficeContextPanel {...props} runtime={runtime} />,
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'Verify artifact' }))
+    expect(onSelectTask).toHaveBeenCalledWith('t1')
+    expect(screen.getByText('in_progress')).toBeDefined()
+    expect(
+      screen.getByText('Requested destination').nextElementSibling?.textContent,
+    ).toBe('hub:central')
+    rerender(
+      <OfficeContextPanel
+        {...props}
+        runtime={{
+          ...runtime,
+          agents: {
+            a1: {
+              ...runtime.agents.a1,
+              destinationId: null,
+              task: {
+                ...runtime.agents.a1.task,
+                status: 'completed',
+                progressPercent: 100,
+              },
+            },
+          },
+        }}
+      />,
+    )
+    expect(screen.queryByText('in_progress')).toBeNull()
+    expect(screen.getByText('completed')).toBeDefined()
+    expect(screen.getByText('100%')).toBeDefined()
+    expect(
+      screen.getByText('Requested destination').nextElementSibling?.textContent,
+    ).toBe('None')
+    rerender(<OfficeContextPanel {...props} runtime={null} />)
+    expect(screen.queryByRole('button', { name: 'Verify artifact' })).toBeNull()
+    expect(screen.queryByText('Requested destination')).toBeNull()
+    expect(screen.getByText(/Agent data unavailable/)).toBeDefined()
+  })
   it('shows disconnected context without fabricated business metrics', () => {
     render(
       <OfficeContextPanel
