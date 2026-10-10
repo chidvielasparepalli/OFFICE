@@ -21,6 +21,7 @@ const emptyState = (): RuntimeState =>
     requests: {},
     plans: {},
     toolExecutions: {},
+    memories: {},
     events: [],
     activities: [],
     selectedAgentId: null,

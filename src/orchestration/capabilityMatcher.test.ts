@@ -41,6 +41,7 @@ function state(...agents: RuntimeAgent[]): RuntimeState {
     requests: {},
     plans: {},
     toolExecutions: {},
+    memories: {},
     events: [],
     activities: [],
     selectedAgentId: null,

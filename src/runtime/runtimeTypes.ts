@@ -13,6 +13,11 @@ import type {
   ToolExecutionResult,
   ToolRuntimeCommand,
 } from '../tools/toolTypes'
+import type {
+  MemoryPolicy,
+  MemoryRecord,
+  MemoryRuntimeCommand,
+} from '../memory/memoryTypes'
 
 export type RuntimeTaskStatus =
   | 'queued'
@@ -105,6 +110,7 @@ export interface RuntimeBusinessChanges {
   readonly toolExecutions?: Readonly<
     Record<string, Readonly<ToolExecutionResult>>
   >
+  readonly memories?: Readonly<Record<string, Readonly<MemoryRecord>>>
 }
 
 export type RuntimeEventType =
@@ -141,6 +147,11 @@ export type RuntimeEventType =
   | 'TOOL_COMPLETED'
   | 'TOOL_FAILED'
   | 'TOOL_CANCELLED'
+  | 'MEMORY_CREATED'
+  | 'MEMORY_RETRIEVED'
+  | 'MEMORY_UPDATED'
+  | 'MEMORY_ARCHIVED'
+  | 'MEMORY_SUPERSEDED'
 
 export interface RuntimeEvent {
   readonly id: string
@@ -178,6 +189,7 @@ export interface RuntimeState {
   readonly toolExecutions: Readonly<
     Record<string, Readonly<ToolExecutionResult>>
   >
+  readonly memories: Readonly<Record<string, Readonly<MemoryRecord>>>
   readonly events: readonly Readonly<RuntimeEvent>[]
   readonly activities: readonly Readonly<RuntimeActivity>[]
   readonly selectedAgentId: string | null
@@ -209,6 +221,7 @@ export interface CreateTaskInput {
 export type RuntimeCommand =
   | OrchestrationCommand
   | ToolRuntimeCommand
+  | MemoryRuntimeCommand
   | { readonly type: 'connect' | 'disconnect' }
   | {
       readonly type: 'registerDepartment'
@@ -295,6 +308,7 @@ export interface OfficeRuntimeOptions {
   readonly repository?: OfficeRuntimeRepository
   readonly now?: () => string
   readonly nextId?: (scope: string) => string
+  readonly memoryPolicy?: MemoryPolicy
 }
 
 export interface RuntimeMetrics {

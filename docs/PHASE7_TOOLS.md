@@ -1,5 +1,7 @@
 # Phase 7 — Agent tools and execution
 
+> Historical Phase 7 report. The stable checkpoint is now `fc03a208a642de87aecddb15e5dc91fdbeecd2c2`. Phase 8 extends its existing runtime with explicit scoped memory; current scope and limits are in [PHASE8_MEMORY.md](PHASE8_MEMORY.md). The original uncommitted status and stop boundary below describe the end of Phase 7.
+
 Phase 7 adds explicit, bounded local tool execution to the existing Manager/runtime foundation. It does not add autonomous work, a real research provider, a production backend or credentials. The reviewed Phase 5/6 work was checkpointed as `08da2a78c902c1e4d0fb3f959e4043c5eba58915` before implementation; all 336 baseline tests passed at that point. Phase 7 work is on `codex/phase7-tools-execution`.
 
 ## Ownership

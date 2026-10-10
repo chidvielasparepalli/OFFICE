@@ -33,6 +33,12 @@ const ToolExecutionPreview =
     ? lazy(() => import('./dev/ToolExecutionPreview'))
     : null
 
+const MemoryPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('memory') === 'preview'
+    ? lazy(() => import('./dev/MemoryPreview'))
+    : null
+
 function App() {
   return (
     <div className="office-shell">
@@ -60,17 +66,23 @@ function App() {
         <div className="office-introduction">
           <h1>AI Corporate Office OS</h1>
           <p>
-            {ToolExecutionPreview
-              ? 'Tool execution development preview. Host permissions protect disposable workspaces; no autonomous work or external AI provider is connected.'
-              : ManagerOrchestrationPreview
-                ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
-                : OfficeRuntimePreview
-                  ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
-                  : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
+            {MemoryPreview
+              ? 'Memory development preview. Scoped, explicit memory operations use the local runtime; no automatic learning or external provider is connected.'
+              : ToolExecutionPreview
+                ? 'Tool execution development preview. Host permissions protect disposable workspaces; no autonomous work or external AI provider is connected.'
+                : ManagerOrchestrationPreview
+                  ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
+                  : OfficeRuntimePreview
+                    ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
+                    : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
           </p>
         </div>
 
-        {ToolExecutionPreview ? (
+        {MemoryPreview ? (
+          <Suspense fallback={<p>Loading memory preview…</p>}>
+            <MemoryPreview />
+          </Suspense>
+        ) : ToolExecutionPreview ? (
           <Suspense fallback={<p>Loading tool execution preview…</p>}>
             <ToolExecutionPreview />
           </Suspense>
@@ -96,7 +108,8 @@ function App() {
 
         {!OfficeRuntimePreview &&
           !ManagerOrchestrationPreview &&
-          !ToolExecutionPreview && (
+          !ToolExecutionPreview &&
+          !MemoryPreview && (
             <div className="office-foundation">
               <section
                 className="runtime-notice"

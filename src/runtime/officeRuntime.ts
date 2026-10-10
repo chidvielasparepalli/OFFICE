@@ -1,5 +1,11 @@
 import type { OfficeAgentStatus, WorldPosition } from '../office/officeState'
 import { ToolFault } from '../tools/toolTypes'
+import { MemoryFault, type MemoryPolicy } from '../memory/memoryTypes'
+import { copyMemoryPolicy } from '../memory/memoryPolicy'
+import {
+  applyMemoryRuntimeCommand,
+  isMemoryRuntimeCommand,
+} from './memoryRuntime'
 import {
   applyOrchestrationCommand,
   invalidatePlanningOnDisconnect,
@@ -159,6 +165,7 @@ export function createEmptyRuntimeState(): RuntimeState {
     requests: {},
     plans: {},
     toolExecutions: {},
+    memories: {},
     events: [],
     activities: [],
     selectedAgentId: null,
@@ -219,6 +226,7 @@ function businessChanges(
     before.toolExecutions,
     after.toolExecutions,
   )
+  const memories = changedRecords(before.memories, after.memories)
   return {
     ...(agents ? { agents } : {}),
     ...(tasks ? { tasks } : {}),
@@ -227,6 +235,7 @@ function businessChanges(
     ...(requests ? { requests } : {}),
     ...(plans ? { plans } : {}),
     ...(toolExecutions ? { toolExecutions } : {}),
+    ...(memories ? { memories } : {}),
     ...(before.connection !== after.connection
       ? { connection: after.connection }
       : {}),
@@ -240,14 +249,17 @@ class Transaction {
   private readonly generated = new Set<string>()
   private readonly now: () => string
   private readonly nextId: (scope: string) => string
+  readonly memoryPolicy: MemoryPolicy
   constructor(
     state: RuntimeState,
     now: () => string,
     nextId: (scope: string) => string,
+    memoryPolicy: MemoryPolicy,
   ) {
     this.state = state
     this.now = now
     this.nextId = nextId
+    this.memoryPolicy = memoryPolicy
   }
   get time() {
     if (this.timestamp === null) {
@@ -269,6 +281,7 @@ class Transaction {
       has(this.state.tasks, id) ||
       has(this.state.agents, id) ||
       has(this.state.toolExecutions, id) ||
+      has(this.state.memories, id) ||
       orchestrationIdUsed(this.state, id) ||
       this.state.events.some((event) => event.id === id) ||
       intentUsed(this.state, id)
@@ -625,6 +638,10 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
   }
   if (isToolRuntimeCommand(command)) {
     applyToolRuntimeCommand(tx, command)
+    return
+  }
+  if (isMemoryRuntimeCommand(command)) {
+    applyMemoryRuntimeCommand(tx, tx.memoryPolicy, command)
     return
   }
   switch (command.type) {
@@ -1359,6 +1376,7 @@ export class OfficeRuntime {
   private readonly repository: OfficeRuntimeRepository
   private readonly now: () => string
   private readonly nextId: (scope: string) => string
+  private readonly memoryPolicy: MemoryPolicy
   private readonly listeners = new Set<() => void>()
   private counters = {
     commands: 0,
@@ -1369,6 +1387,7 @@ export class OfficeRuntime {
   private dispatching = false
 
   constructor(options: OfficeRuntimeOptions = {}) {
+    this.memoryPolicy = copyMemoryPolicy(options.memoryPolicy ?? { grants: [] })
     this.repository =
       options.repository ?? createInMemoryOfficeRuntimeRepository()
     const restored = this.repository.read()
@@ -1384,6 +1403,9 @@ export class OfficeRuntime {
             toolExecutions: restored.toolExecutions
               ? structuredClone(restored.toolExecutions)
               : {},
+            memories: restored.memories
+              ? structuredClone(restored.memories)
+              : {},
           })
     this.now = options.now ?? (() => new Date().toISOString())
     let sequence =
@@ -1398,6 +1420,7 @@ export class OfficeRuntime {
           has(this.snapshot.tasks, id) ||
           has(this.snapshot.agents, id) ||
           has(this.snapshot.toolExecutions, id) ||
+          has(this.snapshot.memories, id) ||
           orchestrationIdUsed(this.snapshot, id) ||
           this.snapshot.events.some((event) => event.id === id) ||
           intentUsed(this.snapshot, id)
@@ -1431,7 +1454,12 @@ export class OfficeRuntime {
     this.dispatching = true
     let next: RuntimeState
     try {
-      const tx = new Transaction(this.snapshot, this.now, this.nextId)
+      const tx = new Transaction(
+        this.snapshot,
+        this.now,
+        this.nextId,
+        this.memoryPolicy,
+      )
       applyCommand(tx, command)
       next = tx.finish(this.snapshot)
       if (next !== this.snapshot) {
@@ -1453,7 +1481,8 @@ export class OfficeRuntime {
         error:
           error instanceof RuntimeFault ||
           error instanceof OrchestrationFault ||
-          error instanceof ToolFault
+          error instanceof ToolFault ||
+          error instanceof MemoryFault
             ? { code: error.code, message: error.message }
             : {
                 code: 'INVALID_COMMAND',

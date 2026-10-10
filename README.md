@@ -10,6 +10,10 @@ The 3D office and local runtime foundation for the **AI Corporate Office OS**: a
 
 ## Current implementation
 
+Phase 8 adds explicit scoped memory in the same runtime: typed provenance/trust, private/task/project/organization access checks, deterministic bounded retrieval, retention and versioned supersession. `MemoryService` uses a principal-bound repository view of `RuntimeState.memories`; no second memory store or event bus exists. Use development-only `/?memory=preview` for the six explicit scenarios. See [the memory contract](docs/PHASE8_MEMORY.md). Phase 7 is the stable checkpoint `fc03a208a642de87aecddb15e5dc91fdbeecd2c2`. Phase 8 supersedes the earlier stop instructions; stop after memory validation, without providers, Supabase, autonomy or later phases.
+
+Phase 8 validation: **524 tests and 73 fresh Chromium checks passed**, preserving all 457 Phase 7 assertions. Typecheck, lint, formatting and build passed, with the documented existing warnings. Memory/tool scenarios, 31-character preservation and production isolation passed without application console errors or failed requests. Production JavaScript is byte-identical to Phase 7. [Evidence and limitations](docs/PHASE8_MEMORY.md#validation-and-limitations).
+
 Phase 7 adds registered tools, host-enforced capabilities/permissions, schema validation, execution records, cancellation and activity in the existing runtime. Development-only `/?tools=preview` runs actual bounded filesystem/terminal/Git operations in disposable workspaces; research is explicitly a deterministic fixture. The host owns runtime truth and the browser consumes snapshots. Tool success never automatically completes a task. See the [Phase 7 contract](docs/PHASE7_TOOLS.md). The reviewed Phase 5/6 checkpoint is `08da2a78c902c1e4d0fb3f959e4043c5eba58915`.
 
 Phase 7 validation: **457 tests and 110 Chromium checks passed**, including all 336 baseline tests and the existing runtime/orchestration/31-character regressions. Typecheck, lint, formatting and build passed; five existing lint warnings and documented build advisories remain. Production is disconnected and excludes the tool endpoint/UI. [Evidence and limitations](docs/PHASE7_TOOLS.md#validation-and-limits).
@@ -89,6 +93,8 @@ Open <http://127.0.0.1:4173>. The preview server serves `dist`; run the build fi
 
 ## Source map
 
+Phase 8 memory contracts, repository/service, access policy and retrieval live in `src/memory/`; `src/runtime/memoryRuntime.ts` handles their existing-runtime transactions. `src/dev/MemoryPreview.tsx` and `memoryFixtures.ts` contain only explicit development scenarios.
+
 | Path                                      | Responsibility                                                                        |
 | ----------------------------------------- | ------------------------------------------------------------------------------------- |
 | `src/main.tsx`                            | React entry point with StrictMode                                                     |
@@ -159,7 +165,7 @@ Local browser scripts, JSON results, and screenshots are in ignored `test-result
 
 ## Next milestone
 
-This work stops after Phase 7 tool-execution validation. Autonomous execution, real providers and a production backend require a later explicit phase. The warehouse floor remains a development candidate with unresolved provenance/licensing and source-scale limitations; previews do not change its production-adoption gate.
+This work stops after Phase 8 memory-system validation. Autonomous execution, real providers and a production backend require a later explicit phase. The warehouse floor remains a development candidate with unresolved provenance/licensing and source-scale limitations; previews do not change its production-adoption gate.
 
 ## Phase 3 warehouse intake
 
