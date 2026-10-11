@@ -4,6 +4,7 @@ import type {
   RuntimeTask,
   RuntimeTaskPriority,
 } from '../runtime/runtimeTypes'
+import type { QARequest, RepairRequest } from '../qa/qaTypes'
 
 export type RequestStatus =
   | 'received'
@@ -105,6 +106,8 @@ export interface ExecutionResult {
   readonly completedTaskIds: readonly string[]
   readonly failedTaskIds: readonly string[]
   readonly blockedTaskIds: readonly string[]
+  readonly verifiedTaskIds: readonly string[]
+  readonly awaitingVerificationTaskIds: readonly string[]
   readonly artifacts: readonly ExecutionArtifact[]
   readonly summary: string
 }
@@ -140,6 +143,8 @@ export interface ManagerContext {
   readonly activeAgents: readonly Readonly<RuntimeAgent>[]
   readonly dependencies: Readonly<Record<string, readonly string[]>>
   readonly events: readonly Readonly<RuntimeEvent>[]
+  readonly qaRequests: readonly Readonly<QARequest>[]
+  readonly repairs: readonly Readonly<RepairRequest>[]
   readonly result: Readonly<ExecutionResult> | null
 }
 

@@ -2,7 +2,7 @@
 
 Phase 8 extends the existing runtime with explicit, scoped memory. It builds on the reviewed Phase 7 checkpoint `fc03a20` on `codex/phase8-memory-system`. It does not add a provider, autonomous learning, a production backend or durable database. Canonical models, animations, navigation, camera and worker-only headband behavior remain unchanged.
 
-The security remediation of checkpoint `c9b7311` closes two confirmed gaps: nested metadata strings did not receive every content credential check, and successive source-changing replacements could launder tool/unverified evidence into agent/observed memory. The rules below supersede the original Phase 8 trust/security claims. This work does not authorize Phase 9.
+The security remediation of checkpoint `c9b7311` closes two confirmed gaps: nested metadata strings did not receive every content credential check, and successive source-changing replacements could launder tool/unverified evidence into agent/observed memory. The rules below supersede the original Phase 8 trust/security claims. That remediation checkpoint is complete; Phase 9 is separately authorized in BUILD_PLAN.md and preserves this policy unchanged.
 
 ## Ownership and repository
 

@@ -84,6 +84,8 @@ function fixture(): RuntimeState {
     plans: {},
     toolExecutions: {},
     memories: {},
+    qaRequests: {},
+    repairRequests: {},
     revision: 1,
     agents: {
       worker,

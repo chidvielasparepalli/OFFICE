@@ -18,6 +18,12 @@ import type {
   MemoryRecord,
   MemoryRuntimeCommand,
 } from '../memory/memoryTypes'
+import type {
+  QARequest,
+  QARuntimeCommand,
+  RepairRequest,
+  TaskVerification,
+} from '../qa/qaTypes'
 
 export type RuntimeTaskStatus =
   | 'queued'
@@ -85,6 +91,8 @@ export interface RuntimeTask {
   readonly completedAt: string | null
   readonly failedAt: string | null
   readonly cancelledAt: string | null
+  /** Present only when explicit checks gate this task; completion alone never sets verified. */
+  readonly verification?: TaskVerification
 }
 
 export interface RuntimeDepartment {
@@ -111,6 +119,8 @@ export interface RuntimeBusinessChanges {
     Record<string, Readonly<ToolExecutionResult>>
   >
   readonly memories?: Readonly<Record<string, Readonly<MemoryRecord>>>
+  readonly qaRequests?: Readonly<Record<string, QARequest>>
+  readonly repairRequests?: Readonly<Record<string, RepairRequest>>
 }
 
 export type RuntimeEventType =
@@ -152,6 +162,20 @@ export type RuntimeEventType =
   | 'MEMORY_UPDATED'
   | 'MEMORY_ARCHIVED'
   | 'MEMORY_SUPERSEDED'
+  | 'QA_REQUESTED'
+  | 'QA_STARTED'
+  | 'QA_PASSED'
+  | 'QA_FAILED'
+  | 'QA_BLOCKED'
+  | 'QA_CANCELLED'
+  | 'REPAIR_REQUESTED'
+  | 'REPAIR_ASSIGNED'
+  | 'REPAIR_STARTED'
+  | 'REPAIR_COMPLETED'
+  | 'REPAIR_FAILED'
+  | 'REPAIR_WAITING'
+  | 'REPAIR_CANCELLED'
+  | 'REPAIR_EXHAUSTED'
 
 export interface RuntimeEvent {
   readonly id: string
@@ -190,6 +214,8 @@ export interface RuntimeState {
     Record<string, Readonly<ToolExecutionResult>>
   >
   readonly memories: Readonly<Record<string, Readonly<MemoryRecord>>>
+  readonly qaRequests: Readonly<Record<string, QARequest>>
+  readonly repairRequests: Readonly<Record<string, RepairRequest>>
   readonly events: readonly Readonly<RuntimeEvent>[]
   readonly activities: readonly Readonly<RuntimeActivity>[]
   readonly selectedAgentId: string | null
@@ -222,6 +248,7 @@ export type RuntimeCommand =
   | OrchestrationCommand
   | ToolRuntimeCommand
   | MemoryRuntimeCommand
+  | QARuntimeCommand
   | { readonly type: 'connect' | 'disconnect' }
   | {
       readonly type: 'registerDepartment'

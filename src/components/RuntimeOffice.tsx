@@ -20,6 +20,7 @@ import type {
 } from '../runtime/runtimeTypes'
 import { createOfficeRuntimeBridge } from '../runtime/officeRuntimeBridge'
 import { RuntimeTaskPanel } from './RuntimeTaskPanel'
+import { AgentQAContext } from './QAContextPanel'
 
 const RuntimeWorld = memo(OfficeWorld)
 
@@ -189,6 +190,7 @@ export function RuntimeOffice({
       {feedbackError && (
         <p role="alert">Spatial feedback rejected: {feedbackError}</p>
       )}
+      <AgentQAContext state={state} onSelectTask={onSelectTask} />
       <RuntimeTaskPanel
         state={state}
         onClose={() => runtime.dispatch({ type: 'selectTask', taskId: null })}

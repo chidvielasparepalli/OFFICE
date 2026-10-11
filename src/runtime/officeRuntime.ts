@@ -1,5 +1,13 @@
 import type { OfficeAgentStatus, WorldPosition } from '../office/officeState'
 import { ToolFault } from '../tools/toolTypes'
+import { QAFault } from '../qa/qaTypes'
+import { isTaskReadyForDependents, repairForTask } from '../qa/qaSelectors'
+import {
+  applyQARuntimeCommand,
+  isQARuntimeCommand,
+  reconcileQA,
+  validateRepairAssignment,
+} from './qaRuntime'
 import { MemoryFault, type MemoryPolicy } from '../memory/memoryTypes'
 import { copyMemoryPolicy } from '../memory/memoryPolicy'
 import {
@@ -167,6 +175,8 @@ export function createEmptyRuntimeState(): RuntimeState {
     plans: {},
     toolExecutions: {},
     memories: {},
+    qaRequests: {},
+    repairRequests: {},
     events: [],
     activities: [],
     selectedAgentId: null,
@@ -228,6 +238,11 @@ function businessChanges(
     after.toolExecutions,
   )
   const memories = changedRecords(before.memories, after.memories)
+  const qaRequests = changedRecords(before.qaRequests, after.qaRequests)
+  const repairRequests = changedRecords(
+    before.repairRequests,
+    after.repairRequests,
+  )
   return {
     ...(agents ? { agents } : {}),
     ...(tasks ? { tasks } : {}),
@@ -237,6 +252,8 @@ function businessChanges(
     ...(plans ? { plans } : {}),
     ...(toolExecutions ? { toolExecutions } : {}),
     ...(memories ? { memories } : {}),
+    ...(qaRequests ? { qaRequests } : {}),
+    ...(repairRequests ? { repairRequests } : {}),
     ...(before.connection !== after.connection
       ? { connection: after.connection }
       : {}),
@@ -283,6 +300,11 @@ class Transaction {
       has(this.state.agents, id) ||
       has(this.state.toolExecutions, id) ||
       has(this.state.memories, id) ||
+      has(this.state.qaRequests, id) ||
+      has(this.state.repairRequests, id) ||
+      Object.values(this.state.qaRequests).some((qa) =>
+        Object.values(qa.executionIds).includes(id),
+      ) ||
       orchestrationIdUsed(this.state, id) ||
       this.state.events.some((event) => event.id === id) ||
       intentUsed(this.state, id)
@@ -351,6 +373,9 @@ class Transaction {
   }
   apply(command: RuntimeCommand) {
     applyCommand(this, command)
+  }
+  reconcileDependencies() {
+    reconcileDependencies(this)
   }
   emit(
     type: RuntimeEventType,
@@ -434,9 +459,9 @@ function currentAgent(tx: Transaction, task: RuntimeTask) {
 function dependencyReason(tx: Transaction, task: RuntimeTask) {
   const pending = task.dependencyIds
     .map((id) => tx.task(id))
-    .filter((dependency) => dependency.status !== 'completed')
+    .filter((dependency) => !isTaskReadyForDependents(dependency))
   return pending.length
-    ? `Waiting for dependencies: ${pending.map((dependency) => `${dependency.id} (${dependency.status})`).join(', ')}.`
+    ? `Waiting for dependencies: ${pending.map((dependency) => `${dependency.id} (${dependency.status}${dependency.verification ? `; QA ${dependency.verification.status}` : ''})`).join(', ')}.`
     : null
 }
 
@@ -643,6 +668,10 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
   }
   if (isMemoryRuntimeCommand(command)) {
     applyMemoryRuntimeCommand(tx, tx.memoryPolicy, command)
+    return
+  }
+  if (isQARuntimeCommand(command)) {
+    applyQARuntimeCommand(tx, command)
     return
   }
   switch (command.type) {
@@ -887,6 +916,7 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
     }
     case 'assignTask': {
       const task = tx.task(command.taskId)
+      validateRepairAssignment(tx, task.id, command.agentId)
       nonterminal(task)
       const agent = tx.agent(command.agentId)
       requireCondition(
@@ -949,6 +979,7 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
       const task = tx.task(command.taskId)
       nonterminal(task)
       const agent = currentAgent(tx, task)
+      validateRepairAssignment(tx, task.id, agent.id)
       const reason = dependencyReason(tx, task)
       requireCondition(
         reason === null,
@@ -956,12 +987,15 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
         reason ?? 'Dependencies are not ready.',
       )
       requireCondition(
-        agent.status !== 'repair',
+        agent.status !== 'repair' || !!repairForTask(tx.state, task.id),
         'INVALID_TRANSITION',
         'Acknowledge repair before restarting work.',
       )
       requireCondition(
-        !(task.status === 'in_progress' && agent.status === 'working'),
+        !(
+          task.status === 'in_progress' &&
+          ['working', 'repair'].includes(agent.status)
+        ),
         'INVALID_TRANSITION',
         `Task ${task.id} is already working.`,
       )
@@ -1036,7 +1070,8 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
       )
       const agent = currentAgent(tx, task)
       requireCondition(
-        agent.status !== 'blocked' && agent.status !== 'repair',
+        agent.status !== 'blocked' &&
+          (agent.status !== 'repair' || !!repairForTask(tx.state, task.id)),
         'INVALID_TRANSITION',
         'Resume the agent before completing its task.',
       )
@@ -1047,12 +1082,19 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
         waitingForDependencies: false,
         completedAt: tx.time,
       })
-      tx.agentPatch(agent.id, {
-        status: 'completed',
-        destination: null,
-        blockers: [],
-        collaboratorIds: [],
-      })
+      tx.agentPatch(
+        agent.id,
+        {
+          status:
+            task.verification && task.verification.status !== 'verified'
+              ? 'waiting'
+              : 'completed',
+          destination: null,
+          blockers: [],
+          collaboratorIds: [],
+        },
+        !!repairForTask(tx.state, task.id),
+      )
       tx.emit('TASK_COMPLETED', `Completed ${task.title}.`, agent.id, task.id)
       reconcileDependencies(tx)
       return
@@ -1409,6 +1451,8 @@ export class OfficeRuntime {
             memories: restored.memories
               ? structuredClone(restored.memories)
               : {},
+            qaRequests: restored.qaRequests ?? {},
+            repairRequests: restored.repairRequests ?? {},
           })
     this.now = options.now ?? (() => new Date().toISOString())
     let sequence =
@@ -1424,6 +1468,11 @@ export class OfficeRuntime {
           has(this.snapshot.agents, id) ||
           has(this.snapshot.toolExecutions, id) ||
           has(this.snapshot.memories, id) ||
+          has(this.snapshot.qaRequests, id) ||
+          has(this.snapshot.repairRequests, id) ||
+          Object.values(this.snapshot.qaRequests).some((qa) =>
+            Object.values(qa.executionIds).includes(id),
+          ) ||
           orchestrationIdUsed(this.snapshot, id) ||
           this.snapshot.events.some((event) => event.id === id) ||
           intentUsed(this.snapshot, id)
@@ -1464,6 +1513,12 @@ export class OfficeRuntime {
         this.memoryPolicy,
       )
       applyCommand(tx, command)
+      if (
+        tx.events.some((event) =>
+          /^(TASK_|AGENT_|QA_|REPAIR_|RUNTIME_DISCONNECTED)/u.test(event.type),
+        )
+      )
+        reconcileQA(tx)
       next = tx.finish(this.snapshot)
       if (next !== this.snapshot) {
         try {
@@ -1485,7 +1540,8 @@ export class OfficeRuntime {
           error instanceof RuntimeFault ||
           error instanceof OrchestrationFault ||
           error instanceof ToolFault ||
-          error instanceof MemoryFault
+          error instanceof MemoryFault ||
+          error instanceof QAFault
             ? { code: error.code, message: error.message }
             : {
                 code: 'INVALID_COMMAND',

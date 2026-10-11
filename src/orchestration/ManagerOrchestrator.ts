@@ -1,5 +1,7 @@
 import type { OfficeRuntime } from '../runtime/officeRuntime'
 import type { RuntimeResult, RuntimeState } from '../runtime/runtimeTypes'
+import type { QARequestInput } from '../qa/qaTypes'
+import { isTaskReadyForDependents } from '../qa/qaSelectors'
 import { eligibleAgents } from './capabilityMatcher'
 import type {
   ExecutionPlan,
@@ -32,14 +34,24 @@ function executionResult(
   const blockedTaskIds = tasks
     .filter((task) => task.status === 'blocked')
     .map((task) => task.id)
+  const verifiedTaskIds = tasks
+    .filter((task) => task.verification?.status === 'verified')
+    .map((task) => task.id)
+  const awaitingVerificationTaskIds = tasks
+    .filter(
+      (task) => task.verification && task.verification.status !== 'verified',
+    )
+    .map((task) => task.id)
   return Object.freeze({
     requestId: plan.requestId,
     status: plan.status,
     completedTaskIds: Object.freeze(completedTaskIds),
     failedTaskIds: Object.freeze(failedTaskIds),
     blockedTaskIds: Object.freeze(blockedTaskIds),
+    verifiedTaskIds: Object.freeze(verifiedTaskIds),
+    awaitingVerificationTaskIds: Object.freeze(awaitingVerificationTaskIds),
     artifacts: Object.freeze([]),
-    summary: `${completedTaskIds.length} of ${plan.taskIds.length} tasks recorded complete; ${failedTaskIds.length} failed; ${blockedTaskIds.length} blocked. No output artifacts have been supplied or verified.`,
+    summary: `${completedTaskIds.length} of ${plan.taskIds.length} tasks recorded complete; ${failedTaskIds.length} failed; ${blockedTaskIds.length} blocked; ${verifiedTaskIds.length} passed selected QA checks; ${awaitingVerificationTaskIds.length} awaiting verification. No output artifacts have been supplied or verified.`,
   })
 }
 
@@ -266,7 +278,9 @@ export class ManagerOrchestrator {
       if (
         task.status !== 'queued' ||
         task.assignedAgentId !== null ||
-        task.dependencyIds.some((id) => state.tasks[id]?.status !== 'completed')
+        task.dependencyIds.some(
+          (id) => !isTaskReadyForDependents(state.tasks[id]),
+        )
       )
         continue
       this.counters.dispatchAttempts += 1
@@ -292,6 +306,66 @@ export class ManagerOrchestrator {
       }
     }
     return { ok: issues.length === 0, dispatchedTaskIds, issues }
+  }
+
+  private ownsQATask(taskId: string): boolean {
+    const state = this.runtime.getSnapshot()
+    const task = state.tasks[taskId]
+    const planId = task?.metadata.planId
+    const plan = typeof planId === 'string' ? state.plans[planId] : null
+    return Boolean(
+      plan?.managerId === this.managerId && plan.taskIds.includes(taskId),
+    )
+  }
+
+  requestQA(request: Omit<QARequestInput, 'requestedBy'>): RuntimeResult {
+    if (!this.ownsQATask(request.taskId))
+      return failure(
+        'INVALID_OWNERSHIP',
+        'QA must target a task in this Manager’s plan.',
+      )
+    return this.runtime.dispatch({
+      type: 'requestQA',
+      request: { ...request, requestedBy: this.managerId },
+    })
+  }
+
+  assignRepair(repairId: string, agentId?: string): RuntimeResult {
+    const repair = this.runtime.getSnapshot().repairRequests[repairId]
+    if (!repair || !this.ownsQATask(repair.sourceTaskId))
+      return failure(
+        'INVALID_OWNERSHIP',
+        'Repair must belong to this Manager’s plan.',
+      )
+    return this.runtime.dispatch({
+      type: 'assignRepair',
+      repairId,
+      ...(agentId === undefined ? {} : { agentId }),
+    })
+  }
+
+  startRepair(repairId: string): RuntimeResult {
+    const repair = this.runtime.getSnapshot().repairRequests[repairId]
+    if (!repair || !this.ownsQATask(repair.sourceTaskId))
+      return failure(
+        'INVALID_OWNERSHIP',
+        'Repair must belong to this Manager’s plan.',
+      )
+    return this.runtime.dispatch({ type: 'startRepair', repairId })
+  }
+
+  recheckQA(qaId: string, newQaId?: string): RuntimeResult {
+    const qa = this.runtime.getSnapshot().qaRequests[qaId]
+    if (!qa || !this.ownsQATask(qa.taskId))
+      return failure(
+        'INVALID_OWNERSHIP',
+        'Recheck must belong to this Manager’s plan.',
+      )
+    return this.runtime.dispatch({
+      type: 'recheckQA',
+      qaId,
+      ...(newQaId === undefined ? {} : { newQaId }),
+    })
   }
 
   cancelRequest(requestId: string, reason: string): RuntimeResult {
@@ -337,6 +411,8 @@ export class ManagerOrchestrator {
               event.type.startsWith('TASK_') ||
               event.type.startsWith('AGENT_') ||
               event.type.startsWith('TOOL_') ||
+              event.type.startsWith('QA_') ||
+              event.type.startsWith('REPAIR_') ||
               event.type === 'PLAN_ACCEPTED' ||
               event.type === 'RUNTIME_CONNECTED',
           )
@@ -389,8 +465,20 @@ export class ManagerOrchestrator {
       ? plan.taskIds.map((id) => state.tasks[id]).filter(Boolean)
       : []
     const taskIds = new Set(tasks.map((task) => task.id))
+    const qaRequests = Object.values(state.qaRequests).filter((qa) =>
+      taskIds.has(qa.taskId),
+    )
+    const repairs = Object.values(state.repairRequests).filter((repair) =>
+      taskIds.has(repair.sourceTaskId),
+    )
+    for (const qa of qaRequests)
+      if (qa.inspectionTaskId) taskIds.add(qa.inspectionTaskId)
+    for (const repair of repairs) taskIds.add(repair.taskId)
     if (request?.coordinationTaskId) taskIds.add(request.coordinationTaskId)
-    const activeTasks = tasks.filter((task) => !terminal.has(task.status))
+    const activeTasks = [...taskIds]
+      .filter((id) => id !== request?.coordinationTaskId)
+      .map((id) => state.tasks[id])
+      .filter((task) => task && !terminal.has(task.status))
     const activeIds = new Set(
       activeTasks
         .map((task) => task.assignedAgentId)
@@ -421,6 +509,8 @@ export class ManagerOrchestrator {
             (request !== null && event.payload.requestId === request.requestId),
         ),
       ),
+      qaRequests: Object.freeze(qaRequests),
+      repairs: Object.freeze(repairs),
       result: plan ? executionResult(plan, state) : null,
     })
     this.cachedContext = { state, requestId, value }

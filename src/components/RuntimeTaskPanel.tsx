@@ -1,4 +1,5 @@
 import type { RuntimeState } from '../runtime/runtimeTypes'
+import { TaskQAContext } from './QAContextPanel'
 
 export function RuntimeTaskPanel({
   state,
@@ -55,6 +56,7 @@ export function RuntimeTaskPanel({
           </>
         )}
       </dl>
+      <TaskQAContext state={state} taskId={task.id} />
       <h3>Task activity</h3>
       {activity.length ? (
         <ul>

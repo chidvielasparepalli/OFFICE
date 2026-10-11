@@ -39,6 +39,12 @@ const MemoryPreview =
     ? lazy(() => import('./dev/MemoryPreview'))
     : null
 
+const QAPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('qa') === 'preview'
+    ? lazy(() => import('./dev/QAPreview'))
+    : null
+
 function App() {
   return (
     <div className="office-shell">
@@ -66,19 +72,25 @@ function App() {
         <div className="office-introduction">
           <h1>AI Corporate Office OS</h1>
           <p>
-            {MemoryPreview
-              ? 'Memory development preview. Scoped, explicit memory operations use the local runtime; no automatic learning or external provider is connected.'
-              : ToolExecutionPreview
-                ? 'Tool execution development preview. Host permissions protect disposable workspaces; no autonomous work or external AI provider is connected.'
-                : ManagerOrchestrationPreview
-                  ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
-                  : OfficeRuntimePreview
-                    ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
-                    : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
+            {QAPreview
+              ? 'QA development preview. Explicit tool checks distinguish completed work from verified work; repair attempts are bounded and retain history.'
+              : MemoryPreview
+                ? 'Memory development preview. Scoped, explicit memory operations use the local runtime; no automatic learning or external provider is connected.'
+                : ToolExecutionPreview
+                  ? 'Tool execution development preview. Host permissions protect disposable workspaces; no autonomous work or external AI provider is connected.'
+                  : ManagerOrchestrationPreview
+                    ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
+                    : OfficeRuntimePreview
+                      ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
+                      : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
           </p>
         </div>
 
-        {MemoryPreview ? (
+        {QAPreview ? (
+          <Suspense fallback={<p>Loading QA preview.</p>}>
+            <QAPreview />
+          </Suspense>
+        ) : MemoryPreview ? (
           <Suspense fallback={<p>Loading memory preview…</p>}>
             <MemoryPreview />
           </Suspense>
@@ -109,6 +121,7 @@ function App() {
         {!OfficeRuntimePreview &&
           !ManagerOrchestrationPreview &&
           !ToolExecutionPreview &&
+          !QAPreview &&
           !MemoryPreview && (
             <div className="office-foundation">
               <section

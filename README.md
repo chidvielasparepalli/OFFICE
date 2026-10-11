@@ -10,9 +10,13 @@ The 3D office and local runtime foundation for the **AI Corporate Office OS**: a
 
 ## Current implementation
 
-Phase 8 adds explicit scoped memory in the same runtime: typed provenance/trust, private/task/project/organization access checks, deterministic bounded retrieval, retention and versioned supersession. `MemoryService` uses a principal-bound repository view of `RuntimeState.memories`; no second memory store or event bus exists. Use development-only `/?memory=preview` for the six explicit scenarios. See [the memory contract](docs/PHASE8_MEMORY.md). Phase 7 is the stable checkpoint `fc03a208a642de87aecddb15e5dc91fdbeecd2c2`. Phase 8 supersedes the earlier stop instructions; stop after memory validation, without providers, Supabase, autonomy or later phases.
+Phase 9 validation: **658 tests and 48 targeted Chromium checks passed**. Typecheck, lint, formatting and build pass with existing warnings. No console/page errors or unexpected failed requests; production JavaScript remains byte-identical to Phase 8. [Validation evidence and limits](docs/PHASE9_QA_REPAIR.md#validation-performance-and-limits).
 
-Phase 8 checkpoint `c9b7311` passed **524 tests and 73 Chromium checks**, but a later security review found credential-like metadata and replacement-based trust escalation. The remediation closes those paths while preserving access rules and prior behavior. [Current security policy, validation and limitations](docs/PHASE8_MEMORY.md#validation-and-limitations). Phase 9 remains outside the current authorization.
+Phase 9 adds explicit QA and bounded repair in the existing runtime. Approved ToolExecutor evidence determines quality; worker completion remains separate from verification. Failed checks create canonical repair tasks, rechecks retain history, and the Manager gates configured workflows. Use development-only `/?qa=preview`. [Architecture, scenarios and limits](docs/PHASE9_QA_REPAIR.md). The Phase 8 security checkpoint `99f2df5` is preserved; current branch is `codex/phase9-qa-repair`.
+
+Phase 8 adds explicit scoped memory in the same runtime: typed provenance/trust, private/task/project/organization access checks, deterministic bounded retrieval, retention and versioned supersession. `MemoryService` uses a principal-bound repository view of `RuntimeState.memories`; no second memory store or event bus exists. Use development-only `/?memory=preview` for the six explicit scenarios. See [the memory contract](docs/PHASE8_MEMORY.md). Phase 7 is the stable checkpoint `fc03a208a642de87aecddb15e5dc91fdbeecd2c2`. The current Phase 9 scope extends this validated memory foundation.
+
+Phase 8 checkpoint `c9b7311` passed **524 tests and 73 Chromium checks**, but a later security review found credential-like metadata and replacement-based trust escalation. The remediation closes those paths while preserving access rules and prior behavior. [Current security policy, validation and limitations](docs/PHASE8_MEMORY.md#validation-and-limitations). Remediation checkpoint `99f2df5` passed 564 tests and 39 Chromium security checks; those security rules remain mandatory in Phase 9.
 
 Phase 7 adds registered tools, host-enforced capabilities/permissions, schema validation, execution records, cancellation and activity in the existing runtime. Development-only `/?tools=preview` runs actual bounded filesystem/terminal/Git operations in disposable workspaces; research is explicitly a deterministic fixture. The host owns runtime truth and the browser consumes snapshots. Tool success never automatically completes a task. See the [Phase 7 contract](docs/PHASE7_TOOLS.md). The reviewed Phase 5/6 checkpoint is `08da2a78c902c1e4d0fb3f959e4043c5eba58915`.
 
@@ -95,6 +99,8 @@ Open <http://127.0.0.1:4173>. The preview server serves `dist`; run the build fi
 
 Phase 8 memory contracts, repository/service, access policy and retrieval live in `src/memory/`; `src/runtime/memoryRuntime.ts` handles their existing-runtime transactions. `src/dev/MemoryPreview.tsx` and `memoryFixtures.ts` contain only explicit development scenarios.
 
+Phase 9 contracts, assertion policy and ToolExecutor coordination live in `src/qa/`; `src/runtime/qaRuntime.ts` applies QA/repair transactions to the same runtime. Repairs and inspection work use canonical tasks. `src/dev/QAPreview.tsx` and `qaFixtures.ts` contain explicit local document scenarios; `QAContextPanel.tsx` exposes real attempts/evidence alongside the existing agent/task inspector.
+
 | Path                                      | Responsibility                                                                        |
 | ----------------------------------------- | ------------------------------------------------------------------------------------- |
 | `src/main.tsx`                            | React entry point with StrictMode                                                     |
@@ -165,7 +171,7 @@ Local browser scripts, JSON results, and screenshots are in ignored `test-result
 
 ## Next milestone
 
-This work stops after Phase 8 memory-system validation. Autonomous execution, real providers and a production backend require a later explicit phase. The warehouse floor remains a development candidate with unresolved provenance/licensing and source-scale limitations; previews do not change its production-adoption gate.
+This work stops after Phase 9 QA/repair validation. Autonomous execution, real providers and a production backend require a later explicit phase. The warehouse floor remains a development candidate with unresolved provenance/licensing and source-scale limitations; previews do not change its production-adoption gate.
 
 ## Phase 3 warehouse intake
 
