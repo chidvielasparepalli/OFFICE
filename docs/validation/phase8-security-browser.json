@@ -1,0 +1,365 @@
+{
+  "startedAt": "2026-10-11T06:23:48.533Z",
+  "scope": "Phase 8 security remediation only",
+  "checks": [
+    {
+      "name": "Preview begins disconnected with no seeded task or memory",
+      "passed": true
+    },
+    {
+      "name": "Existing worker still sits and uses its worker-only headband",
+      "passed": true
+    },
+    {
+      "name": "Safe UI write and later-task context preserve explicit task history and bounded output",
+      "passed": true
+    },
+    {
+      "name": "Own worker-private retrieval remains available",
+      "passed": true
+    },
+    {
+      "name": "Unrelated worker cannot retrieve worker-private memory and old output is cleared",
+      "passed": true
+    },
+    {
+      "name": "Manager cannot retrieve worker-private memory and old output is cleared",
+      "passed": true
+    },
+    {
+      "name": "Safe same-source Manager supersession retains both records and exact origin",
+      "passed": true
+    },
+    {
+      "name": "Project UI returns active replacement and excludes superseded content",
+      "passed": true
+    },
+    {
+      "name": "Dedicated Manager retains calm work and never attaches the worker headband",
+      "passed": true
+    },
+    {
+      "name": "Actual fixture ToolExecutor completion does not automatically write memory",
+      "passed": true
+    },
+    {
+      "name": "Worker cannot verify tool evidence without a verify grant",
+      "passed": true
+    },
+    {
+      "name": "Create rejects nested quoted assignment before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Update rejects nested quoted assignment before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Supersession rejects nested quoted assignment before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Create rejects nested credential URL before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Update rejects nested credential URL before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Supersession rejects nested credential URL before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Create rejects quoted assignment key before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Update rejects quoted assignment key before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Supersession rejects quoted assignment key before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Create rejects credential URL key before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Update rejects credential URL key before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Supersession rejects credential URL key before memory/event mutation",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Inferred memory cannot become observed through an ordinary update",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "INVALID_TRUST",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Inferred memory cannot become observed through content supersession",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "INVALID_TRUST",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Tool-to-agent source laundering is blocked even with unverified trust",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "INVALID_TRUST",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "The blocked intermediate laundering record cannot be promoted",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "MEMORY_NOT_FOUND",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Direct tool-to-agent observed supersession is rejected",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "INVALID_TRUST",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Direct tool evidence trust promotion remains rejected",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "INVALID_TRUST",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Legitimate tool revision preserves exact provenance, unverified trust and historical linkage",
+      "passed": true
+    },
+    {
+      "name": "Contaminated current and historical repository records fail before exposing a restored runtime",
+      "passed": true,
+      "detail": [
+        {
+          "target": "current",
+          "rejected": true,
+          "code": "SECRET_REJECTED"
+        },
+        {
+          "target": "history",
+          "rejected": true,
+          "code": "SECRET_REJECTED"
+        }
+      ]
+    },
+    {
+      "name": "Unverified provenance remains truthful in actual rendered context",
+      "passed": true
+    },
+    {
+      "name": "Rejected synthetic credential text appears in neither memory/events nor DOM/context",
+      "passed": true,
+      "detail": {
+        "inMemoryOrEvents": false,
+        "inDomOrContext": false
+      }
+    },
+    {
+      "name": "Worker still cannot authorize verified status for inferred project memory",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "MEMORY_ACCESS_DENIED",
+        "sameSnapshot": true,
+        "sameMemories": true,
+        "sameEvents": true
+      }
+    },
+    {
+      "name": "Only explicit authorized Manager verification produces verified context with fresh attribution",
+      "passed": true
+    },
+    {
+      "name": "Security/context operations add no per-frame queries or polling",
+      "passed": true,
+      "detail": {
+        "before": {
+          "commands": 69,
+          "commits": 42,
+          "notifications": 129,
+          "rejectedCommands": 22,
+          "subscribers": 3
+        },
+        "after": {
+          "commands": 69,
+          "commits": 42,
+          "notifications": 129,
+          "rejectedCommands": 22,
+          "subscribers": 3
+        }
+      }
+    },
+    {
+      "name": "Canonical assets remain shared through one request per GLB",
+      "passed": true
+    },
+    {
+      "name": "No browser console/page errors, failed requests or hot reloads",
+      "passed": true,
+      "detail": {
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "hotReloads": 0
+      }
+    },
+    {
+      "name": "Application sources remained unchanged throughout the run",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "hotReloads": [],
+  "assetRequests": [
+    "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+    "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+  ],
+  "screenshots": ["test-results/phase8-security-context.png"],
+  "sourceSha256": {
+    "src/memory/memoryPolicy.ts": "7ee3b2e21ef9f0c4a0258bebf602d4135f643305e6f0bd5ffdec1aacdbcbc4ae",
+    "src/memory/memoryRetrieval.ts": "5764ded528619040af5d3398b4f6a25b3f8e391e72af563b9ab42aa55a83dc40",
+    "src/runtime/memoryRuntime.ts": "4856a53ebf682401baa8d1e5a947d4b9f5e6f8325235d1d6e07a6c4bd84df54f",
+    "src/runtime/officeRuntime.ts": "83b010cc7676a8959fc624d28f3618e529567b22ee8e5149dfe4b2d647f13c70",
+    "src/dev/MemoryPreview.tsx": "f09a678c09f0fe82a93d2f00922eebcd7434633c3430b821cfecbe95f969b64f",
+    "src/dev/memoryFixtures.ts": "a9154110d8a6ed79401c9cbda9c89be2458e98fd57fbe065597eb0aed8cf399c"
+  },
+  "completedAt": "2026-10-11T06:24:43.024Z",
+  "totalChecks": 39,
+  "metrics": {
+    "commands": 69,
+    "commits": 42,
+    "notifications": 129,
+    "rejectedCommands": 22,
+    "subscribers": 3
+  },
+  "limitations": [
+    "Targeted security remediation validation, not a rerun of the full Phase 8 browser suite.",
+    "Synthetic fixtures only; no credentials were used or written.",
+    "Memory remains in-process and secret-pattern rejection is defense in depth."
+  ]
+}

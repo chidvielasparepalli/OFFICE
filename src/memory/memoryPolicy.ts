@@ -31,6 +31,7 @@ export function memoryId(value: unknown) {
     'INVALID_MEMORY',
     'Reserved memory identifier.',
   )
+  memorySafeJson(id)
   return id
 }
 const types = ['working', 'episodic', 'semantic', 'project', 'preference']
@@ -52,10 +53,10 @@ const reasons = [
 ]
 
 /** Reuse bounded public JSON validation, but reject rather than retain redacted secrets. */
-export function memorySafeJson(value: unknown): RuntimeJson {
+export function memorySafeJson(value: unknown, maxBytes = 8192): RuntimeJson {
   let safe: RuntimeJson
   try {
-    safe = publicToolJson(value, 8192)
+    safe = publicToolJson(value, maxBytes)
   } catch {
     throw new MemoryFault(
       'INVALID_MEMORY',
@@ -68,14 +69,89 @@ export function memorySafeJson(value: unknown): RuntimeJson {
     'SECRET_REJECTED',
     'Credential-like content cannot be stored in ordinary memory.',
   )
-  memoryAssert(
-    !/\b(?:sk-[A-Za-z0-9_-]{12,}|gh[pousr]_[A-Za-z0-9]{12,}|AKIA[A-Z0-9]{16}|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)\b/u.test(
-      original,
-    ),
-    'SECRET_REJECTED',
-    'Credential-like content cannot be stored in ordinary memory.',
-  )
+  function inspect(item: RuntimeJson): void {
+    if (typeof item === 'string') {
+      memoryAssert(
+        !/\b(?:sk-[A-Za-z0-9_-]{12,}|gh[pousr]_[A-Za-z0-9]{12,}|AKIA[A-Z0-9]{16}|eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)\b/u.test(
+          item,
+        ) &&
+          !/["']?(?:password|api[_-]?key|(?:access|refresh)[_-]?token|private[_-]?key|(?:client[_-]?)?secret|authorization|credential|token)["']?\s*[:=]\s*["']?[^\s"',;}]+/iu.test(
+            item,
+          ) &&
+          !/https?:\/\/[^\s/:]+:[^\s/@]+@/iu.test(item) &&
+          redactToolText(item) === item,
+        'SECRET_REJECTED',
+        'Credential-like content cannot be stored in ordinary memory.',
+      )
+    } else if (Array.isArray(item)) item.forEach(inspect)
+    else if (item !== null && typeof item === 'object') {
+      for (const [key, child] of Object.entries(item)) {
+        memoryAssert(
+          !/password|secret|token|authorization|credential|api.?key|private.?key/iu.test(
+            key,
+          ),
+          'SECRET_REJECTED',
+          'Credential-like fields cannot be stored in ordinary memory.',
+        )
+        inspect(key)
+        inspect(child)
+      }
+    }
+  }
+  inspect(safe)
   return safe
+}
+
+/** Persisted records include runtime fields and separately bounded metadata updates. */
+export function validateStoredMemory(record: MemoryRecord) {
+  memorySafeJson(record, 32768)
+  memoryAssert(
+    trusts.includes(record.trust),
+    'INVALID_TRUST',
+    'Unsupported stored memory trust.',
+  )
+  const proof = record.verification
+  if (record.trust === 'verified') {
+    memoryAssert(
+      proof !== null && typeof proof === 'object' && !Array.isArray(proof),
+      'INVALID_TRUST',
+      'Verified memory requires its verification assertion.',
+    )
+    memoryObject(proof, ['agentId', 'evidence', 'at'])
+    memoryId(proof.agentId)
+    memoryText(proof.evidence, 1000)
+    memoryAssert(
+      typeof proof.at === 'string' && Number.isFinite(Date.parse(proof.at)),
+      'INVALID_TRUST',
+      'Verification requires a valid timestamp.',
+    )
+  } else {
+    memoryAssert(
+      proof === null,
+      'INVALID_TRUST',
+      'Unverified assertions cannot carry a verification claim.',
+    )
+  }
+}
+
+/** Content succession is not verification; origin survives every revision. */
+export function validateMemoryTransition(
+  prior: MemoryRecord,
+  next: MemoryRecord,
+  replacement = false,
+) {
+  memoryAssert(
+    prior.source.kind === next.source.kind &&
+      prior.source.id === next.source.id,
+    'INVALID_TRUST',
+    'Memory must preserve its original source identity.',
+  )
+  memoryAssert(
+    prior.trust === next.trust ||
+      (!replacement && next.trust === 'verified' && next.verification !== null),
+    'INVALID_TRUST',
+    'Replacement must retain trust; promotion requires a separate authorized verification update.',
+  )
 }
 export function memoryText(value: unknown, max = 4000): string {
   memoryAssert(
@@ -89,18 +165,6 @@ export function memoryText(value: unknown, max = 4000): string {
     ),
     'INVALID_MEMORY',
     'Invalid control character.',
-  )
-  memoryAssert(
-    redactToolText(value) === value,
-    'SECRET_REJECTED',
-    'Credential-like content cannot be stored in ordinary memory.',
-  )
-  memoryAssert(
-    !/["']?(?:password|api[_-]?key|access[_-]?token|private[_-]?key|client[_-]?secret)["']?\s*[:=]\s*["']?[^\s"',;}]+/iu.test(
-      value,
-    ) && !/https?:\/\/[^\s/:]+:[^\s/@]+@/iu.test(value),
-    'SECRET_REJECTED',
-    'Credential-like content cannot be stored in ordinary memory.',
   )
   memorySafeJson(value)
   return value.trim()
@@ -289,7 +353,7 @@ export function createMemoryRecord(
     'rationale',
     'verificationEvidence',
   ])
-  memorySafeJson(input)
+  input = memorySafeJson(input) as unknown as MemoryWriteInput
   const scope = memoryScope(input.scope)
   requireMemoryAccess(state, policy, actorId, scope, 'write')
   memoryAssert(
@@ -384,7 +448,8 @@ export function createMemoryRecord(
       'Tool evidence must belong to the same project.',
     )
     memoryAssert(
-      input.trust === 'unverified',
+      input.trust === 'unverified' ||
+        (supersedesId !== null && input.trust === 'verified'),
       'INVALID_TRUST',
       'Tool-derived memory starts unverified; verification is a separate authorized operation.',
     )
@@ -460,7 +525,7 @@ export function updateMemoryRecord(
     'trust',
     'verificationEvidence',
   ])
-  memorySafeJson(patch)
+  patch = memorySafeJson(patch) as MemoryUpdate
   requireRecordAccess(state, policy, actorId, prior, 'write')
   memoryAssert(
     Object.keys(patch).length > 0,
@@ -495,20 +560,13 @@ export function updateMemoryRecord(
           now,
         )
       : prior.verification
-  memoryAssert(
-    prior.source.kind !== 'tool' ||
-      trust === 'unverified' ||
-      trust === 'verified',
-    'INVALID_TRUST',
-    'Tool evidence requires explicit verification before promotion.',
-  )
   const metadata =
     patch.metadata === undefined
       ? prior.metadata
       : (memorySafeJson(patch.metadata) as MemoryRecord['metadata'])
   memoryObject(metadata, Object.keys(metadata))
   // Updating importance cannot prolong expired working context; create a new explicit record.
-  return {
+  const record: MemoryRecord = {
     ...prior,
     importance,
     trust,
@@ -517,4 +575,6 @@ export function updateMemoryRecord(
     updatedAt: now,
     revision: prior.revision + 1,
   }
+  validateMemoryTransition(prior, record)
+  return record
 }

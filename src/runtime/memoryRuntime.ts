@@ -10,14 +10,53 @@ import {
   isActiveMemory,
   memoryId,
   memoryObject,
+  memorySafeJson,
   requireRecordAccess,
   updateMemoryRecord,
+  validateMemoryTransition,
+  validateStoredMemory,
 } from '../memory/memoryPolicy'
 import { buildMemoryContext, retrieveMemories } from '../memory/memoryRetrieval'
 import type { OrchestrationTransaction } from './orchestrationRuntime'
-import type { RuntimeCommand, RuntimeJson } from './runtimeTypes'
+import type { RuntimeCommand, RuntimeJson, RuntimeState } from './runtimeTypes'
 
 type MemoryTransaction = OrchestrationTransaction
+
+/** Check legacy memory and its after-images before publishing a restored snapshot.
+ * The repository is trusted host state; historical grants are not re-authorized. */
+export function validateRestoredMemories(state: RuntimeState) {
+  const history = new Map<string, MemoryRecord>()
+  for (const event of state.events) {
+    if (event.type.startsWith('MEMORY_')) {
+      // This runtime-owned numeric metric is not a credential-bearing metadata key.
+      const { approximateTokens, ...payload } = event.payload
+      ensure(
+        approximateTokens === undefined ||
+          (Number.isSafeInteger(approximateTokens) &&
+            (approximateTokens as number) >= 0),
+        'INVALID_MEMORY',
+        'Memory retrieval metrics must be nonnegative integers.',
+      )
+      memorySafeJson(payload)
+    }
+    for (const record of Object.values(event.changes.memories ?? {})) {
+      validateStoredMemory(record)
+      const prior = history.get(record.id)
+      const replaced = record.supersedesId && history.get(record.supersedesId)
+      if (prior) validateMemoryTransition(prior, record)
+      else if (replaced) validateMemoryTransition(replaced, record, true)
+      history.set(record.id, record)
+    }
+  }
+  for (const record of Object.values(state.memories ?? {})) {
+    validateStoredMemory(record)
+    const prior = history.get(record.id)
+    if (prior) validateMemoryTransition(prior, record)
+    const replaced = record.supersedesId && state.memories[record.supersedesId]
+    if (replaced) validateMemoryTransition(replaced, record)
+  }
+}
+
 const commandFields: Record<MemoryRuntimeCommand['type'], readonly string[]> = {
   createMemory: ['type', 'agentId', 'memory'],
   updateMemory: ['type', 'agentId', 'memoryId', 'expectedRevision', 'patch'],
@@ -39,6 +78,7 @@ function ensure(value: unknown, code: string, message: string): asserts value {
 }
 
 function store(tx: MemoryTransaction, ...records: readonly MemoryRecord[]) {
+  records.forEach(validateStoredMemory)
   tx.state = {
     ...tx.state,
     memories: {
@@ -126,6 +166,12 @@ function validateLineage(tx: MemoryTransaction, record: MemoryRecord) {
         sameScope(prior, record),
       'INVALID_LINEAGE',
       'Memory lineage must retain reciprocal links within one scope and project.',
+    )
+    ensure(
+      prior.source.kind === current.source.kind &&
+        prior.source.id === current.source.id,
+      'INVALID_TRUST',
+      'Memory lineage must preserve its original source identity.',
     )
     current = prior
   }
@@ -292,13 +338,7 @@ export function applyMemoryRuntimeCommand(
         'SCOPE_MISMATCH',
         'A replacement must retain the same scope and project.',
       )
-      ensure(
-        prior.source.kind !== 'tool' ||
-          prior.trust === 'verified' ||
-          ['unverified', 'verified'].includes(replacement.trust),
-        'INVALID_TRUST',
-        'Superseding unverified tool evidence requires explicit verification before promotion.',
-      )
+      validateMemoryTransition(prior, replacement, true)
       store(
         tx,
         {
@@ -324,6 +364,7 @@ export function applyMemoryRuntimeCommand(
       if (record)
         requireRecordAccess(tx.state, policy, command.agentId, record, 'read')
       const memories = record && isActiveMemory(record, tx.time) ? [record] : []
+      memories.forEach(validateStoredMemory)
       const characters = JSON.stringify(memories).length
       emitRetrieval(tx, command.agentId, {
         memories,

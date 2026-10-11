@@ -5,6 +5,7 @@ import { copyMemoryPolicy } from '../memory/memoryPolicy'
 import {
   applyMemoryRuntimeCommand,
   isMemoryRuntimeCommand,
+  validateRestoredMemories,
 } from './memoryRuntime'
 import {
   applyOrchestrationCommand,
@@ -1390,12 +1391,14 @@ export class OfficeRuntime {
     this.memoryPolicy = copyMemoryPolicy(options.memoryPolicy ?? { grants: [] })
     this.repository =
       options.repository ?? createInMemoryOfficeRuntimeRepository()
-    const restored = this.repository.read()
+    const saved = this.repository.read()
+    const restored = saved === null ? null : structuredClone(saved)
+    if (restored) validateRestoredMemories(restored)
     this.snapshot =
       restored === null
         ? createEmptyRuntimeState()
         : freeze({
-            ...structuredClone(restored),
+            ...restored,
             requests: restored.requests
               ? structuredClone(restored.requests)
               : {},

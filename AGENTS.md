@@ -253,6 +253,8 @@ Before adopting a third-party 3D asset:
 
 Prefer small focused commits.
 
+After completing and validating each project phase, commit its changes and push the current phase branch to GitHub. Include the commit and branch in the phase report.
+
 Good examples:
 
 - `feat: add r3f office foundation`
