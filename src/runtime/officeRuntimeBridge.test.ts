@@ -87,6 +87,8 @@ function fixture(): RuntimeState {
     qaRequests: {},
     repairRequests: {},
     artifacts: {},
+    providerRequests: {},
+    creditLedger: [],
     revision: 1,
     agents: {
       worker,

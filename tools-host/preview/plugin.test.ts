@@ -84,8 +84,8 @@ async function host() {
     const snapshot = snapshots.at(-1)
     return { status: response.status, messages, snapshots, snapshot }
   }
-  const connect = async () => {
-    const response = await send('connect', {})
+  const connect = async (mode?: 'providers') => {
+    const response = await send('connect', mode ? { mode } : {})
     session = response.snapshot!.sessionId
     return response.snapshot!
   }
@@ -97,6 +97,40 @@ function lastExecution(snapshot: ToolPreviewSnapshot) {
 }
 
 describe('development host authority', () => {
+  it('reuses the guarded stream for provider mode without accepting browser configuration or prompts', async () => {
+    const api = await host()
+    const connected = await api.connect('providers')
+    expect(connected.provider?.budget.unit).toBe('credit-micros')
+    expect(connected.provider?.configuration.length).toBeGreaterThan(0)
+    expect(Object.keys(connected.state.providerRequests)).toHaveLength(0)
+    const prepared = await api.action({
+      action: 'provider-prepare',
+      scenario: 'success',
+    })
+    expect(
+      prepared.snapshot!.state.tasks[prepared.snapshot!.taskId!].status,
+    ).toBe('in_progress')
+    expect(
+      (
+        await api.action({
+          action: 'provider-execute',
+          input: { prompt: 'browser supplied' },
+        })
+      ).messages,
+    ).toContainEqual(expect.objectContaining({ code: 'INVALID_REQUEST' }))
+    expect(
+      (await api.send('connect', { mode: 'providers', configuration: {} }))
+        .messages,
+    ).toContainEqual(expect.objectContaining({ code: 'INVALID_REQUEST' }))
+    expect(
+      (await api.send('connect', { mode: 'unknown' })).messages,
+    ).toContainEqual(expect.objectContaining({ code: 'INVALID_REQUEST' }))
+    expect(
+      JSON.stringify(prepared.messages).includes(
+        'phase11-host-only-synthetic-value',
+      ),
+    ).toBe(false)
+  }, 15000)
   it('does not dispatch another task while an adapter still owns a cleanup lease', async () => {
     const api = await host()
     await api.connect()

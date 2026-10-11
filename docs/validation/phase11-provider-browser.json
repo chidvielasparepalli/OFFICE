@@ -1,0 +1,245 @@
+{
+  "startedAt": "2026-10-11T09:30:59.453Z",
+  "scope": "Phase 11 explicit host-only provider, secret and credit development scenarios; no live calls or spend",
+  "checks": [
+    {
+      "name": "Provider preview remains empty and disconnected until explicitly connected",
+      "passed": true
+    },
+    {
+      "name": "Connect registers only deterministic development agents and no provider execution",
+      "passed": true
+    },
+    {
+      "name": "Browser sees configuration presence and local integer credit budgets only",
+      "passed": true
+    },
+    {
+      "name": "Manager creates canonical request plan task and workstation intent",
+      "passed": true
+    },
+    {
+      "name": "Provider execution waits for real scene arrival",
+      "passed": true
+    },
+    {
+      "name": "Existing navigation seated work and worker-only headband remain intact",
+      "passed": true
+    },
+    {
+      "name": "Distinct Manager remains headband-free",
+      "passed": true
+    },
+    {
+      "name": "Actual ToolExecutor invokes broker and settles reported fixture usage",
+      "passed": true
+    },
+    {
+      "name": "Request reservation settlement ledger and activity share canonical runtime events",
+      "passed": true
+    },
+    {
+      "name": "Provider success does not complete verify or automatically persist an output",
+      "passed": true
+    },
+    {
+      "name": "Host secrets and raw prompt are absent from request record and ledger",
+      "passed": true
+    },
+    {
+      "name": "Credit UI displays genuine estimates charges and configured remaining budget",
+      "passed": true
+    },
+    {
+      "name": "Explicit artifact capture retains tool identity immutable hash and unverified status",
+      "passed": true
+    },
+    {
+      "name": "Explicit memory capture preserves unverified tool provenance",
+      "passed": true
+    },
+    {
+      "name": "Worker exact-ID mesh selection and camera focus still work",
+      "passed": true
+    },
+    {
+      "name": "Manager exact-ID mesh selection retains distinct headband-free presentation",
+      "passed": true
+    },
+    {
+      "name": "Explicit completion safely removes headband without claiming QA verification",
+      "passed": true
+    },
+    {
+      "name": "denied is rejected before charge and puts the canonical task into attention",
+      "passed": true
+    },
+    {
+      "name": "budget is rejected before charge and puts the canonical task into attention",
+      "passed": true
+    },
+    {
+      "name": "unavailable is rejected before charge and puts the canonical task into attention",
+      "passed": true
+    },
+    {
+      "name": "all-unavailable is rejected before charge and puts the canonical task into attention",
+      "passed": true
+    },
+    {
+      "name": "missing-credential is rejected before charge and puts the canonical task into attention",
+      "passed": true
+    },
+    {
+      "name": "unknown-provider is rejected before charge and puts the canonical task into attention",
+      "passed": true
+    },
+    {
+      "name": "Explicit fallback uses an approved alternate with preserved primary/reason",
+      "passed": true
+    },
+    {
+      "name": "Unknown billing retains conservative reservation instead of pretending failure is free",
+      "passed": true
+    },
+    {
+      "name": "Unsafe response is rejected while actual incurred usage remains accounted",
+      "passed": true
+    },
+    {
+      "name": "Unsafe provider data never reaches snapshots UI memory artifacts events or browser storage",
+      "passed": true
+    },
+    {
+      "name": "Transport rejects injected provider input and authority",
+      "passed": true
+    },
+    {
+      "name": "Foreign-origin invocation remains blocked",
+      "passed": true
+    },
+    {
+      "name": "Direct raw and filesystem host source requests are denied without leaking configured values",
+      "passed": true,
+      "detail": [
+        {
+          "url": "/tools-host/preview/providerSession.ts",
+          "status": 403,
+          "safe": true
+        },
+        {
+          "url": "/tools-host/preview/providerSession.ts?raw",
+          "status": 403,
+          "safe": true
+        },
+        {
+          "url": "/@fs/C:/Users/chidv/OFFICE/tools-host/providers/SecretStore.ts",
+          "status": 403,
+          "safe": true
+        },
+        {
+          "url": "/node_modules/.vite-temp/phase11-browser-deny-probe.mjs",
+          "status": 403,
+          "safe": true
+        }
+      ]
+    },
+    {
+      "name": "Idle provider preview introduces no polling or repeated provider requests",
+      "passed": true,
+      "detail": {
+        "before": {
+          "mode": "host snapshot cache",
+          "messages": 331,
+          "subscribers": 4
+        },
+        "after": {
+          "mode": "host snapshot cache",
+          "messages": 331,
+          "subscribers": 4
+        }
+      }
+    },
+    {
+      "name": "Disconnect retains history while presenting inactive runtime",
+      "passed": true
+    },
+    {
+      "name": "Reconnect restores the same authoritative session without repeating calls",
+      "passed": true
+    },
+    {
+      "name": "Open-top overview and camera reset remain usable",
+      "passed": true
+    },
+    {
+      "name": "Canonical GLB resources remain shared across scenario transitions",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "name": "No unexpected console errors failed requests or hot reloads",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failedRequests": [],
+        "hotReloads": []
+      }
+    },
+    {
+      "name": "Acceptance source remained unchanged during browser validation",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "hotReloads": [],
+  "assetRequests": [
+    "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+    "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+  ],
+  "sourceSha256": {
+    "src/providers/providerTypes.ts": "96c48776b506cca76ce938ac1cbd2710e803d273f057e090cebef743064adfc6",
+    "src/providers/costPolicy.ts": "01359b1b1b3a70421c74d344ebf1008baea851413d14580facd7f93873b12035",
+    "src/runtime/providerRuntime.ts": "53dea321af92e67865dd201a8e907618dd353eee2de02401831b5c57bc4f3407",
+    "src/runtime/officeRuntime.ts": "66e5f2541f3bb089bae74760ea68fcdc02c38c64b3e9469ac0da5a1706526bd7",
+    "src/runtime/runtimeTypes.ts": "f42406b8d0ef7069337faac298a996dc12325b68824562f39585accf5e110343",
+    "src/tools/ToolExecutor.ts": "31719e97db102bd787180a581ce23ec541116d6c2b4f7fed763ca6bb02714c76",
+    "src/orchestration/ManagerOrchestrator.ts": "59e9e39103733f5e066d01b6a73ac65bc5eef81dc7b6baa8c52470b96b5deeae",
+    "tools-host/providers/SecretStore.ts": "e87a77d06b5210bbd03d0562984f16235a1cb36baebeb0148cee0f8330081ba5",
+    "tools-host/providers/ProviderRegistry.ts": "195137dfb98801764058e489a53a435f73bcc583e1337b19fb08379946963f3e",
+    "tools-host/providers/ProviderBroker.ts": "7e4b3dd76007cc78c11ce1e81e9f9824c16ed2d46424796d99479eea15f065f2",
+    "tools-host/preview/providerSession.ts": "a779f414564f419a97a5a621dcae9fb349b9c55bb9491d6038f31c4c96ec7cf3",
+    "tools-host/preview/plugin.ts": "3329590f3c89fe951e0881027a32a0c38e55a387d1eb2fb3ec7671be0f778dca",
+    "tools-host/preview/feedback.ts": "3594d07ecb63a5c072e643115d392d94cb2e46aaee6367e5b703111f88172ada",
+    "tools-host/preview/session.ts": "8edf826671a889a9b28e5bcb502df60a41f8bac45d7d11fe29e3acee9e08d08e",
+    "src/dev/ProviderCostPreview.tsx": "43726a33a200a2e2315feaa0bf3e1eecb6d74f775e05d1d73b37b0fdd81351f4",
+    "src/dev/toolPreviewClient.ts": "2e8b5ca67dca5925d38b475451c327a729cc09a18a604b8a475671f6200410ef",
+    "src/dev/toolPreviewProtocol.ts": "c74e50f57f57f1c2848f4184ce910c2f3433fd901d2a9f73569cf8ff2e74702b",
+    "vite.config.ts": "d36e8c89e49888847e2e10075f9105c0808eaad99cdea1d4bd4fb8bd29d49bc5",
+    "src/App.tsx": "be7f4b0e3faa006f071368991e3baea0dc995676cf2247dff64e67f8994d53a0"
+  },
+  "screenshots": [
+    "test-results/phase11-worker-working.png",
+    "test-results/phase11-manager.png",
+    "test-results/phase11-request-audit.png",
+    "test-results/phase11-overview.png"
+  ],
+  "completedAt": "2026-10-11T09:32:32.587Z",
+  "totalChecks": 37,
+  "limitations": [
+    "Deterministic host adapters only; no external provider or financial transaction.",
+    "Unknown charges remain reserved pending authoritative host reconciliation.",
+    "Credential detection is pattern-based plus exact configured value checks; no universal secret detection or independent proof of verification.",
+    "Software Chromium rendering is not an RTX hardware benchmark."
+  ]
+}

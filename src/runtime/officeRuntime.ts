@@ -1,4 +1,14 @@
 import type { OfficeAgentStatus, WorldPosition } from '../office/officeState'
+import {
+  ProviderFault,
+  type ProviderBudgetPolicy,
+} from '../providers/providerTypes'
+import { copyProviderBudgetPolicy } from '../providers/costPolicy'
+import {
+  applyProviderRuntimeCommand,
+  isProviderRuntimeCommand,
+  validateRestoredProviderState,
+} from './providerRuntime'
 import { ToolFault } from '../tools/toolTypes'
 import { QAFault } from '../qa/qaTypes'
 import {
@@ -180,6 +190,8 @@ function copyJson(
 
 export function createEmptyRuntimeState(): RuntimeState {
   return freeze({
+    providerRequests: {},
+    creditLedger: [],
     connection: 'disconnected',
     revision: 0,
     agents: {},
@@ -243,6 +255,14 @@ function businessChanges(
   before: RuntimeState,
   after: RuntimeState,
 ): RuntimeBusinessChanges {
+  const providerRequests = changedRecords(
+    before.providerRequests,
+    after.providerRequests,
+  )
+  const creditLedger =
+    after.creditLedger.length > before.creditLedger.length
+      ? after.creditLedger.slice(before.creditLedger.length)
+      : undefined
   const agents = changedRecords(before.agents, after.agents)
   const tasks = changedRecords(before.tasks, after.tasks)
   const workstations = changedRecords(before.workstations, after.workstations)
@@ -261,6 +281,8 @@ function businessChanges(
     after.repairRequests,
   )
   return {
+    ...(providerRequests ? { providerRequests } : {}),
+    ...(creditLedger ? { creditLedger } : {}),
     ...(agents ? { agents } : {}),
     ...(tasks ? { tasks } : {}),
     ...(workstations ? { workstations } : {}),
@@ -279,6 +301,7 @@ function businessChanges(
 }
 
 class Transaction {
+  readonly providerBudgetPolicy: ProviderBudgetPolicy
   state: RuntimeState
   readonly events: PendingEvent[] = []
   private timestamp: string | null = null
@@ -295,6 +318,7 @@ class Transaction {
     memoryPolicy: MemoryPolicy,
     artifactPolicy: ArtifactPolicy,
     artifactStorage: ArtifactStorage | undefined,
+    providerBudgetPolicy: ProviderBudgetPolicy,
   ) {
     this.state = state
     this.now = now
@@ -302,6 +326,7 @@ class Transaction {
     this.memoryPolicy = memoryPolicy
     this.artifactPolicy = artifactPolicy
     this.artifactStorage = artifactStorage
+    this.providerBudgetPolicy = providerBudgetPolicy
   }
   canAccessArtifact(
     agentId: string,
@@ -345,6 +370,8 @@ class Transaction {
       has(this.state.artifacts, id) ||
       has(this.state.qaRequests, id) ||
       has(this.state.repairRequests, id) ||
+      has(this.state.providerRequests, id) ||
+      this.state.creditLedger.some((entry) => entry.ledgerId === id) ||
       Object.values(this.state.qaRequests).some((qa) =>
         Object.values(qa.executionIds).includes(id),
       ) ||
@@ -670,6 +697,11 @@ function requireWorkingArrival(
 }
 
 function applyCommand(tx: Transaction, command: RuntimeCommand) {
+  // Settlements account for unavoidable late costs even after cancellation/disconnection.
+  if (isProviderRuntimeCommand(command)) {
+    applyProviderRuntimeCommand(tx, command)
+    return
+  }
   if (command.type === 'connect' || command.type === 'disconnect') {
     const connection = command.type === 'connect' ? 'local' : 'disconnected'
     if (tx.state.connection === connection) return
@@ -1466,6 +1498,7 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
 
 /** Local command processor. No timers, navigation, rendering, or task execution. */
 export class OfficeRuntime {
+  private readonly providerBudgetPolicy: ProviderBudgetPolicy
   private snapshot: RuntimeState
   private readonly repository: OfficeRuntimeRepository
   private readonly now: () => string
@@ -1483,6 +1516,16 @@ export class OfficeRuntime {
   private dispatching = false
 
   constructor(options: OfficeRuntimeOptions = {}) {
+    this.providerBudgetPolicy = copyProviderBudgetPolicy(
+      options.providerBudgetPolicy ?? {
+        unit: 'credit-micros',
+        globalLimitMicros: 0,
+        perAgentLimitMicros: 0,
+        perTaskLimitMicros: 0,
+        perRequestLimitMicros: 0,
+        requestQuota: 0,
+      },
+    )
     this.memoryPolicy = copyMemoryPolicy(options.memoryPolicy ?? { grants: [] })
     this.artifactPolicy = copyArtifactPolicy(
       options.artifactPolicy ?? { grants: [] },
@@ -1494,11 +1537,14 @@ export class OfficeRuntime {
     const restored = saved === null ? null : structuredClone(saved)
     if (restored) validateRestoredMemories(restored)
     if (restored) validateRestoredArtifacts(restored)
+    if (restored) validateRestoredProviderState(restored)
     this.snapshot =
       restored === null
         ? createEmptyRuntimeState()
         : freeze({
             ...restored,
+            providerRequests: restored.providerRequests ?? {},
+            creditLedger: restored.creditLedger ?? [],
             requests: restored.requests
               ? structuredClone(restored.requests)
               : {},
@@ -1530,6 +1576,8 @@ export class OfficeRuntime {
           has(this.snapshot.artifacts, id) ||
           has(this.snapshot.qaRequests, id) ||
           has(this.snapshot.repairRequests, id) ||
+          has(this.snapshot.providerRequests, id) ||
+          this.snapshot.creditLedger.some((entry) => entry.ledgerId === id) ||
           Object.values(this.snapshot.qaRequests).some((qa) =>
             Object.values(qa.executionIds).includes(id),
           ) ||
@@ -1591,6 +1639,7 @@ export class OfficeRuntime {
         this.memoryPolicy,
         this.artifactPolicy,
         this.artifactStorage,
+        this.providerBudgetPolicy,
       )
       applyCommand(tx, command)
       if (
@@ -1622,7 +1671,8 @@ export class OfficeRuntime {
           error instanceof ToolFault ||
           error instanceof MemoryFault ||
           error instanceof ArtifactFault ||
-          error instanceof QAFault
+          error instanceof QAFault ||
+          error instanceof ProviderFault
             ? { code: error.code, message: error.message }
             : {
                 code: 'INVALID_COMMAND',

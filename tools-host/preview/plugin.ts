@@ -4,8 +4,10 @@ import type {
   ToolPreviewAction,
   ToolPreviewMessage,
 } from '../../src/dev/toolPreviewProtocol'
+import { PROVIDER_PREVIEW_SCENARIOS } from '../../src/dev/toolPreviewProtocol'
 import { ToolFault } from '../../src/tools/toolTypes'
 import { createPreviewSession, type PreviewSession } from './session'
+import { createProviderPreviewSession } from './providerSession'
 
 const PREFIX = '/__tools-preview/'
 const MAX_BODY_BYTES = 16_384
@@ -26,7 +28,16 @@ function text(value: unknown, max = 200): value is string {
 export function parsePreviewAction(value: unknown): ToolPreviewAction {
   if (!object(value) || !text(value.action))
     throw new ToolFault('INVALID_REQUEST', 'An explicit action is required.')
-  if (value.action === 'prepare') {
+  if (value.action === 'provider-prepare') {
+    fields(value, ['action', 'scenario'])
+    if (
+      typeof value.scenario !== 'string' ||
+      !(PROVIDER_PREVIEW_SCENARIOS as readonly string[]).includes(
+        value.scenario,
+      )
+    )
+      throw new ToolFault('INVALID_REQUEST', 'Unknown provider scenario.')
+  } else if (value.action === 'prepare') {
     fields(value, ['action', 'scenario'])
     if (
       typeof value.scenario !== 'string' ||
@@ -96,9 +107,16 @@ export function parsePreviewAction(value: unknown): ToolPreviewAction {
   } else {
     fields(value, ['action'])
     if (
-      !['complete', 'resume', 'cancel', 'disconnect', 'reconnect'].includes(
-        value.action,
-      )
+      ![
+        'complete',
+        'resume',
+        'cancel',
+        'disconnect',
+        'reconnect',
+        'provider-execute',
+        'provider-artifact',
+        'provider-memory',
+      ].includes(value.action)
     )
       throw new ToolFault('INVALID_REQUEST', 'Unknown action.')
   }
@@ -212,10 +230,16 @@ export function createToolsPreviewPlugin(): Plugin {
           }
           const data = await body(request)
           if (request.url === `${PREFIX}connect`) {
-            if (!object(data) || Object.keys(data).length)
+            if (
+              !object(data) ||
+              Object.keys(data).some((key) => key !== 'mode') ||
+              (data.mode !== undefined &&
+                data.mode !== 'tools' &&
+                data.mode !== 'providers')
+            )
               throw new ToolFault(
                 'INVALID_REQUEST',
-                'Connect takes no browser-supplied configuration.',
+                'Connect accepts only a named development mode.',
               )
             if (connecting)
               throw new ToolFault(
@@ -224,7 +248,10 @@ export function createToolsPreviewPlugin(): Plugin {
               )
             connecting = true
             try {
-              creating = createPreviewSession(server.config.root)
+              creating =
+                data.mode === 'providers'
+                  ? createProviderPreviewSession()
+                  : createPreviewSession(server.config.root)
               const created = await creating
               if (closed || response.destroyed) {
                 await created.dispose()
@@ -295,7 +322,11 @@ export function createToolsPreviewPlugin(): Plugin {
           let complete = false
           response.once('close', () => {
             unsubscribe()
-            if (!complete && action.action === 'execute')
+            if (
+              !complete &&
+              (action.action === 'execute' ||
+                action.action === 'provider-execute')
+            )
               current.cancelRunning()
           })
           try {
