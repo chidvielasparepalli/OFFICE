@@ -13,6 +13,7 @@ import {
 } from '../tools/toolValidation'
 import type { OrchestrationTransaction } from './orchestrationRuntime'
 import type { RuntimeCommand, RuntimeJson, RuntimeState } from './runtimeTypes'
+import { repairForTask } from '../qa/qaSelectors'
 
 // The same transaction interface is shared by both domain handlers. Neither owns
 // a second store, clock, executor, permission registry, or publication boundary.
@@ -100,7 +101,9 @@ function requireOwnership(
     'Tool execution requires an explicitly started task.',
   )
   ensure(
-    agent.status === 'working',
+    agent.status === 'working' ||
+      (agent.status === 'repair' &&
+        repairForTask(tx.state, task.id)?.status === 'in_progress'),
     'INVALID_TRANSITION',
     'Tool execution requires a working agent.',
   )

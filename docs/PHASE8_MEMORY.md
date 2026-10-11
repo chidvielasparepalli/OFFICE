@@ -2,6 +2,8 @@
 
 Phase 8 extends the existing runtime with explicit, scoped memory. It builds on the reviewed Phase 7 checkpoint `fc03a20` on `codex/phase8-memory-system`. It does not add a provider, autonomous learning, a production backend or durable database. Canonical models, animations, navigation, camera and worker-only headband behavior remain unchanged.
 
+The security remediation of checkpoint `c9b7311` closes two confirmed gaps: nested metadata strings did not receive every content credential check, and successive source-changing replacements could launder tool/unverified evidence into agent/observed memory. The rules below supersede the original Phase 8 trust/security claims. That remediation checkpoint is complete; Phase 9 is separately authorized in BUILD_PLAN.md and preserves this policy unchanged.
+
 ## Ownership and repository
 
 ```text
@@ -15,7 +17,7 @@ Trusted application / explicit development control
 
 There is one normalized `RuntimeState.memories` collection. `InMemoryMemoryRepository` is a scoped view of that collection, not another store or event bus. `MemoryService` provides explicit `remember`, `recall` and `forTask` operations through the repository interface. The repository supports add/get/update/archive/supersede/search, list by scope/private agent/project, and task context. `listByAgent` means that agent's private scope; it is not an unrestricted query of everything they authored.
 
-The existing synchronous repository commit persists memory and event after-images atomically. Persistence failure publishes neither. Restoration accepts older snapshots without a memory collection. A future remote repository will require an asynchronous atomic commit/synchronization design while preserving validation, access control, event publication and revision checks; this phase adds no Supabase adapter. All runtime repository snapshots remain trusted host data, not an external JSON ingestion API.
+The existing synchronous repository commit persists memory and event after-images atomically. Persistence failure publishes neither. Restoration accepts older snapshots without a memory collection. It checks current memory (including inactive records), historical memory after-images and memory event payloads before exposing the restored snapshot. Unsafe credential data, invalid verification assertions and source/trust transitions inconsistent with the policy reject the entire restore without rewriting the backing repository. Valid history is preserved; revoked grants are not retroactively reapplied to historical writes. A future remote repository will require an asynchronous atomic commit/synchronization design while preserving validation, access control, event publication and revision checks; this phase adds no Supabase adapter. All runtime repository snapshots remain trusted host data, not an authenticated external JSON ingestion API.
 
 ## Model, types and scopes
 
@@ -38,9 +40,21 @@ Writes are assertions supplied by authorized callers, not automated assessments 
 
 ## Trust and importance
 
-Trust is **verified, observed, inferred or unverified**. Verification requires an exact scope `verify` grant and explicit evidence; the record retains who asserted verification and when. The service does not independently prove the assertion. Tool evidence cannot become observed/inferred by an update; promotion requires the separate authorized verification operation. Supersession cannot bypass this protection. Original source attribution remains intact on updates.
+Trust is **verified, observed, inferred or unverified**. `validateMemoryTransition` applies one transition policy to updates, supersession and restored history:
 
-Importance is an ordinal **low < normal < high < critical**, not a probabilistic score. It influences retrieval tie-breaking, minimum-importance filtering and working-memory lifetime. Editing content is not an update: create an explicit replacement instead. Metadata changes to a verified record require a new explicit trust assertion.
+| Operation                       | Allowed trust/source behavior                                                                                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ordinary update                 | Trust remains exactly unchanged; source kind and source ID cannot change. No relabelling among unverified, inferred and observed, or downgrade from verified. |
+| Explicit verification update    | `update` with `trust: verified`, an exact-scope `verify` grant and nonempty evidence records verifier ID, evidence and time.                                  |
+| Content supersession            | Same source kind/ID and same trust as the predecessor. Verification must occur as a separate update first.                                                    |
+| Replacement of verified content | Requires fresh evidence and the existing verification permission for the new content, even though its trust label remains verified.                           |
+| Retrieval/context               | Returns stored trust and provenance unchanged. Relevance, recency, repetition and Manager authorship confer no verification.                                  |
+
+The service does not independently prove a verifier's assertion or fabricate verification. The existing authorized update is the only promotion mechanism. A new tool-derived record must start unverified; an already verified tool record can be replaced only with the same source/trust and fresh authorized verification. The exact exploit `tool/unverified → agent/unverified → agent/observed` fails at the first source-changing replacement.
+
+Source identity is distinct from the creator, mutable content and verification assertion. Reciprocal `supersedesId`/`supersededById` links and immutable event after-images retain prior content and provenance. Existing source-ownership checks still apply: write access alone does not let the Manager impersonate a worker/tool source when replacing its content. A Manager with the explicit verification grant may verify a shared record without changing its source. Independent assertions remain separate; the system does not infer that an independently created paraphrase copied another memory.
+
+Importance is an ordinal **low < normal < high < critical**, not a probabilistic score. It influences retrieval tie-breaking, minimum-importance filtering and working-memory lifetime. Editing content is not an update: create an explicit replacement instead. Metadata changes to a verified record require an explicit verified assertion with fresh authorized evidence.
 
 ## Access control
 
@@ -80,15 +94,27 @@ Conflicting independent writes remain separate active assertions. Only explicit 
 
 ## Runtime events and 3D
 
-The existing event stream adds `MEMORY_CREATED`, `MEMORY_RETRIEVED`, `MEMORY_UPDATED`, `MEMORY_ARCHIVED` and `MEMORY_SUPERSEDED`. Queries audit authorized result IDs and context size, not query text or content in activity summaries. Full after-images remain in the privileged transaction log for replay. Rejected commands leave state/history unchanged and return structured errors.
+The existing event stream adds `MEMORY_CREATED`, `MEMORY_RETRIEVED`, `MEMORY_UPDATED`, `MEMORY_ARCHIVED` and `MEMORY_SUPERSEDED`. Queries audit authorized result IDs and context size, not query text or content in activity summaries. Full after-images remain in the privileged transaction log for replay. Rejected commands leave memory, revisions, repository state, events and activity unchanged and return structured errors such as `SECRET_REJECTED`, `INVALID_TRUST` or `MEMORY_ACCESS_DENIED`. Error messages never include submitted values. The existing rejection counter increments, but subscribers receive no successful commit notification. There is no memory rejection event in the current event vocabulary; no new event bus or misleading success event is introduced.
 
 Memory operations do not change agent status, task progress, assignments, spatial intent, posture or headband behavior. The office may show actual generic memory activity through the existing context projection. There are no visual remembering effects, per-agent polls, frame-driven searches or extra animation resources.
 
-## Secrets
+## Credential-like data and the validation boundary
 
-The existing bounded public-JSON validator is reused, with rejection instead of storing redacted credential data. Sensitive key names, common credential assignments/bearer tokens/private-key blocks, recognizable API/token patterns and credential-bearing URLs are rejected. Tests use only synthetic values and prove rejected writes never reach storage/events.
+`memorySafeJson` in `src/memory/memoryPolicy.ts` is the authoritative credential boundary. It reuses the existing bounded public-JSON validator, rejects any redaction difference, and recursively checks actual string values and keys at every nested array/object level. `memoryText` delegates credential detection to it. Create/update operate on its validated copy, and the runtime validates the final record before storing it or emitting after-images. Task, tool, agent, Manager, user and system writes all use these same commands; none has an exemption. There is no automatic event-to-memory writer.
 
-This is defense in depth, not a universal credential detector. Encoded or unknown secret formats cannot be guaranteed detectable. Only curated non-secret application data should be admitted; real credentials remain in the secrets layer. No real credentials are configured or used.
+Stored-memory validation is also used for restoration, direct reads, retrieval candidates and context serialization. Input/patch JSON remains limited to 8 KiB; complete stored records have a 32 KiB validation ceiling to accommodate runtime-owned fields and separately bounded metadata updates. A contaminated legacy snapshot fails closed instead of silently redacting or deleting history. The runtime-owned numeric `approximateTokens` event metric is validated as a nonnegative integer, separately from arbitrary credential-bearing metadata.
+
+Detected classes are deliberately explicit:
+
+- Case-insensitive object keys containing `password`, `secret`, `token`, `authorization`, `credential`, `api.?key` or `private.?key`, using the existing tool key policy. Even pre-redacted credential fields are rejected.
+- Quoted or unquoted assignments (`:` or `=`) for password, API key, access/refresh token, private key, client secret/secret, authorization, credential and token. Key word separators supported by these patterns are optional `_` or `-`.
+- Bearer token strings recognized by the existing tool text redactor and complete PEM private-key blocks.
+- `sk-` followed by at least 12 alphanumeric/underscore/hyphen characters; `gh[pousr]_` followed by at least 12 alphanumeric characters; `AKIA` followed by 16 uppercase alphanumeric characters; JWT-shaped three-part strings beginning `eyJ`.
+- HTTP(S) URLs containing a nonempty `username:password@` authority.
+
+Rejected content is never stored as a redacted memory. Tests use obviously synthetic fixtures and assert that rejected values are absent from memory, event history, task context and the browser UI. Ordinary safe notes about credential handling and URLs without embedded credentials remain valid.
+
+This is defense in depth, not a universal credential detector. Encoded/obfuscated or unknown formats, arbitrary unlabeled passwords, or semantically copied assertions cannot be identified reliably. The conservative key/assignment patterns can reject harmless token-related metadata. Only curated non-secret application data should be admitted; real credentials remain in the secrets layer. No real credentials are configured or used. Trusted snapshot integrity and the honesty of an authorized verifier are host responsibilities; these checks are not cryptographic provenance or a production authentication system.
 
 ## Development scenarios
 
@@ -105,11 +131,15 @@ The preview shows the captured context revision and never silently refreshes or 
 
 ## Validation and limitations
 
-The full automated suite passes **524 tests across 33 files**, retaining every one of the 457 Phase 7 assertions and adding 67 memory/preview tests. The final run used `npm test -- --maxWorkers=2`; an oversubscribed run hit two existing real-Git tests' unchanged five-second deadlines. No tests or deadlines were relaxed.
+The original checkpoint validation below was a baseline, not proof against the subsequently confirmed metadata and trust-laundering exploits. The security remediation adds **40 regression tests** in `memorySecurity.test.ts` and `memoryRestoreSecurity.test.ts` without changing any prior test. Coverage includes all six memory source kinds; create/update/supersede rejection; unchanged persistence/events on failure; actual source/trust in context; repeated trust changes; the exact laundering sequence; explicit verification; restored current/historical contamination; valid retrieval/context round trips; and large-record restoration with revoked permissions.
+
+Fresh remediation validation: **564 tests in 35 files pass**, including all 524 prior tests and all 67 original Phase 8 assertions. Typecheck, lint, formatting and production build pass with the same existing warnings. **39 targeted Chromium security checks pass**, with zero console/page errors or failed requests. They exercise actual preview controls/context plus rejected commands against the live runtime, private access restrictions, valid supersession, explicit verification, and current/historical restore rejection. Synthetic rejected values appear in neither memory/events nor displayed context. Worker headband and calm headband-free Manager behavior remain correct. Across the idle observation, runtime commands/commits/notifications stay at 69/42/129; five canonical GLBs load once each. Production JavaScript retains SHA-256 `2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7` and contains no new fixtures. Evidence and source hashes: `docs/validation/phase8-security-browser.json`. The full previous browser suites and hardware performance were not rerun for this targeted remediation.
+
+At checkpoint `c9b7311`, the automated suite passed **524 tests across 33 files**, retaining every one of the 457 Phase 7 assertions and adding 67 memory/preview tests. That run used `npm test -- --maxWorkers=2`; an oversubscribed run hit two existing real-Git tests' unchanged five-second deadlines. No tests or deadlines were relaxed.
 
 The memory preview passes **32 Chromium checks**, including all six scenarios, denied private access, explicit tool provenance, context budgets, supersession, animation, exact selection and reconnect. The animation-cost check focuses the worker before measuring because offscreen animation updates intentionally stop. Browser waits accommodate SwiftShader; observed pose changes, not elapsed wall time, establish animation progress. Across seven observed render frames, command/commit/notification counters stayed at 54/45/138. Five canonical GLBs loaded once across the scenarios and reconnect. No memory operation created movement or task progress.
 
-Final validation records **73 passing Chromium checks**: 32 memory scenarios, 31 preserved tool-execution checks, 5 checks of the 30-worker-plus-Manager scene and 5 production-isolation checks. There were no application console errors or failed requests. The deliberate development-endpoint probe correctly returned 404 in production. Typecheck, lint, formatting and the production build passed. Five existing prototype lint warnings and the Vite chunk/config-loader advisories remain.
+Original checkpoint validation recorded **73 passing Chromium checks**: 32 memory scenarios, 31 preserved tool-execution checks, 5 checks of the 30-worker-plus-Manager scene and 5 production-isolation checks. There were no application console errors or failed requests. The deliberate development-endpoint probe correctly returned 404 in production. Typecheck, lint, formatting and the production build passed. Five existing prototype lint warnings and the Vite chunk/config-loader advisories remain.
 
 The production JavaScript is byte-identical to Phase 7 and excludes memory fixtures. Source hashes confirm that character animation, camera, navigation, assets, the 3D bridge, orchestrator, tool executor and dependency files remain unchanged. Full Phase 5/6 browser suites were not repeated; their automated assertions remain passing. Machine-readable evidence, source hashes and two inspected screenshots are in `docs/validation/phase8-memory-browser.json` and the adjacent `phase8-memory-*.png` files.
 

@@ -1,0 +1,261 @@
+{
+  "startedAt": "2026-10-11T07:11:53.423Z",
+  "scope": "Phase 9 explicit QA / repair development scenarios",
+  "checks": [
+    {
+      "name": "QA route starts disconnected with no production workforce, tasks or results",
+      "passed": true
+    },
+    {
+      "name": "Explicit connection registers two standard workers and dedicated Manager without tasks",
+      "passed": true
+    },
+    {
+      "name": "Canonical worker geometry/materials are shared; Manager remains separate and headband-free",
+      "passed": true
+    },
+    {
+      "name": "Manager creates canonical task and requests QA before worker completion",
+      "passed": true
+    },
+    {
+      "name": "Worker travels to desk, sits and uses completed worker-only headband sequence",
+      "passed": true
+    },
+    {
+      "name": "Orchestrating Manager works calmly with no headband",
+      "passed": true
+    },
+    {
+      "name": "Worker exact mesh selection and camera focus still work",
+      "passed": true
+    },
+    {
+      "name": "Worker output is an actual successful registered write-tool execution",
+      "passed": true
+    },
+    {
+      "name": "Completed work remains pending QA with worker waiting and Manager incomplete",
+      "passed": true
+    },
+    {
+      "name": "Headband removal remains intact while waiting for inspection",
+      "passed": true
+    },
+    {
+      "name": "Missing actual Acceptance section causes required QA failure",
+      "passed": true
+    },
+    {
+      "name": "Finding evidence references actual read execution and no invented output",
+      "passed": true
+    },
+    {
+      "name": "Failure creates one canonical traceable repair task",
+      "passed": true
+    },
+    {
+      "name": "Manager observes failure and requests attention",
+      "passed": true
+    },
+    {
+      "name": "Runtime failure maps to worker blocked indicator",
+      "passed": true
+    },
+    {
+      "name": "Selected task context exposes failed checks, severity and evidence",
+      "passed": true
+    },
+    {
+      "name": "Capability matcher assigns repair to author and canonical task enters in_progress",
+      "passed": true
+    },
+    {
+      "name": "Repair runtime state drives the existing repair indicator",
+      "passed": true
+    },
+    {
+      "name": "Actual tool fix completes repair but original task remains unverified",
+      "passed": true
+    },
+    {
+      "name": "Recheck creates new queued attempt linked to original failure and repair",
+      "passed": true
+    },
+    {
+      "name": "Independent recheck inspects changed document and verifies task",
+      "passed": true
+    },
+    {
+      "name": "Historical failure and its evidence remain intact after pass",
+      "passed": true
+    },
+    {
+      "name": "Manager completes only after successful QA verification",
+      "passed": true
+    },
+    {
+      "name": "Passed QA maps worker to completed presentation",
+      "passed": true
+    },
+    {
+      "name": "QA and repair events use existing runtime activities",
+      "passed": true
+    },
+    {
+      "name": "No QA or repair operation automatically wrote memory",
+      "passed": true
+    },
+    {
+      "name": "Explicit repair lesson preserves tool provenance and remains unverified",
+      "passed": true
+    },
+    {
+      "name": "Phase 8 nested credential filtering still rejects QA lesson updates",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "unchanged": true
+      }
+    },
+    {
+      "name": "QA success cannot silently promote lesson trust",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "INVALID_TRUST",
+        "unchanged": true
+      }
+    },
+    {
+      "name": "QA lesson source cannot be laundered through replacement",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "INVALID_TRUST",
+        "unchanged": true
+      }
+    },
+    {
+      "name": "Rejected credential-like data is absent from memory/events/context/UI",
+      "passed": true
+    },
+    {
+      "name": "Manager exact selection, independent context and camera focus remain intact",
+      "passed": true
+    },
+    {
+      "name": "Company overview reset remains available",
+      "passed": true
+    },
+    {
+      "name": "Idle QA adds no per-frame execution, polling or runtime commits",
+      "passed": true,
+      "detail": {
+        "before": {
+          "commands": 86,
+          "commits": 52,
+          "notifications": 231,
+          "rejectedCommands": 3,
+          "subscribers": 5
+        },
+        "after": {
+          "commands": 86,
+          "commits": 52,
+          "notifications": 231,
+          "rejectedCommands": 3,
+          "subscribers": 5
+        }
+      }
+    },
+    {
+      "name": "A: Initial required checks pass without any repair records",
+      "passed": true
+    },
+    {
+      "name": "D: Missing approved verification permission yields blocked QA",
+      "passed": true
+    },
+    {
+      "name": "Blocked QA preserves unverified work and makes Manager request attention",
+      "passed": true
+    },
+    {
+      "name": "C: Repeated failure reaches configured repair limit without another repair",
+      "passed": true
+    },
+    {
+      "name": "Retry exhaustion remains visible to Manager and event history",
+      "passed": true
+    },
+    {
+      "name": "Manager never gains a headband throughout QA modes",
+      "passed": true
+    },
+    {
+      "name": "Asset caches retain one request per canonical GLB across resets",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "name": "No console errors, failed requests or hot reloads",
+      "passed": true,
+      "detail": {
+        "errors": 0,
+        "failedRequests": 0,
+        "hotReloads": 0
+      }
+    },
+    {
+      "name": "Validated sources remain unchanged during browser acceptance",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "hotReloads": [],
+  "assetRequests": [
+    "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+    "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+  ],
+  "screenshots": [
+    "test-results/phase9-memory-lesson.png",
+    "test-results/phase9-office-overview.png"
+  ],
+  "sourceSha256": {
+    "src/qa/qaTypes.ts": "942e4081de9e6a00a8f9aef7b1cd5ef6fd90d62b617bfbae5193e6ee002b1a91",
+    "src/qa/qaPolicy.ts": "8a6b029f84caa792c020af1df79541db7c2290da8a1df548105e57fc5f1e477a",
+    "src/qa/QAEngine.ts": "fd571008185b2434bc8d2a262cfda09e643bce704f90ff15092ca78fd35ab295",
+    "src/runtime/qaRuntime.ts": "f8a68a4cacf4b0bedf0d9a0a66dd3f51883b7bf45e5d8a6cbd2faffb2057581c",
+    "src/runtime/officeRuntime.ts": "a622ee4cb8e30ecb5f423d719ab4499211d3e5645f77475c15ce1f3e9696567b",
+    "src/orchestration/ManagerOrchestrator.ts": "de2eb75a51ca134679ca0a98af901596066913263bc2ac7b27ce7e424f71ba44",
+    "src/runtime/orchestrationRuntime.ts": "3cd5210cdbc193ef3a4e297aeb26521afe2a581002f4e3f2751bc2efe4c3ae00",
+    "src/dev/qaFixtures.ts": "31a7f75a26d2a935771d2b25038b91af218f8e9040d6891274036edca76a9c0b",
+    "src/dev/QAPreview.tsx": "ceaa625f58aece8587af0ba97146e675eed33e3c35d4cf0d0d6b522b8b70a78a",
+    "src/components/QAContextPanel.tsx": "4ac81837377cea2f42f5ec6be1dc97fb21fcb45e604c601374eb8196b7836d19"
+  },
+  "metrics": {
+    "commands": 70,
+    "commits": 44,
+    "notifications": 193,
+    "rejectedCommands": 0,
+    "subscribers": 5
+  },
+  "completedAt": "2026-10-11T07:13:01.703Z",
+  "totalChecks": 43,
+  "limitations": [
+    "Local document tools and synthetic development scenarios only; no external tools or autonomous repair.",
+    "Headless Chromium software rendering is not a hardware performance benchmark.",
+    "Pattern-based credential filtering and authorized assertion verification retain Phase 8 limitations."
+  ]
+}

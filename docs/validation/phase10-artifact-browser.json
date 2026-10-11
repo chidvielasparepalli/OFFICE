@@ -1,0 +1,251 @@
+{
+  "startedAt": "2026-10-11T08:43:10.800Z",
+  "scope": "Phase 10 explicit artifact and output development scenarios",
+  "checks": [
+    {
+      "name": "Artifact route starts empty and disconnected without production fixtures",
+      "passed": true
+    },
+    {
+      "name": "Explicit registration preserves separate worker and Manager models",
+      "passed": true
+    },
+    {
+      "name": "Standard workers share geometry and materials with independent skeletons",
+      "passed": true
+    },
+    {
+      "name": "Imported input is linked before execution and never claimed as worker output",
+      "passed": true
+    },
+    {
+      "name": "Existing deterministic worker navigation, seated work and headband remain intact",
+      "passed": true
+    },
+    {
+      "name": "Manager coordinates calmly without working-hard or any headband",
+      "passed": true
+    },
+    {
+      "name": "Worker exact mesh selection and camera focus are preserved",
+      "passed": true
+    },
+    {
+      "name": "Tool writes immutable bytes without automatically creating an output artifact",
+      "passed": true
+    },
+    {
+      "name": "Explicit registration records real tool execution/task/agent provenance",
+      "passed": true
+    },
+    {
+      "name": "Artifact integrity descriptor matches the actual immutable write receipt",
+      "passed": true
+    },
+    {
+      "name": "Task input/output links are distinct canonical artifact IDs",
+      "passed": true
+    },
+    {
+      "name": "Completed task and completed artifact remain unverified while QA pending",
+      "passed": true
+    },
+    {
+      "name": "Actual immutable v1 contents fail required QA and bind original hash/version",
+      "passed": true
+    },
+    {
+      "name": "QA failure evidence references genuine inspected bytes and a failed assertion",
+      "passed": true
+    },
+    {
+      "name": "Failure creates traceable canonical repair and Manager attention",
+      "passed": true
+    },
+    {
+      "name": "QA failure is reflected by the existing blocked worker indicator",
+      "passed": true
+    },
+    {
+      "name": "Repair uses capability assignment and canonical repair state",
+      "passed": true
+    },
+    {
+      "name": "Actual repair creates v2 with new byte identity and repair provenance",
+      "passed": true
+    },
+    {
+      "name": "v1 metadata/hash and initial QA failure remain inspectable after supersession",
+      "passed": true
+    },
+    {
+      "name": "New QA recheck reads v2 and records separate passing evidence",
+      "passed": true
+    },
+    {
+      "name": "Only successful QA verifies v2; historical v1 never becomes verified",
+      "passed": true
+    },
+    {
+      "name": "Manager completes after required verified output and returns real artifact record",
+      "passed": true
+    },
+    {
+      "name": "Artifact changes use canonical events and activity history",
+      "passed": true
+    },
+    {
+      "name": "Selected task context shows versions, provenance, hash and QA without full content",
+      "passed": true
+    },
+    {
+      "name": "No artifact or QA action silently creates memory",
+      "passed": true
+    },
+    {
+      "name": "Manager exact selection and camera focus remain headband-free",
+      "passed": true
+    },
+    {
+      "name": "Open-top company overview reset remains available",
+      "passed": true
+    },
+    {
+      "name": "Idle artifact state introduces no polling, commands or commits",
+      "passed": true,
+      "detail": {
+        "before": {
+          "commands": 87,
+          "commits": 53,
+          "notifications": 235,
+          "rejectedCommands": 0,
+          "subscribers": 5
+        },
+        "after": {
+          "commands": 87,
+          "commits": 53,
+          "notifications": 235,
+          "rejectedCommands": 0,
+          "subscribers": 5
+        }
+      }
+    },
+    {
+      "name": "One verified artifact cannot satisfy a structured two-output requirement",
+      "passed": true
+    },
+    {
+      "name": "Two separate artifacts are independently verified and returned by Manager",
+      "passed": true
+    },
+    {
+      "name": "Missing expected output produces Manager attention with no fabricated artifact",
+      "passed": true
+    },
+    {
+      "name": "Simple output completion does not imply QA verification",
+      "passed": true
+    },
+    {
+      "name": "Unrelated worker cannot retrieve private output",
+      "passed": true
+    },
+    {
+      "name": "Manager context cannot recover private artifact content identity through source tool events",
+      "passed": true
+    },
+    {
+      "name": "Selected unrelated worker sees restricted metadata context without hash",
+      "passed": true
+    },
+    {
+      "name": "Phase 8 nested credential policy rejects artifact metadata without mutation or leakage",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "code": "SECRET_REJECTED",
+        "unchanged": true,
+        "leaked": false
+      }
+    },
+    {
+      "name": "Ordinary artifact update cannot fabricate verification",
+      "passed": true
+    },
+    {
+      "name": "Manager remains dedicated and headband-free throughout scenario resets",
+      "passed": true
+    },
+    {
+      "name": "Shared asset cache loads each canonical GLB once across resets",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "name": "No console/page errors, failed requests or hot reloads",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failedRequests": [],
+        "hotReloads": []
+      }
+    },
+    {
+      "name": "Validated source hashes stayed unchanged throughout acceptance",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "hotReloads": [],
+  "assetRequests": [
+    "http://127.0.0.1:5173/assets/working/warehouse/office-open.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/standard-worker-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/characters/primary-manager-animated.glb",
+    "http://127.0.0.1:5173/assets/3d/workstations/standard-workstation.glb",
+    "http://127.0.0.1:5173/assets/3d/accessories/red-headband.glb"
+  ],
+  "screenshots": [
+    "test-results/phase10-worker-working.png",
+    "test-results/phase10-artifact-history.png",
+    "test-results/phase10-manager-working.png",
+    "test-results/phase10-office-overview.png"
+  ],
+  "sourceSha256": {
+    "src/artifacts/artifactTypes.ts": "f957b72622474b6646d16d80739793747c298faa7b01f04382d11fe07e785b8c",
+    "src/artifacts/artifactPolicy.ts": "7a12bba58c068be56b9a4c0ba1a208e4496a1da6954bcae9c18f8672a95eaa08",
+    "src/artifacts/artifactSelectors.ts": "0f7426580f5976fa286142bb292c6967053cd376bdd226b488021eaa9937c8a0",
+    "src/artifacts/ArtifactStorage.ts": "0fbd978ab7b7480316dc4b77261b9d56c92b3df6820d45f4a0ae94393fb9918d",
+    "src/artifacts/ArtifactService.ts": "ff6ccda712c2d8b1b1aaa9a8717435641305e34fcafabc71cabf1c6adfaf44a7",
+    "src/artifacts/InMemoryArtifactRepository.ts": "cd260af1fca33433677089eb3a2d16817b72eaea33e77fecb6095bdc212d1b8f",
+    "src/runtime/artifactRuntime.ts": "2bae190f355dc7836185777e8b696705d8c03f84b6e66ed5b5b1f1dc14574692",
+    "src/runtime/qaRuntime.ts": "e98c7d4a1caea526581f13353086066cebbfa690d5e85c284fcd165c6febbbed",
+    "src/runtime/officeRuntime.ts": "eb55505719632f26b13b5a4344e447e6d3b6aaac7607773ff48389e6296b1553",
+    "src/runtime/orchestrationRuntime.ts": "60dcada2c41e74c094449a418491f712d8ee6f018485b47664bded642678c08e",
+    "src/orchestration/ManagerOrchestrator.ts": "59e9e39103733f5e066d01b6a73ac65bc5eef81dc7b6baa8c52470b96b5deeae",
+    "src/qa/qaPolicy.ts": "e21a777dca4b46a5252f0813a21a54581d1f885de1ea550184cc8ee813e1ad00",
+    "src/dev/artifactFixtures.ts": "2fdab9d7f1169514c86df9b4520e643258d40915c2e927ec9b8f22efd0ca8a8d",
+    "src/dev/ArtifactPreview.tsx": "778ab56876126c71f39e7707a5cd235a28875bc7eaa39377dee98d7861ab4308",
+    "src/components/ArtifactContextPanel.tsx": "a458b11ab348a9bdf8e910a925f79cbe3caf0525540f4907b7c9f3ec9a478f69"
+  },
+  "completedAt": "2026-10-11T08:44:39.505Z",
+  "totalChecks": 41,
+  "metrics": {
+    "commands": 32,
+    "commits": 21,
+    "notifications": 79,
+    "rejectedCommands": 2,
+    "subscribers": 5
+  },
+  "limitations": [
+    "Session-local bounded UTF-8 development document tools; no production storage, external providers or unrestricted downloads.",
+    "Headless Chromium software rendering is not an RTX hardware benchmark.",
+    "Phase 8 pattern-based credential checks and authorized verification assertion limitations remain."
+  ]
+}

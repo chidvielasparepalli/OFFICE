@@ -1,5 +1,6 @@
 import type { OfficeRuntime } from '../runtime/officeRuntime'
 import type { RuntimeCommand, RuntimeJson } from '../runtime/runtimeTypes'
+import { validateQAExecution } from '../qa/qaPolicy'
 import { ToolRegistry } from './ToolRegistry'
 import { publicToolJson, redactToolText, toolId } from './toolValidation'
 import {
@@ -71,6 +72,7 @@ export class ToolExecutor {
         toolId(id)
       const previous =
         this.runtime.getSnapshot().toolExecutions[request.executionId]
+      validateQAExecution(this.runtime.getSnapshot(), request)
       const handle = this.handles.get(request.executionId)
       const identity = previous ?? handle?.request
       if (

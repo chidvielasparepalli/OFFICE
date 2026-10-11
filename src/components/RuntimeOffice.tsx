@@ -20,6 +20,8 @@ import type {
 } from '../runtime/runtimeTypes'
 import { createOfficeRuntimeBridge } from '../runtime/officeRuntimeBridge'
 import { RuntimeTaskPanel } from './RuntimeTaskPanel'
+import { AgentQAContext } from './QAContextPanel'
+import { AgentArtifactContext } from './ArtifactContextPanel'
 
 const RuntimeWorld = memo(OfficeWorld)
 
@@ -29,6 +31,11 @@ export interface RuntimeOfficePort {
   subscribe(listener: () => void): () => void
   dispatch(command: RuntimeCommand): RuntimeResult | Promise<RuntimeResult>
   getMetrics?(): object
+  canAccessArtifact?(
+    agentId: string,
+    artifactId: string,
+    permission: 'read' | 'modify' | 'archive',
+  ): boolean
 }
 
 export function RuntimeOffice({
@@ -165,6 +172,12 @@ export function RuntimeOffice({
     },
     [runtime],
   )
+  const canReadArtifact = useCallback(
+    (artifactId: string) =>
+      !!state.selectedAgentId &&
+      !!runtime.canAccessArtifact?.(state.selectedAgentId, artifactId, 'read'),
+    [runtime, state.selectedAgentId],
+  )
 
   return (
     <>
@@ -189,8 +202,11 @@ export function RuntimeOffice({
       {feedbackError && (
         <p role="alert">Spatial feedback rejected: {feedbackError}</p>
       )}
+      <AgentQAContext state={state} onSelectTask={onSelectTask} />
+      <AgentArtifactContext state={state} canRead={canReadArtifact} />
       <RuntimeTaskPanel
         state={state}
+        canReadArtifact={canReadArtifact}
         onClose={() => runtime.dispatch({ type: 'selectTask', taskId: null })}
       />
       {import.meta.env.DEV && diagnostics && (

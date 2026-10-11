@@ -4,6 +4,8 @@ import {
 } from '../orchestration/capabilityMatcher'
 import { validatePlanProposal } from '../orchestration/planValidation'
 import { hasLiveToolExecution } from './toolRuntime'
+import { isTaskReadyForDependents } from '../qa/qaSelectors'
+import { taskOutputAssessment } from '../artifacts/artifactSelectors'
 import type {
   ExecutionPlan,
   ManagerRequest,
@@ -228,6 +230,14 @@ const derivedCodes = new Set([
   'COORDINATION_UNAVAILABLE',
   'INVALID_ASSIGNMENT',
   'INVALID_DEPENDENCY',
+  'QA_FAILED',
+  'QA_BLOCKED',
+  'QA_CANCELLED',
+  'QA_RETRY_EXHAUSTED',
+  'REPAIR_FAILED',
+  'REPAIR_CANCELLED',
+  'MISSING_OUTPUT',
+  'OUTPUT_UNVERIFIED',
 ])
 
 function synchronize(
@@ -286,6 +296,54 @@ function synchronize(
         task.id,
         task.assignedAgentId,
       )
+    const verification = task.verification
+    if (task.status === 'completed') {
+      const outputs = taskOutputAssessment(tx.state, task)
+      if (outputs.missing.length)
+        add(
+          'MISSING_OUTPUT',
+          `Task ${task.id} is missing required outputs: ${outputs.missing.join(', ')}.`,
+          task.id,
+          task.assignedAgentId,
+        )
+      if (outputs.unverified.length)
+        add(
+          'OUTPUT_UNVERIFIED',
+          `Task ${task.id} has outputs awaiting verification: ${outputs.unverified.join(', ')}.`,
+          task.id,
+          task.assignedAgentId,
+        )
+    }
+    if (
+      verification &&
+      ['failed', 'blocked', 'cancelled'].includes(verification.status)
+    ) {
+      const exhausted =
+        verification.status === 'failed' &&
+        verification.needsAttention &&
+        (tx.state.qaRequests[verification.qaId]?.attempt ?? -1) >=
+          verification.maxRepairAttempts
+      add(
+        exhausted
+          ? 'QA_RETRY_EXHAUSTED'
+          : `QA_${verification.status.toUpperCase()}`,
+        exhausted
+          ? `Task ${task.id} reached its repair limit and needs explicit attention.`
+          : `Task ${task.id} verification is ${verification.status}.`,
+        task.id,
+        task.assignedAgentId,
+      )
+      const repair = Object.values(tx.state.repairRequests).find(
+        (item) => item.sourceQaId === verification.qaId,
+      )
+      if (repair && ['failed', 'cancelled'].includes(repair.status))
+        add(
+          `REPAIR_${repair.status.toUpperCase()}`,
+          `Repair ${repair.repairId} is ${repair.status}.`,
+          task.id,
+          repair.responsibleAgentId,
+        )
+    }
     if (task.assignedAgentId) {
       const agent = tx.state.agents[task.assignedAgentId]
       const requirements = plan.requirements[task.id]
@@ -352,7 +410,7 @@ function synchronize(
     requestStatus = 'blocked'
   } else if (
     tasks.length > 0 &&
-    tasks.every((task) => task?.status === 'completed') &&
+    tasks.every((task) => isTaskReadyForDependents(task, tx.state)) &&
     coordinating &&
     !hasLiveToolExecution(tx.state, { taskId: coordination.id })
   ) {
@@ -591,6 +649,9 @@ export function applyOrchestrationCommand(
             dependencyIds: task.dependencyIds,
             parentTaskId: coordination.id,
             metadata: { requestId: request.requestId, planId: proposal.planId },
+            ...(task.expectedOutputs === undefined
+              ? {}
+              : { expectedOutputs: task.expectedOutputs }),
           },
         })
         requirements[task.id] = {
@@ -694,9 +755,11 @@ export function applyOrchestrationCommand(
       ensure(
         task.status === 'queued' &&
           task.assignedAgentId === null &&
-          task.dependencyIds.every((id) => tx.task(id).status === 'completed'),
+          task.dependencyIds.every((id) =>
+            isTaskReadyForDependents(tx.task(id), tx.state),
+          ),
         'TASK_NOT_READY',
-        'Only unassigned queued tasks with completed dependencies can dispatch.',
+        'Only unassigned queued tasks with completed dependencies and passed selected QA can dispatch.',
       )
       const agent = tx.agent(command.agentId)
       ensure(
@@ -758,8 +821,16 @@ export function applyOrchestrationCommand(
       )
       if (request.status === 'cancelled') return
       const plan = request.planId ? tx.state.plans[request.planId] : undefined
+      const taskIds = new Set(plan?.taskIds ?? [])
+      for (const qa of Object.values(tx.state.qaRequests)) {
+        if (taskIds.has(qa.taskId) && ['queued', 'running'].includes(qa.status))
+          tx.apply({ type: 'cancelQA', qaId: qa.qaId, reason: command.reason })
+      }
       const ids = [
         ...(plan?.taskIds ?? []),
+        ...Object.values(tx.state.repairRequests)
+          .filter((repair) => taskIds.has(repair.sourceTaskId))
+          .map((repair) => repair.taskId),
         ...(request.coordinationTaskId ? [request.coordinationTaskId] : []),
       ]
       for (const id of ids) {

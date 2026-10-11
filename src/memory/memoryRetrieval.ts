@@ -10,6 +10,7 @@ import {
   requireMemoryAccess,
   requireRecordAccess,
   taskProject,
+  validateStoredMemory,
 } from './memoryPolicy'
 import {
   MemoryFault,
@@ -129,6 +130,7 @@ function candidates(
         return false
       try {
         requireRecordAccess(state, policy, actorId, record, 'read')
+        validateStoredMemory(record)
         return true
       } catch (error) {
         if (
@@ -214,6 +216,10 @@ export function serializeMemoryContext(
   projectId: string | null,
   memories: readonly MemoryRecord[],
 ) {
+  memoryId(agentId)
+  memoryId(taskId)
+  if (projectId !== null) memoryId(projectId)
+  memories.forEach(validateStoredMemory)
   return JSON.stringify({
     agentId,
     taskId,

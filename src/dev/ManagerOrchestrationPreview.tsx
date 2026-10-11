@@ -517,7 +517,7 @@ export default function ManagerOrchestrationPreview() {
               <p>
                 {context.result.artifacts.length
                   ? context.result.artifacts
-                      .map((artifact) => artifact.title)
+                      .map((artifact) => artifact.name)
                       .join(', ')
                   : 'No artifacts have been reported.'}
               </p>

@@ -1,10 +1,34 @@
 import type { OfficeAgentStatus, WorldPosition } from '../office/officeState'
 import { ToolFault } from '../tools/toolTypes'
+import { QAFault } from '../qa/qaTypes'
+import {
+  ArtifactFault,
+  type ArtifactPolicy,
+  type ArtifactStorage,
+} from '../artifacts/artifactTypes'
+import {
+  canAccessArtifact,
+  copyArtifactPolicy,
+  validateArtifactExpectations,
+} from '../artifacts/artifactPolicy'
+import {
+  applyArtifactRuntimeCommand,
+  isArtifactRuntimeCommand,
+  validateRestoredArtifacts,
+} from './artifactRuntime'
+import { isTaskReadyForDependents, repairForTask } from '../qa/qaSelectors'
+import {
+  applyQARuntimeCommand,
+  isQARuntimeCommand,
+  reconcileQA,
+  validateRepairAssignment,
+} from './qaRuntime'
 import { MemoryFault, type MemoryPolicy } from '../memory/memoryTypes'
 import { copyMemoryPolicy } from '../memory/memoryPolicy'
 import {
   applyMemoryRuntimeCommand,
   isMemoryRuntimeCommand,
+  validateRestoredMemories,
 } from './memoryRuntime'
 import {
   applyOrchestrationCommand,
@@ -166,6 +190,9 @@ export function createEmptyRuntimeState(): RuntimeState {
     plans: {},
     toolExecutions: {},
     memories: {},
+    qaRequests: {},
+    repairRequests: {},
+    artifacts: {},
     events: [],
     activities: [],
     selectedAgentId: null,
@@ -227,6 +254,12 @@ function businessChanges(
     after.toolExecutions,
   )
   const memories = changedRecords(before.memories, after.memories)
+  const artifacts = changedRecords(before.artifacts, after.artifacts)
+  const qaRequests = changedRecords(before.qaRequests, after.qaRequests)
+  const repairRequests = changedRecords(
+    before.repairRequests,
+    after.repairRequests,
+  )
   return {
     ...(agents ? { agents } : {}),
     ...(tasks ? { tasks } : {}),
@@ -236,6 +269,9 @@ function businessChanges(
     ...(plans ? { plans } : {}),
     ...(toolExecutions ? { toolExecutions } : {}),
     ...(memories ? { memories } : {}),
+    ...(artifacts ? { artifacts } : {}),
+    ...(qaRequests ? { qaRequests } : {}),
+    ...(repairRequests ? { repairRequests } : {}),
     ...(before.connection !== after.connection
       ? { connection: after.connection }
       : {}),
@@ -250,16 +286,40 @@ class Transaction {
   private readonly now: () => string
   private readonly nextId: (scope: string) => string
   readonly memoryPolicy: MemoryPolicy
+  readonly artifactPolicy: ArtifactPolicy
+  readonly artifactStorage: ArtifactStorage | undefined
   constructor(
     state: RuntimeState,
     now: () => string,
     nextId: (scope: string) => string,
     memoryPolicy: MemoryPolicy,
+    artifactPolicy: ArtifactPolicy,
+    artifactStorage: ArtifactStorage | undefined,
   ) {
     this.state = state
     this.now = now
     this.nextId = nextId
     this.memoryPolicy = memoryPolicy
+    this.artifactPolicy = artifactPolicy
+    this.artifactStorage = artifactStorage
+  }
+  canAccessArtifact(
+    agentId: string,
+    artifactId: string,
+    permission: 'read' | 'modify' | 'archive',
+  ) {
+    if (!Object.hasOwn(this.state.artifacts, artifactId)) return false
+    const artifact = this.state.artifacts[artifactId]
+    return (
+      !!artifact &&
+      canAccessArtifact(
+        this.state,
+        this.artifactPolicy,
+        agentId,
+        artifact,
+        permission,
+      )
+    )
   }
   get time() {
     if (this.timestamp === null) {
@@ -282,6 +342,12 @@ class Transaction {
       has(this.state.agents, id) ||
       has(this.state.toolExecutions, id) ||
       has(this.state.memories, id) ||
+      has(this.state.artifacts, id) ||
+      has(this.state.qaRequests, id) ||
+      has(this.state.repairRequests, id) ||
+      Object.values(this.state.qaRequests).some((qa) =>
+        Object.values(qa.executionIds).includes(id),
+      ) ||
       orchestrationIdUsed(this.state, id) ||
       this.state.events.some((event) => event.id === id) ||
       intentUsed(this.state, id)
@@ -350,6 +416,9 @@ class Transaction {
   }
   apply(command: RuntimeCommand) {
     applyCommand(this, command)
+  }
+  reconcileDependencies() {
+    reconcileDependencies(this)
   }
   emit(
     type: RuntimeEventType,
@@ -433,9 +502,9 @@ function currentAgent(tx: Transaction, task: RuntimeTask) {
 function dependencyReason(tx: Transaction, task: RuntimeTask) {
   const pending = task.dependencyIds
     .map((id) => tx.task(id))
-    .filter((dependency) => dependency.status !== 'completed')
+    .filter((dependency) => !isTaskReadyForDependents(dependency, tx.state))
   return pending.length
-    ? `Waiting for dependencies: ${pending.map((dependency) => `${dependency.id} (${dependency.status})`).join(', ')}.`
+    ? `Waiting for dependencies: ${pending.map((dependency) => `${dependency.id} (${dependency.status}${dependency.verification ? `; QA ${dependency.verification.status}` : ''})`).join(', ')}.`
     : null
 }
 
@@ -644,6 +713,14 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
     applyMemoryRuntimeCommand(tx, tx.memoryPolicy, command)
     return
   }
+  if (isQARuntimeCommand(command)) {
+    applyQARuntimeCommand(tx, command)
+    return
+  }
+  if (isArtifactRuntimeCommand(command)) {
+    applyArtifactRuntimeCommand(tx, command)
+    return
+  }
   switch (command.type) {
     case 'registerDepartment': {
       const input = command.department
@@ -805,6 +882,9 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
     }
     case 'createTask': {
       const input = command.task
+      const expectedOutputs = validateArtifactExpectations(
+        input.expectedOutputs,
+      )
       text(input.title, 'Task title')
       const id = input.id ?? tx.id('task')
       identifier(id, 'Task ID')
@@ -844,6 +924,7 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
         'Task metadata must be a JSON object.',
       )
       const task: RuntimeTask = {
+        ...(input.expectedOutputs === undefined ? {} : { expectedOutputs }),
         id,
         title: input.title,
         description: input.description ?? '',
@@ -886,6 +967,7 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
     }
     case 'assignTask': {
       const task = tx.task(command.taskId)
+      validateRepairAssignment(tx, task.id, command.agentId)
       nonterminal(task)
       const agent = tx.agent(command.agentId)
       requireCondition(
@@ -948,6 +1030,7 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
       const task = tx.task(command.taskId)
       nonterminal(task)
       const agent = currentAgent(tx, task)
+      validateRepairAssignment(tx, task.id, agent.id)
       const reason = dependencyReason(tx, task)
       requireCondition(
         reason === null,
@@ -955,12 +1038,15 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
         reason ?? 'Dependencies are not ready.',
       )
       requireCondition(
-        agent.status !== 'repair',
+        agent.status !== 'repair' || !!repairForTask(tx.state, task.id),
         'INVALID_TRANSITION',
         'Acknowledge repair before restarting work.',
       )
       requireCondition(
-        !(task.status === 'in_progress' && agent.status === 'working'),
+        !(
+          task.status === 'in_progress' &&
+          ['working', 'repair'].includes(agent.status)
+        ),
         'INVALID_TRANSITION',
         `Task ${task.id} is already working.`,
       )
@@ -1035,7 +1121,8 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
       )
       const agent = currentAgent(tx, task)
       requireCondition(
-        agent.status !== 'blocked' && agent.status !== 'repair',
+        agent.status !== 'blocked' &&
+          (agent.status !== 'repair' || !!repairForTask(tx.state, task.id)),
         'INVALID_TRANSITION',
         'Resume the agent before completing its task.',
       )
@@ -1046,12 +1133,19 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
         waitingForDependencies: false,
         completedAt: tx.time,
       })
-      tx.agentPatch(agent.id, {
-        status: 'completed',
-        destination: null,
-        blockers: [],
-        collaboratorIds: [],
-      })
+      tx.agentPatch(
+        agent.id,
+        {
+          status:
+            task.verification && task.verification.status !== 'verified'
+              ? 'waiting'
+              : 'completed',
+          destination: null,
+          blockers: [],
+          collaboratorIds: [],
+        },
+        !!repairForTask(tx.state, task.id),
+      )
       tx.emit('TASK_COMPLETED', `Completed ${task.title}.`, agent.id, task.id)
       reconcileDependencies(tx)
       return
@@ -1377,6 +1471,8 @@ export class OfficeRuntime {
   private readonly now: () => string
   private readonly nextId: (scope: string) => string
   private readonly memoryPolicy: MemoryPolicy
+  private readonly artifactPolicy: ArtifactPolicy
+  private readonly artifactStorage: ArtifactStorage | undefined
   private readonly listeners = new Set<() => void>()
   private counters = {
     commands: 0,
@@ -1388,14 +1484,21 @@ export class OfficeRuntime {
 
   constructor(options: OfficeRuntimeOptions = {}) {
     this.memoryPolicy = copyMemoryPolicy(options.memoryPolicy ?? { grants: [] })
+    this.artifactPolicy = copyArtifactPolicy(
+      options.artifactPolicy ?? { grants: [] },
+    )
+    this.artifactStorage = options.artifactStorage
     this.repository =
       options.repository ?? createInMemoryOfficeRuntimeRepository()
-    const restored = this.repository.read()
+    const saved = this.repository.read()
+    const restored = saved === null ? null : structuredClone(saved)
+    if (restored) validateRestoredMemories(restored)
+    if (restored) validateRestoredArtifacts(restored)
     this.snapshot =
       restored === null
         ? createEmptyRuntimeState()
         : freeze({
-            ...structuredClone(restored),
+            ...restored,
             requests: restored.requests
               ? structuredClone(restored.requests)
               : {},
@@ -1406,6 +1509,9 @@ export class OfficeRuntime {
             memories: restored.memories
               ? structuredClone(restored.memories)
               : {},
+            qaRequests: restored.qaRequests ?? {},
+            repairRequests: restored.repairRequests ?? {},
+            artifacts: restored.artifacts ?? {},
           })
     this.now = options.now ?? (() => new Date().toISOString())
     let sequence =
@@ -1421,6 +1527,12 @@ export class OfficeRuntime {
           has(this.snapshot.agents, id) ||
           has(this.snapshot.toolExecutions, id) ||
           has(this.snapshot.memories, id) ||
+          has(this.snapshot.artifacts, id) ||
+          has(this.snapshot.qaRequests, id) ||
+          has(this.snapshot.repairRequests, id) ||
+          Object.values(this.snapshot.qaRequests).some((qa) =>
+            Object.values(qa.executionIds).includes(id),
+          ) ||
           orchestrationIdUsed(this.snapshot, id) ||
           this.snapshot.events.some((event) => event.id === id) ||
           intentUsed(this.snapshot, id)
@@ -1430,6 +1542,24 @@ export class OfficeRuntime {
   }
 
   readonly getSnapshot = () => this.snapshot
+  readonly canAccessArtifact = (
+    agentId: string,
+    artifactId: string,
+    permission: 'read' | 'modify' | 'archive',
+  ) => {
+    if (!Object.hasOwn(this.snapshot.artifacts, artifactId)) return false
+    const artifact = this.snapshot.artifacts[artifactId]
+    return (
+      !!artifact &&
+      canAccessArtifact(
+        this.snapshot,
+        this.artifactPolicy,
+        agentId,
+        artifact,
+        permission,
+      )
+    )
+  }
   readonly getMetrics = (): RuntimeMetrics =>
     Object.freeze({ ...this.counters, subscribers: this.listeners.size })
   readonly subscribe = (listener: () => void) => {
@@ -1459,8 +1589,16 @@ export class OfficeRuntime {
         this.now,
         this.nextId,
         this.memoryPolicy,
+        this.artifactPolicy,
+        this.artifactStorage,
       )
       applyCommand(tx, command)
+      if (
+        tx.events.some((event) =>
+          /^(TASK_|AGENT_|QA_|REPAIR_|RUNTIME_DISCONNECTED)/u.test(event.type),
+        )
+      )
+        reconcileQA(tx)
       next = tx.finish(this.snapshot)
       if (next !== this.snapshot) {
         try {
@@ -1482,7 +1620,9 @@ export class OfficeRuntime {
           error instanceof RuntimeFault ||
           error instanceof OrchestrationFault ||
           error instanceof ToolFault ||
-          error instanceof MemoryFault
+          error instanceof MemoryFault ||
+          error instanceof ArtifactFault ||
+          error instanceof QAFault
             ? { code: error.code, message: error.message }
             : {
                 code: 'INVALID_COMMAND',
