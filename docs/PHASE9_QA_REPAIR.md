@@ -1,5 +1,7 @@
 # Phase 9 — QA and repair
 
+> Historical Phase 9 checkpoint. Phase 10 extends this same subsystem with registered artifact versions, exact content bindings, independent output checks and Manager output gates. See [PHASE10_ARTIFACTS.md](PHASE10_ARTIFACTS.md) for the current output contract and stop boundary; the Phase 8 security policy remains unchanged.
+
 Phase 9 extends the validated Phase 8 security checkpoint `99f2df5` on `codex/phase9-qa-repair`. It adds explicit quality evaluation and bounded repair coordination. The runtime, tools, memory security policy and supplied character/animation assets remain authoritative. No provider, autonomous repair, production backend or new execution privileges are introduced.
 
 ## Ownership and execution

@@ -52,6 +52,11 @@ export interface QARequestInput {
   readonly repairCapabilities: readonly string[]
   readonly maxRepairAttempts?: number
 }
+export interface ArtifactQABinding {
+  readonly artifactId: string
+  readonly version: number
+  readonly sha256: string
+}
 export interface QAEvidence {
   readonly executionId: string
   readonly toolId: string
@@ -90,6 +95,7 @@ export interface QAResult {
   } | null
   readonly startedAt: string | null
   readonly completedAt: string
+  readonly artifactBinding?: ArtifactQABinding
 }
 export interface QARequest {
   readonly qaId: string
@@ -98,6 +104,8 @@ export interface QARequest {
   readonly requestedBy: string
   readonly scope: string
   readonly artifactId: string | null
+  /** Captured from the registry, never accepted as a caller verification claim. */
+  readonly artifactBinding?: ArtifactQABinding
   readonly checks: readonly QACheck[]
   readonly priority: RuntimeTaskPriority
   readonly status: QAStatus
@@ -164,6 +172,7 @@ export type QARuntimeCommand =
       readonly type: 'recheckQA'
       readonly qaId: string
       readonly newQaId?: string
+      readonly replacementArtifactId?: string
     }
   | { readonly type: 'requestRepair'; readonly qaId: string }
   | {

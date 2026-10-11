@@ -1,5 +1,6 @@
 import type { RuntimeState, RuntimeTaskPriority } from '../runtime/runtimeTypes'
 import { meetsCapabilities } from './capabilityMatcher'
+import { validateArtifactExpectations } from '../artifacts/artifactPolicy'
 import type {
   ManagerRequest,
   PlanProposal,
@@ -34,6 +35,7 @@ function record(
   value: unknown,
   keys: readonly string[],
   label: string,
+  optionalKeys: readonly string[] = [],
 ): Record<string, unknown> {
   requirePlan(
     value !== null && typeof value === 'object' && !Array.isArray(value),
@@ -44,11 +46,11 @@ function record(
   const ownKeys = Reflect.ownKeys(value)
   requirePlan(
     (prototype === Object.prototype || prototype === null) &&
-      ownKeys.length === keys.length &&
+      keys.every((key) => Object.hasOwn(value, key)) &&
       ownKeys.every(
         (key) =>
           typeof key === 'string' &&
-          keys.includes(key) &&
+          (keys.includes(key) || optionalKeys.includes(key)) &&
           Object.hasOwn(Object.getOwnPropertyDescriptor(value, key)!, 'value'),
       ),
     'INVALID_PLAN',
@@ -166,6 +168,7 @@ export function validatePlanProposal(
           'preferredAgentId',
         ],
         'Task',
+        ['expectedOutputs'],
       )
       const taskId = id(task.id, 'Task ID')
       availableId(taskId, state)
@@ -218,6 +221,15 @@ export function validatePlanProposal(
           dependencyIds: identifiers(task.dependencyIds, 'Task dependencies'),
           requiredCapabilities,
           preferredAgentId,
+          ...(Object.hasOwn(task, 'expectedOutputs')
+            ? {
+                expectedOutputs: Object.freeze(
+                  validateArtifactExpectations(task.expectedOutputs).map(
+                    (expected) => Object.freeze({ ...expected }),
+                  ),
+                ),
+              }
+            : {}),
         }),
       )
     }

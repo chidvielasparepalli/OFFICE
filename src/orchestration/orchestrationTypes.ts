@@ -5,6 +5,7 @@ import type {
   RuntimeTaskPriority,
 } from '../runtime/runtimeTypes'
 import type { QARequest, RepairRequest } from '../qa/qaTypes'
+import type { Artifact, ArtifactExpectation } from '../artifacts/artifactTypes'
 
 export type RequestStatus =
   | 'received'
@@ -61,6 +62,7 @@ export interface PlanTaskProposal {
   readonly dependencyIds: readonly string[]
   readonly requiredCapabilities: readonly string[]
   readonly preferredAgentId: string | null
+  readonly expectedOutputs?: readonly ArtifactExpectation[]
 }
 
 export interface PlanProposal {
@@ -92,14 +94,6 @@ export interface ExecutionPlan {
   readonly updatedAt: string
 }
 
-/** Artifact references may be supplied by a future artifact system; none are fabricated. */
-export interface ExecutionArtifact {
-  readonly id: string
-  readonly taskId: string
-  readonly title: string
-  readonly uri: string | null
-}
-
 export interface ExecutionResult {
   readonly requestId: string
   readonly status: PlanStatus
@@ -108,7 +102,7 @@ export interface ExecutionResult {
   readonly blockedTaskIds: readonly string[]
   readonly verifiedTaskIds: readonly string[]
   readonly awaitingVerificationTaskIds: readonly string[]
-  readonly artifacts: readonly ExecutionArtifact[]
+  readonly artifacts: readonly Artifact[]
   readonly summary: string
 }
 
@@ -145,6 +139,7 @@ export interface ManagerContext {
   readonly events: readonly Readonly<RuntimeEvent>[]
   readonly qaRequests: readonly Readonly<QARequest>[]
   readonly repairs: readonly Readonly<RepairRequest>[]
+  readonly artifacts: readonly Artifact[]
   readonly result: Readonly<ExecutionResult> | null
 }
 

@@ -3,6 +3,11 @@ import {
   meetsCapabilities,
 } from '../orchestration/capabilityMatcher'
 import { evaluateQA, validateQARequest } from '../qa/qaPolicy'
+import { latestTaskQAs, taskVerification } from '../qa/qaSelectors'
+import {
+  applyArtifactQAResult,
+  validateArtifactQATarget,
+} from './artifactRuntime'
 import {
   QAFault,
   type QARequest,
@@ -23,6 +28,11 @@ interface QATransaction extends OrchestrationTransaction {
   ): void
   taskPatch(id: string, patch: Partial<RuntimeTask>): void
   reconcileDependencies(): void
+  canAccessArtifact(
+    agentId: string,
+    artifactId: string,
+    permission: 'read' | 'modify' | 'archive',
+  ): boolean
 }
 const commands = new Set([
   'requestQA',
@@ -121,6 +131,12 @@ function sourcePresentation(
 ) {
   const task = tx.task(request.taskId)
   if (task.status !== 'completed' || task.assignedAgentId === null) return
+  if (task.verification)
+    status = task.verification.needsAttention
+      ? 'blocked'
+      : task.verification.status === 'verified'
+        ? 'completed'
+        : 'waiting'
   const agent = tx.agent(task.assignedAgentId)
   if (agent.currentTaskId !== task.id || agent.status === 'repair') return
   tx.agentPatch(agent.id, {
@@ -132,20 +148,7 @@ function sourcePresentation(
 }
 function setVerification(tx: QATransaction, request: QARequest) {
   tx.taskPatch(request.taskId, {
-    verification: {
-      qaId: request.qaId,
-      status:
-        request.status === 'queued'
-          ? 'pending'
-          : request.status === 'passed'
-            ? 'verified'
-            : request.status,
-      repairAttempts: request.attempt,
-      maxRepairAttempts: request.maxRepairAttempts,
-      needsAttention: ['failed', 'blocked', 'cancelled'].includes(
-        request.status,
-      ),
-    },
+    verification: taskVerification(tx.state, request.taskId),
   })
 }
 function queueQA(tx: QATransaction, request: QARequest) {
@@ -274,6 +277,9 @@ function cancelQA(tx: QATransaction, request: QARequest) {
           : null,
       startedAt: request.startedAt,
       completedAt: tx.time,
+      ...(request.artifactBinding
+        ? { artifactBinding: request.artifactBinding }
+        : {}),
     },
   }
   putQA(tx, value)
@@ -296,6 +302,14 @@ export function applyQARuntimeCommand(
     case 'requestQA': {
       const input = validateQARequest(command.request)
       const task = tx.task(input.taskId)
+      const artifact = input.artifactId
+        ? validateArtifactQATarget(
+            tx,
+            input.artifactId,
+            task.id,
+            input.requestedBy,
+          )
+        : null
       ensure(
         !Object.values(tx.state.requests).some(
           (item) => item.coordinationTaskId === task.id,
@@ -333,10 +347,15 @@ export function applyQARuntimeCommand(
         'QA must belong to the responsible Manager.',
       )
       ensure(
-        !task.verification &&
-          !Object.values(tx.state.qaRequests).some(
-            (item) => item.taskId === task.id,
-          ),
+        !Object.values(tx.state.qaRequests).some(
+          (item) =>
+            item.taskId === task.id &&
+            (artifact
+              ? item.artifactId !== null &&
+                tx.state.artifacts[item.artifactId]?.lineageId ===
+                  artifact.lineageId
+              : item.artifactId === null),
+        ),
         'QA_ALREADY_CONFIGURED',
         'Use recheck for an existing QA policy.',
       )
@@ -361,6 +380,15 @@ export function applyQARuntimeCommand(
         qaId,
         agentId: task.assignedAgentId,
         artifactId: input.artifactId ?? null,
+        ...(artifact
+          ? {
+              artifactBinding: {
+                artifactId: artifact.artifactId,
+                version: artifact.version,
+                sha256: artifact.content.sha256,
+              },
+            }
+          : {}),
         priority: input.priority!,
         maxRepairAttempts: input.maxRepairAttempts!,
         status: 'queued',
@@ -381,6 +409,20 @@ export function applyQARuntimeCommand(
     case 'startQA': {
       const request = qa(tx, command.qaId)
       activeWorkflow(tx, request.taskId)
+      if (request.artifactBinding) {
+        const artifact = validateArtifactQATarget(
+          tx,
+          request.artifactBinding.artifactId,
+          request.taskId,
+          request.requestedBy,
+        )
+        ensure(
+          artifact.version === request.artifactBinding.version &&
+            artifact.content.sha256 === request.artifactBinding.sha256,
+          'ARTIFACT_CHANGED',
+          'QA must inspect the captured artifact version and content identity.',
+        )
+      }
       ensure(
         request.status === 'queued' &&
           tx.task(request.taskId).status === 'completed',
@@ -446,7 +488,23 @@ export function applyQARuntimeCommand(
         'QA_TOOL_ACTIVE',
         'Wait for verification tools to finish or cancel.',
       )
-      const result = evaluateQA(request, tx.state.toolExecutions, tx.time)
+      const bound = request.artifactBinding
+      const artifact = bound ? tx.state.artifacts[bound.artifactId] : undefined
+      const artifactAvailable =
+        !bound ||
+        !!(
+          artifact &&
+          artifact.version === bound.version &&
+          artifact.content.sha256 === bound.sha256 &&
+          !artifact.supersededByArtifactId &&
+          ['completed', 'failed'].includes(artifact.status)
+        )
+      const result = evaluateQA(
+        request,
+        tx.state.toolExecutions,
+        tx.time,
+        artifactAvailable,
+      )
       const inspection = tx.task(request.inspectionTaskId!)
       if (inspection.status === 'in_progress')
         tx.apply({ type: 'completeTask', taskId: inspection.id })
@@ -463,11 +521,17 @@ export function applyQARuntimeCommand(
         completedAt: tx.time,
       }
       putQA(tx, value)
+      if (value.artifactBinding) applyArtifactQAResult(tx, value)
       setVerification(tx, value)
+      const verification = tx.task(value.taskId).verification!
       sourcePresentation(
         tx,
         value,
-        value.status === 'passed' ? 'completed' : 'blocked',
+        verification.status === 'verified'
+          ? 'completed'
+          : verification.needsAttention
+            ? 'blocked'
+            : 'waiting',
       )
       tx.emit(
         value.status === 'passed'
@@ -567,12 +631,17 @@ export function applyQARuntimeCommand(
       const previous = qa(tx, command.qaId)
       activeWorkflow(tx, previous.taskId)
       ensure(
-        ['failed', 'blocked', 'cancelled'].includes(previous.status),
+        ['failed', 'blocked', 'cancelled'].includes(previous.status) ||
+          (previous.status === 'passed' &&
+            !!previous.artifactBinding &&
+            !!command.replacementArtifactId),
         'INVALID_QA_TRANSITION',
         'A recheck follows failed, blocked or cancelled QA.',
       )
       ensure(
-        tx.task(previous.taskId).verification?.qaId === previous.qaId,
+        latestTaskQAs(tx.state, previous.taskId).some(
+          (item) => item.qaId === previous.qaId,
+        ),
         'STALE_QA',
         'Only the latest QA attempt can be rechecked.',
       )
@@ -584,11 +653,64 @@ export function applyQARuntimeCommand(
         'REPAIR_NOT_COMPLETED',
         'Complete the linked repair before rechecking failed QA.',
       )
+      const artifact = previous.artifactBinding
+        ? validateArtifactQATarget(
+            tx,
+            command.replacementArtifactId ??
+              previous.artifactBinding.artifactId,
+            previous.taskId,
+            previous.requestedBy,
+          )
+        : null
+      ensure(
+        !command.replacementArtifactId || !!previous.artifactBinding,
+        'ARTIFACT_RECHECK_CONFLICT',
+        'A task-only QA policy cannot become an artifact policy during recheck.',
+      )
+      if (previous.artifactBinding) {
+        const original = tx.state.artifacts[previous.artifactBinding.artifactId]
+        ensure(
+          !!artifact && artifact.lineageId === original.lineageId,
+          'ARTIFACT_RECHECK_CONFLICT',
+          'Recheck must retain the artifact lineage.',
+        )
+        if (previous.status === 'failed')
+          ensure(
+            !!command.replacementArtifactId &&
+              artifact!.version > original.version &&
+              artifact!.source.taskId === completedRepair!.taskId,
+            'REPAIR_ARTIFACT_REQUIRED',
+            'Failed artifact QA requires a newer version produced by its completed repair task.',
+          )
+        else if (command.replacementArtifactId)
+          ensure(
+            artifact!.version > original.version &&
+              (artifact!.source.taskId === previous.taskId ||
+                Object.values(tx.state.repairRequests).some(
+                  (repair) =>
+                    repair.taskId === artifact!.source.taskId &&
+                    repair.sourceTaskId === previous.taskId &&
+                    repair.status === 'completed',
+                )),
+            'ARTIFACT_RECHECK_CONFLICT',
+            'Changed output must be a newer version produced by its owning task or completed repair.',
+          )
+      }
       queueQA(tx, {
         ...previous,
         qaId: freshQAId(tx, command.newQaId),
         previousQaId: previous.qaId,
         repairId: completedRepair?.repairId ?? previous.repairId,
+        ...(artifact
+          ? {
+              artifactId: artifact.artifactId,
+              artifactBinding: {
+                artifactId: artifact.artifactId,
+                version: artifact.version,
+                sha256: artifact.content.sha256,
+              },
+            }
+          : {}),
         attempt: completedRepair?.attempt ?? previous.attempt,
         status: 'queued',
         verifierAgentId: null,

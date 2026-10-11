@@ -5,6 +5,7 @@ import {
 import { validatePlanProposal } from '../orchestration/planValidation'
 import { hasLiveToolExecution } from './toolRuntime'
 import { isTaskReadyForDependents } from '../qa/qaSelectors'
+import { taskOutputAssessment } from '../artifacts/artifactSelectors'
 import type {
   ExecutionPlan,
   ManagerRequest,
@@ -235,6 +236,8 @@ const derivedCodes = new Set([
   'QA_RETRY_EXHAUSTED',
   'REPAIR_FAILED',
   'REPAIR_CANCELLED',
+  'MISSING_OUTPUT',
+  'OUTPUT_UNVERIFIED',
 ])
 
 function synchronize(
@@ -294,6 +297,23 @@ function synchronize(
         task.assignedAgentId,
       )
     const verification = task.verification
+    if (task.status === 'completed') {
+      const outputs = taskOutputAssessment(tx.state, task)
+      if (outputs.missing.length)
+        add(
+          'MISSING_OUTPUT',
+          `Task ${task.id} is missing required outputs: ${outputs.missing.join(', ')}.`,
+          task.id,
+          task.assignedAgentId,
+        )
+      if (outputs.unverified.length)
+        add(
+          'OUTPUT_UNVERIFIED',
+          `Task ${task.id} has outputs awaiting verification: ${outputs.unverified.join(', ')}.`,
+          task.id,
+          task.assignedAgentId,
+        )
+    }
     if (
       verification &&
       ['failed', 'blocked', 'cancelled'].includes(verification.status)
@@ -390,7 +410,7 @@ function synchronize(
     requestStatus = 'blocked'
   } else if (
     tasks.length > 0 &&
-    tasks.every(isTaskReadyForDependents) &&
+    tasks.every((task) => isTaskReadyForDependents(task, tx.state)) &&
     coordinating &&
     !hasLiveToolExecution(tx.state, { taskId: coordination.id })
   ) {
@@ -629,6 +649,9 @@ export function applyOrchestrationCommand(
             dependencyIds: task.dependencyIds,
             parentTaskId: coordination.id,
             metadata: { requestId: request.requestId, planId: proposal.planId },
+            ...(task.expectedOutputs === undefined
+              ? {}
+              : { expectedOutputs: task.expectedOutputs }),
           },
         })
         requirements[task.id] = {
@@ -733,7 +756,7 @@ export function applyOrchestrationCommand(
         task.status === 'queued' &&
           task.assignedAgentId === null &&
           task.dependencyIds.every((id) =>
-            isTaskReadyForDependents(tx.task(id)),
+            isTaskReadyForDependents(tx.task(id), tx.state),
           ),
         'TASK_NOT_READY',
         'Only unassigned queued tasks with completed dependencies and passed selected QA can dispatch.',

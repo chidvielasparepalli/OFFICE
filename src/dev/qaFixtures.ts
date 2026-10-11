@@ -255,7 +255,6 @@ export function createQAPreviewSession(mode: QAPreviewMode = 'repair') {
         qaId: ids.qa,
         taskId: ids.task,
         scope: 'Explicit local document acceptance section',
-        artifactId: ids.artifact,
         checks,
         repairCapabilities: ['development.document'],
         maxRepairAttempts: mode === 'exhaustion' ? 1 : 2,

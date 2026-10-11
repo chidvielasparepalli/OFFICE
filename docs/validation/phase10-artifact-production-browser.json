@@ -1,0 +1,55 @@
+{
+  "startedAt": "2026-10-11T08:43:49.271Z",
+  "checks": [
+    {
+      "name": "Production query parameters cannot activate development runtime fixtures or controls",
+      "passed": true
+    },
+    {
+      "name": "Served production JavaScript matches the final dist build and excludes all tool adapters and Phase 5–10 development fixture strings",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+          "bytes": 1382420,
+          "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+          "matchesDist": true,
+          "excludesFixtures": true
+        }
+      ]
+    },
+    {
+      "name": "Disconnected production world does not request worker, Manager, desk or headband GLBs",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Production preview has no console errors or failed network requests",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "Production preview does not expose the development execution endpoint",
+      "passed": true,
+      "detail": {
+        "status": 404
+      }
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "requests": [],
+  "scripts": [
+    {
+      "url": "http://127.0.0.1:4173/assets/index-CmU8X8M7.js",
+      "bytes": 1382420,
+      "sha256": "2a7e2d41527e60c570deddcac5a710f352fea0bbee5e26a5e7a3edb8567d4bb7",
+      "matchesDist": true,
+      "excludesFixtures": true
+    }
+  ],
+  "completedAt": "2026-10-11T08:43:50.066Z"
+}

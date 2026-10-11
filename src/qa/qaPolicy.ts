@@ -121,6 +121,15 @@ export function validateQARequest(input: QARequestInput): QARequestInput {
     requireQA(severities.includes(check.severity), 'Invalid check severity.')
     id(check.toolId)
     memorySafeJson(check.input, 4096)
+    if (input.artifactId) {
+      requireQA(
+        check.input !== null &&
+          typeof check.input === 'object' &&
+          !Array.isArray(check.input) &&
+          !Object.hasOwn(check.input, 'artifact'),
+        'Artifact checks require object input without the reserved artifact binding.',
+      )
+    }
     const assertion = toolObject(check.assertion, ['kind', 'path', 'value'])
     requireQA(
       ['exists', 'equals', 'includes', 'maximum', 'no-credentials'].includes(
@@ -200,12 +209,25 @@ export function validateQAExecution(state: RuntimeState, request: ToolRequest) {
     qa.verifierAgentId !== request.agentId ||
     qa.inspectionTaskId !== request.taskId ||
     check.toolId !== request.toolId ||
-    !equalJson(check.input, memorySafeJson(request.input, 4096))
+    !equalJson(qaExecutionInput(qa, check), memorySafeJson(request.input, 8192))
   )
     throw new ToolFault(
       'QA_EXECUTION_CONFLICT',
       'QA evidence must use the configured verifier, tool and exact input.',
     )
+}
+
+/** A check's policy is unchanged across versions; only its runtime-owned target changes. */
+export function qaExecutionInput(
+  request: QARequest,
+  check: QACheck,
+): RuntimeJson {
+  return request.artifactBinding
+    ? {
+        ...(check.input as Record<string, RuntimeJson>),
+        artifact: { ...request.artifactBinding },
+      }
+    : check.input
 }
 
 function inspect(output: RuntimeJson, assertion: QAAssertion): boolean {
@@ -249,6 +271,7 @@ function evaluateCheck(
   request: QARequest,
   check: QACheck,
   executions: RuntimeState['toolExecutions'],
+  artifactAvailable: boolean,
 ): QACheckResult {
   const executionId = request.executionIds[check.checkId]
   const execution = executionId ? executions[executionId] : undefined
@@ -273,6 +296,7 @@ function evaluateCheck(
     evidence: evidence(null, code),
   })
   if (!execution) return blocked('EXECUTION_UNAVAILABLE')
+  if (!artifactAvailable) return blocked('ARTIFACT_CHANGED')
   if (
     execution.executionId !== executionId ||
     execution.toolId !== check.toolId ||
@@ -289,6 +313,17 @@ function evaluateCheck(
     return blocked('EXECUTION_NOT_COMPLETED')
   try {
     publicToolJson(execution.output)
+    if (
+      request.artifactBinding &&
+      (execution.output === null ||
+        typeof execution.output !== 'object' ||
+        Array.isArray(execution.output) ||
+        !Object.hasOwn(execution.output, 'artifact') ||
+        !equalJson((execution.output as Record<string, RuntimeJson>).artifact, {
+          ...request.artifactBinding,
+        }))
+    )
+      return blocked('ARTIFACT_EVIDENCE_MISMATCH')
     const matched = inspect(execution.output, check.assertion)
     return {
       checkId: check.checkId,
@@ -305,13 +340,14 @@ export function evaluateQA(
   request: QARequest,
   executions: RuntimeState['toolExecutions'],
   now: string,
+  artifactAvailable = true,
 ): QAResult {
   requireQA(
     request.checks.length > 0 && request.checks.some((check) => check.required),
     'QA requires explicit required checks before evaluation.',
   )
   const checks = request.checks.map((check) =>
-    evaluateCheck(request, check, executions),
+    evaluateCheck(request, check, executions, artifactAvailable),
   )
   const findings: QAFinding[] = checks.flatMap((result, index) => {
     if (result.status === 'passed') return []
@@ -371,5 +407,8 @@ export function evaluateQA(
         : null,
     startedAt: request.startedAt,
     completedAt: now,
+    ...(request.artifactBinding
+      ? { artifactBinding: request.artifactBinding }
+      : {}),
   }
 }

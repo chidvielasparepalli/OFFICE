@@ -24,6 +24,7 @@ const emptyState = (): RuntimeState =>
     memories: {},
     qaRequests: {},
     repairRequests: {},
+    artifacts: {},
     events: [],
     activities: [],
     selectedAgentId: null,

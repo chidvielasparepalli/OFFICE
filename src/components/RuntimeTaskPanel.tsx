@@ -1,12 +1,15 @@
 import type { RuntimeState } from '../runtime/runtimeTypes'
 import { TaskQAContext } from './QAContextPanel'
+import { TaskArtifactContext } from './ArtifactContextPanel'
 
 export function RuntimeTaskPanel({
   state,
   onClose,
+  canReadArtifact,
 }: {
   state: RuntimeState
   onClose: () => void
+  canReadArtifact?: (artifactId: string) => boolean
 }) {
   if (state.connection !== 'local' || !state.selectedTaskId) return null
   const task = state.tasks[state.selectedTaskId]
@@ -57,6 +60,11 @@ export function RuntimeTaskPanel({
         )}
       </dl>
       <TaskQAContext state={state} taskId={task.id} />
+      <TaskArtifactContext
+        state={state}
+        taskId={task.id}
+        canRead={canReadArtifact}
+      />
       <h3>Task activity</h3>
       {activity.length ? (
         <ul>

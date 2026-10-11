@@ -24,6 +24,13 @@ import type {
   RepairRequest,
   TaskVerification,
 } from '../qa/qaTypes'
+import type {
+  Artifact,
+  ArtifactExpectation,
+  ArtifactPolicy,
+  ArtifactRuntimeCommand,
+  ArtifactStorage,
+} from '../artifacts/artifactTypes'
 
 export type RuntimeTaskStatus =
   | 'queued'
@@ -93,6 +100,9 @@ export interface RuntimeTask {
   readonly cancelledAt: string | null
   /** Present only when explicit checks gate this task; completion alone never sets verified. */
   readonly verification?: TaskVerification
+  readonly expectedOutputs?: readonly ArtifactExpectation[]
+  readonly inputArtifactIds?: readonly string[]
+  readonly outputArtifactIds?: readonly string[]
 }
 
 export interface RuntimeDepartment {
@@ -121,6 +131,7 @@ export interface RuntimeBusinessChanges {
   readonly memories?: Readonly<Record<string, Readonly<MemoryRecord>>>
   readonly qaRequests?: Readonly<Record<string, QARequest>>
   readonly repairRequests?: Readonly<Record<string, RepairRequest>>
+  readonly artifacts?: Readonly<Record<string, Artifact>>
 }
 
 export type RuntimeEventType =
@@ -176,6 +187,13 @@ export type RuntimeEventType =
   | 'REPAIR_WAITING'
   | 'REPAIR_CANCELLED'
   | 'REPAIR_EXHAUSTED'
+  | 'ARTIFACT_CREATED'
+  | 'ARTIFACT_UPDATED'
+  | 'ARTIFACT_VERSION_CREATED'
+  | 'ARTIFACT_SUPERSEDED'
+  | 'ARTIFACT_VERIFIED'
+  | 'ARTIFACT_ARCHIVED'
+  | 'ARTIFACT_INPUT_LINKED'
 
 export interface RuntimeEvent {
   readonly id: string
@@ -216,6 +234,7 @@ export interface RuntimeState {
   readonly memories: Readonly<Record<string, Readonly<MemoryRecord>>>
   readonly qaRequests: Readonly<Record<string, QARequest>>
   readonly repairRequests: Readonly<Record<string, RepairRequest>>
+  readonly artifacts: Readonly<Record<string, Artifact>>
   readonly events: readonly Readonly<RuntimeEvent>[]
   readonly activities: readonly Readonly<RuntimeActivity>[]
   readonly selectedAgentId: string | null
@@ -235,6 +254,7 @@ export interface RegisterAgentInput extends Readonly<AgentRuntimePosition> {
 }
 
 export interface CreateTaskInput {
+  readonly expectedOutputs?: readonly ArtifactExpectation[]
   readonly id?: string
   readonly title: string
   readonly description?: string
@@ -245,6 +265,7 @@ export interface CreateTaskInput {
 }
 
 export type RuntimeCommand =
+  | ArtifactRuntimeCommand
   | OrchestrationCommand
   | ToolRuntimeCommand
   | MemoryRuntimeCommand
@@ -336,6 +357,8 @@ export interface OfficeRuntimeOptions {
   readonly now?: () => string
   readonly nextId?: (scope: string) => string
   readonly memoryPolicy?: MemoryPolicy
+  readonly artifactPolicy?: ArtifactPolicy
+  readonly artifactStorage?: ArtifactStorage
 }
 
 export interface RuntimeMetrics {

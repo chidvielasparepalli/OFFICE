@@ -87,6 +87,7 @@ function state(): RuntimeState {
     memories: {},
     qaRequests: {},
     repairRequests: {},
+    artifacts: {},
     events: [],
     activities: [],
     selectedAgentId: null,
@@ -101,6 +102,70 @@ function rejects(input: unknown, code: string, snapshot = state()) {
 }
 
 describe('unknown plan validation', () => {
+  it('retains independent frozen structured output expectations on the canonical task proposal', () => {
+    const expected = [{ role: 'summary', type: 'report' as const, count: 2 }]
+    const result = validatePlanProposal(
+      proposal({ tasks: [task('output', { expectedOutputs: expected })] }),
+      request,
+      state(),
+    )
+    expect(result.ok).toBe(true)
+    if (!result.ok) return
+    expect(result.proposal.tasks[0].expectedOutputs).toEqual(expected)
+    expect(result.proposal.tasks[0].expectedOutputs).not.toBe(expected)
+    expect(Object.isFrozen(result.proposal.tasks[0].expectedOutputs)).toBe(true)
+    expect(Object.isFrozen(result.proposal.tasks[0].expectedOutputs?.[0])).toBe(
+      true,
+    )
+    expected[0].count = 3
+    expect(result.proposal.tasks[0].expectedOutputs?.[0].count).toBe(2)
+  })
+
+  it.each(
+    [
+      [{ role: 'summary', type: 'report', count: 0 }],
+      [{ role: 'summary', type: 'report', count: 1.5 }],
+      [{ role: 'summary', type: 'unknown', count: 1 }],
+      [{ role: 'summary', type: 'report', count: 1, verified: true }],
+      [
+        { role: 'summary', type: 'report', count: 1 },
+        { role: 'summary', type: 'report', count: 1 },
+      ],
+    ].map((expectedOutputs) => ({ expectedOutputs })),
+  )(
+    'rejects malformed structured output expectations %#',
+    ({ expectedOutputs }) => {
+      rejects(
+        { ...proposal(), tasks: [{ ...task(), expectedOutputs }] },
+        'INVALID_PLAN',
+      )
+    },
+  )
+
+  it('rejects output-expectation accessors without invoking them', () => {
+    let accessed = false
+    const inputTask = Object.defineProperty(task(), 'expectedOutputs', {
+      enumerable: true,
+      get: () => {
+        accessed = true
+        return []
+      },
+    })
+    rejects({ ...proposal(), tasks: [inputTask] }, 'INVALID_PLAN')
+    expect(accessed).toBe(false)
+  })
+
+  it('rejects sparse expectations and credential-like output roles before plan publication', () => {
+    for (const expectedOutputs of [
+      new Array(1),
+      [{ role: 'sk-SYNTHETICNOTASECRET0000', type: 'report', count: 1 }],
+    ])
+      rejects(
+        { ...proposal(), tasks: [{ ...task(), expectedOutputs }] },
+        'INVALID_PLAN',
+      )
+  })
+
   it('returns an independent deeply frozen topological copy without mutating proposal or runtime', () => {
     const input = proposal({
       tasks: [

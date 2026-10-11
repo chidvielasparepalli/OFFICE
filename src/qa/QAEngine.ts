@@ -1,6 +1,7 @@
 import type { OfficeRuntime } from '../runtime/officeRuntime'
 import type { ToolExecutor } from '../tools/ToolExecutor'
 import { QAFault, type QARequest, type QARequestInput } from './qaTypes'
+import { qaExecutionInput } from './qaPolicy'
 
 /** Runtime owns QA history. This service only coordinates explicit tool invocations. */
 export class QAEngine {
@@ -77,7 +78,7 @@ export class QAEngine {
           agentId: verifierAgentId,
           taskId: request.inspectionTaskId!,
           toolId: check.toolId,
-          input: check.input,
+          input: qaExecutionInput(request, check),
         })
       } catch {
         // Missing evidence blocks QA; never turn an executor exception into success.

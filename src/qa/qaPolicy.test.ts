@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { RuntimeJson } from '../runtime/runtimeTypes'
 import type { ToolExecutionResult } from '../tools/toolTypes'
-import { evaluateQA, validateQARequest } from './qaPolicy'
+import { evaluateQA, qaExecutionInput, validateQARequest } from './qaPolicy'
 import type { QAAssertion, QACheck, QARequest, QARequestInput } from './qaTypes'
 
 const timestamp = '2026-10-11T10:00:00.000Z'
@@ -136,6 +136,97 @@ describe('QA check configuration', () => {
         }),
       ),
     ).toThrow('Credential-like content cannot be stored')
+  })
+})
+
+describe('immutable artifact evidence binding', () => {
+  const binding = {
+    artifactId: 'artifact:v1',
+    version: 1,
+    sha256: 'a'.repeat(64),
+  }
+  const bound = (): QARequest => ({
+    ...request([{ ...check, input: { format: 'document' } }]),
+    artifactId: binding.artifactId,
+    artifactBinding: binding,
+  })
+
+  it('injects only the runtime-owned target while preserving policy and input', () => {
+    const qa = bound()
+    expect(qaExecutionInput(qa, qa.checks[0])).toEqual({
+      format: 'document',
+      artifact: binding,
+    })
+    expect(qa.checks[0].input).toEqual({ format: 'document' })
+    expect(check.input).toEqual({ artifact: 'sample' })
+    expect(qaExecutionInput(request(), check)).toBe(check.input)
+  })
+
+  it.each([null, [], 'unstructured', { artifact: binding }])(
+    'rejects caller-owned binding or unstructured artifact input %#',
+    (invalid) => {
+      expect(() =>
+        validateQARequest(
+          input({
+            artifactId: binding.artifactId,
+            checks: [{ ...check, input: invalid }],
+          }),
+        ),
+      ).toThrow()
+    },
+  )
+
+  it('requires and retains exact artifact identity from completed tool evidence', () => {
+    const qa = bound()
+    const result = evaluateQA(
+      qa,
+      {
+        'execution:structure': execution({
+          output: { valid: true, artifact: binding },
+        }),
+      },
+      timestamp,
+    )
+    expect(result.status).toBe('passed')
+    expect(result.artifactBinding).toEqual(binding)
+  })
+
+  it.each([
+    undefined,
+    { ...binding, artifactId: 'different' },
+    { ...binding, version: 2 },
+    { ...binding, sha256: 'b'.repeat(64) },
+    { ...binding, extra: true },
+  ])(
+    'never verifies an absent or mismatched content version %#',
+    (artifact) => {
+      const result = evaluateQA(
+        bound(),
+        {
+          'execution:structure': execution({
+            output: artifact ? { valid: true, artifact } : { valid: true },
+          }),
+        },
+        timestamp,
+      )
+      expect(result.status).toBe('blocked')
+      expect(result.evidence[0].errorCode).toBe('ARTIFACT_EVIDENCE_MISMATCH')
+    },
+  )
+
+  it('blocks stale, superseded or archived registry targets despite passing tool assertions', () => {
+    const result = evaluateQA(
+      bound(),
+      {
+        'execution:structure': execution({
+          output: { valid: true, artifact: binding },
+        }),
+      },
+      timestamp,
+      false,
+    )
+    expect(result.status).toBe('blocked')
+    expect(result.evidence[0].errorCode).toBe('ARTIFACT_CHANGED')
   })
 })
 
