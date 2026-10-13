@@ -8,6 +8,15 @@ import { PROVIDER_PREVIEW_SCENARIOS } from '../../src/dev/toolPreviewProtocol'
 import { ToolFault } from '../../src/tools/toolTypes'
 import { createPreviewSession, type PreviewSession } from './session'
 import { createProviderPreviewSession } from './providerSession'
+import {
+  createRealtimePreviewSession,
+  type RealtimePreviewSession,
+} from './realtimeSession'
+import { openRealtimeStream } from './realtimeStream'
+import {
+  REALTIME_PREVIEW_ACTIONS,
+  type RealtimePreviewAction,
+} from '../../src/dev/realtimePreviewProtocol'
 
 const PREFIX = '/__tools-preview/'
 const MAX_BODY_BYTES = 16_384
@@ -123,6 +132,26 @@ export function parsePreviewAction(value: unknown): ToolPreviewAction {
   return value as unknown as ToolPreviewAction
 }
 
+export function parseRealtimeAction(value: unknown): RealtimePreviewAction {
+  if (!object(value))
+    throw new ToolFault(
+      'INVALID_REQUEST',
+      'A named development action is required.',
+    )
+  if (value.action === 'feedback')
+    return parsePreviewAction(value) as RealtimePreviewAction
+  fields(value, ['action'])
+  if (
+    typeof value.action !== 'string' ||
+    !(REALTIME_PREVIEW_ACTIONS as readonly string[]).includes(value.action)
+  )
+    throw new ToolFault(
+      'INVALID_REQUEST',
+      'Unknown realtime development action.',
+    )
+  return value as unknown as RealtimePreviewAction
+}
+
 export function isLocalRequest(
   request: IncomingMessage,
   port: number,
@@ -180,6 +209,7 @@ function fail(
 /** configureServer only: absent from Vite production preview and generated client assets. */
 export function createToolsPreviewPlugin(): Plugin {
   let session: PreviewSession | null = null
+  let realtimeSession: RealtimePreviewSession | null = null
   let connecting = false
   let lastUse = 0
   let closed = false
@@ -190,9 +220,11 @@ export function createToolsPreviewPlugin(): Plugin {
     closed = true
     closing = (async () => {
       await session?.dispose()
+      await realtimeSession?.dispose()
       const pending = await creating?.catch(() => null)
       await pending?.dispose()
       session = null
+      realtimeSession = null
     })()
     return closing
   }
@@ -235,7 +267,8 @@ export function createToolsPreviewPlugin(): Plugin {
               Object.keys(data).some((key) => key !== 'mode') ||
               (data.mode !== undefined &&
                 data.mode !== 'tools' &&
-                data.mode !== 'providers')
+                data.mode !== 'providers' &&
+                data.mode !== 'realtime')
             )
               throw new ToolFault(
                 'INVALID_REQUEST',
@@ -248,6 +281,34 @@ export function createToolsPreviewPlugin(): Plugin {
               )
             connecting = true
             try {
+              if (data.mode === 'realtime') {
+                const created = createRealtimePreviewSession()
+                if (closed || response.destroyed) {
+                  await created.dispose()
+                  throw new ToolFault(
+                    'SESSION_CLOSED',
+                    'Connection ended before the session was ready.',
+                  )
+                }
+                await session?.dispose()
+                session = null
+                await realtimeSession?.dispose()
+                if (closed || response.destroyed) {
+                  await created.dispose()
+                  throw new ToolFault(
+                    'SESSION_CLOSED',
+                    'Connection ended before the session was ready.',
+                  )
+                }
+                realtimeSession = created
+                lastUse = Date.now()
+                response.setHeader('Content-Type', 'application/x-ndjson')
+                response.setHeader('Cache-Control', 'no-store')
+                response.end(
+                  `${JSON.stringify({ type: 'realtime-ready', sessionId: created.sessionId, streamId: created.streamId })}\n`,
+                )
+                return
+              }
               creating =
                 data.mode === 'providers'
                   ? createProviderPreviewSession()
@@ -261,6 +322,8 @@ export function createToolsPreviewPlugin(): Plugin {
                 )
               }
               await session?.dispose()
+              await realtimeSession?.dispose()
+              realtimeSession = null
               if (closed || response.destroyed) {
                 await created.dispose()
                 throw new ToolFault(
@@ -279,6 +342,59 @@ export function createToolsPreviewPlugin(): Plugin {
               connecting = false
               creating = null
             }
+            return
+          }
+          if (realtimeSession) {
+            if (
+              request.headers['x-tools-session'] !== realtimeSession.sessionId
+            ) {
+              fail(
+                response,
+                403,
+                'SESSION_DENIED',
+                'Connect to your own development session first.',
+              )
+              return
+            }
+            if (Date.now() - lastUse > 30 * 60_000) {
+              await realtimeSession.dispose()
+              realtimeSession = null
+              throw new ToolFault(
+                'SESSION_EXPIRED',
+                'The idle development session expired. Connect again.',
+              )
+            }
+            lastUse = Date.now()
+            const current = realtimeSession
+            if (
+              request.url === `${PREFIX}stream` ||
+              request.url === `${PREFIX}snapshot`
+            ) {
+              if (!object(data) || Object.keys(data).length)
+                throw new ToolFault(
+                  'INVALID_REQUEST',
+                  'Snapshots and subscriptions accept no browser authority or filters.',
+                )
+              if (request.url === `${PREFIX}stream`) {
+                openRealtimeStream(current, response)
+              } else {
+                response.setHeader('Content-Type', 'application/x-ndjson')
+                response.setHeader('Cache-Control', 'no-store')
+                response.end(`${JSON.stringify(current.snapshot())}\n`)
+              }
+              return
+            }
+            if (request.url !== `${PREFIX}action`)
+              throw new ToolFault(
+                'UNKNOWN_ENDPOINT',
+                'Unknown development endpoint.',
+              )
+            const message = await current.action(parseRealtimeAction(data))
+            response.setHeader('Content-Type', 'application/x-ndjson')
+            response.setHeader('Cache-Control', 'no-store')
+            response.end(
+              `${JSON.stringify({ type: 'result', ok: true, message })}\n`,
+            )
             return
           }
           if (request.url !== `${PREFIX}action`)

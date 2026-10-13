@@ -42,6 +42,9 @@ describe('development host source isolation', () => {
       for (const suffix of [
         '/tools-host/preview/providerSession.ts',
         '/tools-host/preview/providerSession.ts?raw',
+        '/tools-host/preview/realtimeSession.ts',
+        '/tools-host/realtime/publication.ts?raw',
+        `/@fs/${root.replaceAll('\\', '/')}/tools-host/preview/realtimeStream.ts`,
         `/@fs/${root.replaceAll('\\', '/')}/tools-host/providers/SecretStore.ts`,
         '/node_modules/.vite-temp/phase11-deny-probe.mjs',
       ]) {

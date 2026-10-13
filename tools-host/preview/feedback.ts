@@ -6,6 +6,25 @@ import {
   standingWorkstationAnchor,
 } from '../../src/office/characterMotion'
 
+/** A streamed scene may acknowledge an intent after accepted host work replaced it. */
+export function isObsoletePreviewFeedback(
+  runtime: Pick<OfficeRuntime, 'getSnapshot'>,
+  command: RuntimeCommand,
+) {
+  if (command.type !== 'arrive' && command.type !== 'rejectMovement')
+    return false
+  const state = runtime.getSnapshot()
+  const agent = state.agents[command.agentId]
+  if (!agent || agent.destination?.id === command.intentId) return false
+  // Only a canonical accepted after-image can prove this exact agent received it.
+  // This permits an acknowledgement, never a position/state mutation or new event.
+  return state.events.some(
+    (event) =>
+      event.changes.agents?.[command.agentId]?.destination?.id ===
+      command.intentId,
+  )
+}
+
 export function validatePreviewFeedback(
   runtime: Pick<OfficeRuntime, 'getSnapshot'>,
   command: RuntimeCommand,
