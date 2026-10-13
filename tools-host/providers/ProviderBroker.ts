@@ -65,17 +65,22 @@ export class ProviderBroker {
   readonly #secrets: SecretStore
   readonly #grants: readonly ProviderGrant[]
   readonly #storage: ArtifactStorage | undefined
+  readonly #timeoutMs: number
   constructor(options: {
     runtime: OfficeRuntime
     registry: ProviderRegistry
     secrets: SecretStore
     grants: readonly ProviderGrant[]
     storage?: ArtifactStorage
+    timeoutMs?: number
   }) {
     this.#runtime = options.runtime
     this.#registry = options.registry
     this.#secrets = options.secrets
     this.#storage = options.storage
+    this.#timeoutMs = options.timeoutMs ?? 30000
+    if (!whole(this.#timeoutMs, 120000) || this.#timeoutMs < 1000)
+      fail('INVALID_PROVIDER_REQUEST')
     this.#grants = structuredClone(options.grants)
     this.#secrets.assertPublic(this.#registry.list())
     for (const grant of this.#grants) {
@@ -128,7 +133,7 @@ export class ProviderBroker {
       capabilities: [],
       permissions: ['network'],
       allowedKinds: ['standard-worker', 'manager'],
-      timeoutMs: 30000,
+      timeoutMs: this.#timeoutMs,
       metadata: { providerBroker: true },
       inputSchema: {
         description: 'Bounded provider selection, input and request ceilings.',
@@ -189,7 +194,19 @@ export class ProviderBroker {
       ...(input.allowFallback ? (primary?.descriptor.fallbacks ?? []) : []),
     ]
     const fallbackReasons: ProviderErrorCode[] = []
-    const inputUnits = Buffer.byteLength(JSON.stringify(input.input), 'utf8')
+    const baseInputUnits = Buffer.byteLength(
+      JSON.stringify(input.input),
+      'utf8',
+    )
+    const estimateUnits = (providerId: string) => {
+      const units =
+        this.#registry
+          .lookup(providerId)
+          ?.adapter.estimateInputUnits?.(input.input) ?? baseInputUnits
+      if (!whole(units, 100000) || units < baseInputUnits)
+        fail('INVALID_PROVIDER_REQUEST')
+      return units
+    }
     const fingerprint = createHash('sha256')
       .update(JSON.stringify(input))
       .digest('hex')
@@ -212,7 +229,7 @@ export class ProviderBroker {
         inputMicrosPerUnit: 0,
         outputMicrosPerUnit: 0,
       },
-      inputUnits,
+      inputUnits: estimateUnits(providerId),
       maxOutputUnits: input.maxOutputUnits,
       maxCostMicros: input.maxCostMicros,
       fallbackReasons: [...fallbackReasons],
@@ -240,7 +257,7 @@ export class ProviderBroker {
       else if (!agent?.capabilities.includes(input.capability) || !grant)
         reason = 'PROVIDER_PERMISSION_DENIED'
       else if (
-        inputUnits > model.maxInputUnits ||
+        last.inputUnits > model.maxInputUnits ||
         input.maxOutputUnits > model.maxOutputUnits
       )
         reason = 'INVALID_PROVIDER_REQUEST'

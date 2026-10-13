@@ -45,6 +45,35 @@ const returning: AgentMotion = {
 const quarterTurnSeconds = 0.25
 
 describe('deterministic character motion', () => {
+  it('keeps an approved standing Manager interview at its destination instead of reversing the workstation route', () => {
+    const controller = createCharacterMotion({ ...manager, status: 'waiting' })
+    controller.update({ ...manager, status: 'walking', motion: outbound })
+    expect(controller.advance(10).position).toEqual(destination)
+    controller.update({
+      ...manager,
+      position: destination,
+      status: 'working',
+      standingWork: true,
+    })
+    for (const delta of [0, 1, 20]) {
+      const frame = controller.advance(delta)
+      expect(frame.position).toEqual(destination)
+      expect(frame.clip).toBe('stand_idle')
+      expect(frame.moving).toBe(false)
+      expect(frame.headbandVisible).toBe(false)
+      expect(frame.workingHard).toBe(false)
+      expect(frame.diagnostic).toBeNull()
+    }
+    controller.update({ ...manager, status: 'walking', motion: returning })
+    expect(controller.advance(10).position).toEqual(standing)
+  })
+  it('does not let the Manager standing presentation suppress normal worker headband behavior', () => {
+    const controller = createCharacterMotion({ ...worker, standingWork: true })
+    expect(
+      controller.advance(HEADBAND_TRANSITION_SECONDS + 1).workingHard,
+    ).toBe(true)
+    expect(controller.advance(0).headbandVisible).toBe(true)
+  })
   it('waits for acknowledgment of the completed current path without hiding missing or invalid commands', () => {
     const controller = createCharacterMotion({ ...worker, status: 'waiting' })
     const walking = { ...worker, status: 'walking' as const, motion: outbound }

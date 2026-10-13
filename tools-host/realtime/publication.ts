@@ -27,6 +27,8 @@ import {
 import type { RuntimeJson, RuntimeState } from '../../src/runtime/runtimeTypes'
 
 export interface RealtimeProjectionOptions {
+  /** Set only by the authenticated CEO host. Ordinary office recipients see no personnel file. */
+  readonly recruitmentCeo?: boolean
   readonly principalAgentId: string
   readonly memoryPolicy: MemoryPolicy
   readonly artifactPolicy: ArtifactPolicy
@@ -73,6 +75,13 @@ export function createRealtimeProjection(
     // Retention changes become visible with an authoritative runtime commit, never a conflicting same-revision projection.
     const timestamp =
       state.events.at(-1)?.occurredAt ?? '1970-01-01T00:00:00.000Z'
+    // Employment history stays canonical/private; an ended employment is no
+    // longer an office occupant, even for recipients without personnel access.
+    const activeAgentIds = new Set(
+      Object.keys(state.agents).filter(
+        (id) => state.employees[id]?.status !== 'terminated',
+      ),
+    )
     const memoryIds = new Set<string>()
     if (state.connection === 'local')
       for (const memory of Object.values(state.memories)) {
@@ -198,23 +207,27 @@ export function createRealtimeProjection(
     let publicState: RuntimeState = {
       connection: state.connection,
       revision: state.revision,
-      selectedAgentId: state.selectedAgentId,
+      selectedAgentId: visible(activeAgentIds, state.selectedAgentId),
       selectedTaskId: state.selectedTaskId,
-      agents: map('agents', (agent) => ({
-        blockers: agent.blockers.length
-          ? ['Runtime intervention required.']
-          : [],
-        destination: agent.destination
-          ? {
-              id: agent.destination.id,
-              destinationType: agent.destination.destinationType,
-              destinationId: agent.destination.destinationId,
-              movementReason: 'Runtime movement requested.',
-              arrivalStatus: agent.destination.arrivalStatus,
-              collaboratorIds: [...agent.destination.collaboratorIds],
-            }
-          : null,
-      })),
+      agents: map(
+        'agents',
+        (agent) => ({
+          blockers: agent.blockers.length
+            ? ['Runtime intervention required.']
+            : [],
+          destination: agent.destination
+            ? {
+                id: agent.destination.id,
+                destinationType: agent.destination.destinationType,
+                destinationId: agent.destination.destinationId,
+                movementReason: 'Runtime movement requested.',
+                arrivalStatus: agent.destination.arrivalStatus,
+                collaboratorIds: [...agent.destination.collaboratorIds],
+              }
+            : null,
+        }),
+        activeAgentIds,
+      ),
       tasks: map('tasks', (task) => ({
         metadata: {},
         statusReason:
@@ -327,6 +340,10 @@ export function createRealtimeProjection(
         qaIds,
       ),
       repairRequests: map('repairRequests', () => ({}), repairIds),
+      recruitments: options.recruitmentCeo
+        ? map('recruitments', () => ({}))
+        : {},
+      employees: options.recruitmentCeo ? map('employees', () => ({})) : {},
       providerRequests: map(
         'providerRequests',
         () => ({ reconciliationEvidence: null }),

@@ -58,6 +58,42 @@ function setup() {
 }
 
 describe('runtime office integration', () => {
+  it('keeps candidate selection and spatial feedback separate from canonical employees', () => {
+    const { runtime } = setup()
+    const revision = runtime.getSnapshot().revision
+    const select = vi.fn(),
+      spatial = vi.fn()
+    render(
+      <RuntimeOffice
+        runtime={runtime}
+        visitors={[
+          {
+            id: 'candidate',
+            kind: 'standard-worker',
+            label: 'Candidate',
+            candidateLabel: 'Candidate — approval pending',
+            recruitmentFile: true,
+            status: 'queued',
+            position: [0, 0, 17],
+            headingRadians: Math.PI,
+          },
+        ]}
+        onVisitorSelection={select}
+        onVisitorSpatialEvent={spatial}
+      />,
+    )
+    act(() => view().onSelectionChange?.({ kind: 'agent', id: 'candidate' }))
+    expect(select).toHaveBeenCalledWith('candidate')
+    const event = {
+      agentId: 'candidate',
+      completedMotionId: 'candidate-arrival',
+    } as AgentSpatialSnapshot
+    act(() => view().onSpatialEvent?.(event))
+    expect(spatial).toHaveBeenCalledWith(event)
+    expect(runtime.getSnapshot().revision).toBe(revision)
+    expect(runtime.getSnapshot().agents.candidate).toBeUndefined()
+    expect(view().visitors).toHaveLength(1)
+  })
   it('supports asynchronous host feedback without optimistically completing a route or task', async () => {
     const { runtime, issue } = setup()
     issue({ type: 'startTask', taskId: 'task' })

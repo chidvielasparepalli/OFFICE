@@ -70,6 +70,8 @@ export interface AgentRuntimeContext extends AgentRuntimePosition {
   /** Assigned desk stays fixed while the worker's ground position changes. */
   workstation?: Readonly<AgentRuntimeWorkstation>
   motion?: Readonly<AgentMotion>
+  /** A runtime-approved Manager interview remains standing while real work executes. */
+  standingWork?: boolean
   /** A presentation route can fail without fabricating movement or task progress. */
   navigationDiagnostic?: string
   /** Requested runtime destination, independent of the resolved/sampled physical route. */

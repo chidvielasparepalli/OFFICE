@@ -3,6 +3,7 @@ import layout from '../../assets/warehouse/open-layout.json'
 import { standingWorkstationAnchor, workstationAnchor } from './characterMotion'
 import {
   createOfficeNavigation,
+  preserveNavigationDeparture,
   type NavigationPlan,
   type NavigationWorkstation,
 } from './officeNavigation'
@@ -50,6 +51,45 @@ function sampleSegments(points: readonly WorldPosition[]) {
 }
 
 describe('deterministic office navigation', () => {
+  it('does not preserve an old departure corridor when current furniture blocks it', () => {
+    const changed = createOfficeNavigation([
+      { id: 'moved-desk', position: [0, 0, 10], headingRadians: 0 },
+    ])
+    const start: WorldPosition = [0, 0, 12]
+    const next = successful(changed.planNavigation(start, 'entrance:front'))
+    expect(
+      preserveNavigationDeparture(changed, next, start, [
+        [0, 0, 17],
+        [0, 0, 10],
+      ]),
+    ).toBe(next)
+    expect(changed.validatePath(next.points).ok).toBe(true)
+  })
+  it('routes candidates and the Manager to separate facing positions in the existing open interview area', () => {
+    const candidate = successful(
+      navigation.planNavigation([0, 0, 17], 'interview:candidate'),
+    )
+    const manager = successful(
+      navigation.planNavigation(
+        standingWorkstationAnchor(workstations.at(-1)!),
+        'interview:manager',
+      ),
+    )
+    expect(candidate.destination.position).toEqual([-0.8, 0, 10])
+    expect(manager.destination.position).toEqual([0.8, 0, 10])
+    expect(navigation.validatePath(candidate.points).ok).toBe(true)
+    expect(navigation.validatePath(manager.points).ok).toBe(true)
+    expect(
+      navigation.validatePath(
+        successful(
+          navigation.planNavigation(
+            candidate.destination.position,
+            'entrance:front',
+          ),
+        ).points,
+      ).ok,
+    ).toBe(true)
+  })
   it('routes all 30 standard desks and the Manager to the hub and back through clear aisles', () => {
     expect(workstations).toHaveLength(31)
     for (const station of workstations) {

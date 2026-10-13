@@ -88,6 +88,8 @@ function fixture(): RuntimeState {
     repairRequests: {},
     artifacts: {},
     providerRequests: {},
+    recruitments: {},
+    employees: {},
     creditLedger: [],
     revision: 1,
     agents: {

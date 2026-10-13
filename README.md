@@ -8,9 +8,13 @@ The 3D office and local runtime foundation for the **AI Corporate Office OS**: a
 - Repository rules: [AGENTS.md](AGENTS.md)
 - Asset candidates and intake rules: [3D_ASSET_LIBRARY.md](3D_ASSET_LIBRARY.md)
 
-## Current implementation
+## CEO-controlled recruitment
 
-Phase 12 adds a recipient-filtered realtime view of the existing runtime: atomic revisioned snapshots/deltas, bounded reconnect and resynchronization, live context/office updates, actual event notifications and artifact-input handoffs. The browser cache is read-only; the host still owns every task, tool, QA, memory, artifact and credit decision. Use development-only `/?realtime=preview` and connect explicitly. [Architecture, security, scenarios and limits](docs/PHASE12_REALTIME.md). Current branch: `codex/phase12-realtime`, extending Phase 11 checkpoint `159c70a`. Validation passed: 937 tests (833 preserved + 104 new), 37 Chromium checks (32 development + five production isolation), typecheck, lint, formatting and production build. No console errors or unexpected failed requests; production JavaScript is byte-identical to Phase 11.
+Use `npm run recruitment:setup`, then `npm run dev -- --host 127.0.0.1` and open `/?recruitment=office`. The authenticated local host owns versioned CEO approvals, durable recruitment/employee records, checks, activation and desk assignment. Simulations are explicit; optional live OpenAI work uses the existing server-side provider broker and requires your private host API credential and approved budget. No live call was made during implementation. [Setup, architecture, validation and limitations](docs/RECRUITMENT.md).
+
+## Accepted foundation
+
+Phase 12 adds a recipient-filtered realtime view of the existing runtime: atomic revisioned snapshots/deltas, bounded reconnect and resynchronization, live context/office updates, actual event notifications and artifact-input handoffs. The browser cache is read-only; the host still owns every task, tool, QA, memory, artifact and credit decision. Use development-only `/?realtime=preview` and connect explicitly. [Architecture, security, scenarios and limits](docs/PHASE12_REALTIME.md). Historical phase branch: `codex/phase12-realtime`, extending Phase 11 checkpoint `159c70a`. Validation passed: 937 tests (833 preserved + 104 new), 37 Chromium checks (32 development + five production isolation), typecheck, lint, formatting and production build. No console errors or unexpected failed requests; production JavaScript was byte-identical to Phase 11 at that checkpoint.
 
 Phase 11 adds a host-only provider/API broker, injected secrets, permissioned model routing, atomic budget reservations and an immutable credit ledger. Calls use the existing ToolExecutor; safe usage/events feed the same runtime. Deterministic development adapters require no paid API or real credentials. Use `/?providers=preview`. [Architecture, security policy and validation](docs/PHASE11_API_SECRETS_COST.md). Historical phase branch: `codex/phase11-api-secrets-cost`, extending Phase 10 checkpoint `d088ef8`.
 

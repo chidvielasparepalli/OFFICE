@@ -53,6 +53,7 @@ function readSpatialSnapshot(
 export function OfficeWorld({
   runtime = null,
   inspectionSamples,
+  visitors,
   spatialViews: suppliedSpatialViews,
   onSpatialEvent,
   onSelectionChange,
@@ -61,6 +62,7 @@ export function OfficeWorld({
 }: {
   runtime?: OfficeRuntimeSnapshot | null
   inspectionSamples?: readonly AgentPlacement[]
+  visitors?: readonly AgentPlacement[]
   spatialViews?: RefObject<Map<string, AgentSpatialSnapshot>>
   onSpatialEvent?: (snapshot: AgentSpatialSnapshot) => void
   onSelectionChange?: OfficeSelectionHandler
@@ -68,11 +70,20 @@ export function OfficeWorld({
   onSelectTask?: (taskId: string) => void
 }) {
   const openOffice =
-    warehousePreview || inspectionSamples !== undefined || runtime !== null
-  const placements = useMemo(
-    () => (runtime ? presentedAgents(runtime) : (inspectionSamples ?? [])),
-    [runtime, inspectionSamples],
-  )
+    warehousePreview ||
+    inspectionSamples !== undefined ||
+    runtime !== null ||
+    !!visitors?.length
+  const placements = useMemo(() => {
+    const agents = runtime
+      ? presentedAgents(runtime)
+      : (inspectionSamples ?? [])
+    const ids = new Set(agents.map((agent) => agent.id))
+    return [
+      ...agents,
+      ...(visitors ?? []).filter((visitor) => !ids.has(visitor.id)),
+    ]
+  }, [runtime, inspectionSamples, visitors])
   // Only workstation poses rebuild the static graph; status and selection changes do not.
   const workstationKey = JSON.stringify(
     placements.flatMap((worker) =>
@@ -345,11 +356,13 @@ export function OfficeWorld({
                       onClick={() => select({ kind: 'agent', id: worker.id })}
                     >
                       <span>
-                        {worker.status
-                          ? statusSymbols[worker.status]
-                          : worker.kind === 'manager'
-                            ? 'M'
-                            : index + 1}
+                        {worker.candidateLabel
+                          ? 'C'
+                          : worker.status
+                            ? statusSymbols[worker.status]
+                            : worker.kind === 'manager'
+                              ? 'M'
+                              : index + 1}
                       </span>
                     </button>
                   ),
@@ -370,62 +383,93 @@ export function OfficeWorld({
               </p>
             )}
         </div>
-        {openOffice && (
-          <OfficeContextPanel
-            onSelectTask={onSelectTask}
-            selection={selection}
-            runtime={runtime}
-            departmentName={selectedZone?.name}
-            spatial={spatialSnapshot}
-            inspectionSample={
-              runtime === null &&
-              inspectionSamples &&
-              selection.kind === 'agent'
-                ? workers.find((worker) => worker.id === selection.id)
-                : undefined
-            }
-            onSelect={select}
-            onFocusAgent={(id) => select({ kind: 'agent', id })}
-            onRefreshSpatial={refreshSpatial}
-            onInspectWorkstation={(id) => {
-              const workstation = workers.find(
-                (worker) => worker.id === id,
-              )?.workstation
-              if (workstation)
-                setFocus({ target: workstation.position, radius: 2.5 })
-            }}
-            onInspect={() => {
-              if (selectedZone) {
-                const desk = workers.find(
-                  (worker) =>
-                    worker.workstation &&
-                    Math.abs(
-                      worker.workstation.position[0] - selectedZone.position[0],
-                    ) <
-                      selectedZone.size[0] / 2 &&
-                    Math.abs(
-                      worker.workstation.position[2] - selectedZone.position[2],
-                    ) <
-                      selectedZone.size[1] / 2,
-                )?.workstation
-                setFocus({
-                  target: desk?.position ?? [
-                    selectedZone.position[0],
-                    0,
-                    selectedZone.position[2],
-                  ],
-                  radius: 2.5,
-                })
+        {openOffice &&
+          (selection.kind === 'agent' &&
+          workers.find((worker) => worker.id === selection.id)
+            ?.candidateLabel ? (
+            <aside
+              className="office-context-panel"
+              aria-label="Candidate scene context"
+            >
+              <h3>
+                {workers.find((worker) => worker.id === selection.id)?.label}
+              </h3>
+              <p>
+                {
+                  workers.find((worker) => worker.id === selection.id)
+                    ?.candidateLabel
+                }
+              </p>
+              <p>
+                This visitor is not an active employee. Approval, assessments
+                and the recruitment file are shown in the recruitment panel.
+              </p>
+              <button type="button" className="reset-view" onClick={reset}>
+                Company overview
+              </button>
+            </aside>
+          ) : (
+            <OfficeContextPanel
+              onSelectTask={onSelectTask}
+              selection={selection}
+              runtime={runtime}
+              departmentName={selectedZone?.name}
+              spatial={spatialSnapshot}
+              inspectionSample={
+                runtime === null &&
+                inspectionSamples &&
+                selection.kind === 'agent'
+                  ? workers.find((worker) => worker.id === selection.id)
+                  : undefined
               }
-            }}
-          />
-        )}
+              onSelect={select}
+              onFocusAgent={(id) => select({ kind: 'agent', id })}
+              onRefreshSpatial={refreshSpatial}
+              onInspectWorkstation={(id) => {
+                const workstation = workers.find(
+                  (worker) => worker.id === id,
+                )?.workstation
+                if (workstation)
+                  setFocus({ target: workstation.position, radius: 2.5 })
+              }}
+              onInspect={() => {
+                if (selectedZone) {
+                  const desk = workers.find(
+                    (worker) =>
+                      worker.workstation &&
+                      Math.abs(
+                        worker.workstation.position[0] -
+                          selectedZone.position[0],
+                      ) <
+                        selectedZone.size[0] / 2 &&
+                      Math.abs(
+                        worker.workstation.position[2] -
+                          selectedZone.position[2],
+                      ) <
+                        selectedZone.size[1] / 2,
+                  )?.workstation
+                  setFocus({
+                    target: desk?.position ?? [
+                      selectedZone.position[0],
+                      0,
+                      selectedZone.position[2],
+                    ],
+                    radius: 2.5,
+                  })
+                }
+              }}
+            />
+          ))}
       </div>
       {workers.length > 0 && (
         <details className="worker-index">
           <summary>
-            {inspectionSamples && !runtime ? 'Asset samples' : 'Agents'} (
-            {workers.length})
+            {visitors?.length
+              ? 'Employees and candidates'
+              : inspectionSamples && !runtime
+                ? 'Asset samples'
+                : 'Agents'}{' '}
+            ({workers.length})
           </summary>
           <div>
             {workers.map((worker) => (

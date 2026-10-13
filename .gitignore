@@ -42,3 +42,4 @@ __pycache__/
 *.njsproj
 *.sln
 *.sw?
+.office.local/

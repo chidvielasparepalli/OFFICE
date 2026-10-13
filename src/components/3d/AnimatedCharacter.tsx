@@ -12,6 +12,7 @@ import type {
 } from '../../office/officeState'
 import type { AgentPlacement } from '../../office/workerPresentation'
 import { RedHeadbandAsset } from '../../assets/officeAssets'
+import { attachRecruitmentFolder } from '../../recruitment/recruitmentFolder'
 
 export interface CharacterView {
   position: Vector3
@@ -62,6 +63,13 @@ function Character({
           : undefined,
       ),
   )
+  useLayoutEffect(() => {
+    if (!worker.recruitmentFile || worker.kind !== 'standard-worker') return
+    const folder = attachRecruitmentFolder(actor.model)
+    return () => {
+      folder?.removeFromParent()
+    }
+  }, [actor, worker.recruitmentFile, worker.kind])
   const view = useRef<CharacterView>({
     position: new Vector3(),
     head: new Vector3(),

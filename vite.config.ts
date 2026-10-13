@@ -1,10 +1,11 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { createToolsPreviewPlugin } from './tools-host/preview/plugin'
+import { createRecruitmentPlugin } from './tools-host/recruitment/plugin'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), createToolsPreviewPlugin()],
+  plugins: [react(), createToolsPreviewPlugin(), createRecruitmentPlugin()],
   server: {
     fs: {
       // Preserve Vite's default sensitive-file deny list and isolate host code.
@@ -16,6 +17,7 @@ export default defineConfig({
         '.yarnrc.yml',
         '**/.git/**',
         '**/tools-host/**',
+        '**/.office.local/**',
         '**/node_modules/.vite-temp/**',
       ],
     },

@@ -28,6 +28,8 @@ export interface ProviderAdapterResult {
   } | null
 }
 export interface ProviderAdapter {
+  /** Trusted adapter includes protocol/schema overhead in the preflight reservation. */
+  estimateInputUnits?(input: RuntimeJson): number
   execute(input: ProviderAdapterInput): Promise<ProviderAdapterResult>
 }
 interface Registration {
@@ -156,6 +158,14 @@ export class ProviderRegistry {
         descriptor: freeze(descriptor),
         secretReference: registration.secretReference,
         adapter: Object.freeze({
+          ...(registration.adapter.estimateInputUnits
+            ? {
+                estimateInputUnits:
+                  registration.adapter.estimateInputUnits.bind(
+                    registration.adapter,
+                  ),
+              }
+            : {}),
           execute: registration.adapter.execute.bind(registration.adapter),
         }),
       }),

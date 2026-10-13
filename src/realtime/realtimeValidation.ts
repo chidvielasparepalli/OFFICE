@@ -10,6 +10,11 @@ import {
 } from '../providers/costPolicy'
 import type { RuntimeEventType } from '../runtime/runtimeTypes'
 import {
+  validateRecruitmentSpec,
+  validateRecruitmentScene,
+} from '../recruitment/recruitmentPolicy'
+import type { RecruitmentScene } from '../recruitment/recruitmentTypes'
+import {
   REALTIME_MAPS,
   type RealtimeMap,
   type RealtimeView,
@@ -237,6 +242,18 @@ const content = object({
   sha256: hash,
 })
 const times = { createdAt: date, updatedAt: date }
+const recruitmentSpec: Check = (value) => {
+  validateRecruitmentSpec(value)
+}
+const proposal = object({
+  version: positive,
+  spec: recruitmentSpec,
+  createdAt: date,
+  createdBy: id,
+})
+const recruitmentState = choices(
+  'requested pending_ceo_approval changes_requested approved candidate_arriving interview_in_progress agent_configuration_created runtime_initializing capability_checks_running capability_checks_passed capability_checks_failed recruitment_committing employee_activating hired rejected technical_failure pending_retry cancelled',
+)
 const shapes: Record<
   RealtimeMap,
   { required: Shape; optional?: Shape; identity: string }
@@ -300,6 +317,7 @@ const shapes: Record<
       expectedOutputs: list(expected, 16),
       inputArtifactIds: ids,
       outputArtifactIds: ids,
+      workLocation: choices('workstation current-position'),
     },
   },
   workstations: {
@@ -531,6 +549,71 @@ const shapes: Record<
       reconciliationEvidence: nil,
     },
   },
+  recruitments: {
+    identity: 'recruitmentId',
+    required: {
+      recruitmentId: id,
+      candidateId: id,
+      requestedBy: id,
+      state: recruitmentState,
+      proposals: list(proposal, 32),
+      approvedVersion: nullable(positive),
+      approvals: list(
+        object({
+          version: positive,
+          decision: choices('approve reject changes'),
+          actorId: id,
+          reason: text,
+          occurredAt: date,
+        }),
+        100,
+      ),
+      assessments: list(
+        object({
+          assessmentId: id,
+          attempt: positive,
+          version: positive,
+          occurredAt: date,
+          testId: id,
+          status: choices('passed failed blocked'),
+          mode: choices('live simulation'),
+          evidence: list(text, 12),
+        }),
+        100,
+      ),
+      failures: list(
+        object({
+          code: id,
+          stage: recruitmentState,
+          retryable: boolean,
+          attempt: positive,
+          occurredAt: date,
+        }),
+        20,
+      ),
+      attempt: positive,
+      maxAttempts: positive,
+      scene: nullable((v) => validateRecruitmentScene(v as RecruitmentScene)),
+      workstationId: optionalId,
+      createdAt: date,
+      updatedAt: date,
+    },
+  },
+  employees: {
+    identity: 'employeeId',
+    required: {
+      employeeId: id,
+      agentId: id,
+      recruitmentId: id,
+      status: choices('active terminated'),
+      mode: choices('live simulation'),
+      currentVersion: positive,
+      versions: list(proposal, 32),
+      activatedAt: date,
+      terminatedAt: optionalDate,
+      terminationReason: nullable(text),
+    },
+  },
 }
 
 /** One explicit field allowlist shared by host reconstruction and strict browser validation. */
@@ -546,6 +629,21 @@ export const REALTIME_RECORD_FIELDS = Object.freeze(
   ) as Record<RealtimeMap, readonly string[]>,
 )
 export const REALTIME_EVENT_TYPES: readonly RuntimeEventType[] = [
+  'RECRUITMENT_REQUESTED',
+  'RECRUITMENT_PROPOSAL_READY',
+  'RECRUITMENT_APPROVED',
+  'RECRUITMENT_REJECTED',
+  'RECRUITMENT_CHANGES_REQUESTED',
+  'RECRUITMENT_CANCELLED',
+  'RECRUITMENT_RETRY_SCHEDULED',
+  'RECRUITMENT_SCENE_CHANGED',
+  'RECRUITMENT_SCENE_ARRIVED',
+  'RECRUITMENT_COMMITTED',
+  'RECRUITMENT_TECHNICAL_FAILURE',
+  'RECRUITMENT_ASSESSED',
+  'RECRUITMENT_STAGE_CHANGED',
+  'EMPLOYEE_ACTIVATED',
+  'EMPLOYEE_TERMINATED',
   'PROVIDER_REQUEST_RESERVED',
   'PROVIDER_FALLBACK_SELECTED',
   'PROVIDER_REQUEST_COMPLETED',

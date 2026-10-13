@@ -1,4 +1,5 @@
 import type { OfficeRuntime } from '../runtime/officeRuntime'
+import { assertEmployeeOperational } from '../runtime/recruitmentRuntime'
 import type { RuntimeCommand, RuntimeJson } from '../runtime/runtimeTypes'
 import { validateQAExecution } from '../qa/qaPolicy'
 import { ToolRegistry } from './ToolRegistry'
@@ -63,6 +64,7 @@ export class ToolExecutor {
           'EXECUTOR_DISPOSED',
           'Tool executor has been disposed.',
         )
+      assertEmployeeOperational(this.runtime.getSnapshot(), request.agentId)
       for (const id of [
         request.executionId,
         request.agentId,
@@ -177,6 +179,7 @@ export class ToolExecutor {
     const { request, controller } = handle
     const { executionId, agentId, taskId, toolId: id } = request
     const agent = this.runtime.getSnapshot().agents[agentId]
+    assertEmployeeOperational(this.runtime.getSnapshot(), agentId)
     if (!agent)
       throw new ToolFault('AGENT_NOT_FOUND', 'Tool agent does not exist.')
     const grant = Object.hasOwn(this.grants, agentId)

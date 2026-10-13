@@ -46,6 +46,8 @@ function state(...agents: RuntimeAgent[]): RuntimeState {
     repairRequests: {},
     artifacts: {},
     providerRequests: {},
+    recruitments: {},
+    employees: {},
     creditLedger: [],
     events: [],
     activities: [],

@@ -1,0 +1,95 @@
+{
+  "startedAt": "2026-10-13T08:23:11.641Z",
+  "scope": "Final production bundle and disconnected office; no CEO account, provider credential, or live provider call.",
+  "checks": [
+    {
+      "name": "Production query parameters keep recruitment and all development scenarios inactive, with a truthful disconnected office",
+      "passed": true
+    },
+    {
+      "name": "Served JavaScript exactly matches final dist and excludes host recruitment, authentication, provider secrets, and development fixtures",
+      "passed": true,
+      "detail": [
+        {
+          "url": "http://127.0.0.1:4187/assets/index-BMkTTgoR.js",
+          "bytes": 1383994,
+          "sha256": "0f50754b82e16e95544ce8bca47ddc213ed2f526b40e4080709dfe71cad74e79",
+          "matchesDist": true,
+          "excludesHostCodeSecretsAndFixtures": true
+        }
+      ]
+    },
+    {
+      "name": "Disconnected production scene makes no employee GLB requests and does not duplicate any GLB loads",
+      "passed": true,
+      "detail": {
+        "glbRequests": [],
+        "note": "The disconnected procedural office needs no GLBs; animated employee sharing is checked in the authenticated recruitment browser run."
+      }
+    },
+    {
+      "name": "Production browser has no console errors, failed requests, or persisted browser credentials",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "Production preview exposes no CEO login, recruitment mutation, or host tool execution endpoint",
+      "passed": true,
+      "detail": [
+        {
+          "endpoint": "/__recruitment/login",
+          "status": 404
+        },
+        {
+          "endpoint": "/__recruitment/action",
+          "status": 404
+        },
+        {
+          "endpoint": "/__tools-preview/connect",
+          "status": 404
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "assets": [],
+  "scripts": [
+    {
+      "url": "http://127.0.0.1:4187/assets/index-BMkTTgoR.js",
+      "bytes": 1383994,
+      "sha256": "0f50754b82e16e95544ce8bca47ddc213ed2f526b40e4080709dfe71cad74e79",
+      "matchesDist": true,
+      "excludesHostCodeSecretsAndFixtures": true
+    }
+  ],
+  "endpointChecks": [
+    {
+      "endpoint": "/__recruitment/login",
+      "status": 404
+    },
+    {
+      "endpoint": "/__recruitment/action",
+      "status": 404
+    },
+    {
+      "endpoint": "/__tools-preview/connect",
+      "status": 404
+    }
+  ],
+  "sourceSha256": {
+    "src/App.tsx": "26660b6c09f9a24c41beb65560b25b6402949af9400ddcc772227e37a3db9bfb",
+    "vite.config.ts": "586b33375d91340b9e70f24cb6ac78cc6bd63e35747fb4a4ac335a1ad86ce4e7",
+    "tools-host/recruitment/plugin.ts": "d553348d801fea34916c764e895b7b260f9a1e21cd6855ae8ae21085f02b054e",
+    "tools-host/recruitment/RecruitmentService.ts": "23b81decd52230c786b5664f52ef0cd0e2209f1a20cfc07b78d158d8a2e90bd0",
+    "tools-host/recruitment/OpenAIResponsesAdapter.ts": "e85f62315a42624e42fd2abf9f2bcc54566df72c2b3ffe94a6f6cf6a3a1db94b",
+    "src/runtime/officeRuntimeBridge.ts": "0392f7305184389d1d27622231cdfce4ee54aa602c27a38b94566a72c559d355",
+    "tools-host/realtime/publication.ts": "834e9718ba0991f3ab16d72ab9d0e3f040ea998b26af257cbe2ec271874a0106",
+    "src/recruitment/RecruitmentOffice.tsx": "c6dd4668a314ce2e691d8fdaaa0bcba39e3ada3c3292a2775b500c6611c5b66a",
+    "src/recruitment/recruitmentClient.ts": "d782e1d48484f6233367a17784cb82f153d0c35821a0d8bc7eaf75f0c0d9ed64"
+  },
+  "completedAt": "2026-10-13T08:23:13.302Z"
+}

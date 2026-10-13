@@ -4,6 +4,7 @@ import {
 } from '../office/characterMotion'
 import {
   createOfficeNavigation,
+  preserveNavigationDeparture,
   type NavigationPlan,
   type OfficeNavigation,
 } from '../office/officeNavigation'
@@ -35,6 +36,8 @@ interface RouteEntry {
   intent: Readonly<AgentSpatialIntent>
   stage: 'deferred' | 'planned' | 'settling' | 'arrived' | 'rejected'
   motion?: Readonly<AgentMotion>
+  /** Last accepted corridor, retained only until the replacement route is planned. */
+  departureMotion?: Readonly<AgentMotion>
   diagnostic?: string
   graphKey: string
 }
@@ -71,6 +74,7 @@ function sameSources(a: RuntimeState | undefined, b: RuntimeState) {
   return (
     a?.connection === b.connection &&
     a.agents === b.agents &&
+    a.employees === b.employees &&
     a.tasks === b.tasks &&
     a.workstations === b.workstations &&
     a.departments === b.departments &&
@@ -214,6 +218,15 @@ export function createOfficeRuntimeBridge() {
       reject(agent, entry, result.diagnostic)
       return
     }
+    if (entry.departureMotion) {
+      result = preserveNavigationDeparture(
+        navigation!,
+        result,
+        start,
+        entry.departureMotion.points,
+      )
+      entry.departureMotion = undefined
+    }
     if (result.distanceMeters <= 0.01) {
       // A seated employee is already at their workstation; never issue a route
       // from the chair exit to itself and unnecessarily make them stand up.
@@ -268,7 +281,11 @@ export function createOfficeRuntimeBridge() {
       projectedRevision = revision
       return null
     }
-    const stations = Object.values(state.agents)
+    const visibleAgents = Object.values(state.agents).filter(
+      (agent) => state.employees[agent.id]?.status !== 'terminated',
+    )
+    const visibleIds = new Set(visibleAgents.map((agent) => agent.id))
+    const stations = visibleAgents
       .flatMap((agent) => {
         const station = agent.workstationId
           ? state.workstations[agent.workstationId]
@@ -291,9 +308,12 @@ export function createOfficeRuntimeBridge() {
       metrics.graphBuilds++
     }
     for (const id of routes.keys())
-      if (!state.agents[id]?.destination) routes.delete(id)
+      if (!visibleIds.has(id) || !state.agents[id]?.destination)
+        routes.delete(id)
+    for (const id of mounted) if (!visibleIds.has(id)) mounted.delete(id)
     feedback = feedback.filter(
       (command) =>
+        visibleIds.has(command.agentId) &&
         state.agents[command.agentId]?.destination?.id === command.intentId,
     )
 
@@ -315,7 +335,7 @@ export function createOfficeRuntimeBridge() {
     }
 
     const agents: Record<string, Readonly<AgentContext>> = {}
-    for (const agent of Object.values(state.agents)) {
+    for (const agent of visibleAgents) {
       const station = agent.workstationId
         ? state.workstations[agent.workstationId]
         : undefined
@@ -325,7 +345,13 @@ export function createOfficeRuntimeBridge() {
       let entry = routes.get(agent.id)
       if (intent) {
         if (!entry || (entry.intent.id !== intent.id && !paused(agent))) {
-          entry = { intent, stage: 'deferred', graphKey }
+          entry = {
+            intent,
+            stage: 'deferred',
+            graphKey,
+            departureMotion:
+              entry?.stage === 'planned' ? entry.motion : undefined,
+          }
           routes.set(agent.id, entry)
         }
         if (entry.stage === 'planned' && entry.graphKey !== graphKey) {
@@ -365,6 +391,12 @@ export function createOfficeRuntimeBridge() {
         headingRadians: agent.headingRadians,
         workstation: station,
         motion: intent ? entry?.motion : undefined,
+        standingWork:
+          agent.kind === 'manager' &&
+          agent.status === 'working' &&
+          task?.status === 'in_progress' &&
+          task.workLocation === 'current-position' &&
+          !intent,
         navigationDiagnostic: intent ? entry?.diagnostic : undefined,
         destinationId: intent?.destinationId ?? null,
         collaborationTargetId:
@@ -405,7 +437,7 @@ export function createOfficeRuntimeBridge() {
     }
     const departments: Record<string, Readonly<DepartmentContext>> = {}
     for (const department of Object.values(state.departments)) {
-      const members = Object.values(state.agents).filter(
+      const members = visibleAgents.filter(
         (agent) => agent.departmentId === department.id,
       )
       const managerIds = [
@@ -449,6 +481,7 @@ export function createOfficeRuntimeBridge() {
     const entry = routes.get(event.agentId)
     if (
       agent &&
+      state.employees[agent.id]?.status !== 'terminated' &&
       !paused(agent) &&
       entry?.stage === 'planned' &&
       agent.destination?.id === entry.intent.id &&

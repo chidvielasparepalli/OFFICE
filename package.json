@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "recruitment:setup": "node scripts/setup-recruitment.mjs",
     "build": "tsc -b && vite build",
     "typecheck": "tsc -p tsconfig.app.json --noEmit && tsc -p tsconfig.node.json --noEmit",
     "lint": "oxlint",

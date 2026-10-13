@@ -132,6 +132,36 @@ function distanceToSegment(
   return distance(point, [a[0] + x * amount, 0, a[2] + z * amount])
 }
 
+/** Keep an accepted departure corridor valid while React commits a new motion.
+ * The old animation may advance after planning; the controller trims this prefix
+ * at its actual location. Never restore a corridor blocked by the current layout.
+ */
+export function preserveNavigationDeparture(
+  navigation: Pick<OfficeNavigation, 'validatePath'>,
+  plan: Extract<NavigationPlan, { ok: true }>,
+  start: WorldPosition,
+  previous: readonly WorldPosition[] | undefined,
+): Extract<NavigationPlan, { ok: true }> {
+  if (!previous) return plan
+  for (let index = 0; index < previous.length - 1; index++) {
+    if (distanceToSegment(start, previous[index], previous[index + 1]) > 0.01)
+      continue
+    const points = [...previous.slice(index + 1).reverse(), ...plan.points]
+    if (!navigation.validatePath(points).ok) return plan
+    return {
+      ...plan,
+      points,
+      distanceMeters: points
+        .slice(1)
+        .reduce(
+          (total, point, step) => total + distance(points[step], point),
+          0,
+        ),
+    }
+  }
+  return plan
+}
+
 /** Static, command-time visibility graph. This does not advance agents or create application state. */
 export function createOfficeNavigation(
   workstations: readonly NavigationWorkstation[],
@@ -207,6 +237,8 @@ export function createOfficeNavigation(
     { id: 'hub:central', kind: 'hub', position: [0, 0, 3] },
     { id: 'entrance:front', kind: 'entrance', position: [0, 0, 17] },
     { id: 'meeting:open', kind: 'meeting', position: [0, 0, 10] },
+    { id: 'interview:candidate', kind: 'meeting', position: [-0.8, 0, 10] },
+    { id: 'interview:manager', kind: 'meeting', position: [0.8, 0, 10] },
     ...[-15, -6, 0, 15].map((z, index): NavigationNode => ({
       id: `corridor:${index}`,
       kind: 'corridor',
