@@ -31,6 +31,12 @@ import type {
   ArtifactRuntimeCommand,
   ArtifactStorage,
 } from '../artifacts/artifactTypes'
+import type {
+  CreditLedgerEntry,
+  ProviderBudgetPolicy,
+  ProviderRequestRecord,
+  ProviderRuntimeCommand,
+} from '../providers/providerTypes'
 
 export type RuntimeTaskStatus =
   | 'queued'
@@ -116,8 +122,11 @@ export interface RuntimeWorkstation extends Readonly<AgentRuntimePosition> {
   readonly departmentId: string | null
 }
 
-/** Changed records are complete after-images. No entity deletion commands exist yet. */
+/** Changed entity maps contain complete after-images; creditLedger contains append-only deltas. */
 export interface RuntimeBusinessChanges {
+  readonly providerRequests?: Readonly<Record<string, ProviderRequestRecord>>
+  /** New immutable entries only; append in committed event order. */
+  readonly creditLedger?: readonly CreditLedgerEntry[]
   readonly agents?: Readonly<Record<string, Readonly<RuntimeAgent>>>
   readonly tasks?: Readonly<Record<string, Readonly<RuntimeTask>>>
   readonly workstations?: Readonly<Record<string, Readonly<RuntimeWorkstation>>>
@@ -135,6 +144,17 @@ export interface RuntimeBusinessChanges {
 }
 
 export type RuntimeEventType =
+  | 'PROVIDER_REQUEST_RESERVED'
+  | 'PROVIDER_FALLBACK_SELECTED'
+  | 'PROVIDER_REQUEST_COMPLETED'
+  | 'PROVIDER_REQUEST_FAILED'
+  | 'PROVIDER_BUDGET_EXCEEDED'
+  | 'PROVIDER_UNAVAILABLE'
+  | 'USAGE_RECORDED'
+  | 'PROVIDER_REQUEST_DENIED'
+  | 'PROVIDER_REQUEST_SETTLED'
+  | 'PROVIDER_CHARGE_UNRESOLVED'
+  | 'PROVIDER_CHARGE_RECONCILED'
   | 'RUNTIME_CONNECTED'
   | 'RUNTIME_DISCONNECTED'
   | 'DEPARTMENT_REGISTERED'
@@ -220,6 +240,8 @@ export interface RuntimeActivity {
 }
 
 export interface RuntimeState {
+  readonly providerRequests: Readonly<Record<string, ProviderRequestRecord>>
+  readonly creditLedger: readonly CreditLedgerEntry[]
   readonly connection: 'disconnected' | 'local'
   readonly revision: number
   readonly agents: Readonly<Record<string, Readonly<RuntimeAgent>>>
@@ -265,6 +287,7 @@ export interface CreateTaskInput {
 }
 
 export type RuntimeCommand =
+  | ProviderRuntimeCommand
   | ArtifactRuntimeCommand
   | OrchestrationCommand
   | ToolRuntimeCommand
@@ -353,6 +376,7 @@ export interface OfficeRuntimeRepository {
 }
 
 export interface OfficeRuntimeOptions {
+  readonly providerBudgetPolicy?: ProviderBudgetPolicy
   readonly repository?: OfficeRuntimeRepository
   readonly now?: () => string
   readonly nextId?: (scope: string) => string

@@ -7,10 +7,7 @@ import { ToolExecutor } from '../../src/tools/ToolExecutor'
 import { createResearchTool } from '../../src/tools/researchTool'
 import { DeterministicResearchProvider } from '../../src/dev/deterministicResearchProvider'
 import { ToolFault, type ToolExecutionResult } from '../../src/tools/toolTypes'
-import type {
-  RuntimeCommand,
-  RuntimeResult,
-} from '../../src/runtime/runtimeTypes'
+import type { RuntimeResult } from '../../src/runtime/runtimeTypes'
 import type {
   ToolPreviewAction,
   ToolPreviewOperation,
@@ -20,10 +17,7 @@ import type {
 import { createFilesystemTools } from '../adapters/filesystem'
 import { createTerminalTool } from '../adapters/terminal'
 import { createGitTools } from '../adapters/git'
-import {
-  seatedWorkstationAnchor,
-  standingWorkstationAnchor,
-} from '../../src/office/characterMotion'
+import { validatePreviewFeedback } from './feedback'
 import { createSandbox, IDS, registrations, scenarioPlan } from './fixtures'
 
 function requireOk(result: RuntimeResult) {
@@ -143,7 +137,7 @@ export async function createPreviewSession(projectRoot: string) {
         'Wait for the explicit planning command to finish.',
       )
     if (input.action === 'feedback') {
-      validateFeedback(input.command)
+      validatePreviewFeedback(runtime, input.command)
       requireOk(runtime.dispatch(input.command))
       return 'Host accepted discrete scene feedback.'
     }
@@ -323,55 +317,6 @@ export async function createPreviewSession(projectRoot: string) {
     }
   }
 
-  function validateFeedback(command: RuntimeCommand) {
-    const state = runtime.getSnapshot()
-    if (command.type === 'selectAgent' || command.type === 'selectTask') return
-    if (command.type !== 'arrive' && command.type !== 'rejectMovement')
-      throw new ToolFault(
-        'COMMAND_DENIED',
-        'Only selection and discrete spatial feedback are accepted from the scene.',
-      )
-    const agent = state.agents[command.agentId]
-    if (!agent || agent.destination?.id !== command.intentId)
-      throw new ToolFault(
-        'STALE_INTENT',
-        'Spatial feedback does not match the current host intent.',
-      )
-    if (command.type === 'arrive') {
-      const desk =
-        agent.workstationId && state.workstations[agent.workstationId]
-      if (!desk || agent.destination.destinationType !== 'workstation')
-        throw new ToolFault(
-          'DESTINATION_DENIED',
-          'Only the assigned fixture workstation may receive arrival feedback.',
-        )
-      const near = ([px, py, pz]: readonly number[]) =>
-        Math.hypot(
-          command.position[0] - px,
-          command.position[1] - py,
-          command.position[2] - pz,
-        ) < 0.03
-      const facing = Math.abs(
-        Math.atan2(
-          Math.sin(command.headingRadians - desk.headingRadians),
-          Math.cos(command.headingRadians - desk.headingRadians),
-        ),
-      )
-      if (
-        !near(seatedWorkstationAnchor(desk)) &&
-        !near(standingWorkstationAnchor(desk))
-      )
-        throw new ToolFault(
-          'INVALID_ARRIVAL',
-          'Arrival must match an authored seated or standing workstation anchor.',
-        )
-      if (near(seatedWorkstationAnchor(desk)) && facing > 0.02)
-        throw new ToolFault(
-          'INVALID_ARRIVAL',
-          'A seated arrival must face its assigned workstation.',
-        )
-    }
-  }
   return {
     sessionId,
     runtime,

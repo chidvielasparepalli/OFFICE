@@ -7,6 +7,7 @@ import type {
 import type {
   ToolPreviewAction,
   ToolPreviewMessage,
+  ToolPreviewMode,
   ToolPreviewSnapshot,
 } from './toolPreviewProtocol'
 
@@ -25,6 +26,8 @@ const emptyState = (): RuntimeState =>
     qaRequests: {},
     repairRequests: {},
     artifacts: {},
+    providerRequests: {},
+    creditLedger: [],
     events: [],
     activities: [],
     selectedAgentId: null,
@@ -54,8 +57,10 @@ export class ToolPreviewClient implements RuntimeOfficePort {
   private generation = 0
   private messages = 0
   private fetcher: typeof fetch
-  constructor(fetcher: typeof fetch = fetch) {
+  private mode: ToolPreviewMode
+  constructor(fetcher: typeof fetch = fetch, mode: ToolPreviewMode = 'tools') {
     this.fetcher = fetcher.bind(globalThis)
+    this.mode = mode
   }
   getSnapshot = () => this.disconnectedPresentation ?? this.state
   getPreview = () => this.view
@@ -80,7 +85,10 @@ export class ToolPreviewClient implements RuntimeOfficePort {
     this.disconnectedPresentation = null
     this.view = null
     this.notify()
-    return this.send('connect', {})
+    return this.send(
+      'connect',
+      this.mode === 'providers' ? { mode: this.mode } : {},
+    )
   }
   action = (action: ToolPreviewAction) => {
     if (!this.view)

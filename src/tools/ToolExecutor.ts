@@ -203,7 +203,13 @@ export class ToolExecutor {
       toolId: id,
       inputSummary,
       permission,
-      metadata: { category: tool?.category ?? 'unknown' },
+      metadata: {
+        category: tool?.category ?? 'unknown',
+        ...(tool?.metadata.providerBroker === true &&
+        tool.permissions.includes('network')
+          ? { providerBroker: true }
+          : {}),
+      },
     })
     const current = () => this.runtime.getSnapshot().toolExecutions[executionId]
     if (!active(current())) return current()

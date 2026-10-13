@@ -51,6 +51,18 @@ const ArtifactPreview =
     ? lazy(() => import('./dev/ArtifactPreview'))
     : null
 
+const ProviderCostPreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('providers') === 'preview'
+    ? lazy(() => import('./dev/ProviderCostPreview'))
+    : null
+
+const RealtimePreview =
+  import.meta.env.DEV &&
+  new URLSearchParams(window.location.search).get('realtime') === 'preview'
+    ? lazy(() => import('./dev/RealtimePreview'))
+    : null
+
 function App() {
   return (
     <div className="office-shell">
@@ -78,23 +90,35 @@ function App() {
         <div className="office-introduction">
           <h1>AI Corporate Office OS</h1>
           <p>
-            {ArtifactPreview
-              ? 'Artifact development preview. Explicit outputs preserve immutable versions, provenance and QA evidence in the local runtime.'
-              : QAPreview
-                ? 'QA development preview. Explicit tool checks distinguish completed work from verified work; repair attempts are bounded and retain history.'
-                : MemoryPreview
-                  ? 'Memory development preview. Scoped, explicit memory operations use the local runtime; no automatic learning or external provider is connected.'
-                  : ToolExecutionPreview
-                    ? 'Tool execution development preview. Host permissions protect disposable workspaces; no autonomous work or external AI provider is connected.'
-                    : ManagerOrchestrationPreview
-                      ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
-                      : OfficeRuntimePreview
-                        ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
-                        : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
+            {RealtimePreview
+              ? 'Realtime development preview. One guarded local host stream delivers authoritative snapshots and ordered updates to the office.'
+              : ProviderCostPreview
+                ? 'Provider development preview. Host-only deterministic adapters enforce permissions, secrets boundaries and local credit accounting; no external calls or spending are enabled.'
+                : ArtifactPreview
+                  ? 'Artifact development preview. Explicit outputs preserve immutable versions, provenance and QA evidence in the local runtime.'
+                  : QAPreview
+                    ? 'QA development preview. Explicit tool checks distinguish completed work from verified work; repair attempts are bounded and retain history.'
+                    : MemoryPreview
+                      ? 'Memory development preview. Scoped, explicit memory operations use the local runtime; no automatic learning or external provider is connected.'
+                      : ToolExecutionPreview
+                        ? 'Tool execution development preview. Host permissions protect disposable workspaces; no autonomous work or external AI provider is connected.'
+                        : ManagerOrchestrationPreview
+                          ? 'Manager orchestration development preview. Requests, plans and dispatch use the local runtime; execution outcomes are explicit test commands.'
+                          : OfficeRuntimePreview
+                            ? 'Local runtime development preview. All commands and task records are explicit test scenarios; no external work is executed.'
+                            : 'Explore the office space. Agent activity will appear here when a real runtime is connected.'}
           </p>
         </div>
 
-        {ArtifactPreview ? (
+        {RealtimePreview ? (
+          <Suspense fallback={<p>Loading realtime preview.</p>}>
+            <RealtimePreview />
+          </Suspense>
+        ) : ProviderCostPreview ? (
+          <Suspense fallback={<p>Loading provider preview.</p>}>
+            <ProviderCostPreview />
+          </Suspense>
+        ) : ArtifactPreview ? (
           <Suspense fallback={<p>Loading artifact preview.</p>}>
             <ArtifactPreview />
           </Suspense>
@@ -135,6 +159,8 @@ function App() {
           !ToolExecutionPreview &&
           !QAPreview &&
           !ArtifactPreview &&
+          !ProviderCostPreview &&
+          !RealtimePreview &&
           !MemoryPreview && (
             <div className="office-foundation">
               <section

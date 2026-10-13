@@ -1,0 +1,629 @@
+{
+  "startedAt": "2026-10-13T05:03:57.284Z",
+  "scope": "Phase12 guarded host-driven local realtime, canonical artifacts/QA, delivery recovery and existing 3D; no production realtime backend",
+  "checks": [
+    {
+      "name": "Realtime preview is empty until an explicit development connection",
+      "passed": true
+    },
+    {
+      "name": "Guarded host initial snapshot registers only explicit development agents",
+      "passed": true
+    },
+    {
+      "name": "Browser consumes filtered state without constructing a runtime engine",
+      "passed": true
+    },
+    {
+      "name": "Host Manager plan and task dispatch arrive through accepted runtime transactions",
+      "passed": true
+    },
+    {
+      "name": "Existing movement sits worker at workstation and activates worker-only headband",
+      "passed": true
+    },
+    {
+      "name": "Manager remains a separate canonical calm character",
+      "passed": true
+    },
+    {
+      "name": "Host-side action updates subscribed browser without polling or a UI action response",
+      "passed": true
+    },
+    {
+      "name": "Worker exact-ID mesh selection and camera focus remain correct",
+      "passed": true
+    },
+    {
+      "name": "Manager mesh selection stays distinct and headband-free",
+      "passed": true
+    },
+    {
+      "name": "Accepted blocked state reaches context and derived event notification",
+      "passed": true
+    },
+    {
+      "name": "Real ToolExecutor receipt is streamed without raw content",
+      "passed": true
+    },
+    {
+      "name": "Explicit output artifact publishes source task agent hash and completed-not-verified state",
+      "passed": true
+    },
+    {
+      "name": "Task completion removes worker headband and still awaits actual QA",
+      "passed": true
+    },
+    {
+      "name": "Actual QA pass is streamed and verifies the exact artifact version",
+      "passed": true
+    },
+    {
+      "name": "Artifact handoff derives from a canonical input link",
+      "passed": true
+    },
+    {
+      "name": "Notification projection references accepted events only",
+      "passed": true
+    },
+    {
+      "name": "Duplicate and stale replay do not duplicate business events activities or artifacts",
+      "passed": true
+    },
+    {
+      "name": "Skipped real transaction triggers authoritative snapshot recovery",
+      "passed": true
+    },
+    {
+      "name": "Unexpected stream loss reconnects to retained host state with bounded retry",
+      "passed": true
+    },
+    {
+      "name": "Manual disconnect retains last-known state and prevents online auto-connect",
+      "passed": true
+    },
+    {
+      "name": "Disconnected view does not optimistically apply new host transactions",
+      "passed": true
+    },
+    {
+      "name": "Reconnect refreshes current authoritative state while preserving artifacts and history",
+      "passed": true
+    },
+    {
+      "name": "Browser online/visibility resume requests a fresh snapshot without duplicating subscription",
+      "passed": true
+    },
+    {
+      "name": "Idle realtime creates no polling requests or per-frame publication",
+      "passed": true,
+      "detail": {
+        "before": {
+          "projection": {
+            "received": 32,
+            "applied": 31,
+            "duplicates": 4,
+            "stale": 1,
+            "gaps": 1,
+            "invalid": 0,
+            "snapshots": 7,
+            "reconnects": 1,
+            "subscribers": 6,
+            "pendingMessages": 0
+          },
+          "pendingSpatialFeedback": 0
+        },
+        "after": {
+          "projection": {
+            "received": 32,
+            "applied": 31,
+            "duplicates": 4,
+            "stale": 1,
+            "gaps": 1,
+            "invalid": 0,
+            "snapshots": 7,
+            "reconnects": 1,
+            "subscribers": 6,
+            "pendingMessages": 0
+          },
+          "pendingSpatialFeedback": 0
+        }
+      }
+    },
+    {
+      "name": "Foreign-origin stream and snapshot authority are rejected",
+      "passed": true
+    },
+    {
+      "name": "Browser cannot submit arbitrary business input or change publication audience",
+      "passed": true
+    },
+    {
+      "name": "Host publication source remains excluded from development file serving",
+      "passed": true
+    },
+    {
+      "name": "No raw tool bytes, secrets or forged verification appear in projected UI context",
+      "passed": true
+    },
+    {
+      "name": "Open-top company overview and camera reset remain available",
+      "passed": true
+    },
+    {
+      "name": "Canonical model requests remain cached across reconnects and delivery faults",
+      "passed": true,
+      "detail": [
+        "http://127.0.0.1:5174/assets/working/warehouse/office-open.glb",
+        "http://127.0.0.1:5174/assets/3d/characters/standard-worker-animated.glb",
+        "http://127.0.0.1:5174/assets/3d/characters/primary-manager-animated.glb",
+        "http://127.0.0.1:5174/assets/3d/workstations/standard-workstation.glb",
+        "http://127.0.0.1:5174/assets/3d/accessories/red-headband.glb"
+      ]
+    },
+    {
+      "name": "No console errors, unexpected failed requests, or hot reloads",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": [],
+        "expectedStreamClosures": 2,
+        "hotReloads": []
+      }
+    },
+    {
+      "name": "Product sources remained unchanged throughout browser acceptance",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "expectedStreamClosures": [
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/stream",
+      "error": "net::ERR_ABORTED",
+      "data": "{}",
+      "observedAt": "2026-10-13T05:04:58.556Z"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/stream",
+      "error": "net::ERR_ABORTED",
+      "data": "{}",
+      "observedAt": "2026-10-13T05:04:58.895Z"
+    }
+  ],
+  "hotReloads": [],
+  "assetRequests": [
+    "http://127.0.0.1:5174/assets/working/warehouse/office-open.glb",
+    "http://127.0.0.1:5174/assets/3d/characters/standard-worker-animated.glb",
+    "http://127.0.0.1:5174/assets/3d/characters/primary-manager-animated.glb",
+    "http://127.0.0.1:5174/assets/3d/workstations/standard-workstation.glb",
+    "http://127.0.0.1:5174/assets/3d/accessories/red-headband.glb"
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/connect",
+      "data": "{\"mode\":\"realtime\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/stream",
+      "data": "{}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/snapshot",
+      "data": "{}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"prepare\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"arrive\",\"agentId\":\"phase5-manager\",\"intentId\":\"intent:14\",\"position\":[0,0,-10.91],\"headingRadians\":0}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"start\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"arrive\",\"agentId\":\"phase5-worker-a\",\"intentId\":\"intent:22\",\"position\":[-10.35,0,-0.6300000000000001],\"headingRadians\":-1.625353420723401}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"block\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"resume\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"arrive\",\"agentId\":\"phase5-worker-a\",\"intentId\":\"intent:31\",\"position\":[-11,0,-0.010000000000000009],\"headingRadians\":0}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"write\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"artifact\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"qa-request\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"complete\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"qa-run\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"handoff\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"duplicate\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"stale\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"gap\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/snapshot",
+      "data": "{}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"drop\"}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/stream",
+      "data": "{}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/snapshot",
+      "data": "{}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/stream",
+      "data": "{}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/snapshot",
+      "data": "{}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/snapshot",
+      "data": "{}"
+    },
+    {
+      "url": "http://127.0.0.1:5174/__tools-preview/action",
+      "data": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":null}}"
+    }
+  ],
+  "sourceSha256": {
+    "src/realtime/realtimeTypes.ts": "bc577d14b268fb6ef3419d76b4ff87463142edf45bd3d757b92df84772e72673",
+    "src/realtime/realtimeCodec.ts": "bbc9ca0c98614f5f92318f64a80a4f88afe5778c5102ac917cfdea04d221edea",
+    "src/realtime/realtimeValidation.ts": "0ab7b5628c5afc4984e51d9eb35f8270cc0482c2fbe045100f796e81fc1e25be",
+    "src/realtime/RealtimePublisher.ts": "0a32cff3328191ba5b32ef5cd2113004825489546e5111c785ef5d7efb849f38",
+    "src/realtime/RealtimeStore.ts": "aecabb335adf8d7d2b7c632f7ef406b69255ec1291006ea7b77314cc3285a879",
+    "src/realtime/LocalRealtimeTransport.ts": "980b4e0072239253af30b6faaf55630f8ddf42b00e966ab5db264a5be8b6386c",
+    "tools-host/realtime/publication.ts": "9187baae47c39e2f49d73fc77303eb116e1c9bf0684eb62a4bf004ba18707d3f",
+    "tools-host/preview/plugin.ts": "4ef22b49fc17d64c3d78c1447ac738e7a69008c81b15e119c3f1532e8d7f35db",
+    "tools-host/preview/feedback.ts": "ee93a4a32b2ccb871436fbfc8612cd70bb3bf3117031a30fe3c13f1ae51fe820",
+    "tools-host/preview/realtimeSession.ts": "47122796927a7a4a223404ddab7b3c348e0272336c05d9521d0f3c7e12930696",
+    "tools-host/preview/realtimeStream.ts": "7548fb284789bde6c795d0b8054c46dceee21708a2b6df8949e61129b272510b",
+    "src/dev/realtimePreviewClient.ts": "39f89b1d99ea096100ab6842a2cc21f7f88f80ad6236f863690082dabc4532a3",
+    "src/dev/realtimePreviewProtocol.ts": "a6f2b216c53044bc606fbaaa72bd77a71ca9f1e67b2d5940151d64d3e8595410",
+    "src/dev/RealtimePreview.tsx": "b3c5149663a8f05837fd0cce253b2b305d5a2cf29722b9acb5a7bed250963d39",
+    "src/App.tsx": "c63590f2dd0e3e8ee7593214ac2b08ffec063f75c537ce5b24562e5437603c41",
+    "src/components/RuntimeOffice.tsx": "d6bbc1f42fe4ffaeb10745d063fb72c663b86748331e77f0f72fcf141f5a25e4",
+    "vite.config.ts": "d36e8c89e49888847e2e10075f9105c0808eaad99cdea1d4bd4fb8bd29d49bc5"
+  },
+  "screenshots": [
+    "test-results/phase12-worker-working.png",
+    "test-results/phase12-manager.png",
+    "test-results/phase12-artifact-notifications.png",
+    "test-results/phase12-overview.png"
+  ],
+  "transportTrace": [
+    {
+      "url": "/__tools-preview/connect",
+      "body": "{\"mode\":\"realtime\"}",
+      "startedAt": 1631.8999999761581,
+      "headersAt": 1644.3999999761581
+    },
+    {
+      "url": "/__tools-preview/stream",
+      "body": "{}",
+      "startedAt": 1644.8999999761581,
+      "headersAt": 1654.7000000476837,
+      "abortedAt": 60565.39999997616,
+      "abortStack": "Error\n    at AbortController.abort (<anonymous>:6:148)\n    at Object.close (http://127.0.0.1:5174/src/dev/realtimePreviewClient.ts:81:15)\n    at RealtimeStore.clearConnection (http://127.0.0.1:5174/src/realtime/RealtimeStore.ts:87:9)\n    at RealtimeStore.lost (http://127.0.0.1:5174/src/realtime/RealtimeStore.ts:134:8)\n    at Object.closed (http://127.0.0.1:5174/src/realtime/RealtimeStore.ts:108:25)\n    at http://127.0.0.1:5174/src/dev/realtimePreviewClient.ts:136:27"
+    },
+    {
+      "url": "/__tools-preview/snapshot",
+      "body": "{}",
+      "startedAt": 1655.3999999761581,
+      "headersAt": 1662.5
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"prepare\"}",
+      "startedAt": 3394.399999976158,
+      "headersAt": 3473.2000000476837
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"arrive\",\"agentId\":\"phase5-manager\",\"intentId\":\"intent:14\",\"position\":[0,0,-10.91],\"headingRadians\":0}}",
+      "startedAt": 3464.899999976158,
+      "headersAt": 3495.7999999523163
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"start\"}",
+      "startedAt": 4682.600000023842,
+      "headersAt": 4807.200000047684
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"arrive\",\"agentId\":\"phase5-worker-a\",\"intentId\":\"intent:22\",\"position\":[-10.35,0,-0.6300000000000001],\"headingRadians\":-1.625353420723401}}",
+      "startedAt": 19330.100000023842,
+      "headersAt": 19460.200000047684
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}",
+      "startedAt": 28376.700000047684,
+      "headersAt": 28537.799999952316
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}",
+      "startedAt": 28535.799999952316,
+      "headersAt": 28701.399999976158
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}",
+      "startedAt": 28700.299999952316,
+      "headersAt": 28891.200000047684
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}",
+      "startedAt": 28889.700000047684,
+      "headersAt": 29062.700000047684
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}",
+      "startedAt": 31931.899999976158,
+      "headersAt": 32050.5
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}",
+      "startedAt": 33668.799999952316,
+      "headersAt": 33762.299999952316
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}",
+      "startedAt": 33855.299999952316,
+      "headersAt": 33961
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}",
+      "startedAt": 33959.89999997616,
+      "headersAt": 34096.89999997616
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-manager\"}}",
+      "startedAt": 37433.60000002384,
+      "headersAt": 37593.89999997616
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"block\"}",
+      "startedAt": 40743.299999952316,
+      "headersAt": 40915.700000047684
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"resume\"}",
+      "startedAt": 43447.299999952316,
+      "headersAt": 43625.299999952316
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"arrive\",\"agentId\":\"phase5-worker-a\",\"intentId\":\"intent:31\",\"position\":[-11,0,-0.010000000000000009],\"headingRadians\":0}}",
+      "startedAt": 43624,
+      "headersAt": 43809.700000047684
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"write\"}",
+      "startedAt": 46976.39999997616,
+      "headersAt": 47128.10000002384
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"artifact\"}",
+      "startedAt": 48787.5,
+      "headersAt": 48933.5
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"qa-request\"}",
+      "startedAt": 50659.5,
+      "headersAt": 50810.5
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"complete\"}",
+      "startedAt": 52365.299999952316,
+      "headersAt": 52512.799999952316
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"qa-run\"}",
+      "startedAt": 58466,
+      "headersAt": 58662.89999997616
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"handoff\"}",
+      "startedAt": 59274.60000002384,
+      "headersAt": 59365.299999952316
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"duplicate\"}",
+      "startedAt": 59723.10000002384,
+      "headersAt": 59737.200000047684
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"stale\"}",
+      "startedAt": 59790.200000047684,
+      "headersAt": 59931.700000047684
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"gap\"}",
+      "startedAt": 59992.200000047684,
+      "headersAt": 60034.89999997616
+    },
+    {
+      "url": "/__tools-preview/snapshot",
+      "body": "{}",
+      "startedAt": 60026.89999997616,
+      "headersAt": 60044.299999952316
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":\"phase5-worker-a\"}}",
+      "startedAt": 60070,
+      "headersAt": 60077.89999997616
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"drop\"}",
+      "startedAt": 60551.89999997616,
+      "headersAt": 60576.299999952316
+    },
+    {
+      "url": "/__tools-preview/stream",
+      "body": "{}",
+      "startedAt": 60824.200000047684,
+      "headersAt": 60833.200000047684,
+      "abortedAt": 60902.89999997616,
+      "abortStack": "Error\n    at AbortController.abort (<anonymous>:6:148)\n    at Object.close (http://127.0.0.1:5174/src/dev/realtimePreviewClient.ts:81:15)\n    at RealtimeStore.clearConnection (http://127.0.0.1:5174/src/realtime/RealtimeStore.ts:87:9)\n    at RealtimeStore.disconnect (http://127.0.0.1:5174/src/realtime/RealtimeStore.ts:150:8)\n    at RealtimePreviewClient.disconnect (http://127.0.0.1:5174/src/dev/realtimePreviewClient.ts:194:14)\n    at onClick (http://127.0.0.1:5174/src/dev/RealtimePreview.tsx:98:15)\n    at executeDispatch (http://127.0.0.1:5174/node_modules/.vite-phase12-browser/deps/react-dom_client.js?v=ecc1d76f:9659:5)\n    at runWithFiberInDEV (http://127.0.0.1:5174/node_modules/.vite-phase12-browser/deps/react-dom_client.js?v=ecc1d76f:697:66)\n    at processDispatchQueue (http://127.0.0.1:5174/node_modules/.vite-phase12-browser/deps/react-dom_client.js?v=ecc1d76f:9685:27)\n    at http://127.0.0.1:5174/node_modules/.vite-phase12-browser/deps/react-dom_client.js?v=ecc1d76f:9954:5"
+    },
+    {
+      "url": "/__tools-preview/snapshot",
+      "body": "{}",
+      "startedAt": 60835.200000047684,
+      "headersAt": 60843.89999997616
+    },
+    {
+      "url": "/__tools-preview/stream",
+      "body": "{}",
+      "startedAt": 61230.5,
+      "headersAt": 61234.60000002384
+    },
+    {
+      "url": "/__tools-preview/snapshot",
+      "body": "{}",
+      "startedAt": 61235.299999952316,
+      "headersAt": 61244.200000047684
+    },
+    {
+      "url": "/__tools-preview/snapshot",
+      "body": "{}",
+      "startedAt": 61303.60000002384,
+      "headersAt": 61312.200000047684
+    },
+    {
+      "url": "/__tools-preview/action",
+      "body": "{\"action\":\"feedback\",\"command\":{\"type\":\"selectAgent\",\"agentId\":null}}",
+      "startedAt": 62370.5,
+      "headersAt": 62516.299999952316
+    }
+  ],
+  "completedAt": "2026-10-13T05:05:00.614Z",
+  "totalChecks": 32,
+  "finalMetrics": {
+    "projection": {
+      "received": 33,
+      "applied": 32,
+      "duplicates": 4,
+      "stale": 1,
+      "gaps": 1,
+      "invalid": 0,
+      "snapshots": 7,
+      "reconnects": 1,
+      "subscribers": 6,
+      "pendingMessages": 0
+    },
+    "pendingSpatialFeedback": 0
+  },
+  "limitations": [
+    "Single guarded loopback development session; no production realtime service or authentication.",
+    "Transport metadata projection is bounded; complete durable history remains host-owned.",
+    "Explicit test faults affect transport only; no autonomous business activity.",
+    "Software Chromium rendering is not a hardware GPU benchmark."
+  ]
+}
