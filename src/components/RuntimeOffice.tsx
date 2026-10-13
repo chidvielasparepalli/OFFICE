@@ -8,6 +8,7 @@ import {
   useState,
   useSyncExternalStore,
 } from 'react'
+import type { RefObject } from 'react'
 import { OfficeWorld } from './3d/OfficeWorld'
 import type {
   AgentSpatialSnapshot,
@@ -22,6 +23,7 @@ import { createOfficeRuntimeBridge } from '../runtime/officeRuntimeBridge'
 import { RuntimeTaskPanel } from './RuntimeTaskPanel'
 import { AgentQAContext } from './QAContextPanel'
 import { AgentArtifactContext } from './ArtifactContextPanel'
+import type { AgentPlacement } from '../office/workerPresentation'
 
 const RuntimeWorld = memo(OfficeWorld)
 
@@ -42,10 +44,20 @@ export function RuntimeOffice({
   runtime,
   diagnostics = false,
   executionNotice,
+  visitors,
+  onVisitorSelection,
+  onVisitorSpatialEvent,
+  spatialViews: suppliedSpatialViews,
+  visitorFocusRequest,
 }: {
   runtime: RuntimeOfficePort
   diagnostics?: boolean
   executionNotice?: string
+  visitors?: readonly AgentPlacement[]
+  onVisitorSelection?: (id: string) => void
+  onVisitorSpatialEvent?: (snapshot: AgentSpatialSnapshot) => void
+  spatialViews?: RefObject<Map<string, AgentSpatialSnapshot>>
+  visitorFocusRequest?: { id: string; version: number }
 }) {
   const state = useSyncExternalStore(
     runtime.subscribe,
@@ -55,11 +67,12 @@ export function RuntimeOffice({
   // Replacing the runtime service must discard its route and mount caches.
   // oxlint-disable-next-line react-hooks/exhaustive-deps
   const bridge = useMemo(() => createOfficeRuntimeBridge(), [runtime])
-  const spatialViews = useMemo(
+  const localSpatialViews = useMemo(
     () => ({ current: new Map<string, AgentSpatialSnapshot>() }),
     // oxlint-disable-next-line react-hooks/exhaustive-deps
     [runtime],
   )
+  const spatialViews = suppliedSpatialViews ?? localSpatialViews
   const [bridgeRevision, refreshBridge] = useReducer(
     (value: number) => value + 1,
     0,
@@ -79,6 +92,14 @@ export function RuntimeOffice({
   const [counters, setCounters] = useState<object | null>(null)
   const [feedbackError, setFeedbackError] = useState<string | null>(null)
   const feedbackLifetime = useRef(0)
+
+  useEffect(() => {
+    if (!visitorFocusRequest) return
+    setFocusRequest((previous) => ({
+      version: (previous?.version ?? 0) + 1,
+      selection: { kind: 'agent', id: visitorFocusRequest.id },
+    }))
+  }, [visitorFocusRequest])
 
   useEffect(() => {
     feedbackLifetime.current++
@@ -146,6 +167,10 @@ export function RuntimeOffice({
   }, [snapshot, flushFeedback])
   const onSpatialEvent = useCallback(
     (event: AgentSpatialSnapshot) => {
+      if (visitors?.some((visitor) => visitor.id === event.agentId)) {
+        onVisitorSpatialEvent?.(event)
+        return
+      }
       if (
         bridge.onSpatialEvent(
           runtime.getSnapshot(),
@@ -156,15 +181,29 @@ export function RuntimeOffice({
         refreshBridge()
       flushFeedback()
     },
-    [bridge, runtime, spatialViews, flushFeedback],
+    [
+      bridge,
+      runtime,
+      spatialViews,
+      flushFeedback,
+      visitors,
+      onVisitorSpatialEvent,
+    ],
   )
   const onSelectionChange = useCallback(
     (selection: OfficeSelection) => {
+      if (
+        selection.kind === 'agent' &&
+        visitors?.some((visitor) => visitor.id === selection.id)
+      ) {
+        onVisitorSelection?.(selection.id)
+        return
+      }
       const id = selection.kind === 'agent' ? selection.id : null
       sceneSelectedId.current = id
       runtime.dispatch({ type: 'selectAgent', agentId: id })
     },
-    [runtime],
+    [runtime, visitors, onVisitorSelection],
   )
   const onSelectTask = useCallback(
     (taskId: string) => {
@@ -193,6 +232,7 @@ export function RuntimeOffice({
       </p>
       <RuntimeWorld
         runtime={snapshot}
+        visitors={visitors}
         spatialViews={spatialViews}
         onSpatialEvent={onSpatialEvent}
         onSelectionChange={onSelectionChange}

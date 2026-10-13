@@ -54,6 +54,8 @@ export function emptyRealtimeView(): RealtimeView {
       repairRequests: {},
       artifacts: {},
       providerRequests: {},
+      recruitments: {},
+      employees: {},
       creditLedger: [],
       events: [],
       activities: [],

@@ -64,6 +64,7 @@ function setup(
     grants?: readonly ProviderGrant[]
     credentials?: boolean
     execute?: () => Promise<ProviderAdapterResult>
+    estimateInputUnits?: () => number
   } = {},
 ) {
   const runtime = createOfficeRuntime({
@@ -113,7 +114,12 @@ function setup(
   registry.register({
     descriptor: descriptor('primary', options.primary),
     secretReference: 'host-primary',
-    adapter: { execute },
+    adapter: {
+      execute,
+      ...(options.estimateInputUnits
+        ? { estimateInputUnits: options.estimateInputUnits }
+        : {}),
+    },
   })
   registry.register({
     descriptor: descriptor('backup', options.backup),
@@ -177,6 +183,37 @@ function setup(
 }
 
 describe('host provider registry and broker', () => {
+  it('reserves adapter protocol/schema overhead rather than only the caller prompt', async () => {
+    const s = setup({ estimateInputUnits: () => 500 })
+    expect((await s.run()).status).toBe('completed')
+    expect(s.runtime.getSnapshot().providerRequests.call).toMatchObject({
+      inputUnits: 500,
+      estimateMicros: 1030,
+      actualMicros: 13,
+    })
+    const denied = setup({
+      estimateInputUnits: () => 500,
+      budget: { perRequestLimitMicros: 1000 },
+    })
+    expect(await denied.run()).toMatchObject({
+      status: 'failed',
+      error: { code: 'BUDGET_EXCEEDED' },
+    })
+    expect(denied.execute).not.toHaveBeenCalled()
+    expect(denied.lookup).not.toHaveBeenCalled()
+  })
+  it.each([0, -1, 1.5, Number.NaN, 100001])(
+    'rejects unsafe/understated adapter estimates: %s',
+    async (estimate) => {
+      const s = setup({ estimateInputUnits: () => estimate })
+      expect(await s.run()).toMatchObject({
+        status: 'failed',
+        error: { code: 'INVALID_PROVIDER_REQUEST' },
+      })
+      expect(s.execute).not.toHaveBeenCalled()
+      expect(s.lookup).not.toHaveBeenCalled()
+    },
+  )
   it('executes once through the tool boundary and records actual integer usage without completing the task', async () => {
     const s = setup()
     const result = await s.run()

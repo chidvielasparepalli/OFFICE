@@ -1,0 +1,262 @@
+{
+  "feature": "CEO-controlled recruitment",
+  "startedAt": "2026-10-13T08:23:24.896Z",
+  "completedAt": "2026-10-13T08:26:51.470Z",
+  "method": "Headless Chromium with Playwright, isolated durable local host directory, synthetic CEO login, actual UI proposal/approval/change/cancellation/termination actions, existing realtime client and R3F character inspection. Native finite-response completion and CDP network timing were observed without capturing payload bodies. Product source stayed unchanged throughout the run.",
+  "scope": "Isolated durable local recruitment with synthetic CEO login and explicit mock assessments; no provider credential or paid call.",
+  "totalChecks": 34,
+  "passedChecks": 34,
+  "checks": [
+    {
+      "name": "Unauthenticated office exposes login without employee records or client authority",
+      "passed": true
+    },
+    {
+      "name": "CEO session uses HttpOnly SameSite cookie and password is absent from UI/browser storage",
+      "passed": true
+    },
+    {
+      "name": "Initial authoritative snapshot contains only dedicated Manager and no recruited employees",
+      "passed": true
+    },
+    {
+      "name": "Proposal creation does not activate a candidate",
+      "passed": true
+    },
+    {
+      "name": "Material revision preserves v1 and requires renewed exact-version approval",
+      "passed": true
+    },
+    {
+      "name": "Approved candidate enters on existing Stickman with shared carried file but no employee entry",
+      "passed": true
+    },
+    {
+      "name": "Actual host mock assessment activates one explicitly simulated employee only after approved checks",
+      "passed": true
+    },
+    {
+      "name": "Activation preserves character resources and routes to an unoccupied assigned workstation",
+      "passed": true
+    },
+    {
+      "name": "Historical versions and approvals remain inspectable",
+      "passed": true
+    },
+    {
+      "name": "Exact employee selection and camera focus preserve animation",
+      "passed": true
+    },
+    {
+      "name": "Manager stays dedicated calm and never receives a headband",
+      "passed": true
+    },
+    {
+      "name": "Mandatory capability failure records evidence and sends candidate toward exit without active access",
+      "passed": true
+    },
+    {
+      "name": "Host-confirmed departure removes candidate instead of retaining an employee",
+      "passed": true
+    },
+    {
+      "name": "Technical failure remains pending with diagnostics and no fabricated skills rejection",
+      "passed": true
+    },
+    {
+      "name": "Retry retains employee identity and history without duplicate employee or grants",
+      "passed": true
+    },
+    {
+      "name": "Refresh restores persisted recruitment and employee identity without replaying jobs",
+      "passed": true
+    },
+    {
+      "name": "Realtime resynchronization preserves stable business identities",
+      "passed": true
+    },
+    {
+      "name": "Forged actor fields and privileged host files remain rejected",
+      "passed": true
+    },
+    {
+      "name": "A simulated employee cannot invoke the real provider runtime",
+      "passed": true
+    },
+    {
+      "name": "Candidates and active employees remain separate with accessible status labels",
+      "passed": true
+    },
+    {
+      "name": "Idle synchronization does not poll or produce business updates every frame",
+      "passed": true
+    },
+    {
+      "name": "Shared canonical GLBs are requested once per page lifecycle",
+      "passed": true,
+      "detail": {
+        "unique": 5,
+        "requests": 10
+      }
+    },
+    {
+      "name": "Public state excludes credentials, secret identifiers and host paths",
+      "passed": true
+    },
+    {
+      "name": "Open-top overview and camera reset remain available",
+      "passed": true
+    },
+    {
+      "name": "CEO cancellation releases a paused interview without activating the candidate",
+      "passed": true
+    },
+    {
+      "name": "Interrupted arrival reverses safely and removes the cancelled candidate without assessment or employee creation",
+      "passed": true
+    },
+    {
+      "name": "CEO termination retains identity, proposal and approved history with an explicit audit event",
+      "passed": true
+    },
+    {
+      "name": "Terminated employee leaves the active scene and cannot reappear as a candidate",
+      "passed": true
+    },
+    {
+      "name": "Terminated employee operational requests remain denied",
+      "passed": true
+    },
+    {
+      "name": "A subsequent approved hire reuses the freed workstation without overlapping the terminated employee",
+      "passed": true
+    },
+    {
+      "name": "Replacement retains the former employee history and creates exactly one new active identity",
+      "passed": true
+    },
+    {
+      "name": "Replacement reuses cached canonical geometry and introduces no extra GLB requests",
+      "passed": true
+    },
+    {
+      "name": "No console errors or unexpected failed browser requests",
+      "passed": true,
+      "detail": {
+        "errors": [],
+        "failed": []
+      }
+    },
+    {
+      "name": "Product source remained stable during acceptance",
+      "passed": true
+    }
+  ],
+  "consoleErrors": [],
+  "unexpectedFailedRequests": [],
+  "knownWarnings": [
+    "THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.",
+    "THREE.WebGLShadowMap: PCFSoftShadowMap has been removed. Using PCFShadowMap instead.",
+    "[WebGL]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+    "[WebGL]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+  ],
+  "expectedPageReloadAborts": {
+    "count": 0,
+    "requests": [],
+    "policy": "Only exact in-flight request objects recorded immediately before explicit page reload were eligible for teardown classification. No general ERR_ABORTED exclusion was used."
+  },
+  "finiteResponseMetrics": {
+    "completedNativeReads": 57,
+    "exactBoundedUtf8Framing": 57,
+    "maximumDeclaredBytes": 65070,
+    "maximumObservedDurationMs": 921,
+    "signalAborts": 0,
+    "readErrors": 0,
+    "cdpLoadingFailures": 0,
+    "byteLimit": 4000000
+  },
+  "expectedDeniedApiProbes": [
+    "Forged actor authority",
+    "Private CEO account file",
+    "Raw host service source",
+    "Simulated employee live execution",
+    "Terminated employee execution"
+  ],
+  "sourceHotReloads": [],
+  "sourceFrozen": true,
+  "canonicalAssetRequests": [
+    {
+      "path": "/assets/3d/accessories/red-headband.glb",
+      "countAcrossTwoPageLoads": 2
+    },
+    {
+      "path": "/assets/3d/characters/primary-manager-animated.glb",
+      "countAcrossTwoPageLoads": 2
+    },
+    {
+      "path": "/assets/3d/characters/standard-worker-animated.glb",
+      "countAcrossTwoPageLoads": 2
+    },
+    {
+      "path": "/assets/3d/workstations/standard-workstation.glb",
+      "countAcrossTwoPageLoads": 2
+    },
+    {
+      "path": "/assets/working/warehouse/office-open.glb",
+      "countAcrossTwoPageLoads": 2
+    }
+  ],
+  "candidateAttachment": {
+    "hand": "handR",
+    "localOffset": [0, 0.13, 0.01],
+    "localRotation": [1.5707963267948966, 0, 0, "XYZ"],
+    "phase": "walking",
+    "kind": "standard-worker",
+    "headband": false
+  },
+  "visualInspection": [
+    "Fresh arrival screenshot shows the canonical candidate carrying the shared folder at handR, with candidate-only selection and an explicit simulation label.",
+    "Fresh replacement-workstation screenshot shows one canonical worker seated at the freed supplied desk; the former employee remains terminated in history and has no active scene controls.",
+    "Fresh overview screenshot retains the open-top office, visible corridors, separate Manager and candidate markers, and the active worker at its desk.",
+    "Existing one-shot camera focus can crop a moving candidate after focus; it does not change navigation or business state."
+  ],
+  "screenshotPaths": [
+    "test-results/recruitment-candidate-arrival.png",
+    "test-results/recruitment-hired-workstation.png",
+    "test-results/recruitment-manager.png",
+    "test-results/recruitment-rejected-exit.png",
+    "test-results/recruitment-technical-pending.png",
+    "test-results/recruitment-overview.png",
+    "test-results/recruitment-replacement-workstation.png"
+  ],
+  "screenshotStorage": "Ignored test-results directory; local validation evidence, not runtime assets.",
+  "sourceSha256": {
+    "src/App.tsx": "26660b6c09f9a24c41beb65560b25b6402949af9400ddcc772227e37a3db9bfb",
+    "src/recruitment/RecruitmentOffice.tsx": "c6dd4668a314ce2e691d8fdaaa0bcba39e3ada3c3292a2775b500c6611c5b66a",
+    "src/recruitment/recruitmentClient.ts": "d782e1d48484f6233367a17784cb82f153d0c35821a0d8bc7eaf75f0c0d9ed64",
+    "src/recruitment/recruitmentScene.ts": "302eff9530bc8fe56ed543d1d02d0f9ef8c3517abad1347ded2abbb1e3060f43",
+    "src/recruitment/recruitmentFolder.ts": "75f41330342d683bfd161e4c944fc4cec25954165c032f5841dd517eb7f06103",
+    "src/components/RuntimeOffice.tsx": "e3c5452d2fa8caaa7ffa78815b4ff6dd77cbc9ef6de7b4f672acbc877d6059e2",
+    "src/components/3d/OfficeWorld.tsx": "a7f9bc457c440a0591c97e85ccf4b1ff9f4cbdd33afc00030dcc2d6b8fcfe7f2",
+    "src/components/3d/AnimatedCharacter.tsx": "2de83559618c343adab652b773fe412de896c34ab906945e400397ae4d093ae8",
+    "src/office/officeNavigation.ts": "dba8348da137db451086572bfd1b4da46adbb59a3f543bc1af77a1be0a8e9f3e",
+    "tools-host/recruitment/RecruitmentService.ts": "23b81decd52230c786b5664f52ef0cd0e2209f1a20cfc07b78d158d8a2e90bd0",
+    "tools-host/recruitment/plugin.ts": "d553348d801fea34916c764e895b7b260f9a1e21cd6855ae8ae21085f02b054e",
+    "src/runtime/recruitmentRuntime.ts": "123782359aaf1c03bff2b36010484156b6631fdbd688fd6ec0a9d2d8c7a42c1d",
+    "src/runtime/officeRuntimeBridge.ts": "0392f7305184389d1d27622231cdfce4ee54aa602c27a38b94566a72c559d355",
+    "src/office/characterMotion.ts": "75a7ec34076a867b239a913e1a11f786a70f0767a62b0cc541c6f9fe14b7521a",
+    "src/recruitment/recruitmentTypes.ts": "455c9338a08d1b4f9cf63473a8cb592690cc4b31f4d64bdafb6bcf3bf81c8331",
+    "src/office/workerPresentation.ts": "29a472cc692601d17ee3ccb99355dfdc62522c8d85f22698da8c8cd29f887943",
+    "src/runtime/runtimeTypes.ts": "417875babc8413dc2ed17edcd486b6014f36df8e0bc4a850efbdd2f400586839",
+    "src/realtime/realtimeValidation.ts": "d34cd3d32d069205565f57a302b658f44dad41f8b691e3ff3227dac637300d39",
+    "tools-host/realtime/publication.ts": "834e9718ba0991f3ab16d72ab9d0e3f040ea998b26af257cbe2ec271874a0106"
+  },
+  "limitations": [
+    "Explicit mock capabilities do not demonstrate live AI employee competence.",
+    "No real provider credential or paid request was used.",
+    "Local cookie authentication and file persistence are not a deployed multi-tenant service.",
+    "Browser refresh restores canonical positions; in-flight interpolation is presentation-only.",
+    "No hardware FPS claim; this validates idle command behavior and shared loading, not a 100-agent performance benchmark.",
+    "Interview speech/lip synchronization is not implemented; actual questions, evidence and outcomes are accessible in the recruitment file."
+  ]
+}

@@ -37,6 +37,12 @@ import type {
   ProviderRequestRecord,
   ProviderRuntimeCommand,
 } from '../providers/providerTypes'
+import type {
+  EmployeeRecord,
+  RecruitmentCommand,
+  RecruitmentPolicy,
+  RecruitmentSession,
+} from '../recruitment/recruitmentTypes'
 
 export type RuntimeTaskStatus =
   | 'queued'
@@ -104,6 +110,8 @@ export interface RuntimeTask {
   readonly completedAt: string | null
   readonly failedAt: string | null
   readonly cancelledAt: string | null
+  /** Runtime-approved task posture; ordinary work continues to use the assigned desk. */
+  readonly workLocation?: 'workstation' | 'current-position'
   /** Present only when explicit checks gate this task; completion alone never sets verified. */
   readonly verification?: TaskVerification
   readonly expectedOutputs?: readonly ArtifactExpectation[]
@@ -124,6 +132,8 @@ export interface RuntimeWorkstation extends Readonly<AgentRuntimePosition> {
 
 /** Changed entity maps contain complete after-images; creditLedger contains append-only deltas. */
 export interface RuntimeBusinessChanges {
+  readonly recruitments?: Readonly<Record<string, RecruitmentSession>>
+  readonly employees?: Readonly<Record<string, EmployeeRecord>>
   readonly providerRequests?: Readonly<Record<string, ProviderRequestRecord>>
   /** New immutable entries only; append in committed event order. */
   readonly creditLedger?: readonly CreditLedgerEntry[]
@@ -144,6 +154,21 @@ export interface RuntimeBusinessChanges {
 }
 
 export type RuntimeEventType =
+  | 'RECRUITMENT_REQUESTED'
+  | 'RECRUITMENT_PROPOSAL_READY'
+  | 'RECRUITMENT_APPROVED'
+  | 'RECRUITMENT_REJECTED'
+  | 'RECRUITMENT_CHANGES_REQUESTED'
+  | 'RECRUITMENT_CANCELLED'
+  | 'RECRUITMENT_RETRY_SCHEDULED'
+  | 'RECRUITMENT_SCENE_CHANGED'
+  | 'RECRUITMENT_SCENE_ARRIVED'
+  | 'RECRUITMENT_COMMITTED'
+  | 'RECRUITMENT_TECHNICAL_FAILURE'
+  | 'RECRUITMENT_ASSESSED'
+  | 'RECRUITMENT_STAGE_CHANGED'
+  | 'EMPLOYEE_ACTIVATED'
+  | 'EMPLOYEE_TERMINATED'
   | 'PROVIDER_REQUEST_RESERVED'
   | 'PROVIDER_FALLBACK_SELECTED'
   | 'PROVIDER_REQUEST_COMPLETED'
@@ -240,6 +265,8 @@ export interface RuntimeActivity {
 }
 
 export interface RuntimeState {
+  readonly recruitments: Readonly<Record<string, RecruitmentSession>>
+  readonly employees: Readonly<Record<string, EmployeeRecord>>
   readonly providerRequests: Readonly<Record<string, ProviderRequestRecord>>
   readonly creditLedger: readonly CreditLedgerEntry[]
   readonly connection: 'disconnected' | 'local'
@@ -287,6 +314,7 @@ export interface CreateTaskInput {
 }
 
 export type RuntimeCommand =
+  | RecruitmentCommand
   | ProviderRuntimeCommand
   | ArtifactRuntimeCommand
   | OrchestrationCommand
@@ -313,7 +341,14 @@ export type RuntimeCommand =
       readonly taskId: string
       readonly agentId: string
     }
-  | { readonly type: 'startTask' | 'completeTask'; readonly taskId: string }
+  | {
+      readonly type: 'startTask'
+      readonly taskId: string
+      readonly workLocation?: 'current-position'
+      readonly recruitmentId?: string
+      readonly approvedVersion?: number
+    }
+  | { readonly type: 'completeTask'; readonly taskId: string }
   | {
       readonly type: 'updateProgress'
       readonly taskId: string
@@ -376,6 +411,7 @@ export interface OfficeRuntimeRepository {
 }
 
 export interface OfficeRuntimeOptions {
+  readonly recruitmentPolicy?: RecruitmentPolicy
   readonly providerBudgetPolicy?: ProviderBudgetPolicy
   readonly repository?: OfficeRuntimeRepository
   readonly now?: () => string

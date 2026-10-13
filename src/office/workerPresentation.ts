@@ -15,9 +15,13 @@ export interface AgentPlacement {
   status: OfficeAgentStatus | null
   departmentId?: string
   role?: string
+  /** Recruitment visitors are presentation records, never active runtime agents. */
+  candidateLabel?: string
+  recruitmentFile?: boolean
   collaborationTargetId?: string | null
   workstation?: AgentRuntimeWorkstation
   motion?: Readonly<AgentMotion>
+  standingWork?: boolean
   /** A rejected route remains visible as a diagnostic, never a straight-line fallback. */
   navigationDiagnostic?: string
 }
@@ -69,6 +73,7 @@ export function presentedAgents(
       role: agent.role,
       collaborationTargetId: agent.collaborationTargetId,
       motion: agent.motion,
+      standingWork: agent.standingWork,
       navigationDiagnostic: agent.navigationDiagnostic,
       workstation:
         agent.workstation && validGroundPose(agent.workstation)

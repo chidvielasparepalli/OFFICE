@@ -15,6 +15,8 @@ export const REALTIME_MAPS = [
   'repairRequests',
   'artifacts',
   'providerRequests',
+  'recruitments',
+  'employees',
 ] as const
 export type RealtimeMap = (typeof REALTIME_MAPS)[number]
 export const REALTIME_VALUES = [

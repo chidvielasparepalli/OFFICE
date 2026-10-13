@@ -1,5 +1,20 @@
 import type { OfficeAgentStatus, WorldPosition } from '../office/officeState'
 import {
+  currentProposal,
+  RECRUITMENT_MANAGER_INTERVIEW_POSITION,
+  RecruitmentFault,
+  type RecruitmentPolicy,
+} from '../recruitment/recruitmentTypes'
+import {
+  copyRecruitmentPolicy,
+  validateRestoredRecruitment,
+} from '../recruitment/recruitmentPolicy'
+import {
+  applyRecruitmentCommand,
+  assertEmployeeOperational,
+  isRecruitmentCommand,
+} from './recruitmentRuntime'
+import {
   ProviderFault,
   type ProviderBudgetPolicy,
 } from '../providers/providerTypes'
@@ -66,6 +81,7 @@ import type {
   RuntimeState,
   RuntimeTask,
   RuntimeTaskStatus,
+  RegisterAgentInput,
 } from './runtimeTypes'
 
 const TERMINAL = new Set<RuntimeTaskStatus>([
@@ -190,6 +206,8 @@ function copyJson(
 
 export function createEmptyRuntimeState(): RuntimeState {
   return freeze({
+    recruitments: {},
+    employees: {},
     providerRequests: {},
     creditLedger: [],
     connection: 'disconnected',
@@ -264,6 +282,8 @@ function businessChanges(
       ? after.creditLedger.slice(before.creditLedger.length)
       : undefined
   const agents = changedRecords(before.agents, after.agents)
+  const recruitments = changedRecords(before.recruitments, after.recruitments)
+  const employees = changedRecords(before.employees, after.employees)
   const tasks = changedRecords(before.tasks, after.tasks)
   const workstations = changedRecords(before.workstations, after.workstations)
   const departments = changedRecords(before.departments, after.departments)
@@ -281,6 +301,8 @@ function businessChanges(
     after.repairRequests,
   )
   return {
+    ...(recruitments ? { recruitments } : {}),
+    ...(employees ? { employees } : {}),
     ...(providerRequests ? { providerRequests } : {}),
     ...(creditLedger ? { creditLedger } : {}),
     ...(agents ? { agents } : {}),
@@ -301,6 +323,8 @@ function businessChanges(
 }
 
 class Transaction {
+  readonly recruitmentPolicy: RecruitmentPolicy
+  private activatingRecruitment = false
   readonly providerBudgetPolicy: ProviderBudgetPolicy
   state: RuntimeState
   readonly events: PendingEvent[] = []
@@ -319,6 +343,7 @@ class Transaction {
     artifactPolicy: ArtifactPolicy,
     artifactStorage: ArtifactStorage | undefined,
     providerBudgetPolicy: ProviderBudgetPolicy,
+    recruitmentPolicy: RecruitmentPolicy,
   ) {
     this.state = state
     this.now = now
@@ -327,6 +352,18 @@ class Transaction {
     this.artifactPolicy = artifactPolicy
     this.artifactStorage = artifactStorage
     this.providerBudgetPolicy = providerBudgetPolicy
+    this.recruitmentPolicy = recruitmentPolicy
+  }
+  registerRecruitedAgent(agent: RegisterAgentInput) {
+    this.activatingRecruitment = true
+    try {
+      this.apply({ type: 'registerAgent', agent })
+    } finally {
+      this.activatingRecruitment = false
+    }
+  }
+  permitsRecruitmentRegistration() {
+    return this.activatingRecruitment
   }
   canAccessArtifact(
     agentId: string,
@@ -371,6 +408,13 @@ class Transaction {
       has(this.state.qaRequests, id) ||
       has(this.state.repairRequests, id) ||
       has(this.state.providerRequests, id) ||
+      has(this.state.recruitments, id) ||
+      has(this.state.employees, id) ||
+      Object.values(this.state.recruitments).some(
+        (session) =>
+          session.candidateId === id ||
+          session.assessments.some((item) => item.assessmentId === id),
+      ) ||
       this.state.creditLedger.some((entry) => entry.ledgerId === id) ||
       Object.values(this.state.qaRequests).some((qa) =>
         Object.values(qa.executionIds).includes(id),
@@ -697,6 +741,20 @@ function requireWorkingArrival(
 }
 
 function applyCommand(tx: Transaction, command: RuntimeCommand) {
+  if (
+    ['assignTask', 'requestMovement', 'requestToolExecution'].includes(
+      command.type,
+    ) &&
+    'agentId' in command
+  )
+    assertEmployeeOperational(tx.state, command.agentId)
+  if (command.type === 'reserveProviderRequest')
+    assertEmployeeOperational(tx.state, command.request.agentId)
+  if (command.type === 'startTask' || command.type === 'dispatchPlanTask')
+    assertEmployeeOperational(
+      tx.state,
+      tx.state.tasks[command.taskId]?.assignedAgentId,
+    )
   // Settlements account for unavoidable late costs even after cancellation/disconnection.
   if (isProviderRuntimeCommand(command)) {
     applyProviderRuntimeCommand(tx, command)
@@ -735,6 +793,10 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
   )
   if (isOrchestrationCommand(command)) {
     applyOrchestrationCommand(tx, command)
+    return
+  }
+  if (isRecruitmentCommand(command)) {
+    applyRecruitmentCommand(tx, command)
     return
   }
   if (isToolRuntimeCommand(command)) {
@@ -826,6 +888,14 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
     }
     case 'registerAgent': {
       const input = command.agent
+      requireCondition(
+        tx.permitsRecruitmentRegistration() ||
+          !Object.values(tx.state.recruitments).some(
+            (item) => item.candidateId === input.id,
+          ),
+        'ACTIVATION_DENIED',
+        'Reserved candidates can only be registered by approved recruitment activation.',
+      )
       identifier(input.id, 'Agent ID')
       text(input.name, 'Agent name')
       text(input.role, 'Agent role')
@@ -1082,8 +1152,39 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
         'INVALID_TRANSITION',
         `Task ${task.id} is already working.`,
       )
+      const currentPosition = command.workLocation === 'current-position'
+      if (
+        command.workLocation !== undefined ||
+        command.recruitmentId !== undefined ||
+        command.approvedVersion !== undefined
+      ) {
+        const session = command.recruitmentId
+          ? tx.state.recruitments[command.recruitmentId]
+          : undefined
+        requireCondition(
+          currentPosition &&
+            session !== undefined &&
+            task.metadata.recruitmentId === session.recruitmentId &&
+            session.state === 'capability_checks_running' &&
+            session.approvedVersion === command.approvedVersion &&
+            currentProposal(session).version === command.approvedVersion &&
+            session.approvals.at(-1)?.decision === 'approve' &&
+            currentProposal(session).spec.managerId === agent.id &&
+            agent.kind === 'manager' &&
+            agent.destination === null &&
+            session.scene?.phase === 'interview' &&
+            session.scene.arrived &&
+            Math.hypot(
+              ...agent.position.map(
+                (n, i) => n - RECRUITMENT_MANAGER_INTERVIEW_POSITION[i],
+              ),
+            ) < 0.03,
+          'INVALID_WORK_LOCATION',
+          'Working at the current position requires the settled Manager interview and its exact approved recruitment task.',
+        )
+      }
       const destination: AgentSpatialIntent | null =
-        agent.workstationId === null
+        currentPosition || agent.workstationId === null
           ? null
           : {
               id: tx.id('intent'),
@@ -1098,6 +1199,7 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
         statusReason: null,
         waitingForDependencies: false,
         startedAt: task.startedAt ?? tx.time,
+        workLocation: currentPosition ? 'current-position' : 'workstation',
       })
       tx.agentPatch(agent.id, {
         status: 'working',
@@ -1110,7 +1212,10 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
         `${agent.name} started ${task.title}.`,
         agent.id,
         task.id,
-        { intentId: destination?.id ?? null },
+        {
+          intentId: destination?.id ?? null,
+          workLocation: currentPosition ? 'current-position' : 'workstation',
+        },
       )
       return
     }
@@ -1498,6 +1603,7 @@ function applyCommand(tx: Transaction, command: RuntimeCommand) {
 
 /** Local command processor. No timers, navigation, rendering, or task execution. */
 export class OfficeRuntime {
+  private readonly recruitmentPolicy: RecruitmentPolicy
   private readonly providerBudgetPolicy: ProviderBudgetPolicy
   private snapshot: RuntimeState
   private readonly repository: OfficeRuntimeRepository
@@ -1516,6 +1622,13 @@ export class OfficeRuntime {
   private dispatching = false
 
   constructor(options: OfficeRuntimeOptions = {}) {
+    this.recruitmentPolicy = copyRecruitmentPolicy(
+      options.recruitmentPolicy ?? {
+        ceoIds: [],
+        managerIds: [],
+        serviceIds: [],
+      },
+    )
     this.providerBudgetPolicy = copyProviderBudgetPolicy(
       options.providerBudgetPolicy ?? {
         unit: 'credit-micros',
@@ -1538,11 +1651,14 @@ export class OfficeRuntime {
     if (restored) validateRestoredMemories(restored)
     if (restored) validateRestoredArtifacts(restored)
     if (restored) validateRestoredProviderState(restored)
+    if (restored) validateRestoredRecruitment(restored, this.recruitmentPolicy)
     this.snapshot =
       restored === null
         ? createEmptyRuntimeState()
         : freeze({
             ...restored,
+            recruitments: restored.recruitments ?? {},
+            employees: restored.employees ?? {},
             providerRequests: restored.providerRequests ?? {},
             creditLedger: restored.creditLedger ?? [],
             requests: restored.requests
@@ -1577,6 +1693,13 @@ export class OfficeRuntime {
           has(this.snapshot.qaRequests, id) ||
           has(this.snapshot.repairRequests, id) ||
           has(this.snapshot.providerRequests, id) ||
+          has(this.snapshot.recruitments, id) ||
+          has(this.snapshot.employees, id) ||
+          Object.values(this.snapshot.recruitments).some(
+            (session) =>
+              session.candidateId === id ||
+              session.assessments.some((item) => item.assessmentId === id),
+          ) ||
           this.snapshot.creditLedger.some((entry) => entry.ledgerId === id) ||
           Object.values(this.snapshot.qaRequests).some((qa) =>
             Object.values(qa.executionIds).includes(id),
@@ -1640,6 +1763,7 @@ export class OfficeRuntime {
         this.artifactPolicy,
         this.artifactStorage,
         this.providerBudgetPolicy,
+        this.recruitmentPolicy,
       )
       applyCommand(tx, command)
       if (
@@ -1667,6 +1791,7 @@ export class OfficeRuntime {
         ok: false,
         error:
           error instanceof RuntimeFault ||
+          error instanceof RecruitmentFault ||
           error instanceof OrchestrationFault ||
           error instanceof ToolFault ||
           error instanceof MemoryFault ||

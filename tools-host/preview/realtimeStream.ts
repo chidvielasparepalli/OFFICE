@@ -1,9 +1,16 @@
 import type { ServerResponse } from 'node:http'
-import type { RealtimePreviewSession } from './realtimeSession'
+import type { RealtimeEnvelope } from '../../src/realtime/realtimeTypes'
 
 /** One persistent stream per browser; bounded queue closes slow consumers for snapshot recovery. */
 export function openRealtimeStream(
-  session: RealtimePreviewSession,
+  session: {
+    sessionId?: string
+    streamId: string
+    subscribe(
+      message: (envelope: RealtimeEnvelope) => void,
+      closed: () => void,
+    ): () => void
+  },
   response: ServerResponse,
 ) {
   const queue: string[] = []

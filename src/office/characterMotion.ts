@@ -82,6 +82,8 @@ const sameStation = (a: Workstation, b: Workstation) =>
   Math.abs(angleDelta(a.headingRadians, b.headingRadians)) < 0.001
 const seatedStatus = (status: AgentPlacement['status']) =>
   status === 'working' || status === 'waiting' || status === 'sleeping'
+const standingWork = (input: AgentPlacement) =>
+  input.kind === 'manager' && input.standingWork === true
 const smoothStep = (value: number) => {
   const clamped = Math.max(0, Math.min(1, value))
   return clamped * clamped * (3 - 2 * clamped)
@@ -203,6 +205,7 @@ class CharacterMotionController {
     // Mounting a seated employee establishes their initial pose, not a movement command.
     if (
       seatedStatus(input.status) &&
+      !standingWork(input) &&
       input.workstation &&
       validGroundPose(input.workstation) &&
       !input.motion &&
@@ -247,12 +250,20 @@ class CharacterMotionController {
   private acceptMotion(enteringWorking: boolean) {
     let motion = this.input.motion
     if (!motion) {
-      if (this.automaticReturn && this.input.status === 'working') return
+      if (
+        this.automaticReturn &&
+        this.input.status === 'working' &&
+        !standingWork(this.input)
+      )
+        return
       const station = this.input.workstation
       const departure =
         this.seatedAmount > 0 ? this.standingPosition : this.frame.position
       motion =
-        enteringWorking && station && validGroundPose(station)
+        enteringWorking &&
+        !standingWork(this.input) &&
+        station &&
+        validGroundPose(station)
           ? (reverseAcceptedWorkstationRoute(
               departure,
               standingWorkstationAnchor(station),
@@ -379,13 +390,15 @@ class CharacterMotionController {
         workstation && validGroundPose(workstation) ? workstation : null
       const keepSeated =
         this.seatedAmount > 0 && (status === 'queued' || status === 'completed')
-      const wantsSeat = seatedStatus(status) || keepSeated
+      const wantsSeat =
+        !standingWork(this.input) && (seatedStatus(status) || keepSeated)
       const correctStation =
         station &&
         this.seatedStation &&
         sameStation(station, this.seatedStation)
       this.frame.diagnostic = this.routeDiagnostic
       const wantsWork =
+        !standingWork(this.input) &&
         status === 'working' &&
         this.seatedAmount === 1 &&
         correctStation &&

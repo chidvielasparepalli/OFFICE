@@ -89,6 +89,8 @@ function state(): RuntimeState {
     repairRequests: {},
     artifacts: {},
     providerRequests: {},
+    recruitments: {},
+    employees: {},
     creditLedger: [],
     events: [],
     activities: [],

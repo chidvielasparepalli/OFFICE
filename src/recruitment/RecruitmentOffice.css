@@ -1,0 +1,127 @@
+.recruitment-panel {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid #cbd5df;
+  border-radius: 12px;
+  color: #23354a;
+}
+.recruitment-title,
+.recruitment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.recruitment-panel h2,
+.recruitment-panel h3 {
+  margin-top: 0;
+}
+.recruitment-panel button {
+  min-height: 44px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #8c9bac;
+  border-radius: 6px;
+  background: #f1f5f8;
+  color: #23354a;
+  cursor: pointer;
+}
+.recruitment-panel button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.recruitment-panel label {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.7rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.recruitment-panel input,
+.recruitment-panel textarea,
+.recruitment-panel select {
+  min-height: 42px;
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid #98a7b6;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font: inherit;
+  background: white;
+  color: #23354a;
+}
+.recruitment-panel textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.recruitment-panel .recruitment-checkbox {
+  display: flex;
+  align-items: center;
+}
+.recruitment-checkbox input {
+  width: 20px;
+  min-height: 20px;
+}
+.recruitment-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1rem;
+}
+.recruitment-panel fieldset {
+  border: 1px solid #cbd5df;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+.recruitment-panel summary {
+  cursor: pointer;
+  padding: 0.7rem 0;
+  font-weight: 650;
+}
+.recruitment-layout {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(0, 3fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.recruitment-panel ul {
+  padding-left: 1.3rem;
+}
+.recruitment-panel li {
+  margin: 0.6rem 0;
+  overflow-wrap: anywhere;
+}
+.recruitment-panel li button {
+  margin: 0.25rem;
+}
+.recruitment-file dl {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(0, 3fr);
+  gap: 0.6rem 1rem;
+}
+.recruitment-file dt {
+  font-weight: 650;
+}
+.recruitment-file dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.recruitment-mode {
+  padding: 0.8rem;
+  background: #fff4d8;
+  border-left: 4px solid #aa7619;
+}
+@media (max-width: 720px) {
+  .recruitment-fields,
+  .recruitment-layout {
+    grid-template-columns: 1fr;
+  }
+  .recruitment-file dl {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+  .recruitment-file dd {
+    margin-bottom: 0.65rem;
+  }
+}
